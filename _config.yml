@@ -22,8 +22,8 @@ permalink: /:categories/:title/
 
 defaults:
   - scope:
-      path: ""
-      type: "posts"
+      path: "blog"
+      type: "pages"
     values:
       layout: "post"
   - scope:
@@ -39,4 +39,4 @@ collections:
     permalink: /projects/:path/
   blog:
     output: true
-    permalink: /blog/:year/:month/:title/
+    permalink: /blog/:title

@@ -13,24 +13,24 @@ const MAZE_LAYOUT = [
     "W............WW............W",
     "W.WWWW.WWWW.WW.WWWW.WWWW.W",
     "W.WWWW.WWWW.WW.WWWW.WWWW.W",
-    "W....WW.....WW.....WW....W",
-    "WWWW.WW.WWW.WW.WWW.WW.WWWW",
-    "W....WW.WWW.WW.WWW.WW....W",
-    "W.WWWWW.WWW.WW.WWW.WWWWW.W",
+    "W.WWWW.WWWW.WW.WWWW.WWWW.W",
+    "W..........................W",
+    "W.WWWW.WW.WWWWWW.WW.WWWW.W",
+    "W.WWWW.WW.WWWWWW.WW.WWWW.W",
     "W......WW....WW....WW....W",
-    "WWWWWW.WWWW.WW.WWWW.WWWWW",
-    "     W.WW          WW.W    ",
-    "WWWWWW.WW WWW--WWW WW.WWWWW",
-    "      .   WGGGGGGW   .     ",
+    "WWWWWW.WWWWW.WW.WWWWW.WWWW",
+    "     W.WWWWW.WW.WWWWW.W   ",
+    "WWWWWW.WW    GG    WW.WWWWW",
+    "      .   WWWGGWWW   .     ",
     "WWWWWW.WW WWWWWWWW WW.WWWWW",
-    "     W.WW          WW.W    ",
-    "WWWWWW.WW.WWWWWW.WW.WWWWW",
+    "     W.WW    WW    WW.W    ",
+    "WWWWWW.WW.WW.WW.WW.WW.WWWWW",
     "W............WW............W",
+    "W.WWWW.WWWW.WW.WWWW.WWWW.W",
     "W.WWWW.WWWW.WW.WWWW.WWWW.W",
     "W...WW................WW..W",
     "WWW.WW.WW.WWWWWW.WW.WW.WWW",
     "W......WW....WW....WW....W",
-    "W.WWWWWWWWWW.WW.WWWWWWWW.W",
     "W.WWWWWWWWWW.WW.WWWWWWWW.W",
     "W..........................W",
     "WWWWWWWWWWWWWWWWWWWWWWWWWW"
@@ -174,16 +174,21 @@ function update() {
         ghosts.forEach(ghost => ghost.move(pacmanX, pacmanY));
     }
     
-    // Check collision with Pacman
+    // Check collision with Pacman using grid coordinates
+    let collision = false;
     ghosts.forEach(ghost => {
         ghost.draw();
         
-        const dx = Math.abs(ghost.x * CELL_SIZE + CELL_SIZE/2 - pacmanX);
-        const dy = Math.abs(ghost.y * CELL_SIZE + CELL_SIZE/2 - pacmanY);
-        if(dx < CELL_SIZE/2 && dy < CELL_SIZE/2) {
-            gameOver();
+        // Check collision using cell coordinates instead of pixel coordinates
+        if (ghost.x === pacmanCellX && ghost.y === pacmanCellY) {
+            collision = true;
         }
     });
+    
+    if (collision) {
+        gameOver();
+        return; // Stop updating after game over
+    }
     
     // Fix dot collection using cell coordinates
     dots = dots.filter(dot => {
@@ -208,8 +213,20 @@ function update() {
 
 function gameOver() {
     clearInterval(gameLoop);
-    alert('Game Over! Score: ' + score);
-    startGame();
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.fillStyle = 'white';
+    ctx.font = '48px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Game Over!', canvas.width/2, canvas.height/2 - 50);
+    ctx.fillText(`Score: ${score}`, canvas.width/2, canvas.height/2 + 50);
+    
+    setTimeout(() => {
+        if (confirm('Play again?')) {
+            startGame();
+        }
+    }, 500);
 }
 
 function startGame() {
