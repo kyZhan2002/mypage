@@ -8,7 +8,13 @@ social:
   github: keyaozhan
 
 plugins:
-  - jekyll-seo-tag
+  - jekyll-seo-tag  # Remove arxiv_papers since we're using Python now
+
+exclude:
+  - _scripts
+  - README.md
+  - Gemfile
+  - Gemfile.lock
 
 sass:
   style: compressed

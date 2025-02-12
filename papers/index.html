@@ -13,8 +13,8 @@ title: Latest arXiv Papers
   </div>
 
   <div class="papers-list">
-    {% if site.data.arxiv_papers and site.data.arxiv_papers.size > 0 %}
-      {% for paper in site.data.arxiv_papers %}
+    {% if site.data.arxiv_cache.papers and site.data.arxiv_cache.papers.size > 0 %}
+      {% for paper in site.data.arxiv_cache.papers %}
         <div class="card paper-card">
           <h3>{{ paper.title }}</h3>
           <p class="authors">
