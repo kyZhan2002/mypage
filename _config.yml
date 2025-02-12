@@ -1,7 +1,7 @@
 title: Keyao's Coding Blog
 author: "Keyao Zhan"
 description: "A blog about software development, coding challenges, and technical discoveries"
-baseurl: ""
+baseurl: "/mypage"
 url: "https://kyzhan2002.github.io"
 
 social:

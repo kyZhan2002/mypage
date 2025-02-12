@@ -7,10 +7,8 @@ title: "Keyao's Coding Blog"
 
 <div class="container">
   <nav class="navigation">
-    <a href="{{ site.baseurl }}/" class="active">Home</a>
     <a href="{{ site.baseurl }}/blog/">Blog</a>
     <a href="{{ site.baseurl }}/projects/">Projects</a>
-    <a href="{{ site.baseurl }}/about/">About</a>
   </nav>
 
   <div class="header">
