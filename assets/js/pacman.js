@@ -80,6 +80,10 @@ class Ghost {
 let ghosts = [];
 let dots = [];
 let score = 0;
+let pacmanCellX = 14;
+let pacmanCellY = 23;
+let frameCount = 0;
+const GHOST_MOVE_DELAY = 10; // Ghosts move every 10 frames
 
 function initGame() {
     // Initialize dots
@@ -124,6 +128,7 @@ function isWall(x, y) {
 }
 
 function update() {
+    frameCount++;
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
@@ -131,12 +136,15 @@ function update() {
     drawDots();
     drawPacman();
     
-    // Update ghosts
+    // Only move ghosts every GHOST_MOVE_DELAY frames
+    if (frameCount % GHOST_MOVE_DELAY === 0) {
+        ghosts.forEach(g => moveGhost(g));
+    }
+    
+    // Check collision with Pacman
     ghosts.forEach(ghost => {
-        ghost.move(pacmanX, pacmanY);
         ghost.draw();
         
-        // Check collision with Pacman
         const dx = Math.abs(ghost.x * CELL_SIZE + CELL_SIZE/2 - pacmanX);
         const dy = Math.abs(ghost.y * CELL_SIZE + CELL_SIZE/2 - pacmanY);
         if(dx < CELL_SIZE/2 && dy < CELL_SIZE/2) {
@@ -183,42 +191,68 @@ function startGame() {
 }
 
 function drawPacman() {
+    const centerX = (pacmanCellX + 0.5) * CELL_SIZE;
+    const centerY = (pacmanCellY + 0.5) * CELL_SIZE;
     ctx.beginPath();
-    ctx.arc(pacmanX, pacmanY, PACMAN_SIZE/2, 0.2 * Math.PI + pacmanDirection, 1.8 * Math.PI + pacmanDirection);
-    ctx.lineTo(pacmanX, pacmanY);
+    ctx.arc(centerX, centerY, PACMAN_SIZE/2, 0.2 * Math.PI + pacmanDirection, 1.8 * Math.PI + pacmanDirection);
+    ctx.lineTo(centerX, centerY);
     ctx.fillStyle = 'yellow';
     ctx.fill();
     ctx.closePath();
 }
 
+function moveGhost(ghost) {
+    const dx = pacmanCellX - ghost.x;
+    const dy = pacmanCellY - ghost.y;
+    let newX = ghost.x;
+    let newY = ghost.y;
+    if (Math.random() < 0.8) {
+        // Chase Pac-Man
+        if (Math.abs(dx) > Math.abs(dy)) {
+            newX += Math.sign(dx);
+        } else {
+            newY += Math.sign(dy);
+        }
+    } else {
+        // Random
+        const dirs = [[0,1],[0,-1],[1,0],[-1,0]];
+        const [mx,my] = dirs[Math.floor(Math.random()*4)];
+        newX += mx;
+        newY += my;
+    }
+    if (!isWall(newX, newY)) {
+        ghost.x = newX;
+        ghost.y = newY;
+    }
+}
+
 // Update keydown event handler to prevent wall collision
 document.addEventListener('keydown', (e) => {
-    const SPEED = 4;
-    let newX = pacmanX;
-    let newY = pacmanY;
+    let newX = pacmanCellX;
+    let newY = pacmanCellY;
     
     switch(e.key) {
         case 'ArrowLeft':
-            newX -= SPEED;
+            newX--;
             pacmanDirection = Math.PI;
             break;
         case 'ArrowRight':
-            newX += SPEED;
+            newX++;
             pacmanDirection = 0;
             break;
         case 'ArrowUp':
-            newY -= SPEED;
+            newY--;
             pacmanDirection = -Math.PI/2;
             break;
         case 'ArrowDown':
-            newY += SPEED;
+            newY++;
             pacmanDirection = Math.PI/2;
             break;
     }
     
     // Check wall collision
-    if(!isWall(Math.floor(newX/CELL_SIZE), Math.floor(newY/CELL_SIZE))) {
-        pacmanX = newX;
-        pacmanY = newY;
+    if(!isWall(newX, newY)) {
+        pacmanCellX = newX;
+        pacmanCellY = newY;
     }
 });

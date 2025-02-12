@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+    <nav class="navigation">
+        <a href="{{ site.baseurl }}/">Home</a>
+        <a href="{{ site.baseurl }}/blog/">Blog</a>
+        <a href="{{ site.baseurl }}/projects/">Projects</a>
+    </nav>
     <div class="container">
-        <nav class="navigation">
-            <a href="{{ site.baseurl }}/">Home</a>
-            <a href="{{ site.baseurl }}/blog/">Blog</a>
-            <a href="{{ site.baseurl }}/projects/">Projects</a>
-        </nav>
+        {{ content }}
     </div>
-    {{ content }}
 </body>
 </html>
