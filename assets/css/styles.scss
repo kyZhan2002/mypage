@@ -316,6 +316,32 @@ body {
   }
 }
 
+.refresh-button {
+  margin-top: 1rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  &:hover {
+    background: var(--secondary-color);
+  }
+  
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  i {
+    font-size: 0.9em;
+  }
+}
+
 footer {
   text-align: center;
   padding: 2rem;

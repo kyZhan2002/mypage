@@ -41,3 +41,8 @@ collections:
   blog:
     output: true
     permalink: /blog/:title
+
+webrick:
+  headers:
+    'Access-Control-Allow-Origin': '*'
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS'
