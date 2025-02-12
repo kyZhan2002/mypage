@@ -56,17 +56,25 @@ module Jekyll
         max_results: 50
       )
       
-      uri = URI.parse("https://export.arxiv.org/api/query?#{query}")  # Changed to https
+      uri = URI.parse("https://export.arxiv.org/api/query?#{query}")
       
-      response = Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|  # Added use_ssl: true
-        http.read_timeout = 30  # Increased timeout
-        http.open_timeout = 30  # Added open_timeout
+      Jekyll.logger.info "ArxivPapers:", "Fetching papers from arXiv..."
+      
+      response = Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
+        http.read_timeout = 30
+        http.open_timeout = 30
         http.get(uri.request_uri, {
-          'User-Agent' => 'Mozilla/5.0 (Jekyll Paper Fetcher; mailto:kzhan@g.harvard.edu)'  # Updated email
+          'User-Agent' => 'Mozilla/5.0 (Jekyll Paper Fetcher; mailto:kzhan@g.harvard.edu)'
         })
       end
 
-      raise "Failed to fetch papers: #{response.code}" unless response.is_a?(Net::HTTPSuccess)
+      Jekyll.logger.info "ArxivPapers:", "Response status: #{response.code}"
+      
+      unless response.is_a?(Net::HTTPSuccess)
+        Jekyll.logger.error "ArxivPapers:", "Failed with status: #{response.code}"
+        Jekyll.logger.error "ArxivPapers:", "Response body: #{response.body}"
+        raise "Failed to fetch papers: #{response.code}"
+      end
 
       doc = Nokogiri::XML(response.body)
       doc.remove_namespaces!
@@ -83,12 +91,21 @@ module Jekyll
         }
       end
 
-      raise "No papers found" if papers.empty?
+      if papers.empty?
+        Jekyll.logger.error "ArxivPapers:", "No papers found in response"
+        Jekyll.logger.error "ArxivPapers:", "Response body: #{response.body}"
+        raise "No papers found"
+      end
+
+      Jekyll.logger.info "ArxivPapers:", "Successfully fetched #{papers.size} papers"
       papers
 
     rescue StandardError => e
       Jekyll.logger.error "ArxivPapers:", "Error fetching papers: #{e.message}"
-      return load_cached_data
+      Jekyll.logger.error "ArxivPapers:", e.backtrace.join("\n")
+      cached = load_cached_data
+      return cached if cached && !cached.empty?
+      raise "Failed to fetch papers and no valid cache found"
     end
 
     def sanitize_text(text)

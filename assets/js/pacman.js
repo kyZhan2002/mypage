@@ -4,7 +4,7 @@ const ctx = canvas.getContext('2d');
 const CELL_SIZE = 16;
 const PACMAN_SIZE = CELL_SIZE * 0.8;
 let pacmanX = CELL_SIZE * 14;
-let pacmanY = CELL_SIZE * 14; // Move closer to middle where ghosts are
+let pacmanY = CELL_SIZE * 17; // Changed from 14 to 17 to spawn in an open area
 let pacmanDirection = 0;
 let gameLoop;
 let gameActive = false; // Add this
@@ -111,7 +111,7 @@ let ghosts = [];
 let dots = [];
 let score = 0;
 let pacmanCellX = 14; // Keep X centered
-let pacmanCellY = 14; // Move closer to middle where ghosts are
+let pacmanCellY = 17; // Changed from 14 to 17 to match the new spawn position
 let frameCount = 0;
 const GHOST_MOVE_DELAY = 5; // Changed from 10 to 5 to make ghosts faster
 
@@ -235,9 +235,9 @@ function gameOver() {
 function startGame() {
     if (gameLoop) clearInterval(gameLoop);
     
-    // Reset to initial spawn position
+    // Reset to initial spawn position (in an open area)
     pacmanCellX = 14;
-    pacmanCellY = 14; // Updated spawn position
+    pacmanCellY = 17; // Changed from 14 to 17
     pacmanX = CELL_SIZE * pacmanCellX;
     pacmanY = CELL_SIZE * pacmanCellY;
     pacmanDirection = 0;
