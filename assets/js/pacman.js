@@ -13,18 +13,18 @@ const MAZE_LAYOUT = [
     "W............WW............W",
     "W.WWWW.WWWW.WW.WWWW.WWWW.W",
     "W.WWWW.WWWW.WW.WWWW.WWWW.W",
-    "W.WWWW.WWWW.WW.WWWW.WWWW.W",
-    "W..........................W",
-    "W.WWWW.WW.WWWWWW.WW.WWWW.W",
-    "W.WWWW.WW.WWWWWW.WW.WWWW.W",
+    "W....WW.....WW.....WW....W",
+    "WWWW.WW.WWW.WW.WWW.WW.WWWW",
+    "W....WW.WWW.WW.WWW.WW....W",
+    "W.WWWWW.WWW.WW.WWW.WWWWW.W",
     "W......WW....WW....WW....W",
-    "WWWWWW.WWWW  WW WWWW.WWWWW",
-    "WWWWWW.WW          WW.WWWWW",
+    "WWWWWW.WWWW.WW.WWWW.WWWWW",
+    "     W.WW          WW.W    ",
     "WWWWWW.WW WWW--WWW WW.WWWWW",
     "      .   WGGGGGGW   .     ",
     "WWWWWW.WW WWWWWWWW WW.WWWWW",
-    "WWWWWW.WW          WW.WWWWW",
-    "WWWWWW.WW WWWWWWWW WW.WWWWW",
+    "     W.WW          WW.W    ",
+    "WWWWWW.WW.WWWWWW.WW.WWWWW",
     "W............WW............W",
     "W.WWWW.WWWW.WW.WWWW.WWWW.W",
     "W...WW................WW..W",
@@ -190,9 +190,10 @@ function startGame() {
     gameLoop = setInterval(update, 50);
 }
 
+// Improve Pac-Man alignment
 function drawPacman() {
-    const centerX = (pacmanCellX + 0.5) * CELL_SIZE;
-    const centerY = (pacmanCellY + 0.5) * CELL_SIZE;
+    const centerX = Math.floor(pacmanCellX) * CELL_SIZE + CELL_SIZE/2;
+    const centerY = Math.floor(pacmanCellY) * CELL_SIZE + CELL_SIZE/2;
     ctx.beginPath();
     ctx.arc(centerX, centerY, PACMAN_SIZE/2, 0.2 * Math.PI + pacmanDirection, 1.8 * Math.PI + pacmanDirection);
     ctx.lineTo(centerX, centerY);
@@ -206,28 +207,50 @@ function moveGhost(ghost) {
     const dy = pacmanCellY - ghost.y;
     let newX = ghost.x;
     let newY = ghost.y;
+    
     if (Math.random() < 0.8) {
-        // Chase Pac-Man
-        if (Math.abs(dx) > Math.abs(dy)) {
-            newX += Math.sign(dx);
-        } else {
-            newY += Math.sign(dy);
+        // Improved ghost AI with wall checking
+        const possibleMoves = [];
+        const directions = [[0,1], [0,-1], [1,0], [-1,0]];
+        
+        directions.forEach(([mx, my]) => {
+            if (!isWall(ghost.x + mx, ghost.y + my)) {
+                const newDist = Math.abs((ghost.x + mx) - pacmanCellX) + Math.abs((ghost.y + my) - pacmanCellY);
+                possibleMoves.push({mx, my, dist: newDist});
+            }
+        });
+        
+        if (possibleMoves.length > 0) {
+            possibleMoves.sort((a, b) => a.dist - b.dist);
+            const move = possibleMoves[0];
+            newX = ghost.x + move.mx;
+            newY = ghost.y + move.my;
         }
     } else {
-        // Random
-        const dirs = [[0,1],[0,-1],[1,0],[-1,0]];
-        const [mx,my] = dirs[Math.floor(Math.random()*4)];
-        newX += mx;
-        newY += my;
+        // Random movement with wall checking
+        const directions = [[0,1], [0,-1], [1,0], [-1,0]];
+        const validMoves = directions.filter(([mx, my]) => !isWall(ghost.x + mx, ghost.y + my));
+        
+        if (validMoves.length > 0) {
+            const [mx, my] = validMoves[Math.floor(Math.random() * validMoves.length)];
+            newX = ghost.x + mx;
+            newY = ghost.y + my;
+        }
     }
+    
     if (!isWall(newX, newY)) {
         ghost.x = newX;
         ghost.y = newY;
     }
 }
 
-// Update keydown event handler to prevent wall collision
+// Update keydown event handler to prevent scrolling and wall collision
 document.addEventListener('keydown', (e) => {
+    // Prevent scrolling when using arrow keys
+    if(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+        e.preventDefault();
+    }
+    
     let newX = pacmanCellX;
     let newY = pacmanCellY;
     
