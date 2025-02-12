@@ -1,6 +1,9 @@
-title: "My Developer Journey"
+title: Keyao's Coding Blog
 author: "Keyao Zhan"
 description: "A blog about software development, coding challenges, and technical discoveries"
+baseurl: ""
+url: "https://kyzhan2002.github.io"
+
 social:
   github: keyaozhan
 
@@ -10,3 +13,16 @@ plugins:
 sass:
   style: compressed
   sass_dir: _sass
+
+# Build settings
+markdown: kramdown
+theme: minima
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+  blog:
+    output: true
+    permalink: /blog/:year/:month/:title/

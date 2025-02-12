@@ -6,14 +6,21 @@ title: "Keyao's Coding Blog"
 <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
 
 <div class="container">
+  <nav class="navigation">
+    <a href="/" class="active">Home</a>
+    <a href="/blog">Blog</a>
+    <a href="/projects">Projects</a>
+    <a href="/about">About</a>
+  </nav>
+
   <div class="header">
     <h1>{{ page.title }}</h1>
-    <p class="lead">Exploring Software Development & Computer Science</p>
+    <p class="lead">Exploring Data Science & Computer Science</p>
   </div>
 
   <div class="card">
     <h2>👋 About Me</h2>
-    <p>I'm a passionate programmer and computer science enthusiast at Harvard University. Here, I document my journey through software development, share insights, and explore new technologies.</p>
+    <p>I'm a passionate statistics researcher and programmer at Harvard University. Here, I document my journey through software development, share insights, and explore new technologies.</p>
   </div>
 
   <div class="grid">
@@ -21,7 +28,7 @@ title: "Keyao's Coding Blog"
       <div class="icon">📝</div>
       <h3>Latest Blog Posts</h3>
       <ul>
-        <li><a href="/blog/first-blog">First Steps with GitHub Pages</a></li>
+        <li><a href="{{ site.baseurl }}/blog/2023/10/first-post">First Steps with GitHub Pages</a></li>
         <li><em>More posts coming soon...</em></li>
       </ul>
     </div>
@@ -30,8 +37,8 @@ title: "Keyao's Coding Blog"
       <div class="icon">💡</div>
       <h3>Featured Projects</h3>
       <ul>
-        <li>Project 1 (Coming Soon)</li>
-        <li>Project 2 (Coming Soon)</li>
+        <li><a href="{{ site.baseurl }}/projects/pacman">Pac-Man Game</a></li>
+        <li><a href="{{ site.baseurl }}/projects">More Projects</a></li>
       </ul>
     </div>
 
