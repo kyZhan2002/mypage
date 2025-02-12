@@ -29,7 +29,7 @@ permalink: /:categories/:title/
 defaults:
   - scope:
       path: "blog"
-      type: "pages"
+      type: "posts"    # Change from "pages" to "posts"
     values:
       layout: "post"
   - scope:
@@ -45,7 +45,7 @@ collections:
     permalink: /projects/:path/
   blog:
     output: true
-    permalink: /blog/:title
+    permalink: /blog/:name
 
 webrick:
   headers:

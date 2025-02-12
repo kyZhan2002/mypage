@@ -7,9 +7,7 @@ title: Latest arXiv Papers
   <div class="header">
     <h1>Latest Research Papers</h1>
     <p>Recent papers from arXiv on Transfer Learning and Distributionally Robust Optimization</p>
-    <button onclick="refreshPapers()" class="button refresh-button">
-      <i class="fas fa-sync-alt"></i> Refresh Papers
-    </button>
+    <p>Papers will be refreshed every day</p>
   </div>
 
   <div class="papers-list">
@@ -45,37 +43,3 @@ title: Latest arXiv Papers
     {% endif %}
   </div>
 </div>
-
-<script>
-function refreshPapers() {
-  const button = document.querySelector('.refresh-button');
-  button.disabled = true;
-  button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Refreshing...';
-  
-  // Trigger GitHub Action workflow
-  fetch('https://api.github.com/repos/kyZhan2002/mypage/dispatches', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/vnd.github.v3+json',
-      'Authorization': 'Bearer YOUR_GITHUB_TOKEN'  // You'll need to set this up
-    },
-    body: JSON.stringify({
-      'event_type': 'refresh-papers'
-    })
-  })
-  .then(response => {
-    if (response.ok || response.status === 204) {
-      alert('Refresh triggered! Changes will appear in a few minutes.');
-      // Wait 30 seconds before reloading to allow the action to complete
-      setTimeout(() => location.reload(), 30000);
-    } else {
-      throw new Error('Refresh failed');
-    }
-  })
-  .catch(error => {
-    alert('Failed to refresh papers. Please try again later.');
-    button.disabled = false;
-    button.innerHTML = '<i class="fas fa-sync-alt"></i> Refresh Papers';
-  });
-}
-</script>
