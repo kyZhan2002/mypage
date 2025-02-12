@@ -6,11 +6,6 @@ title: "Keyao's Coding Blog"
 <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
 
 <div class="container">
-  <nav class="navigation">
-    <a href="{{ site.baseurl }}/blog/">Blog</a>
-    <a href="{{ site.baseurl }}/projects/">Projects</a>
-  </nav>
-
   <div class="header">
     <h1>{{ page.title }}</h1>
     <p class="lead">Exploring Data Science & Computer Science</p>
@@ -26,7 +21,7 @@ title: "Keyao's Coding Blog"
       <div class="icon">📝</div>
       <h3>Latest Blog Posts</h3>
       <ul>
-        <li><a href="{{ site.baseurl }}/blog/first-blog">First Steps with GitHub Pages</a></li>
+        <li><a href="{{ site.baseurl }}/blog/First_Blog">First Steps with GitHub Pages</a></li>
         <li><em>More posts coming soon...</em></li>
       </ul>
     </div>
