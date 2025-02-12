@@ -17,7 +17,3 @@ A personal academic website built with Jekyll and GitHub Pages, featuring blog p
 - GitHub Actions for automated paper updates
 - Python for arXiv paper fetching
 - HTML5 Canvas for Pac-Man game
-
-## Local Development
-
-1. Clone the repository:
