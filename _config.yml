@@ -4,3 +4,10 @@ author: "Keyao Zhan"
 description: "A blog about software development, coding challenges, and technical discoveries"
 social:
   github: keyaozhan
+
+plugins:
+  - jekyll-seo-tag
+
+sass:
+  style: compressed
+  sass_dir: _sass
