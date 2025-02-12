@@ -21,8 +21,8 @@ const MAZE_LAYOUT = [
     "W......WW....WW....WW....W",
     "WWWWWW.WWWWW.WW.WWWWW.WWWW",
     "     W.WWWWW.WW.WWWWW.W   ",
-    "WWWWWW.WW    GG    WW.WWWWW",
-    "      .   WWWGGWWW   .     ",
+    "WWWWWW.WW          WW.WWWWW", // Removed GG and opened space
+    "      .   WWWWWWW   .     ", // Removed GG and one W
     "WWWWWW.WW WWWWWWWW WW.WWWWW",
     "     W.WW    WW    WW.W    ",
     "WWWWWW.WW.WW.WW.WW.WW.WWWWW",
@@ -234,11 +234,31 @@ function gameOver() {
 
 function startGame() {
     if (gameLoop) clearInterval(gameLoop);
-    pacmanX = CELL_SIZE * 14;
-    pacmanY = CELL_SIZE * 23;
+    
+    // Reset Pacman position
+    pacmanCellX = 14;
+    pacmanCellY = 23;
+    pacmanX = CELL_SIZE * pacmanCellX;
+    pacmanY = CELL_SIZE * pacmanCellY;
+    pacmanDirection = 0;
+    
+    // Reset score
     score = 0;
+    
+    // Reset frame counter
+    frameCount = 0;
+    
+    // Initialize dots and ghosts
     initGame();
-    gameActive = true; // Enable game controls
+    
+    // Enable game controls
+    gameActive = true;
+    
+    // Update score display
+    const scoreElement = document.getElementById('score');
+    if (scoreElement) scoreElement.textContent = '0';
+    
+    // Start game loop
     gameLoop = setInterval(update, 50);
 }
 

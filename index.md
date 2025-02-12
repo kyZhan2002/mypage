@@ -9,6 +9,7 @@ title: "Keyao's Coding Blog"
   <a href="{{ site.baseurl }}/">Home</a>
   <a href="{{ site.baseurl }}/blog/">Blog</a>
   <a href="{{ site.baseurl }}/projects/">Projects</a>
+  <a href="{{ site.baseurl }}/papers/">Papers</a>
 </nav>
 
 <div class="container">
