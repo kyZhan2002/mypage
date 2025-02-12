@@ -207,6 +207,40 @@ body {
   }
 }
 
+.game-container {
+  text-align: center;
+  padding: 2rem;
+  
+  canvas {
+    background: black;
+    margin-bottom: 1rem;
+  }
+  
+  .game-controls {
+    margin-top: 1rem;
+    
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      
+      &:hover {
+        background: var(--secondary-color);
+      }
+    }
+  }
+}
+
 footer {
   text-align: center;
   padding: 2rem;
