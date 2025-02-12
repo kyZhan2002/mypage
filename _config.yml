@@ -18,6 +18,20 @@ sass:
 markdown: kramdown
 theme: minima
 
+permalink: /:categories/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
 # Collections
 collections:
   projects:
