@@ -56,22 +56,51 @@ class Ghost {
     }
 
     move(pacmanX, pacmanY) {
-        // Simple ghost AI - move towards Pacman
-        const dx = Math.floor(pacmanX/CELL_SIZE) - this.x;
-        const dy = Math.floor(pacmanY/CELL_SIZE) - this.y;
+        // Convert Pac-Man position to grid coordinates
+        const targetX = Math.floor(pacmanX/CELL_SIZE);
+        const targetY = Math.floor(pacmanY/CELL_SIZE);
         
         if (Math.random() < 0.8) { // 80% chance to chase Pacman
-            if (Math.abs(dx) > Math.abs(dy)) {
-                this.x += Math.sign(dx);
-            } else {
-                this.y += Math.sign(dy);
-            }
-        } else { // 20% chance to move randomly
+            // Get all possible moves
+            const possibleMoves = [];
             const directions = [[0,1], [0,-1], [1,0], [-1,0]];
-            const [mx, my] = directions[Math.floor(Math.random() * 4)];
-            if (!isWall(this.x + mx, this.y + my)) {
-                this.x += mx;
-                this.y += my;
+            
+            // Check each direction for valid moves and calculate their distance to Pacman
+            directions.forEach(([dx, dy]) => {
+                const newX = this.x + dx;
+                const newY = this.y + dy;
+                
+                if (!isWall(newX, newY)) {
+                    // Calculate Manhattan distance to Pac-Man from this new position
+                    const distToPacman = Math.abs(targetX - newX) + Math.abs(targetY - newY);
+                    possibleMoves.push({
+                        x: newX,
+                        y: newY,
+                        dist: distToPacman
+                    });
+                }
+            });
+            
+            if (possibleMoves.length > 0) {
+                // Sort by distance and pick the move that gets us closest to Pac-Man
+                possibleMoves.sort((a, b) => a.dist - b.dist);
+                const bestMove = possibleMoves[0];
+                
+                // Only move if it gets us closer or maintains distance
+                const currentDist = Math.abs(targetX - this.x) + Math.abs(targetY - this.y);
+                if (bestMove.dist <= currentDist) {
+                    this.x = bestMove.x;
+                    this.y = bestMove.y;
+                }
+            }
+        } else { // 20% random movement
+            const directions = [[0,1], [0,-1], [1,0], [-1,0]];
+            const validMoves = directions.filter(([dx, dy]) => !isWall(this.x + dx, this.y + dy));
+            
+            if (validMoves.length > 0) {
+                const [dx, dy] = validMoves[Math.floor(Math.random() * validMoves.length)];
+                this.x += dx;
+                this.y += dy;
             }
         }
     }

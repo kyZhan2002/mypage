@@ -5,6 +5,12 @@ title: "Keyao's Coding Blog"
 
 <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
 
+<nav class="navigation">
+  <a href="{{ site.baseurl }}/">Home</a>
+  <a href="{{ site.baseurl }}/blog/">Blog</a>
+  <a href="{{ site.baseurl }}/projects/">Projects</a>
+</nav>
+
 <div class="container">
   <div class="header">
     <h1>{{ page.title }}</h1>
