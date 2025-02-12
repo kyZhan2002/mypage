@@ -13,35 +13,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          fetch-depth: 0
-      
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.0'
-          bundler-cache: true
+          python-version: '3.x'
           
-      - name: Install dependencies
-        run: |
-          bundle install
-
       - name: Create data directory
         run: mkdir -p _data
           
-      - name: Build site
-        env:
-          JEKYLL_ENV: production
-        run: bundle exec jekyll build --trace
-        
-      - name: Debug file contents
-        run: |
-          echo "Checking _data directory:"
-          ls -la _data
-          if [ -f "_data/arxiv_cache.json" ]; then
-            echo "Cache file contents:"
-            cat "_data/arxiv_cache.json"
-          fi
+      - name: Fetch papers
+        run: python _scripts/fetch_papers.py
         
       - name: Commit and push if changed
         run: |
