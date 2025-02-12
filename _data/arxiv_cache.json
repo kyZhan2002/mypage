@@ -1,5 +1,5 @@
 {
-  "timestamp": 1739387678,
+  "timestamp": 1739387965,
   "papers": [
     {
       "title": "Instance-dependent Early Stopping",
@@ -10,16 +10,16 @@
         "Bo Han",
         "Tongliang Liu"
       ],
-      "abstract": "In machine learning practice, early stopping has been widely used to regularize models and can save computational costs by halting the training process when the model's performance on a validation set stops improving. However, conventional early stopping applies the same stopping criterion to all instances without considering their individual learning statuses, which leads to redundant computations on instances that are already well-learned. To further improve the efficiency, we propose an Instance-dependent Early Stopping (IES) method that adapts the early stopping mechanism from the entire training set to the instance level, based on the core principle that once the model has mastered an instance, the training on it should stop. IES considers an instance as mastered if the second-order differences of its loss value remain within a small range around zero. This offers a more consistent measure of an instance's learning status compared with directly using the loss value, and thus allows for a unified threshold to determine when an instance can be excluded from further backpropagation. We show that excluding mastered instances from backpropagation can increase the gradient norms, thereby accelerating the decrease of the training loss and speeding up the training process. Extensive experiments on benchmarks demonstrate that IES method can reduce backpropagation instances by 10%-50% while maintaining or even slightly improving the test accuracy and transfer learning performance of a model.",
+      "abstract": "In machine learning practice, early stopping has been widely used to\nregularize models and can save computational costs by halting the training\nprocess when the model's performance on a validation set stops improving.\nHowever, conventional early stopping applies the same stopping criterion to all\ninstances without considering their individual learning statuses, which leads\nto redundant computations on instances that are already well-learned. To\nfurther improve the efficiency, we propose an Instance-dependent Early Stopping\n(IES) method that adapts the early stopping mechanism from the entire training\nset to the instance level, based on the core principle that once the model has\nmastered an instance, the training on it should stop. IES considers an instance\nas mastered if the second-order differences of its loss value remain within a\nsmall range around zero. This offers a more consistent measure of an instance's\nlearning status compared with directly using the loss value, and thus allows\nfor a unified threshold to determine when an instance can be excluded from\nfurther backpropagation. We show that excluding mastered instances from\nbackpropagation can increase the gradient norms, thereby accelerating the\ndecrease of the training loss and speeding up the training process. Extensive\nexperiments on benchmarks demonstrate that IES method can reduce\nbackpropagation instances by 10%-50% while maintaining or even slightly\nimproving the test accuracy and transfer learning performance of a model.",
       "published": "February 11, 2025",
       "categories": [
         "cs.LG"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.07547v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.07547v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.07547v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.07547v1"
     },
     {
-      "title": "Music for All: Exploring Multicultural Representations in Music Generation Models (Camera Ready)",
+      "title": "Music for All: Exploring Multicultural Representations in Music\n  Generation Models (Camera Ready)",
       "authors": [
         "Atharva Mehta",
         "Shivam Chauhan",
@@ -28,7 +28,7 @@
         "Gus Xia",
         "Monojit Choudhury"
       ],
-      "abstract": "The advent of Music-Language Models has greatly enhanced the automatic music generation capability of AI systems, but they are also limited in their coverage of the musical genres and cultures of the world. We present a study of the datasets and research papers for music generation and quantify the bias and under-representation of genres. We find that only 5.7% of the total hours of existing music datasets come from non-Western genres, which naturally leads to disparate performance of the models across genres. We then investigate the efficacy of Parameter-Efficient Fine-Tuning (PEFT) techniques in mitigating this bias. Our experiments with two popular models -- MusicGen and Mustango, for two underrepresented non-Western music traditions -- Hindustani Classical and Turkish Makam music, highlight the promises as well as the non-triviality of cross-genre adaptation of music through small datasets, implying the need for more equitable baseline music-language models that are designed for cross-cultural transfer learning.",
+      "abstract": "The advent of Music-Language Models has greatly enhanced the automatic music\ngeneration capability of AI systems, but they are also limited in their\ncoverage of the musical genres and cultures of the world. We present a study of\nthe datasets and research papers for music generation and quantify the bias and\nunder-representation of genres. We find that only 5.7% of the total hours of\nexisting music datasets come from non-Western genres, which naturally leads to\ndisparate performance of the models across genres. We then investigate the\nefficacy of Parameter-Efficient Fine-Tuning (PEFT) techniques in mitigating\nthis bias. Our experiments with two popular models -- MusicGen and Mustango,\nfor two underrepresented non-Western music traditions -- Hindustani Classical\nand Turkish Makam music, highlight the promises as well as the non-triviality\nof cross-genre adaptation of music through small datasets, implying the need\nfor more equitable baseline music-language models that are designed for\ncross-cultural transfer learning.",
       "published": "February 11, 2025",
       "categories": [
         "cs.SD",
@@ -37,11 +37,11 @@
         "cs.LG",
         "cs.MM"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.07328v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.07328v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.07328v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.07328v1"
     },
     {
-      "title": "Long-term simulation of physical and mechanical behaviors using curriculum-transfer-learning based physics-informed neural networks",
+      "title": "Long-term simulation of physical and mechanical behaviors using\n  curriculum-transfer-learning based physics-informed neural networks",
       "authors": [
         "Yuan Guo",
         "Zhuojia Fu",
@@ -51,48 +51,48 @@
         "Youssef F. Rashed",
         "Xiaoying Zhuang"
       ],
-      "abstract": "This paper proposes a Curriculum-Transfer-Learning based physics-informed neural network (CTL-PINN) for long-term simulation of physical and mechanical behaviors. The main innovation of CTL-PINN lies in decomposing long-term problems into a sequence of short-term subproblems. Initially, the standard PINN is employed to solve the first sub-problem. As the simulation progresses, subsequent time-domain problems are addressed using a curriculum learning approach that integrates information from previous steps. Furthermore, transfer learning techniques are incorporated, allowing the model to effectively utilize prior training data and solve sequential time domain transfer problems. CTL-PINN combines the strengths of curriculum learning and transfer learning, overcoming the limitations of standard PINNs, such as local optimization issues, and addressing the inaccuracies over extended time domains encountered in CL-PINN and the low computational efficiency of TL-PINN. The efficacy and robustness of CTL-PINN are demonstrated through applications to nonlinear wave propagation, Kirchhoff plate dynamic response, and the hydrodynamic model of the Three Gorges Reservoir Area, showcasing its superior capability in addressing long-term computational challenges.",
+      "abstract": "This paper proposes a Curriculum-Transfer-Learning based physics-informed\nneural network (CTL-PINN) for long-term simulation of physical and mechanical\nbehaviors. The main innovation of CTL-PINN lies in decomposing long-term\nproblems into a sequence of short-term subproblems. Initially, the standard\nPINN is employed to solve the first sub-problem. As the simulation progresses,\nsubsequent time-domain problems are addressed using a curriculum learning\napproach that integrates information from previous steps. Furthermore, transfer\nlearning techniques are incorporated, allowing the model to effectively utilize\nprior training data and solve sequential time domain transfer problems.\nCTL-PINN combines the strengths of curriculum learning and transfer learning,\novercoming the limitations of standard PINNs, such as local optimization\nissues, and addressing the inaccuracies over extended time domains encountered\nin CL-PINN and the low computational efficiency of TL-PINN. The efficacy and\nrobustness of CTL-PINN are demonstrated through applications to nonlinear wave\npropagation, Kirchhoff plate dynamic response, and the hydrodynamic model of\nthe Three Gorges Reservoir Area, showcasing its superior capability in\naddressing long-term computational challenges.",
       "published": "February 11, 2025",
       "categories": [
         "cs.LG",
         "cs.NA",
         "math.NA"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.07325v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.07325v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.07325v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.07325v1"
     },
     {
-      "title": "Tab2Visual: Overcoming Limited Data in Tabular Data Classification Using Deep Learning with Visual Representations",
+      "title": "Tab2Visual: Overcoming Limited Data in Tabular Data Classification Using\n  Deep Learning with Visual Representations",
       "authors": [
         "Ahmed Mamdouh",
         "Moumen El-Melegy",
         "Samia Ali",
         "Ron Kikinis"
       ],
-      "abstract": "This research addresses the challenge of limited data in tabular data classification, particularly prevalent in domains with constraints like healthcare. We propose Tab2Visual, a novel approach that transforms heterogeneous tabular data into visual representations, enabling the application of powerful deep learning models. Tab2Visual effectively addresses data scarcity by incorporating novel image augmentation techniques and facilitating transfer learning. We extensively evaluate the proposed approach on diverse tabular datasets, comparing its performance against a wide range of machine learning algorithms, including classical methods, tree-based ensembles, and state-of-the-art deep learning models specifically designed for tabular data. We also perform an in-depth analysis of factors influencing Tab2Visual's performance. Our experimental results demonstrate that Tab2Visual outperforms other methods in classification problems with limited tabular data.",
+      "abstract": "This research addresses the challenge of limited data in tabular data\nclassification, particularly prevalent in domains with constraints like\nhealthcare. We propose Tab2Visual, a novel approach that transforms\nheterogeneous tabular data into visual representations, enabling the\napplication of powerful deep learning models. Tab2Visual effectively addresses\ndata scarcity by incorporating novel image augmentation techniques and\nfacilitating transfer learning. We extensively evaluate the proposed approach\non diverse tabular datasets, comparing its performance against a wide range of\nmachine learning algorithms, including classical methods, tree-based ensembles,\nand state-of-the-art deep learning models specifically designed for tabular\ndata. We also perform an in-depth analysis of factors influencing Tab2Visual's\nperformance. Our experimental results demonstrate that Tab2Visual outperforms\nother methods in classification problems with limited tabular data.",
       "published": "February 11, 2025",
       "categories": [
         "cs.LG",
         "cs.CV"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.07181v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.07181v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.07181v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.07181v1"
     },
     {
-      "title": "Generative Distribution Prediction: A Unified Approach to Multimodal Learning",
+      "title": "Generative Distribution Prediction: A Unified Approach to Multimodal\n  Learning",
       "authors": [
         "Xinyu Tian",
         "Xiaotong Shen"
       ],
-      "abstract": "Accurate prediction with multimodal data-encompassing tabular, textual, and visual inputs or outputs-is fundamental to advancing analytics in diverse application domains. Traditional approaches often struggle to integrate heterogeneous data types while maintaining high predictive accuracy. We introduce Generative Distribution Prediction (GDP), a novel framework that leverages multimodal synthetic data generation-such as conditional diffusion models-to enhance predictive performance across structured and unstructured modalities. GDP is model-agnostic, compatible with any high-fidelity generative model, and supports transfer learning for domain adaptation. We establish a rigorous theoretical foundation for GDP, providing statistical guarantees on its predictive accuracy when using diffusion models as the generative backbone. By estimating the data-generating distribution and adapting to various loss functions for risk minimization, GDP enables accurate point predictions across multimodal settings. We empirically validate GDP on four supervised learning tasks-tabular data prediction, question answering, image captioning, and adaptive quantile regression-demonstrating its versatility and effectiveness across diverse domains.",
+      "abstract": "Accurate prediction with multimodal data-encompassing tabular, textual, and\nvisual inputs or outputs-is fundamental to advancing analytics in diverse\napplication domains. Traditional approaches often struggle to integrate\nheterogeneous data types while maintaining high predictive accuracy. We\nintroduce Generative Distribution Prediction (GDP), a novel framework that\nleverages multimodal synthetic data generation-such as conditional diffusion\nmodels-to enhance predictive performance across structured and unstructured\nmodalities. GDP is model-agnostic, compatible with any high-fidelity generative\nmodel, and supports transfer learning for domain adaptation. We establish a\nrigorous theoretical foundation for GDP, providing statistical guarantees on\nits predictive accuracy when using diffusion models as the generative backbone.\nBy estimating the data-generating distribution and adapting to various loss\nfunctions for risk minimization, GDP enables accurate point predictions across\nmultimodal settings. We empirically validate GDP on four supervised learning\ntasks-tabular data prediction, question answering, image captioning, and\nadaptive quantile regression-demonstrating its versatility and effectiveness\nacross diverse domains.",
       "published": "February 10, 2025",
       "categories": [
         "stat.ML",
         "cs.AI",
         "cs.LG"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.07090v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.07090v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.07090v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.07090v1"
     },
     {
       "title": "Model Diffusion for Certifiable Few-shot Transfer Learning",
@@ -103,14 +103,14 @@
         "Timothy Hospedales",
         "Minyoung Kim"
       ],
-      "abstract": "In modern large-scale deep learning, a prevalent and effective workflow for solving low-data problems is adapting powerful pre-trained foundation models (FMs) to new tasks via parameter-efficient fine-tuning (PEFT). However, while empirically effective, the resulting solutions lack generalisation guarantees to certify their accuracy - which may be required for ethical or legal reasons prior to deployment in high-importance applications. In this paper we develop a novel transfer learning approach that is designed to facilitate non-vacuous learning theoretic generalisation guarantees for downstream tasks, even in the low-shot regime. Specifically, we first use upstream tasks to train a distribution over PEFT parameters. We then learn the downstream task by a sample-and-evaluate procedure -- sampling plausible PEFTs from the trained diffusion model and selecting the one with the highest likelihood on the downstream data. Crucially, this confines our model hypothesis to a finite set of PEFT samples. In contrast to learning in the typical continuous hypothesis spaces of neural network weights, this facilitates tighter risk certificates. We instantiate our bound and show non-trivial generalization guarantees compared to existing learning approaches which lead to vacuous bounds in the low-shot regime.",
+      "abstract": "In modern large-scale deep learning, a prevalent and effective workflow for\nsolving low-data problems is adapting powerful pre-trained foundation models\n(FMs) to new tasks via parameter-efficient fine-tuning (PEFT). However, while\nempirically effective, the resulting solutions lack generalisation guarantees\nto certify their accuracy - which may be required for ethical or legal reasons\nprior to deployment in high-importance applications. In this paper we develop a\nnovel transfer learning approach that is designed to facilitate non-vacuous\nlearning theoretic generalisation guarantees for downstream tasks, even in the\nlow-shot regime. Specifically, we first use upstream tasks to train a\ndistribution over PEFT parameters. We then learn the downstream task by a\nsample-and-evaluate procedure -- sampling plausible PEFTs from the trained\ndiffusion model and selecting the one with the highest likelihood on the\ndownstream data. Crucially, this confines our model hypothesis to a finite set\nof PEFT samples. In contrast to learning in the typical continuous hypothesis\nspaces of neural network weights, this facilitates tighter risk certificates.\nWe instantiate our bound and show non-trivial generalization guarantees\ncompared to existing learning approaches which lead to vacuous bounds in the\nlow-shot regime.",
       "published": "February 10, 2025",
       "categories": [
         "cs.LG",
         "stat.ML"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.06970v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.06970v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.06970v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.06970v1"
     },
     {
       "title": "Hyperparameters in Score-Based Membership Inference Attacks",
@@ -120,14 +120,14 @@
         "Marlon Tobaben",
         "Antti Honkela"
       ],
-      "abstract": "Membership Inference Attacks (MIAs) have emerged as a valuable framework for evaluating privacy leakage by machine learning models. Score-based MIAs are distinguished, in particular, by their ability to exploit the confidence scores that the model generates for particular inputs. Existing score-based MIAs implicitly assume that the adversary has access to the target model's hyperparameters, which can be used to train the shadow models for the attack. In this work, we demonstrate that the knowledge of target hyperparameters is not a prerequisite for MIA in the transfer learning setting. Based on this, we propose a novel approach to select the hyperparameters for training the shadow models for MIA when the attacker has no prior knowledge about them by matching the output distributions of target and shadow models. We demonstrate that using the new approach yields hyperparameters that lead to an attack near indistinguishable in performance from an attack that uses target hyperparameters to train the shadow models. Furthermore, we study the empirical privacy risk of unaccounted use of training data for hyperparameter optimization (HPO) in differentially private (DP) transfer learning. We find no statistically significant evidence that performing HPO using training data would increase vulnerability to MIA.",
+      "abstract": "Membership Inference Attacks (MIAs) have emerged as a valuable framework for\nevaluating privacy leakage by machine learning models. Score-based MIAs are\ndistinguished, in particular, by their ability to exploit the confidence scores\nthat the model generates for particular inputs. Existing score-based MIAs\nimplicitly assume that the adversary has access to the target model's\nhyperparameters, which can be used to train the shadow models for the attack.\nIn this work, we demonstrate that the knowledge of target hyperparameters is\nnot a prerequisite for MIA in the transfer learning setting. Based on this, we\npropose a novel approach to select the hyperparameters for training the shadow\nmodels for MIA when the attacker has no prior knowledge about them by matching\nthe output distributions of target and shadow models. We demonstrate that using\nthe new approach yields hyperparameters that lead to an attack near\nindistinguishable in performance from an attack that uses target\nhyperparameters to train the shadow models. Furthermore, we study the empirical\nprivacy risk of unaccounted use of training data for hyperparameter\noptimization (HPO) in differentially private (DP) transfer learning. We find no\nstatistically significant evidence that performing HPO using training data\nwould increase vulnerability to MIA.",
       "published": "February 10, 2025",
       "categories": [
         "cs.LG",
         "cs.AI"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.06374v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.06374v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.06374v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.06374v1"
     },
     {
       "title": "Low Tensor-Rank Adaptation of Kolmogorov--Arnold Networks",
@@ -136,23 +136,23 @@
         "Michael K. Ng",
         "Vincent Y. F. Tan"
       ],
-      "abstract": "Kolmogorov--Arnold networks (KANs) have demonstrated their potential as an alternative to multi-layer perceptions (MLPs) in various domains, especially for science-related tasks. However, transfer learning of KANs remains a relatively unexplored area. In this paper, inspired by Tucker decomposition of tensors and evidence on the low tensor-rank structure in KAN parameter updates, we develop low tensor-rank adaptation (LoTRA) for fine-tuning KANs. We study the expressiveness of LoTRA based on Tucker decomposition approximations. Furthermore, we provide a theoretical analysis to select the learning rates for each LoTRA component to enable efficient training. Our analysis also shows that using identical learning rates across all components leads to inefficient training, highlighting the need for an adaptive learning rate strategy. Beyond theoretical insights, we explore the application of LoTRA for efficiently solving various partial differential equations (PDEs) by fine-tuning KANs. Additionally, we propose Slim KANs that incorporate the inherent low-tensor-rank properties of KAN parameter tensors to reduce model size while maintaining superior performance. Experimental results validate the efficacy of the proposed learning rate selection strategy and demonstrate the effectiveness of LoTRA for transfer learning of KANs in solving PDEs. Further evaluations on Slim KANs for function representation and image classification tasks highlight the expressiveness of LoTRA and the potential for parameter reduction through low tensor-rank decomposition.",
+      "abstract": "Kolmogorov--Arnold networks (KANs) have demonstrated their potential as an\nalternative to multi-layer perceptions (MLPs) in various domains, especially\nfor science-related tasks. However, transfer learning of KANs remains a\nrelatively unexplored area. In this paper, inspired by Tucker decomposition of\ntensors and evidence on the low tensor-rank structure in KAN parameter updates,\nwe develop low tensor-rank adaptation (LoTRA) for fine-tuning KANs. We study\nthe expressiveness of LoTRA based on Tucker decomposition approximations.\nFurthermore, we provide a theoretical analysis to select the learning rates for\neach LoTRA component to enable efficient training. Our analysis also shows that\nusing identical learning rates across all components leads to inefficient\ntraining, highlighting the need for an adaptive learning rate strategy. Beyond\ntheoretical insights, we explore the application of LoTRA for efficiently\nsolving various partial differential equations (PDEs) by fine-tuning KANs.\nAdditionally, we propose Slim KANs that incorporate the inherent\nlow-tensor-rank properties of KAN parameter tensors to reduce model size while\nmaintaining superior performance. Experimental results validate the efficacy of\nthe proposed learning rate selection strategy and demonstrate the effectiveness\nof LoTRA for transfer learning of KANs in solving PDEs. Further evaluations on\nSlim KANs for function representation and image classification tasks highlight\nthe expressiveness of LoTRA and the potential for parameter reduction through\nlow tensor-rank decomposition.",
       "published": "February 10, 2025",
       "categories": [
         "cs.LG",
         "cs.AI"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.06153v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.06153v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.06153v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.06153v1"
     },
     {
-      "title": "Protecting Intellectual Property of EEG-based Neural Networks with Watermarking",
+      "title": "Protecting Intellectual Property of EEG-based Neural Networks with\n  Watermarking",
       "authors": [
         "Ahmed Abdelaziz",
         "Ahmed Fathi",
         "Ahmed Fares"
       ],
-      "abstract": "EEG-based neural networks, pivotal in medical diagnosis and brain-computer interfaces, face significant intellectual property (IP) risks due to their reliance on sensitive neurophysiological data and resource-intensive development. Current watermarking methods, particularly those using abstract trigger sets, lack robust authentication and fail to address the unique challenges of EEG models. This paper introduces a cryptographic wonder filter-based watermarking framework tailored for EEG-based neural networks. Leveraging collision-resistant hashing and public-key encryption, the wonder filter embeds the watermark during training, ensuring minimal distortion ($\\leq 5\\%$ drop in EEG task accuracy) and high reliability (100\\% watermark detection). The framework is rigorously evaluated against adversarial attacks, including fine-tuning, transfer learning, and neuron pruning. Results demonstrate persistent watermark retention, with classification accuracy for watermarked states remaining above 90\\% even after aggressive pruning, while primary task performance degrades faster, deterring removal attempts. Piracy resistance is validated by the inability to embed secondary watermarks without severe accuracy loss ( $>10\\%$ in EEGNet and CCNN models). Cryptographic hashing ensures authentication, reducing brute-force attack success probabilities. Evaluated on the DEAP dataset across models (CCNN, EEGNet, TSception), the method achieves $>99.4\\%$ null-embedding accuracy, effectively eliminating false positives. By integrating wonder filters with EEG-specific adaptations, this work bridges a critical gap in IP protection for neurophysiological models, offering a secure, tamper-proof solution for healthcare and biometric applications. The framework's robustness against adversarial modifications underscores its potential to safeguard sensitive EEG models while maintaining diagnostic utility.",
+      "abstract": "EEG-based neural networks, pivotal in medical diagnosis and brain-computer\ninterfaces, face significant intellectual property (IP) risks due to their\nreliance on sensitive neurophysiological data and resource-intensive\ndevelopment. Current watermarking methods, particularly those using abstract\ntrigger sets, lack robust authentication and fail to address the unique\nchallenges of EEG models. This paper introduces a cryptographic wonder\nfilter-based watermarking framework tailored for EEG-based neural networks.\nLeveraging collision-resistant hashing and public-key encryption, the wonder\nfilter embeds the watermark during training, ensuring minimal distortion ($\\leq\n5\\%$ drop in EEG task accuracy) and high reliability (100\\% watermark\ndetection). The framework is rigorously evaluated against adversarial attacks,\nincluding fine-tuning, transfer learning, and neuron pruning. Results\ndemonstrate persistent watermark retention, with classification accuracy for\nwatermarked states remaining above 90\\% even after aggressive pruning, while\nprimary task performance degrades faster, deterring removal attempts. Piracy\nresistance is validated by the inability to embed secondary watermarks without\nsevere accuracy loss ( $>10\\%$ in EEGNet and CCNN models). Cryptographic\nhashing ensures authentication, reducing brute-force attack success\nprobabilities. Evaluated on the DEAP dataset across models (CCNN, EEGNet,\nTSception), the method achieves $>99.4\\%$ null-embedding accuracy, effectively\neliminating false positives. By integrating wonder filters with EEG-specific\nadaptations, this work bridges a critical gap in IP protection for\nneurophysiological models, offering a secure, tamper-proof solution for\nhealthcare and biometric applications. The framework's robustness against\nadversarial modifications underscores its potential to safeguard sensitive EEG\nmodels while maintaining diagnostic utility.",
       "published": "February 09, 2025",
       "categories": [
         "cs.LG",
@@ -161,27 +161,27 @@
         "94A60, 68P25",
         "H.1.2; I.2.6; J.3; K.5.1"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.05931v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.05931v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.05931v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.05931v1"
     },
     {
-      "title": "Topological derivative approach for deep neural network architecture adaptation",
+      "title": "Topological derivative approach for deep neural network architecture\n  adaptation",
       "authors": [
         "C G Krishnanunni",
         "Tan Bui-Thanh",
         "Clint Dawson"
       ],
-      "abstract": "This work presents a novel algorithm for progressively adapting neural network architecture along the depth. In particular, we attempt to address the following questions in a mathematically principled way: i) Where to add a new capacity (layer) during the training process? ii) How to initialize the new capacity? At the heart of our approach are two key ingredients: i) the introduction of a ``shape functional\" to be minimized, which depends on neural network topology, and ii) the introduction of a topological derivative of the shape functional with respect to the neural network topology. Using an optimal control viewpoint, we show that the network topological derivative exists under certain conditions, and its closed-form expression is derived. In particular, we explore, for the first time, the connection between the topological derivative from a topology optimization framework with the Hamiltonian from optimal control theory. Further, we show that the optimality condition for the shape functional leads to an eigenvalue problem for deep neural architecture adaptation. Our approach thus determines the most sensitive location along the depth where a new layer needs to be inserted during the training phase and the associated parametric initialization for the newly added layer. We also demonstrate that our layer insertion strategy can be derived from an optimal transport viewpoint as a solution to maximizing a topological derivative in $p$-Wasserstein space, where $p>= 1$. Numerical investigations with fully connected network, convolutional neural network, and vision transformer on various regression and classification problems demonstrate that our proposed approach can outperform an ad-hoc baseline network and other architecture adaptation strategies. Further, we also demonstrate other applications of topological derivative in fields such as transfer learning.",
+      "abstract": "This work presents a novel algorithm for progressively adapting neural\nnetwork architecture along the depth. In particular, we attempt to address the\nfollowing questions in a mathematically principled way: i) Where to add a new\ncapacity (layer) during the training process? ii) How to initialize the new\ncapacity? At the heart of our approach are two key ingredients: i) the\nintroduction of a ``shape functional\" to be minimized, which depends on neural\nnetwork topology, and ii) the introduction of a topological derivative of the\nshape functional with respect to the neural network topology. Using an optimal\ncontrol viewpoint, we show that the network topological derivative exists under\ncertain conditions, and its closed-form expression is derived. In particular,\nwe explore, for the first time, the connection between the topological\nderivative from a topology optimization framework with the Hamiltonian from\noptimal control theory. Further, we show that the optimality condition for the\nshape functional leads to an eigenvalue problem for deep neural architecture\nadaptation. Our approach thus determines the most sensitive location along the\ndepth where a new layer needs to be inserted during the training phase and the\nassociated parametric initialization for the newly added layer. We also\ndemonstrate that our layer insertion strategy can be derived from an optimal\ntransport viewpoint as a solution to maximizing a topological derivative in\n$p$-Wasserstein space, where $p>= 1$. Numerical investigations with fully\nconnected network, convolutional neural network, and vision transformer on\nvarious regression and classification problems demonstrate that our proposed\napproach can outperform an ad-hoc baseline network and other architecture\nadaptation strategies. Further, we also demonstrate other applications of\ntopological derivative in fields such as transfer learning.",
       "published": "February 08, 2025",
       "categories": [
         "cs.LG",
         "cs.AI"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.06885v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.06885v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.06885v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.06885v1"
     },
     {
-      "title": "Evaluating Standard and Dialectal Frisian ASR: Multilingual Fine-tuning and Language Identification for Improved Low-resource Performance",
+      "title": "Evaluating Standard and Dialectal Frisian ASR: Multilingual Fine-tuning\n  and Language Identification for Improved Low-resource Performance",
       "authors": [
         "Reihaneh Amooie",
         "Wietse de Vries",
@@ -190,7 +190,7 @@
         "Matt Coler",
         "Martijn Wieling"
       ],
-      "abstract": "Automatic Speech Recognition (ASR) performance for low-resource languages is still far behind that of higher-resource languages such as English, due to a lack of sufficient labeled data. State-of-the-art methods deploy self-supervised transfer learning where a model pre-trained on large amounts of data is fine-tuned using little labeled data in a target low-resource language. In this paper, we present and examine a method for fine-tuning an SSL-based model in order to improve the performance for Frisian and its regional dialects (Clay Frisian, Wood Frisian, and South Frisian). We show that Frisian ASR performance can be improved by using multilingual (Frisian, Dutch, English and German) fine-tuning data and an auxiliary language identification task. In addition, our findings show that performance on dialectal speech suffers substantially, and, importantly, that this effect is moderated by the elicitation approach used to collect the dialectal data. Our findings also particularly suggest that relying solely on standard language data for ASR evaluation may underestimate real-world performance, particularly in languages with substantial dialectal variation.",
+      "abstract": "Automatic Speech Recognition (ASR) performance for low-resource languages is\nstill far behind that of higher-resource languages such as English, due to a\nlack of sufficient labeled data. State-of-the-art methods deploy\nself-supervised transfer learning where a model pre-trained on large amounts of\ndata is fine-tuned using little labeled data in a target low-resource language.\nIn this paper, we present and examine a method for fine-tuning an SSL-based\nmodel in order to improve the performance for Frisian and its regional dialects\n(Clay Frisian, Wood Frisian, and South Frisian). We show that Frisian ASR\nperformance can be improved by using multilingual (Frisian, Dutch, English and\nGerman) fine-tuning data and an auxiliary language identification task. In\naddition, our findings show that performance on dialectal speech suffers\nsubstantially, and, importantly, that this effect is moderated by the\nelicitation approach used to collect the dialectal data. Our findings also\nparticularly suggest that relying solely on standard language data for ASR\nevaluation may underestimate real-world performance, particularly in languages\nwith substantial dialectal variation.",
       "published": "February 07, 2025",
       "categories": [
         "cs.CL",
@@ -198,28 +198,28 @@
         "cs.SD",
         "eess.AS"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.04883v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.04883v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.04883v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.04883v1"
     },
     {
-      "title": "Self-Supervised Learning for Pre-training Capsule Networks: Overcoming Medical Imaging Dataset Challenges",
+      "title": "Self-Supervised Learning for Pre-training Capsule Networks: Overcoming\n  Medical Imaging Dataset Challenges",
       "authors": [
         "Heba El-Shimy",
         "Hind Zantout",
         "Michael A. Lones",
         "Neamat El Gayar"
       ],
-      "abstract": "Deep learning techniques are increasingly being adopted in diagnostic medical imaging. However, the limited availability of high-quality, large-scale medical datasets presents a significant challenge, often necessitating the use of transfer learning approaches. This study investigates self-supervised learning methods for pre-training capsule networks in polyp diagnostics for colon cancer. We used the PICCOLO dataset, comprising 3,433 samples, which exemplifies typical challenges in medical datasets: small size, class imbalance, and distribution shifts between data splits. Capsule networks offer inherent interpretability due to their architecture and inter-layer information routing mechanism. However, their limited native implementation in mainstream deep learning frameworks and the lack of pre-trained versions pose a significant challenge. This is particularly true if aiming to train them on small medical datasets, where leveraging pre-trained weights as initial parameters would be beneficial. We explored two auxiliary self-supervised learning tasks, colourisation and contrastive learning, for capsule network pre-training. We compared self-supervised pre-trained models against alternative initialisation strategies. Our findings suggest that contrastive learning and in-painting techniques are suitable auxiliary tasks for self-supervised learning in the medical domain. These techniques helped guide the model to capture important visual features that are beneficial for the downstream task of polyp classification, increasing its accuracy by 5.26% compared to other weight initialisation methods.",
+      "abstract": "Deep learning techniques are increasingly being adopted in diagnostic medical\nimaging. However, the limited availability of high-quality, large-scale medical\ndatasets presents a significant challenge, often necessitating the use of\ntransfer learning approaches. This study investigates self-supervised learning\nmethods for pre-training capsule networks in polyp diagnostics for colon\ncancer. We used the PICCOLO dataset, comprising 3,433 samples, which\nexemplifies typical challenges in medical datasets: small size, class\nimbalance, and distribution shifts between data splits. Capsule networks offer\ninherent interpretability due to their architecture and inter-layer information\nrouting mechanism. However, their limited native implementation in mainstream\ndeep learning frameworks and the lack of pre-trained versions pose a\nsignificant challenge. This is particularly true if aiming to train them on\nsmall medical datasets, where leveraging pre-trained weights as initial\nparameters would be beneficial. We explored two auxiliary self-supervised\nlearning tasks, colourisation and contrastive learning, for capsule network\npre-training. We compared self-supervised pre-trained models against\nalternative initialisation strategies. Our findings suggest that contrastive\nlearning and in-painting techniques are suitable auxiliary tasks for\nself-supervised learning in the medical domain. These techniques helped guide\nthe model to capture important visual features that are beneficial for the\ndownstream task of polyp classification, increasing its accuracy by 5.26%\ncompared to other weight initialisation methods.",
       "published": "February 07, 2025",
       "categories": [
         "cs.CV",
         "cs.LG"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.04748v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.04748v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.04748v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.04748v1"
     },
     {
-      "title": "Transfer learning in Scalable Graph Neural Network for Improved Physical Simulation",
+      "title": "Transfer learning in Scalable Graph Neural Network for Improved Physical\n  Simulation",
       "authors": [
         "Siqi Shen",
         "Yu Liu",
@@ -230,17 +230,17 @@
         "Bin Cui",
         "Jiulong Shan"
       ],
-      "abstract": "In recent years, Graph Neural Network (GNN) based models have shown promising results in simulating physics of complex systems. However, training dedicated graph network based physics simulators can be costly, as most models are confined to fully supervised training, which requires extensive data generated from traditional physics simulators. To date, how transfer learning could improve the model performance and training efficiency has remained unexplored. In this work, we introduce a pre-training and transfer learning paradigm for graph network simulators. We propose the scalable graph U-net (SGUNET). Incorporating an innovative depth-first search (DFS) pooling, the SGUNET is adaptable to different mesh sizes and resolutions for various simulation tasks. To enable the transfer learning between differently configured SGUNETs, we propose a set of mapping functions to align the parameters between the pre-trained model and the target model. An extra normalization term is also added into the loss to constrain the difference between the pre-trained weights and target model weights for better generalization performance. To pre-train our physics simulator we created a dataset which includes 20,000 physical simulations of randomly selected 3D shapes from the open source A Big CAD (ABC) dataset. We show that our proposed transfer learning methods allow the model to perform even better when fine-tuned with small amounts of training data than when it is trained from scratch with full extensive dataset. On the 2D Deformable Plate benchmark dataset, our pre-trained model fine-tuned on 1/16 of the training data achieved an 11.05\\% improvement in position RMSE compared to the model trained from scratch.",
+      "abstract": "In recent years, Graph Neural Network (GNN) based models have shown promising\nresults in simulating physics of complex systems. However, training dedicated\ngraph network based physics simulators can be costly, as most models are\nconfined to fully supervised training, which requires extensive data generated\nfrom traditional physics simulators. To date, how transfer learning could\nimprove the model performance and training efficiency has remained unexplored.\nIn this work, we introduce a pre-training and transfer learning paradigm for\ngraph network simulators. We propose the scalable graph U-net (SGUNET).\nIncorporating an innovative depth-first search (DFS) pooling, the SGUNET is\nadaptable to different mesh sizes and resolutions for various simulation tasks.\nTo enable the transfer learning between differently configured SGUNETs, we\npropose a set of mapping functions to align the parameters between the\npre-trained model and the target model. An extra normalization term is also\nadded into the loss to constrain the difference between the pre-trained weights\nand target model weights for better generalization performance. To pre-train\nour physics simulator we created a dataset which includes 20,000 physical\nsimulations of randomly selected 3D shapes from the open source A Big CAD (ABC)\ndataset. We show that our proposed transfer learning methods allow the model to\nperform even better when fine-tuned with small amounts of training data than\nwhen it is trained from scratch with full extensive dataset. On the 2D\nDeformable Plate benchmark dataset, our pre-trained model fine-tuned on 1/16 of\nthe training data achieved an 11.05\\% improvement in position RMSE compared to\nthe model trained from scratch.",
       "published": "February 07, 2025",
       "categories": [
         "cs.LG",
         "cs.AI"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.06848v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.06848v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.06848v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.06848v1"
     },
     {
-      "title": "Performance Evaluation of Image Enhancement Techniques on Transfer Learning for Touchless Fingerprint Recognition",
+      "title": "Performance Evaluation of Image Enhancement Techniques on Transfer\n  Learning for Touchless Fingerprint Recognition",
       "authors": [
         "S Sreehari",
         "Dilavar P D",
@@ -248,24 +248,24 @@
         "Alavikunhu Panthakkan",
         "Saad Ali Amin"
       ],
-      "abstract": "Fingerprint recognition remains one of the most reliable biometric technologies due to its high accuracy and uniqueness. Traditional systems rely on contact-based scanners, which are prone to issues such as image degradation from surface contamination and inconsistent user interaction. To address these limitations, contactless fingerprint recognition has emerged as a promising alternative, providing non-intrusive and hygienic authentication. This study evaluates the impact of image enhancement tech-niques on the performance of pre-trained deep learning models using transfer learning for touchless fingerprint recognition. The IIT-Bombay Touchless and Touch-Based Fingerprint Database, containing data from 200 subjects, was employed to test the per-formance of deep learning architectures such as VGG-16, VGG-19, Inception-V3, and ResNet-50. Experimental results reveal that transfer learning methods with fingerprint image enhance-ment (indirect method) significantly outperform those without enhancement (direct method). Specifically, VGG-16 achieved an accuracy of 98% in training and 93% in testing when using the enhanced images, demonstrating superior performance compared to the direct method. This paper provides a detailed comparison of the effectiveness of image enhancement in improving the accuracy of transfer learning models for touchless fingerprint recognition, offering key insights for developing more efficient biometric systems.",
+      "abstract": "Fingerprint recognition remains one of the most reliable biometric\ntechnologies due to its high accuracy and uniqueness. Traditional systems rely\non contact-based scanners, which are prone to issues such as image degradation\nfrom surface contamination and inconsistent user interaction. To address these\nlimitations, contactless fingerprint recognition has emerged as a promising\nalternative, providing non-intrusive and hygienic authentication. This study\nevaluates the impact of image enhancement tech-niques on the performance of\npre-trained deep learning models using transfer learning for touchless\nfingerprint recognition. The IIT-Bombay Touchless and Touch-Based Fingerprint\nDatabase, containing data from 200 subjects, was employed to test the\nper-formance of deep learning architectures such as VGG-16, VGG-19,\nInception-V3, and ResNet-50. Experimental results reveal that transfer learning\nmethods with fingerprint image enhance-ment (indirect method) significantly\noutperform those without enhancement (direct method). Specifically, VGG-16\nachieved an accuracy of 98% in training and 93% in testing when using the\nenhanced images, demonstrating superior performance compared to the direct\nmethod.\n  This paper provides a detailed comparison of the effectiveness of image\nenhancement in improving the accuracy of transfer learning models for touchless\nfingerprint recognition, offering key insights for developing more efficient\nbiometric systems.",
       "published": "February 07, 2025",
       "categories": [
         "cs.CV",
         "cs.LG"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.04680v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.04680v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.04680v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.04680v1"
     },
     {
-      "title": "Provable Sample-Efficient Transfer Learning Conditional Diffusion Models via Representation Learning",
+      "title": "Provable Sample-Efficient Transfer Learning Conditional Diffusion Models\n  via Representation Learning",
       "authors": [
         "Ziheng Cheng",
         "Tianyu Xie",
         "Shiyue Zhang",
         "Cheng Zhang"
       ],
-      "abstract": "While conditional diffusion models have achieved remarkable success in various applications, they require abundant data to train from scratch, which is often infeasible in practice. To address this issue, transfer learning has emerged as an essential paradigm in small data regimes. Despite its empirical success, the theoretical underpinnings of transfer learning conditional diffusion models remain unexplored. In this paper, we take the first step towards understanding the sample efficiency of transfer learning conditional diffusion models through the lens of representation learning. Inspired by practical training procedures, we assume that there exists a low-dimensional representation of conditions shared across all tasks. Our analysis shows that with a well-learned representation from source tasks, the samplecomplexity of target tasks can be reduced substantially. In addition, we investigate the practical implications of our theoretical results in several real-world applications of conditional diffusion models. Numerical experiments are also conducted to verify our results.",
+      "abstract": "While conditional diffusion models have achieved remarkable success in\nvarious applications, they require abundant data to train from scratch, which\nis often infeasible in practice. To address this issue, transfer learning has\nemerged as an essential paradigm in small data regimes. Despite its empirical\nsuccess, the theoretical underpinnings of transfer learning conditional\ndiffusion models remain unexplored. In this paper, we take the first step\ntowards understanding the sample efficiency of transfer learning conditional\ndiffusion models through the lens of representation learning. Inspired by\npractical training procedures, we assume that there exists a low-dimensional\nrepresentation of conditions shared across all tasks. Our analysis shows that\nwith a well-learned representation from source tasks, the samplecomplexity of\ntarget tasks can be reduced substantially. In addition, we investigate the\npractical implications of our theoretical results in several real-world\napplications of conditional diffusion models. Numerical experiments are also\nconducted to verify our results.",
       "published": "February 06, 2025",
       "categories": [
         "cs.LG",
@@ -273,11 +273,11 @@
         "stat.ML",
         "stat.TH"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.04491v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.04491v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.04491v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.04491v1"
     },
     {
-      "title": "A Theoretical Framework for Data Efficient Multi-Source Transfer Learning Based on Cram\u00e9r-Rao Bound",
+      "title": "A Theoretical Framework for Data Efficient Multi-Source Transfer\n  Learning Based on Cram\u00e9r-Rao Bound",
       "authors": [
         "Qingyue Zhang",
         "Haohao Fu",
@@ -290,76 +290,76 @@
         "Yang Li",
         "Shao-Lun Huang"
       ],
-      "abstract": "Multi-source transfer learning provides an effective solution to data scarcity in real-world supervised learning scenarios by leveraging multiple source tasks. In this field, existing works typically use all available samples from sources in training, which constrains their training efficiency and may lead to suboptimal results. To address this, we propose a theoretical framework that answers the question: what is the optimal quantity of source samples needed from each source task to jointly train the target model? Specifically, we introduce a generalization error measure that aligns with cross-entropy loss, and minimize it based on the Cram\\'er-Rao Bound to determine the optimal transfer quantity for each source task. Additionally, we develop an architecture-agnostic and data-efficient algorithm OTQMS to implement our theoretical results for training deep multi-source transfer learning models. Experimental studies on diverse architectures and two real-world benchmark datasets show that our proposed algorithm significantly outperforms state-of-the-art approaches in both accuracy and data efficiency. The code and supplementary materials are available in https://anonymous.4open.science/r/Materials.",
+      "abstract": "Multi-source transfer learning provides an effective solution to data\nscarcity in real-world supervised learning scenarios by leveraging multiple\nsource tasks. In this field, existing works typically use all available samples\nfrom sources in training, which constrains their training efficiency and may\nlead to suboptimal results. To address this, we propose a theoretical framework\nthat answers the question: what is the optimal quantity of source samples\nneeded from each source task to jointly train the target model? Specifically,\nwe introduce a generalization error measure that aligns with cross-entropy\nloss, and minimize it based on the Cram\\'er-Rao Bound to determine the optimal\ntransfer quantity for each source task. Additionally, we develop an\narchitecture-agnostic and data-efficient algorithm OTQMS to implement our\ntheoretical results for training deep multi-source transfer learning models.\nExperimental studies on diverse architectures and two real-world benchmark\ndatasets show that our proposed algorithm significantly outperforms\nstate-of-the-art approaches in both accuracy and data efficiency. The code and\nsupplementary materials are available in\nhttps://anonymous.4open.science/r/Materials.",
       "published": "February 06, 2025",
       "categories": [
         "cs.LG",
         "cs.AI"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.04242v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.04242v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.04242v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.04242v1"
     },
     {
-      "title": "Transfer Learning for Covert Speech Classification Using EEG Hilbert Envelope and Temporal Fine Structure",
+      "title": "Transfer Learning for Covert Speech Classification Using EEG Hilbert\n  Envelope and Temporal Fine Structure",
       "authors": [
         "Saravanakumar Duraisamy",
         "Mateusz Dubiel",
         "Maurice Rekrut",
         "Luis A. Leiva"
       ],
-      "abstract": "Brain-Computer Interfaces (BCIs) can decode imagined speech from neural activity. However, these systems typically require extensive training sessions where participants imaginedly repeat words, leading to mental fatigue and difficulties identifying the onset of words, especially when imagining sequences of words. This paper addresses these challenges by transferring a classifier trained in overt speech data to covert speech classification. We used electroencephalogram (EEG) features derived from the Hilbert envelope and temporal fine structure, and used them to train a bidirectional long-short-term memory (BiLSTM) model for classification. Our method reduces the burden of extensive training and achieves state-of-the-art classification accuracy: 86.44% for overt speech and 79.82% for covert speech using the overt speech classifier.",
+      "abstract": "Brain-Computer Interfaces (BCIs) can decode imagined speech from neural\nactivity. However, these systems typically require extensive training sessions\nwhere participants imaginedly repeat words, leading to mental fatigue and\ndifficulties identifying the onset of words, especially when imagining\nsequences of words. This paper addresses these challenges by transferring a\nclassifier trained in overt speech data to covert speech classification. We\nused electroencephalogram (EEG) features derived from the Hilbert envelope and\ntemporal fine structure, and used them to train a bidirectional long-short-term\nmemory (BiLSTM) model for classification. Our method reduces the burden of\nextensive training and achieves state-of-the-art classification accuracy:\n86.44% for overt speech and 79.82% for covert speech using the overt speech\nclassifier.",
       "published": "February 06, 2025",
       "categories": [
         "cs.LG"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.04132v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.04132v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.04132v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.04132v1"
     },
     {
-      "title": "Generalize Drug Response Prediction by Latent Independent Projection for Asymmetric Constrained Domain Generalization",
+      "title": "Generalize Drug Response Prediction by Latent Independent Projection for\n  Asymmetric Constrained Domain Generalization",
       "authors": [
         "Ran Song",
         "Yinpu Bai",
         "Hui Liu"
       ],
-      "abstract": "The accurate prediction of drug responses remains a formidable challenge, particularly at the single-cell level and in clinical treatment contexts. Some studies employ transfer learning techniques to predict drug responses in individual cells and patients, but they require access to target-domain data during training, which is often unavailable or only obtainable in future. In this study, we propose a novel domain generalization framework, termed panCancerDR, to address this challenge. We conceptualize each cancer type as a distinct source domain, with its cell lines serving as domain-specific samples. Our primary objective is to extract domain-invariant features from the expression profiles of cell lines across diverse cancer types, thereby generalize the predictive capacity to out-of-distribution samples. To enhance robustness, we introduce a latent independence projection (LIP) module that encourages the encoder to extract informative yet non-redundant features. Also, we propose an asymmetric adaptive clustering constraint, which clusters drug-sensitive samples into a compact group while drives resistant samples dispersed across separate clusters in the latent space. Our empirical experiments demonstrate that panCancerDR effectively learns task-relevant features from diverse source domains, and achieves accurate predictions of drug response for unseen cancer type during training. Furthermore, when evaluated on single-cell and patient-level prediction tasks, our model-trained solely on in vitro cell line data without access to target-domain information-consistently outperforms and matched current state-of-the-art methods. These findings highlights the potential of our method for real-world clinical applications.",
+      "abstract": "The accurate prediction of drug responses remains a formidable challenge,\nparticularly at the single-cell level and in clinical treatment contexts. Some\nstudies employ transfer learning techniques to predict drug responses in\nindividual cells and patients, but they require access to target-domain data\nduring training, which is often unavailable or only obtainable in future. In\nthis study, we propose a novel domain generalization framework, termed\npanCancerDR, to address this challenge. We conceptualize each cancer type as a\ndistinct source domain, with its cell lines serving as domain-specific samples.\nOur primary objective is to extract domain-invariant features from the\nexpression profiles of cell lines across diverse cancer types, thereby\ngeneralize the predictive capacity to out-of-distribution samples. To enhance\nrobustness, we introduce a latent independence projection (LIP) module that\nencourages the encoder to extract informative yet non-redundant features. Also,\nwe propose an asymmetric adaptive clustering constraint, which clusters\ndrug-sensitive samples into a compact group while drives resistant samples\ndispersed across separate clusters in the latent space. Our empirical\nexperiments demonstrate that panCancerDR effectively learns task-relevant\nfeatures from diverse source domains, and achieves accurate predictions of drug\nresponse for unseen cancer type during training. Furthermore, when evaluated on\nsingle-cell and patient-level prediction tasks, our model-trained solely on in\nvitro cell line data without access to target-domain information-consistently\noutperforms and matched current state-of-the-art methods. These findings\nhighlights the potential of our method for real-world clinical applications.",
       "published": "February 06, 2025",
       "categories": [
         "cs.LG",
         "cs.AI"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.04034v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.04034v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.04034v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.04034v1"
     },
     {
-      "title": "Prediction of the Most Fire-Sensitive Point in Building Structures with Differentiable Agents for Thermal Simulators",
+      "title": "Prediction of the Most Fire-Sensitive Point in Building Structures with\n  Differentiable Agents for Thermal Simulators",
       "authors": [
         "Yuan Xinjie",
         "Khalid M. Mosalam"
       ],
-      "abstract": "Fire safety is a critical area of research in civil and mechanical engineering, particularly in ensuring the structural stability of buildings during fire events. The Most Fire-Sensitive Point (MFSP) in a structure is the location where a fire would cause the greatest impact on structural stability. Accurate prediction of the MFSP is vital for streamlining structural assessments and optimizing the design process. This paper presents a novel framework for MFSP prediction using a neural network-based approach that integrates fire dynamics and finite element analysis through a differentiable agent model. The framework focuses on predicting the Maximum Interstory Drift Ratio (MIDR), a key indicator of structural performance under fire conditions. By leveraging the differentiable agent model, we efficiently generate labeled data for MFSP and directly train a predictor for this critical metric. To achieve this, we generated extensive simulation data encompassing structural and fire scenarios and employed graph neural networks to represent the building structures. Transfer learning was applied to optimize the training process, and an edge update mechanism was introduced to dynamically adjust edge attributes, reflecting property changes under fire conditions. The proposed model was rigorously evaluated on simulation data, demonstrating strong performance in accurately predicting both MIDR and MFSP, thus advancing fire safety analysis for building structures.",
+      "abstract": "Fire safety is a critical area of research in civil and mechanical\nengineering, particularly in ensuring the structural stability of buildings\nduring fire events. The Most Fire-Sensitive Point (MFSP) in a structure is the\nlocation where a fire would cause the greatest impact on structural stability.\nAccurate prediction of the MFSP is vital for streamlining structural\nassessments and optimizing the design process. This paper presents a novel\nframework for MFSP prediction using a neural network-based approach that\nintegrates fire dynamics and finite element analysis through a differentiable\nagent model. The framework focuses on predicting the Maximum Interstory Drift\nRatio (MIDR), a key indicator of structural performance under fire conditions.\nBy leveraging the differentiable agent model, we efficiently generate labeled\ndata for MFSP and directly train a predictor for this critical metric. To\nachieve this, we generated extensive simulation data encompassing structural\nand fire scenarios and employed graph neural networks to represent the building\nstructures. Transfer learning was applied to optimize the training process, and\nan edge update mechanism was introduced to dynamically adjust edge attributes,\nreflecting property changes under fire conditions. The proposed model was\nrigorously evaluated on simulation data, demonstrating strong performance in\naccurately predicting both MIDR and MFSP, thus advancing fire safety analysis\nfor building structures.",
       "published": "February 05, 2025",
       "categories": [
         "cs.LG"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.03424v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.03424v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.03424v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.03424v1"
     },
     {
-      "title": "Transferring Graph Neural Networks for Soft Sensor Modeling using Process Topologies",
+      "title": "Transferring Graph Neural Networks for Soft Sensor Modeling using\n  Process Topologies",
       "authors": [
         "Maximilian F. Theisen",
         "Gabrie M. H. Meesters",
         "Artur M. Schweidtmann"
       ],
-      "abstract": "Data-driven soft sensors help in process operations by providing real-time estimates of otherwise hard- to-measure process quantities, e.g., viscosities or product concentrations. Currently, soft sensors need to be developed individually per plant. Using transfer learning, machine learning-based soft sensors could be reused and fine-tuned across plants and applications. However, transferring data-driven soft sensor models is in practice often not possible, because the fixed input structure of standard soft sensor models prohibits transfer if, e.g., the sensor information is not identical in all plants. We propose a topology-aware graph neural network approach for transfer learning of soft sensor models across multiple plants. In our method, plants are modeled as graphs: Unit operations are nodes, streams are edges, and sensors are embedded as attributes. Our approach brings two advantages for transfer learning: First, we not only include sensor data but also crucial information on the plant topology. Second, the graph neural network algorithm is flexible with respect to its sensor inputs. This allows us to model data from different plants with different sensor networks. We test the transfer learning capabilities of our modeling approach on ammonia synthesis loops with different process topologies. We build a soft sensor predicting the ammonia concentration in the product. After training on data from one process, we successfully transfer our soft sensor model to a previously unseen process with a different topology. Our approach promises to extend the data-driven soft sensors to cases to leverage data from multiple plants.",
+      "abstract": "Data-driven soft sensors help in process operations by providing real-time\nestimates of otherwise hard- to-measure process quantities, e.g., viscosities\nor product concentrations. Currently, soft sensors need to be developed\nindividually per plant. Using transfer learning, machine learning-based soft\nsensors could be reused and fine-tuned across plants and applications. However,\ntransferring data-driven soft sensor models is in practice often not possible,\nbecause the fixed input structure of standard soft sensor models prohibits\ntransfer if, e.g., the sensor information is not identical in all plants. We\npropose a topology-aware graph neural network approach for transfer learning of\nsoft sensor models across multiple plants. In our method, plants are modeled as\ngraphs: Unit operations are nodes, streams are edges, and sensors are embedded\nas attributes. Our approach brings two advantages for transfer learning: First,\nwe not only include sensor data but also crucial information on the plant\ntopology. Second, the graph neural network algorithm is flexible with respect\nto its sensor inputs. This allows us to model data from different plants with\ndifferent sensor networks. We test the transfer learning capabilities of our\nmodeling approach on ammonia synthesis loops with different process topologies.\nWe build a soft sensor predicting the ammonia concentration in the product.\nAfter training on data from one process, we successfully transfer our soft\nsensor model to a previously unseen process with a different topology. Our\napproach promises to extend the data-driven soft sensors to cases to leverage\ndata from multiple plants.",
       "published": "February 05, 2025",
       "categories": [
         "cs.LG",
         "cs.AI"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.06826v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.06826v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.06826v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.06826v1"
     },
     {
       "title": "TopoCL: Topological Contrastive Learning for Time Series",
@@ -368,14 +368,14 @@
         "Hyungryul Baik",
         "Yoonjin Yoon"
       ],
-      "abstract": "Universal time series representation learning is challenging but valuable in real-world applications such as classification, anomaly detection, and forecasting. Recently, contrastive learning (CL) has been actively explored to tackle time series representation. However, a key challenge is that the data augmentation process in CL can distort seasonal patterns or temporal dependencies, inevitably leading to a loss of semantic information. To address this challenge, we propose Topological Contrastive Learning for time series (TopoCL). TopoCL mitigates such information loss by incorporating persistent homology, which captures the topological characteristics of data that remain invariant under transformations. In this paper, we treat the temporal and topological properties of time series data as distinct modalities. Specifically, we compute persistent homology to construct topological features of time series data, representing them in persistence diagrams. We then design a neural network to encode these persistent diagrams. Our approach jointly optimizes CL within the time modality and time-topology correspondence, promoting a comprehensive understanding of both temporal semantics and topological properties of time series. We conduct extensive experiments on four downstream tasks-classification, anomaly detection, forecasting, and transfer learning. The results demonstrate that TopoCL achieves state-of-the-art performance.",
+      "abstract": "Universal time series representation learning is challenging but valuable in\nreal-world applications such as classification, anomaly detection, and\nforecasting. Recently, contrastive learning (CL) has been actively explored to\ntackle time series representation. However, a key challenge is that the data\naugmentation process in CL can distort seasonal patterns or temporal\ndependencies, inevitably leading to a loss of semantic information. To address\nthis challenge, we propose Topological Contrastive Learning for time series\n(TopoCL). TopoCL mitigates such information loss by incorporating persistent\nhomology, which captures the topological characteristics of data that remain\ninvariant under transformations. In this paper, we treat the temporal and\ntopological properties of time series data as distinct modalities.\nSpecifically, we compute persistent homology to construct topological features\nof time series data, representing them in persistence diagrams. We then design\na neural network to encode these persistent diagrams. Our approach jointly\noptimizes CL within the time modality and time-topology correspondence,\npromoting a comprehensive understanding of both temporal semantics and\ntopological properties of time series. We conduct extensive experiments on four\ndownstream tasks-classification, anomaly detection, forecasting, and transfer\nlearning. The results demonstrate that TopoCL achieves state-of-the-art\nperformance.",
       "published": "February 05, 2025",
       "categories": [
         "cs.LG",
         "cs.AI"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.02924v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.02924v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.02924v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.02924v1"
     },
     {
       "title": "Distributionally Robust Direct Preference Optimization",
@@ -387,14 +387,14 @@
         "Rahul Jain",
         "Deepak Ramachandran"
       ],
-      "abstract": "A major challenge in aligning large language models (LLMs) with human preferences is the issue of distribution shift. LLM alignment algorithms rely on static preference datasets, assuming that they accurately represent real-world user preferences. However, user preferences vary significantly across geographical regions, demographics, linguistic patterns, and evolving cultural trends. This preference distribution shift leads to catastrophic alignment failures in many real-world applications. We address this problem using the principled framework of distributionally robust optimization, and develop two novel distributionally robust direct preference optimization (DPO) algorithms, namely, Wasserstein DPO (WDPO) and Kullback-Leibler DPO (KLDPO). We characterize the sample complexity of learning the optimal policy parameters for WDPO and KLDPO. Moreover, we propose scalable gradient descent-style learning algorithms by developing suitable approximations for the challenging minimax loss functions of WDPO and KLDPO. Our empirical experiments demonstrate the superior performance of WDPO and KLDPO in substantially improving the alignment when there is a preference distribution shift.",
+      "abstract": "A major challenge in aligning large language models (LLMs) with human\npreferences is the issue of distribution shift. LLM alignment algorithms rely\non static preference datasets, assuming that they accurately represent\nreal-world user preferences. However, user preferences vary significantly\nacross geographical regions, demographics, linguistic patterns, and evolving\ncultural trends. This preference distribution shift leads to catastrophic\nalignment failures in many real-world applications. We address this problem\nusing the principled framework of distributionally robust optimization, and\ndevelop two novel distributionally robust direct preference optimization (DPO)\nalgorithms, namely, Wasserstein DPO (WDPO) and Kullback-Leibler DPO (KLDPO). We\ncharacterize the sample complexity of learning the optimal policy parameters\nfor WDPO and KLDPO. Moreover, we propose scalable gradient descent-style\nlearning algorithms by developing suitable approximations for the challenging\nminimax loss functions of WDPO and KLDPO. Our empirical experiments demonstrate\nthe superior performance of WDPO and KLDPO in substantially improving the\nalignment when there is a preference distribution shift.",
       "published": "February 04, 2025",
       "categories": [
         "cs.LG",
         "cs.AI"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.01930v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.01930v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.01930v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.01930v1"
     },
     {
       "title": "Geometric Framework for 3D Cell Segmentation Correction",
@@ -405,14 +405,14 @@
         "Julie Beth Sneddon",
         "Yining Liu"
       ],
-      "abstract": "3D cellular image segmentation methods are commonly divided into non-2D-based and 2D-based approaches, the latter reconstructing 3D shapes from the segmentation results of 2D layers. However, errors in 2D results often propagate, leading to oversegmentations in the final 3D results. To tackle this issue, we introduce an interpretable geometric framework that addresses the oversegmentations by correcting the 2D segmentation results based on geometric information from adjacent layers. Leveraging both geometric (layer-to-layer, 2D) and topological (3D shape) features, we use binary classification to determine whether neighboring cells should be stitched. We develop a pre-trained classifier on public plant cell datasets and validate its performance on animal cell datasets, confirming its effectiveness in correcting oversegmentations under the transfer learning setting. Furthermore, we demonstrate that our framework can be extended to correcting oversegmentation on non-2D-based methods. A clear pipeline is provided for end-users to build the pre-trained model to any labeled dataset.",
+      "abstract": "3D cellular image segmentation methods are commonly divided into non-2D-based\nand 2D-based approaches, the latter reconstructing 3D shapes from the\nsegmentation results of 2D layers. However, errors in 2D results often\npropagate, leading to oversegmentations in the final 3D results. To tackle this\nissue, we introduce an interpretable geometric framework that addresses the\noversegmentations by correcting the 2D segmentation results based on geometric\ninformation from adjacent layers. Leveraging both geometric (layer-to-layer,\n2D) and topological (3D shape) features, we use binary classification to\ndetermine whether neighboring cells should be stitched. We develop a\npre-trained classifier on public plant cell datasets and validate its\nperformance on animal cell datasets, confirming its effectiveness in correcting\noversegmentations under the transfer learning setting. Furthermore, we\ndemonstrate that our framework can be extended to correcting oversegmentation\non non-2D-based methods. A clear pipeline is provided for end-users to build\nthe pre-trained model to any labeled dataset.",
       "published": "February 03, 2025",
       "categories": [
         "cs.CV",
         "cs.LG"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.01890v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.01890v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.01890v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.01890v1"
     },
     {
       "title": "Learning Hyperparameters via a Data-Emphasized Variational Objective",
@@ -421,17 +421,17 @@
         "Mikhail Petrov",
         "Michael C. Hughes"
       ],
-      "abstract": "When training large flexible models, practitioners often rely on grid search to select hyperparameters that control over-fitting. This grid search has several disadvantages: the search is computationally expensive, requires carving out a validation set that reduces the available data for training, and requires users to specify candidate values. In this paper, we propose an alternative: directly learning regularization hyperparameters on the full training set via the evidence lower bound (\"ELBo\") objective from variational methods. For deep neural networks with millions of parameters, we recommend a modified ELBo that upweights the influence of the data likelihood relative to the prior. Our proposed technique overcomes all three disadvantages of grid search. In a case study on transfer learning of image classifiers, we show how our method reduces the 88+ hour grid search of past work to under 3 hours while delivering comparable accuracy. We further demonstrate how our approach enables efficient yet accurate approximations of Gaussian processes with learnable length-scale kernels.",
+      "abstract": "When training large flexible models, practitioners often rely on grid search\nto select hyperparameters that control over-fitting. This grid search has\nseveral disadvantages: the search is computationally expensive, requires\ncarving out a validation set that reduces the available data for training, and\nrequires users to specify candidate values. In this paper, we propose an\nalternative: directly learning regularization hyperparameters on the full\ntraining set via the evidence lower bound (\"ELBo\") objective from variational\nmethods. For deep neural networks with millions of parameters, we recommend a\nmodified ELBo that upweights the influence of the data likelihood relative to\nthe prior. Our proposed technique overcomes all three disadvantages of grid\nsearch. In a case study on transfer learning of image classifiers, we show how\nour method reduces the 88+ hour grid search of past work to under 3 hours while\ndelivering comparable accuracy. We further demonstrate how our approach enables\nefficient yet accurate approximations of Gaussian processes with learnable\nlength-scale kernels.",
       "published": "February 03, 2025",
       "categories": [
         "cs.LG",
         "stat.ML"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.01861v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.01861v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.01861v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.01861v1"
     },
     {
-      "title": "CTC-DRO: Robust Optimization for Reducing Language Disparities in Speech Recognition",
+      "title": "CTC-DRO: Robust Optimization for Reducing Language Disparities in Speech\n  Recognition",
       "authors": [
         "Martijn Bartelds",
         "Ananjan Nandi",
@@ -440,15 +440,15 @@
         "Tatsunori Hashimoto",
         "Karen Livescu"
       ],
-      "abstract": "Modern deep learning models often achieve high overall performance, but consistently fail on specific subgroups. Group distributionally robust optimization (group DRO) addresses this problem by minimizing the worst-group loss, but it fails when group losses misrepresent performance differences between groups. This is common in domains like speech, where the widely used connectionist temporal classification (CTC) loss scales with input length and varies with linguistic and acoustic properties, leading to spurious differences between group losses. We present CTC-DRO, which addresses the shortcomings of the group DRO objective by smoothing the group weight update to prevent overemphasis on consistently high-loss groups, while using input length-matched batching to mitigate CTC's scaling issues. We evaluate CTC-DRO on the task of multilingual automatic speech recognition (ASR) across five language sets from the ML-SUPERB 2.0 benchmark. CTC-DRO consistently outperforms group DRO and CTC-based baseline models, reducing the worst-language error by up to 65.9% and the average error by up to 47.7%. CTC-DRO can be applied to ASR with minimal computational costs, and offers the potential for reducing group disparities in other domains with similar challenges.",
+      "abstract": "Modern deep learning models often achieve high overall performance, but\nconsistently fail on specific subgroups. Group distributionally robust\noptimization (group DRO) addresses this problem by minimizing the worst-group\nloss, but it fails when group losses misrepresent performance differences\nbetween groups. This is common in domains like speech, where the widely used\nconnectionist temporal classification (CTC) loss scales with input length and\nvaries with linguistic and acoustic properties, leading to spurious differences\nbetween group losses. We present CTC-DRO, which addresses the shortcomings of\nthe group DRO objective by smoothing the group weight update to prevent\noveremphasis on consistently high-loss groups, while using input length-matched\nbatching to mitigate CTC's scaling issues. We evaluate CTC-DRO on the task of\nmultilingual automatic speech recognition (ASR) across five language sets from\nthe ML-SUPERB 2.0 benchmark. CTC-DRO consistently outperforms group DRO and\nCTC-based baseline models, reducing the worst-language error by up to 65.9% and\nthe average error by up to 47.7%. CTC-DRO can be applied to ASR with minimal\ncomputational costs, and offers the potential for reducing group disparities in\nother domains with similar challenges.",
       "published": "February 03, 2025",
       "categories": [
         "cs.LG",
         "cs.CL",
         "eess.AS"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.01777v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.01777v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.01777v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.01777v1"
     },
     {
       "title": "Grokking Explained: A Statistical Phenomenon",
@@ -458,14 +458,14 @@
         "Lu\u00eds C. Lamb",
         "Em\u00edlio Vital Brazil"
       ],
-      "abstract": "Grokking, or delayed generalization, is an intriguing learning phenomenon where test set loss decreases sharply only after a model's training set loss has converged. This challenges conventional understanding of the training dynamics in deep learning networks. In this paper, we formalize and investigate grokking, highlighting that a key factor in its emergence is a distribution shift between training and test data. We introduce two synthetic datasets specifically designed to analyze grokking. One dataset examines the impact of limited sampling, and the other investigates transfer learning's role in grokking. By inducing distribution shifts through controlled imbalanced sampling of sub-categories, we systematically reproduce the phenomenon, demonstrating that while small-sampling is strongly associated with grokking, it is not its cause. Instead, small-sampling serves as a convenient mechanism for achieving the necessary distribution shift. We also show that when classes form an equivariant map, grokking can be explained by the model's ability to learn from similar classes or sub-categories. Unlike earlier work suggesting that grokking primarily arises from high regularization and sparse data, we demonstrate that it can also occur with dense data and minimal hyper-parameter tuning. Our findings deepen the understanding of grokking and pave the way for developing better stopping criteria in future training processes.",
+      "abstract": "Grokking, or delayed generalization, is an intriguing learning phenomenon\nwhere test set loss decreases sharply only after a model's training set loss\nhas converged. This challenges conventional understanding of the training\ndynamics in deep learning networks. In this paper, we formalize and investigate\ngrokking, highlighting that a key factor in its emergence is a distribution\nshift between training and test data. We introduce two synthetic datasets\nspecifically designed to analyze grokking. One dataset examines the impact of\nlimited sampling, and the other investigates transfer learning's role in\ngrokking. By inducing distribution shifts through controlled imbalanced\nsampling of sub-categories, we systematically reproduce the phenomenon,\ndemonstrating that while small-sampling is strongly associated with grokking,\nit is not its cause. Instead, small-sampling serves as a convenient mechanism\nfor achieving the necessary distribution shift. We also show that when classes\nform an equivariant map, grokking can be explained by the model's ability to\nlearn from similar classes or sub-categories. Unlike earlier work suggesting\nthat grokking primarily arises from high regularization and sparse data, we\ndemonstrate that it can also occur with dense data and minimal hyper-parameter\ntuning. Our findings deepen the understanding of grokking and pave the way for\ndeveloping better stopping criteria in future training processes.",
       "published": "February 03, 2025",
       "categories": [
         "cs.LG",
         "cs.AI"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.01774v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.01774v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.01774v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.01774v1"
     },
     {
       "title": "UniGraph2: Learning a Unified Embedding Space to Bind Multimodal Graphs",
@@ -477,16 +477,16 @@
         "Yifei Sun",
         "Bryan Hooi"
       ],
-      "abstract": "Existing foundation models, such as CLIP, aim to learn a unified embedding space for multimodal data, enabling a wide range of downstream web-based applications like search, recommendation, and content classification. However, these models often overlook the inherent graph structures in multimodal datasets, where entities and their relationships are crucial. Multimodal graphs (MMGs) represent such graphs where each node is associated with features from different modalities, while the edges capture the relationships between these entities. On the other hand, existing graph foundation models primarily focus on text-attributed graphs (TAGs) and are not designed to handle the complexities of MMGs. To address these limitations, we propose UniGraph2, a novel cross-domain graph foundation model that enables general representation learning on MMGs, providing a unified embedding space. UniGraph2 employs modality-specific encoders alongside a graph neural network (GNN) to learn a unified low-dimensional embedding space that captures both the multimodal information and the underlying graph structure. We propose a new cross-domain multi-graph pre-training algorithm at scale to ensure effective transfer learning across diverse graph domains and modalities. Additionally, we adopt a Mixture of Experts (MoE) component to align features from different domains and modalities, ensuring coherent and robust embeddings that unify the information across modalities. Extensive experiments on a variety of multimodal graph tasks demonstrate that UniGraph2 significantly outperforms state-of-the-art models in tasks such as representation learning, transfer learning, and multimodal generative tasks, offering a scalable and flexible solution for learning on MMGs.",
+      "abstract": "Existing foundation models, such as CLIP, aim to learn a unified embedding\nspace for multimodal data, enabling a wide range of downstream web-based\napplications like search, recommendation, and content classification. However,\nthese models often overlook the inherent graph structures in multimodal\ndatasets, where entities and their relationships are crucial. Multimodal graphs\n(MMGs) represent such graphs where each node is associated with features from\ndifferent modalities, while the edges capture the relationships between these\nentities. On the other hand, existing graph foundation models primarily focus\non text-attributed graphs (TAGs) and are not designed to handle the\ncomplexities of MMGs. To address these limitations, we propose UniGraph2, a\nnovel cross-domain graph foundation model that enables general representation\nlearning on MMGs, providing a unified embedding space. UniGraph2 employs\nmodality-specific encoders alongside a graph neural network (GNN) to learn a\nunified low-dimensional embedding space that captures both the multimodal\ninformation and the underlying graph structure. We propose a new cross-domain\nmulti-graph pre-training algorithm at scale to ensure effective transfer\nlearning across diverse graph domains and modalities. Additionally, we adopt a\nMixture of Experts (MoE) component to align features from different domains and\nmodalities, ensuring coherent and robust embeddings that unify the information\nacross modalities. Extensive experiments on a variety of multimodal graph tasks\ndemonstrate that UniGraph2 significantly outperforms state-of-the-art models in\ntasks such as representation learning, transfer learning, and multimodal\ngenerative tasks, offering a scalable and flexible solution for learning on\nMMGs.",
       "published": "February 02, 2025",
       "categories": [
         "cs.LG"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.00806v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.00806v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.00806v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.00806v1"
     },
     {
-      "title": "Transfer Learning in Physics-Informed Neural Networks: Full Fine-Tuning, Lightweight Fine-Tuning, and Low-Rank Adaptation",
+      "title": "Transfer Learning in Physics-Informed Neural Networks: Full Fine-Tuning,\n  Lightweight Fine-Tuning, and Low-Rank Adaptation",
       "authors": [
         "Yizheng Wang",
         "Jinshuai Bai",
@@ -496,65 +496,65 @@
         "Timon Rabczuk",
         "Yinghua Liu"
       ],
-      "abstract": "AI for PDEs has garnered significant attention, particularly Physics-Informed Neural Networks (PINNs). However, PINNs are typically limited to solving specific problems, and any changes in problem conditions necessitate retraining. Therefore, we explore the generalization capability of transfer learning in the strong and energy form of PINNs across different boundary conditions, materials, and geometries. The transfer learning methods we employ include full finetuning, lightweight finetuning, and Low-Rank Adaptation (LoRA). The results demonstrate that full finetuning and LoRA can significantly improve convergence speed while providing a slight enhancement in accuracy.",
+      "abstract": "AI for PDEs has garnered significant attention, particularly Physics-Informed\nNeural Networks (PINNs). However, PINNs are typically limited to solving\nspecific problems, and any changes in problem conditions necessitate\nretraining. Therefore, we explore the generalization capability of transfer\nlearning in the strong and energy form of PINNs across different boundary\nconditions, materials, and geometries. The transfer learning methods we employ\ninclude full finetuning, lightweight finetuning, and Low-Rank Adaptation\n(LoRA). The results demonstrate that full finetuning and LoRA can significantly\nimprove convergence speed while providing a slight enhancement in accuracy.",
       "published": "February 02, 2025",
       "categories": [
         "cs.LG"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.00782v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.00782v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.00782v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.00782v1"
     },
     {
-      "title": "Role of Mixup in Topological Persistence Based Knowledge Distillation for Wearable Sensor Data",
+      "title": "Role of Mixup in Topological Persistence Based Knowledge Distillation\n  for Wearable Sensor Data",
       "authors": [
         "Eun Som Jeon",
         "Hongjun Choi",
         "Matthew P. Buman",
         "Pavan Turaga"
       ],
-      "abstract": "The analysis of wearable sensor data has enabled many successes in several applications. To represent the high-sampling rate time-series with sufficient detail, the use of topological data analysis (TDA) has been considered, and it is found that TDA can complement other time-series features. Nonetheless, due to the large time consumption and high computational resource requirements of extracting topological features through TDA, it is difficult to deploy topological knowledge in various applications. To tackle this problem, knowledge distillation (KD) can be adopted, which is a technique facilitating model compression and transfer learning to generate a smaller model by transferring knowledge from a larger network. By leveraging multiple teachers in KD, both time-series and topological features can be transferred, and finally, a superior student using only time-series data is distilled. On the other hand, mixup has been popularly used as a robust data augmentation technique to enhance model performance during training. Mixup and KD employ similar learning strategies. In KD, the student model learns from the smoothed distribution generated by the teacher model, while mixup creates smoothed labels by blending two labels. Hence, this common smoothness serves as the connecting link that establishes a connection between these two methods. In this paper, we analyze the role of mixup in KD with time-series as well as topological persistence, employing multiple teachers. We present a comprehensive analysis of various methods in KD and mixup on wearable sensor data.",
+      "abstract": "The analysis of wearable sensor data has enabled many successes in several\napplications. To represent the high-sampling rate time-series with sufficient\ndetail, the use of topological data analysis (TDA) has been considered, and it\nis found that TDA can complement other time-series features. Nonetheless, due\nto the large time consumption and high computational resource requirements of\nextracting topological features through TDA, it is difficult to deploy\ntopological knowledge in various applications. To tackle this problem,\nknowledge distillation (KD) can be adopted, which is a technique facilitating\nmodel compression and transfer learning to generate a smaller model by\ntransferring knowledge from a larger network. By leveraging multiple teachers\nin KD, both time-series and topological features can be transferred, and\nfinally, a superior student using only time-series data is distilled. On the\nother hand, mixup has been popularly used as a robust data augmentation\ntechnique to enhance model performance during training. Mixup and KD employ\nsimilar learning strategies. In KD, the student model learns from the smoothed\ndistribution generated by the teacher model, while mixup creates smoothed\nlabels by blending two labels. Hence, this common smoothness serves as the\nconnecting link that establishes a connection between these two methods. In\nthis paper, we analyze the role of mixup in KD with time-series as well as\ntopological persistence, employing multiple teachers. We present a\ncomprehensive analysis of various methods in KD and mixup on wearable sensor\ndata.",
       "published": "February 02, 2025",
       "categories": [
         "cs.LG",
         "cs.AI",
         "eess.SP"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.00779v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.00779v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.00779v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.00779v1"
     },
     {
-      "title": "SSRepL-ADHD: Adaptive Complex Representation Learning Framework for ADHD Detection from Visual Attention Tasks",
+      "title": "SSRepL-ADHD: Adaptive Complex Representation Learning Framework for ADHD\n  Detection from Visual Attention Tasks",
       "authors": [
         "Abdul Rehman",
         "Ilona Heldal",
         "Jerry Chun-Wei Lin"
       ],
-      "abstract": "Self Supervised Representation Learning (SSRepL) can capture meaningful and robust representations of the Attention Deficit Hyperactivity Disorder (ADHD) data and have the potential to improve the model's performance on also downstream different types of Neurodevelopmental disorder (NDD) detection. In this paper, a novel SSRepL and Transfer Learning (TL)-based framework that incorporates a Long Short-Term Memory (LSTM) and a Gated Recurrent Units (GRU) model is proposed to detect children with potential symptoms of ADHD. This model uses Electroencephalogram (EEG) signals extracted during visual attention tasks to accurately detect ADHD by preprocessing EEG signal quality through normalization, filtering, and data balancing. For the experimental analysis, we use three different models: 1) SSRepL and TL-based LSTM-GRU model named as SSRepL-ADHD, which integrates LSTM and GRU layers to capture temporal dependencies in the data, 2) lightweight SSRepL-based DNN model (LSSRepL-DNN), and 3) Random Forest (RF). In the study, these models are thoroughly evaluated using well-known performance metrics (i.e., accuracy, precision, recall, and F1-score). The results show that the proposed SSRepL-ADHD model achieves the maximum accuracy of 81.11% while admitting the difficulties associated with dataset imbalance and feature selection.",
+      "abstract": "Self Supervised Representation Learning (SSRepL) can capture meaningful and\nrobust representations of the Attention Deficit Hyperactivity Disorder (ADHD)\ndata and have the potential to improve the model's performance on also\ndownstream different types of Neurodevelopmental disorder (NDD) detection. In\nthis paper, a novel SSRepL and Transfer Learning (TL)-based framework that\nincorporates a Long Short-Term Memory (LSTM) and a Gated Recurrent Units (GRU)\nmodel is proposed to detect children with potential symptoms of ADHD. This\nmodel uses Electroencephalogram (EEG) signals extracted during visual attention\ntasks to accurately detect ADHD by preprocessing EEG signal quality through\nnormalization, filtering, and data balancing. For the experimental analysis, we\nuse three different models: 1) SSRepL and TL-based LSTM-GRU model named as\nSSRepL-ADHD, which integrates LSTM and GRU layers to capture temporal\ndependencies in the data, 2) lightweight SSRepL-based DNN model (LSSRepL-DNN),\nand 3) Random Forest (RF). In the study, these models are thoroughly evaluated\nusing well-known performance metrics (i.e., accuracy, precision, recall, and\nF1-score). The results show that the proposed SSRepL-ADHD model achieves the\nmaximum accuracy of 81.11% while admitting the difficulties associated with\ndataset imbalance and feature selection.",
       "published": "February 01, 2025",
       "categories": [
         "cs.LG",
         "cs.HC",
         "eess.SP"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.00376v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.00376v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.00376v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.00376v1"
     },
     {
-      "title": "Machine Learning Models for Reinforced Concrete Pipes Condition Prediction: The State-of-the-Art Using Artificial Neural Networks and Multiple Linear Regression in a Wisconsin Case Study",
+      "title": "Machine Learning Models for Reinforced Concrete Pipes Condition\n  Prediction: The State-of-the-Art Using Artificial Neural Networks and\n  Multiple Linear Regression in a Wisconsin Case Study",
       "authors": [
         "Mohsen Mohammadagha",
         "Mohammad Najafi",
         "Vinayak Kaushal",
         "Ahmad Mahmoud Ahmad Jibreen"
       ],
-      "abstract": "The aging sewer infrastructure in the U.S., covering 2.1 million kilometers, encounters increasing structural issues, resulting in around 75,000 yearly sanitary sewer overflows that present serious economic, environmental, and public health hazards. Conventional inspection techniques and deterministic models do not account for the unpredictable nature of sewer decline, whereas probabilistic methods depend on extensive historical data, which is frequently lacking or incomplete. This research intends to enhance predictive accuracy for the condition of sewer pipelines through machine learning models artificial neural networks (ANNs) and multiple linear regression (MLR) by integrating factors such as pipe age, material, diameter, environmental influences, and PACP ratings. ANNs utilized ReLU activation functions and Adam optimization, whereas MLR applied regularization to address multicollinearity, with both models assessed through metrics like RMSE, MAE, and R2. The findings indicated that ANNs surpassed MLR, attaining an R2 of 0.9066 compared to MLRs 0.8474, successfully modeling nonlinear relationships while preserving generalization. MLR, on the other hand, offered enhanced interpretability by pinpointing significant predictors such as residual buildup. As a result, pipeline degradation is driven by pipe length, age, and pipe diameter as key predictors, while depth, soil type, and segment show minimal influence in this analysis. Future studies ought to prioritize hybrid models that merge the accuracy of ANNs with the interpretability of MLR, incorporating advanced methods such as SHAP analysis and transfer learning to improve scalability in managing infrastructure and promoting environmental sustainability.",
+      "abstract": "The aging sewer infrastructure in the U.S., covering 2.1 million kilometers,\nencounters increasing structural issues, resulting in around 75,000 yearly\nsanitary sewer overflows that present serious economic, environmental, and\npublic health hazards. Conventional inspection techniques and deterministic\nmodels do not account for the unpredictable nature of sewer decline, whereas\nprobabilistic methods depend on extensive historical data, which is frequently\nlacking or incomplete. This research intends to enhance predictive accuracy for\nthe condition of sewer pipelines through machine learning models artificial\nneural networks (ANNs) and multiple linear regression (MLR) by integrating\nfactors such as pipe age, material, diameter, environmental influences, and\nPACP ratings. ANNs utilized ReLU activation functions and Adam optimization,\nwhereas MLR applied regularization to address multicollinearity, with both\nmodels assessed through metrics like RMSE, MAE, and R2. The findings indicated\nthat ANNs surpassed MLR, attaining an R2 of 0.9066 compared to MLRs 0.8474,\nsuccessfully modeling nonlinear relationships while preserving generalization.\nMLR, on the other hand, offered enhanced interpretability by pinpointing\nsignificant predictors such as residual buildup. As a result, pipeline\ndegradation is driven by pipe length, age, and pipe diameter as key predictors,\nwhile depth, soil type, and segment show minimal influence in this analysis.\nFuture studies ought to prioritize hybrid models that merge the accuracy of\nANNs with the interpretability of MLR, incorporating advanced methods such as\nSHAP analysis and transfer learning to improve scalability in managing\ninfrastructure and promoting environmental sustainability.",
       "published": "February 01, 2025",
       "categories": [
         "cs.LG",
         "cond-mat.mtrl-sci"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.00363v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.00363v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.00363v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.00363v1"
     },
     {
       "title": "Lightspeed Geometric Dataset Distance via Sliced Optimal Transport",
@@ -564,7 +564,7 @@
         "Tuan Pham",
         "Nhat Ho"
       ],
-      "abstract": "We introduce sliced optimal transport dataset distance (s-OTDD), a model-agnostic, embedding-agnostic approach for dataset comparison that requires no training, is robust to variations in the number of classes, and can handle disjoint label sets. The core innovation is Moment Transform Projection (MTP), which maps a label, represented as a distribution over features, to a real number. Using MTP, we derive a data point projection that transforms datasets into one-dimensional distributions. The s-OTDD is defined as the expected Wasserstein distance between the projected distributions, with respect to random projection parameters. Leveraging the closed form solution of one-dimensional optimal transport, s-OTDD achieves (near-)linear computational complexity in the number of data points and feature dimensions and is independent of the number of classes. With its geometrically meaningful projection, s-OTDD strongly correlates with the optimal transport dataset distance while being more efficient than existing dataset discrepancy measures. Moreover, it correlates well with the performance gap in transfer learning and classification accuracy in data augmentation.",
+      "abstract": "We introduce sliced optimal transport dataset distance (s-OTDD), a\nmodel-agnostic, embedding-agnostic approach for dataset comparison that\nrequires no training, is robust to variations in the number of classes, and can\nhandle disjoint label sets. The core innovation is Moment Transform Projection\n(MTP), which maps a label, represented as a distribution over features, to a\nreal number. Using MTP, we derive a data point projection that transforms\ndatasets into one-dimensional distributions. The s-OTDD is defined as the\nexpected Wasserstein distance between the projected distributions, with respect\nto random projection parameters. Leveraging the closed form solution of\none-dimensional optimal transport, s-OTDD achieves (near-)linear computational\ncomplexity in the number of data points and feature dimensions and is\nindependent of the number of classes. With its geometrically meaningful\nprojection, s-OTDD strongly correlates with the optimal transport dataset\ndistance while being more efficient than existing dataset discrepancy measures.\nMoreover, it correlates well with the performance gap in transfer learning and\nclassification accuracy in data augmentation.",
       "published": "January 31, 2025",
       "categories": [
         "cs.LG",
@@ -573,8 +573,8 @@
         "stat.ME",
         "stat.ML"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2501.18901v1",
-      "pdf_link": "http://arxiv.org/pdf/2501.18901v1"
+      "pdf_link": "http://arxiv.org/pdf/2501.18901v1",
+      "arxiv_url": "http://arxiv.org/abs/2501.18901v1"
     },
     {
       "title": "Transfer Learning for Nonparametric Contextual Dynamic Pricing",
@@ -584,7 +584,7 @@
         "Zifeng Zhao",
         "Yi Yu"
       ],
-      "abstract": "Dynamic pricing strategies are crucial for firms to maximize revenue by adjusting prices based on market conditions and customer characteristics. However, designing optimal pricing strategies becomes challenging when historical data are limited, as is often the case when launching new products or entering new markets. One promising approach to overcome this limitation is to leverage information from related products or markets to inform the focal pricing decisions. In this paper, we explore transfer learning for nonparametric contextual dynamic pricing under a covariate shift model, where the marginal distributions of covariates differ between source and target domains while the reward functions remain the same. We propose a novel Transfer Learning for Dynamic Pricing (TLDP) algorithm that can effectively leverage pre-collected data from a source domain to enhance pricing decisions in the target domain. The regret upper bound of TLDP is established under a simple Lipschitz condition on the reward function. To establish the optimality of TLDP, we further derive a matching minimax lower bound, which includes the target-only scenario as a special case and is presented for the first time in the literature. Extensive numerical experiments validate our approach, demonstrating its superiority over existing methods and highlighting its practical utility in real-world applications.",
+      "abstract": "Dynamic pricing strategies are crucial for firms to maximize revenue by\nadjusting prices based on market conditions and customer characteristics.\nHowever, designing optimal pricing strategies becomes challenging when\nhistorical data are limited, as is often the case when launching new products\nor entering new markets. One promising approach to overcome this limitation is\nto leverage information from related products or markets to inform the focal\npricing decisions. In this paper, we explore transfer learning for\nnonparametric contextual dynamic pricing under a covariate shift model, where\nthe marginal distributions of covariates differ between source and target\ndomains while the reward functions remain the same. We propose a novel Transfer\nLearning for Dynamic Pricing (TLDP) algorithm that can effectively leverage\npre-collected data from a source domain to enhance pricing decisions in the\ntarget domain. The regret upper bound of TLDP is established under a simple\nLipschitz condition on the reward function. To establish the optimality of\nTLDP, we further derive a matching minimax lower bound, which includes the\ntarget-only scenario as a special case and is presented for the first time in\nthe literature. Extensive numerical experiments validate our approach,\ndemonstrating its superiority over existing methods and highlighting its\npractical utility in real-world applications.",
       "published": "January 31, 2025",
       "categories": [
         "cs.LG",
@@ -592,11 +592,11 @@
         "stat.ME",
         "stat.TH"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2501.18836v1",
-      "pdf_link": "http://arxiv.org/pdf/2501.18836v1"
+      "pdf_link": "http://arxiv.org/pdf/2501.18836v1",
+      "arxiv_url": "http://arxiv.org/abs/2501.18836v1"
     },
     {
-      "title": "Predicting concentration levels of air pollutants by transfer learning and recurrent neural network",
+      "title": "Predicting concentration levels of air pollutants by transfer learning\n  and recurrent neural network",
       "authors": [
         "Iat Hang Fong",
         "Tengyue Li",
@@ -604,33 +604,33 @@
         "Raymond K. Wong",
         "Antonio J. Tall\u00f3n-Ballesteros"
       ],
-      "abstract": "Air pollution (AP) poses a great threat to human health, and people are paying more attention than ever to its prediction. Accurate prediction of AP helps people to plan for their outdoor activities and aids protecting human health. In this paper, long-short term memory (LSTM) recurrent neural networks (RNNs) have been used to predict the future concentration of air pollutants (APS) in Macau. Additionally, meteorological data and data on the concentration of APS have been utilized. Moreover, in Macau, some air quality monitoring stations (AQMSs) have less observed data in quantity, and, at the same time, some AQMSs recorded less observed data of certain types of APS. Therefore, the transfer learning and pre-trained neural networks have been employed to assist AQMSs with less observed data to build a neural network with high prediction accuracy. The experimental sample covers a period longer than 12-year and includes daily measurements from several APS as well as other more classical meteorological values. Records from five stations, four out of them are AQMSs and the remaining one is an automatic weather station, have been prepared from the aforesaid period and eventually underwent to computational intelligence techniques to build and extract a prediction knowledge-based system. As shown by experimentation, LSTM RNNs initialized with transfer learning methods have higher prediction accuracy; it incurred shorter training time than randomly initialized recurrent neural networks.",
+      "abstract": "Air pollution (AP) poses a great threat to human health, and people are\npaying more attention than ever to its prediction. Accurate prediction of AP\nhelps people to plan for their outdoor activities and aids protecting human\nhealth. In this paper, long-short term memory (LSTM) recurrent neural networks\n(RNNs) have been used to predict the future concentration of air pollutants\n(APS) in Macau. Additionally, meteorological data and data on the concentration\nof APS have been utilized. Moreover, in Macau, some air quality monitoring\nstations (AQMSs) have less observed data in quantity, and, at the same time,\nsome AQMSs recorded less observed data of certain types of APS. Therefore, the\ntransfer learning and pre-trained neural networks have been employed to assist\nAQMSs with less observed data to build a neural network with high prediction\naccuracy. The experimental sample covers a period longer than 12-year and\nincludes daily measurements from several APS as well as other more classical\nmeteorological values. Records from five stations, four out of them are AQMSs\nand the remaining one is an automatic weather station, have been prepared from\nthe aforesaid period and eventually underwent to computational intelligence\ntechniques to build and extract a prediction knowledge-based system. As shown\nby experimentation, LSTM RNNs initialized with transfer learning methods have\nhigher prediction accuracy; it incurred shorter training time than randomly\ninitialized recurrent neural networks.",
       "published": "January 30, 2025",
       "categories": [
         "cs.LG",
         "cs.NE",
         "physics.ao-ph"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2502.01654v1",
-      "pdf_link": "http://arxiv.org/pdf/2502.01654v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.01654v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.01654v1"
     },
     {
-      "title": "Function Encoders: A Principled Approach to Transfer Learning in Hilbert Spaces",
+      "title": "Function Encoders: A Principled Approach to Transfer Learning in Hilbert\n  Spaces",
       "authors": [
         "Tyler Ingebrand",
         "Adam J. Thorpe",
         "Ufuk Topcu"
       ],
-      "abstract": "A central challenge in transfer learning is designing algorithms that can quickly adapt and generalize to new tasks without retraining. Yet, the conditions of when and how algorithms can effectively transfer to new tasks is poorly characterized. We introduce a geometric characterization of transfer in Hilbert spaces and define three types of inductive transfer: interpolation within the convex hull, extrapolation to the linear span, and extrapolation outside the span. We propose a method grounded in the theory of function encoders to achieve all three types of transfer. Specifically, we introduce a novel training scheme for function encoders using least-squares optimization, prove a universal approximation theorem for function encoders, and provide a comprehensive comparison with existing approaches such as transformers and meta-learning on four diverse benchmarks. Our experiments demonstrate that the function encoder outperforms state-of-the-art methods on four benchmark tasks and on all three types of transfer.",
+      "abstract": "A central challenge in transfer learning is designing algorithms that can\nquickly adapt and generalize to new tasks without retraining. Yet, the\nconditions of when and how algorithms can effectively transfer to new tasks is\npoorly characterized. We introduce a geometric characterization of transfer in\nHilbert spaces and define three types of inductive transfer: interpolation\nwithin the convex hull, extrapolation to the linear span, and extrapolation\noutside the span. We propose a method grounded in the theory of function\nencoders to achieve all three types of transfer. Specifically, we introduce a\nnovel training scheme for function encoders using least-squares optimization,\nprove a universal approximation theorem for function encoders, and provide a\ncomprehensive comparison with existing approaches such as transformers and\nmeta-learning on four diverse benchmarks. Our experiments demonstrate that the\nfunction encoder outperforms state-of-the-art methods on four benchmark tasks\nand on all three types of transfer.",
       "published": "January 30, 2025",
       "categories": [
         "cs.LG"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2501.18373v1",
-      "pdf_link": "http://arxiv.org/pdf/2501.18373v1"
+      "pdf_link": "http://arxiv.org/pdf/2501.18373v1",
+      "arxiv_url": "http://arxiv.org/abs/2501.18373v1"
     },
     {
-      "title": "Transfer Learning of Surrogate Models: Integrating Domain Warping and Affine Transformations",
+      "title": "Transfer Learning of Surrogate Models: Integrating Domain Warping and\n  Affine Transformations",
       "authors": [
         "Shuaiqun Pan",
         "Diederick Vermetten",
@@ -638,39 +638,39 @@
         "Thomas B\u00e4ck",
         "Hao Wang"
       ],
-      "abstract": "Surrogate models provide efficient alternatives to computationally demanding real-world processes but often require large datasets for effective training. A promising solution to this limitation is the transfer of pre-trained surrogate models to new tasks. Previous studies have investigated the transfer of differentiable and non-differentiable surrogate models, typically assuming an affine transformation between the source and target functions. This paper extends previous research by addressing a broader range of transformations, including linear and nonlinear variations. Specifically, we consider the combination of an unknown input warping, such as one modelled by the beta cumulative distribution function, with an unspecified affine transformation. Our approach achieves transfer learning by employing a limited number of data points from the target task to optimize these transformations, minimizing empirical loss on the transfer dataset. We validate the proposed method on the widely used Black-Box Optimization Benchmark (BBOB) testbed and a real-world transfer learning task from the automobile industry. The results underscore the significant advantages of the approach, revealing that the transferred surrogate significantly outperforms both the original surrogate and the one built from scratch using the transfer dataset, particularly in data-scarce scenarios.",
+      "abstract": "Surrogate models provide efficient alternatives to computationally demanding\nreal-world processes but often require large datasets for effective training. A\npromising solution to this limitation is the transfer of pre-trained surrogate\nmodels to new tasks. Previous studies have investigated the transfer of\ndifferentiable and non-differentiable surrogate models, typically assuming an\naffine transformation between the source and target functions. This paper\nextends previous research by addressing a broader range of transformations,\nincluding linear and nonlinear variations. Specifically, we consider the\ncombination of an unknown input warping, such as one modelled by the beta\ncumulative distribution function, with an unspecified affine transformation.\nOur approach achieves transfer learning by employing a limited number of data\npoints from the target task to optimize these transformations, minimizing\nempirical loss on the transfer dataset. We validate the proposed method on the\nwidely used Black-Box Optimization Benchmark (BBOB) testbed and a real-world\ntransfer learning task from the automobile industry. The results underscore the\nsignificant advantages of the approach, revealing that the transferred\nsurrogate significantly outperforms both the original surrogate and the one\nbuilt from scratch using the transfer dataset, particularly in data-scarce\nscenarios.",
       "published": "January 30, 2025",
       "categories": [
         "cs.LG",
         "cs.AI"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2501.18344v1",
-      "pdf_link": "http://arxiv.org/pdf/2501.18344v1"
+      "pdf_link": "http://arxiv.org/pdf/2501.18344v1",
+      "arxiv_url": "http://arxiv.org/abs/2501.18344v1"
     },
     {
-      "title": "Advancing Personalized Federated Learning: Integrative Approaches with AI for Enhanced Privacy and Customization",
+      "title": "Advancing Personalized Federated Learning: Integrative Approaches with\n  AI for Enhanced Privacy and Customization",
       "authors": [
         "Kevin Cooper",
         "Michael Geller"
       ],
-      "abstract": "In the age of data-driven decision making, preserving privacy while providing personalized experiences has become paramount. Personalized Federated Learning (PFL) offers a promising framework by decentralizing the learning process, thus ensuring data privacy and reducing reliance on centralized data repositories. However, the integration of advanced Artificial Intelligence (AI) techniques within PFL remains underexplored. This paper proposes a novel approach that enhances PFL with cutting-edge AI methodologies including adaptive optimization, transfer learning, and differential privacy. We present a model that not only boosts the performance of individual client models but also ensures robust privacy-preserving mechanisms and efficient resource utilization across heterogeneous networks. Empirical results demonstrate significant improvements in model accuracy and personalization, along with stringent privacy adherence, as compared to conventional federated learning models. This work paves the way for a new era of truly personalized and privacy-conscious AI systems, offering significant implications for industries requiring compliance with stringent data protection regulations.",
+      "abstract": "In the age of data-driven decision making, preserving privacy while providing\npersonalized experiences has become paramount. Personalized Federated Learning\n(PFL) offers a promising framework by decentralizing the learning process, thus\nensuring data privacy and reducing reliance on centralized data repositories.\nHowever, the integration of advanced Artificial Intelligence (AI) techniques\nwithin PFL remains underexplored. This paper proposes a novel approach that\nenhances PFL with cutting-edge AI methodologies including adaptive\noptimization, transfer learning, and differential privacy. We present a model\nthat not only boosts the performance of individual client models but also\nensures robust privacy-preserving mechanisms and efficient resource utilization\nacross heterogeneous networks. Empirical results demonstrate significant\nimprovements in model accuracy and personalization, along with stringent\nprivacy adherence, as compared to conventional federated learning models. This\nwork paves the way for a new era of truly personalized and privacy-conscious AI\nsystems, offering significant implications for industries requiring compliance\nwith stringent data protection regulations.",
       "published": "January 30, 2025",
       "categories": [
         "cs.LG",
         "eess.SP"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2501.18174v1",
-      "pdf_link": "http://arxiv.org/pdf/2501.18174v1"
+      "pdf_link": "http://arxiv.org/pdf/2501.18174v1",
+      "arxiv_url": "http://arxiv.org/abs/2501.18174v1"
     },
     {
-      "title": "Digital Twin-Enabled Real-Time Control in Robotic Additive Manufacturing via Soft Actor-Critic Reinforcement Learning",
+      "title": "Digital Twin-Enabled Real-Time Control in Robotic Additive Manufacturing\n  via Soft Actor-Critic Reinforcement Learning",
       "authors": [
         "Matsive Ali",
         "Sandesh Giri",
         "Sen Liu",
         "Qin Yang"
       ],
-      "abstract": "Smart manufacturing systems increasingly rely on adaptive control mechanisms to optimize complex processes. This research presents a novel approach integrating Soft Actor-Critic (SAC) reinforcement learning with digital twin technology to enable real-time process control in robotic additive manufacturing. We demonstrate our methodology using a Viper X300s robot arm, implementing two distinct control scenarios: static target acquisition and dynamic trajectory following. The system architecture combines Unity's simulation environment with ROS2 for seamless digital twin synchronization, while leveraging transfer learning to efficiently adapt trained models across tasks. Our hierarchical reward structure addresses common reinforcement learning challenges including local minima avoidance, convergence acceleration, and training stability. Experimental results show rapid policy convergence and robust task execution in both simulated and physical environments, with performance metrics including cumulative reward, value prediction accuracy, policy loss, and discrete entropy coefficient demonstrating the effectiveness of our approach. This work advances the integration of reinforcement learning with digital twins for industrial robotics applications, providing a framework for enhanced adaptive real-time control for smart additive manufacturing process.",
+      "abstract": "Smart manufacturing systems increasingly rely on adaptive control mechanisms\nto optimize complex processes. This research presents a novel approach\nintegrating Soft Actor-Critic (SAC) reinforcement learning with digital twin\ntechnology to enable real-time process control in robotic additive\nmanufacturing. We demonstrate our methodology using a Viper X300s robot arm,\nimplementing two distinct control scenarios: static target acquisition and\ndynamic trajectory following. The system architecture combines Unity's\nsimulation environment with ROS2 for seamless digital twin synchronization,\nwhile leveraging transfer learning to efficiently adapt trained models across\ntasks. Our hierarchical reward structure addresses common reinforcement\nlearning challenges including local minima avoidance, convergence acceleration,\nand training stability. Experimental results show rapid policy convergence and\nrobust task execution in both simulated and physical environments, with\nperformance metrics including cumulative reward, value prediction accuracy,\npolicy loss, and discrete entropy coefficient demonstrating the effectiveness\nof our approach. This work advances the integration of reinforcement learning\nwith digital twins for industrial robotics applications, providing a framework\nfor enhanced adaptive real-time control for smart additive manufacturing\nprocess.",
       "published": "January 29, 2025",
       "categories": [
         "cs.RO",
@@ -679,8 +679,8 @@
         "cs.SY",
         "eess.SY"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2501.18016v1",
-      "pdf_link": "http://arxiv.org/pdf/2501.18016v1"
+      "pdf_link": "http://arxiv.org/pdf/2501.18016v1",
+      "arxiv_url": "http://arxiv.org/abs/2501.18016v1"
     },
     {
       "title": "LEKA:LLM-Enhanced Knowledge Augmentation",
@@ -692,16 +692,16 @@
         "Yanjie Fu",
         "Kunpeng Liu"
       ],
-      "abstract": "Humans excel in analogical learning and knowledge transfer and, more importantly, possess a unique understanding of identifying appropriate sources of knowledge. From a model's perspective, this presents an interesting challenge. If models could autonomously retrieve knowledge useful for transfer or decision-making to solve problems, they would transition from passively acquiring to actively accessing and learning from knowledge. However, filling models with knowledge is relatively straightforward -- it simply requires more training and accessible knowledge bases. The more complex task is teaching models about which knowledge can be analogized and transferred. Therefore, we design a knowledge augmentation method LEKA for knowledge transfer that actively searches for suitable knowledge sources that can enrich the target domain's knowledge. This LEKA method extracts key information from textual information from the target domain, retrieves pertinent data from external data libraries, and harmonizes retrieved data with the target domain data in feature space and marginal probability measures. We validate the effectiveness of our approach through extensive experiments across various domains and demonstrate significant improvements over traditional methods in reducing computational costs, automating data alignment, and optimizing transfer learning outcomes.",
+      "abstract": "Humans excel in analogical learning and knowledge transfer and, more\nimportantly, possess a unique understanding of identifying appropriate sources\nof knowledge. From a model's perspective, this presents an interesting\nchallenge. If models could autonomously retrieve knowledge useful for transfer\nor decision-making to solve problems, they would transition from passively\nacquiring to actively accessing and learning from knowledge. However, filling\nmodels with knowledge is relatively straightforward -- it simply requires more\ntraining and accessible knowledge bases. The more complex task is teaching\nmodels about which knowledge can be analogized and transferred. Therefore, we\ndesign a knowledge augmentation method LEKA for knowledge transfer that\nactively searches for suitable knowledge sources that can enrich the target\ndomain's knowledge. This LEKA method extracts key information from textual\ninformation from the target domain, retrieves pertinent data from external data\nlibraries, and harmonizes retrieved data with the target domain data in feature\nspace and marginal probability measures. We validate the effectiveness of our\napproach through extensive experiments across various domains and demonstrate\nsignificant improvements over traditional methods in reducing computational\ncosts, automating data alignment, and optimizing transfer learning outcomes.",
       "published": "January 29, 2025",
       "categories": [
         "cs.LG"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2501.17802v1",
-      "pdf_link": "http://arxiv.org/pdf/2501.17802v1"
+      "pdf_link": "http://arxiv.org/pdf/2501.17802v1",
+      "arxiv_url": "http://arxiv.org/abs/2501.17802v1"
     },
     {
-      "title": "Fundamental Computational Limits in Pursuing Invariant Causal Prediction and Invariance-Guided Regularization",
+      "title": "Fundamental Computational Limits in Pursuing Invariant Causal Prediction\n  and Invariance-Guided Regularization",
       "authors": [
         "Yihong Gu",
         "Cong Fang",
@@ -709,7 +709,7 @@
         "Zijian Guo",
         "Jianqing Fan"
       ],
-      "abstract": "Pursuing invariant prediction from heterogeneous environments opens the door to learning causality in a purely data-driven way and has several applications in causal discovery and robust transfer learning. However, existing methods such as ICP [Peters et al., 2016] and EILLS [Fan et al., 2024] that can attain sample-efficient estimation are based on exponential time algorithms. In this paper, we show that such a problem is intrinsically hard in computation: the decision problem, testing whether a non-trivial prediction-invariant solution exists across two environments, is NP-hard even for the linear causal relationship. In the world where P$\\neq$NP, our results imply that the estimation error rate can be arbitrarily slow using any computationally efficient algorithm. This suggests that pursuing causality is fundamentally harder than detecting associations when no prior assumption is pre-offered. Given there is almost no hope of computational improvement under the worst case, this paper proposes a method capable of attaining both computationally and statistically efficient estimation under additional conditions. Furthermore, our estimator is a distributionally robust estimator with an ellipse-shaped uncertain set where more uncertainty is placed on spurious directions than invariant directions, resulting in a smooth interpolation between the most predictive solution and the causal solution by varying the invariance hyper-parameter. Non-asymptotic results and empirical applications support the claim.",
+      "abstract": "Pursuing invariant prediction from heterogeneous environments opens the door\nto learning causality in a purely data-driven way and has several applications\nin causal discovery and robust transfer learning. However, existing methods\nsuch as ICP [Peters et al., 2016] and EILLS [Fan et al., 2024] that can attain\nsample-efficient estimation are based on exponential time algorithms. In this\npaper, we show that such a problem is intrinsically hard in computation: the\ndecision problem, testing whether a non-trivial prediction-invariant solution\nexists across two environments, is NP-hard even for the linear causal\nrelationship. In the world where P$\\neq$NP, our results imply that the\nestimation error rate can be arbitrarily slow using any computationally\nefficient algorithm. This suggests that pursuing causality is fundamentally\nharder than detecting associations when no prior assumption is pre-offered.\n  Given there is almost no hope of computational improvement under the worst\ncase, this paper proposes a method capable of attaining both computationally\nand statistically efficient estimation under additional conditions.\nFurthermore, our estimator is a distributionally robust estimator with an\nellipse-shaped uncertain set where more uncertainty is placed on spurious\ndirections than invariant directions, resulting in a smooth interpolation\nbetween the most predictive solution and the causal solution by varying the\ninvariance hyper-parameter. Non-asymptotic results and empirical applications\nsupport the claim.",
       "published": "January 29, 2025",
       "categories": [
         "math.ST",
@@ -718,8 +718,8 @@
         "stat.ML",
         "stat.TH"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2501.17354v1",
-      "pdf_link": "http://arxiv.org/pdf/2501.17354v1"
+      "pdf_link": "http://arxiv.org/pdf/2501.17354v1",
+      "arxiv_url": "http://arxiv.org/abs/2501.17354v1"
     },
     {
       "title": "Stiff Transfer Learning for Physics-Informed Neural Networks",
@@ -728,33 +728,33 @@
         "Wanzhou Lei",
         "Pavlos Protopapas"
       ],
-      "abstract": "Stiff differential equations are prevalent in various scientific domains, posing significant challenges due to the disparate time scales of their components. As computational power grows, physics-informed neural networks (PINNs) have led to significant improvements in modeling physical processes described by differential equations. Despite their promising outcomes, vanilla PINNs face limitations when dealing with stiff systems, known as failure modes. In response, we propose a novel approach, stiff transfer learning for physics-informed neural networks (STL-PINNs), to effectively tackle stiff ordinary differential equations (ODEs) and partial differential equations (PDEs). Our methodology involves training a Multi-Head-PINN in a low-stiff regime, and obtaining the final solution in a high stiff regime by transfer learning. This addresses the failure modes related to stiffness in PINNs while maintaining computational efficiency by computing \"one-shot\" solutions. The proposed approach demonstrates superior accuracy and speed compared to PINNs-based methods, as well as comparable computational efficiency with implicit numerical methods in solving stiff-parameterized linear and polynomial nonlinear ODEs and PDEs under stiff conditions. Furthermore, we demonstrate the scalability of such an approach and the superior speed it offers for simulations involving initial conditions and forcing function reparametrization.",
+      "abstract": "Stiff differential equations are prevalent in various scientific domains,\nposing significant challenges due to the disparate time scales of their\ncomponents. As computational power grows, physics-informed neural networks\n(PINNs) have led to significant improvements in modeling physical processes\ndescribed by differential equations. Despite their promising outcomes, vanilla\nPINNs face limitations when dealing with stiff systems, known as failure modes.\nIn response, we propose a novel approach, stiff transfer learning for\nphysics-informed neural networks (STL-PINNs), to effectively tackle stiff\nordinary differential equations (ODEs) and partial differential equations\n(PDEs). Our methodology involves training a Multi-Head-PINN in a low-stiff\nregime, and obtaining the final solution in a high stiff regime by transfer\nlearning. This addresses the failure modes related to stiffness in PINNs while\nmaintaining computational efficiency by computing \"one-shot\" solutions. The\nproposed approach demonstrates superior accuracy and speed compared to\nPINNs-based methods, as well as comparable computational efficiency with\nimplicit numerical methods in solving stiff-parameterized linear and polynomial\nnonlinear ODEs and PDEs under stiff conditions. Furthermore, we demonstrate the\nscalability of such an approach and the superior speed it offers for\nsimulations involving initial conditions and forcing function\nreparametrization.",
       "published": "January 28, 2025",
       "categories": [
         "cs.LG",
         "math.AP"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2501.17281v1",
-      "pdf_link": "http://arxiv.org/pdf/2501.17281v1"
+      "pdf_link": "http://arxiv.org/pdf/2501.17281v1",
+      "arxiv_url": "http://arxiv.org/abs/2501.17281v1"
     },
     {
-      "title": "CoRe-Net: Co-Operational Regressor Network with Progressive Transfer Learning for Blind Radar Signal Restoration",
+      "title": "CoRe-Net: Co-Operational Regressor Network with Progressive Transfer\n  Learning for Blind Radar Signal Restoration",
       "authors": [
         "Muhammad Uzair Zahid",
         "Serkan Kiranyaz",
         "Alper Yildirim",
         "Moncef Gabbouj"
       ],
-      "abstract": "Real-world radar signals are frequently corrupted by various artifacts, including sensor noise, echoes, interference, and intentional jamming, differing in type, severity, and duration. This pilot study introduces a novel model, called Co-Operational Regressor Network (CoRe-Net) for blind radar signal restoration, designed to address such limitations and drawbacks. CoRe-Net replaces adversarial training with a novel cooperative learning strategy, leveraging the complementary roles of its Apprentice Regressor (AR) and Master Regressor (MR). The AR restores radar signals corrupted by various artifacts, while the MR evaluates the quality of the restoration and provides immediate and task-specific feedback, ensuring stable and efficient learning. The AR, therefore, has the advantage of both self-learning and assistive learning by the MR. The proposed model has been extensively evaluated over the benchmark Blind Radar Signal Restoration (BRSR) dataset, which simulates diverse real-world artifact scenarios. Under the fair experimental setup, this study shows that the CoRe-Net surpasses the Op-GANs over a 1 dB mean SNR improvement. To further boost the performance gain, this study proposes multi-pass restoration by cascaded CoRe-Nets trained with a novel paradigm called Progressive Transfer Learning (PTL), which enables iterative refinement, thus achieving an additional 2 dB mean SNR enhancement. Multi-pass CoRe-Net training by PTL consistently yields incremental performance improvements through successive restoration passes whilst highlighting CoRe-Net ability to handle such a complex and varying blend of artifacts.",
+      "abstract": "Real-world radar signals are frequently corrupted by various artifacts,\nincluding sensor noise, echoes, interference, and intentional jamming,\ndiffering in type, severity, and duration. This pilot study introduces a novel\nmodel, called Co-Operational Regressor Network (CoRe-Net) for blind radar\nsignal restoration, designed to address such limitations and drawbacks.\nCoRe-Net replaces adversarial training with a novel cooperative learning\nstrategy, leveraging the complementary roles of its Apprentice Regressor (AR)\nand Master Regressor (MR). The AR restores radar signals corrupted by various\nartifacts, while the MR evaluates the quality of the restoration and provides\nimmediate and task-specific feedback, ensuring stable and efficient learning.\nThe AR, therefore, has the advantage of both self-learning and assistive\nlearning by the MR. The proposed model has been extensively evaluated over the\nbenchmark Blind Radar Signal Restoration (BRSR) dataset, which simulates\ndiverse real-world artifact scenarios. Under the fair experimental setup, this\nstudy shows that the CoRe-Net surpasses the Op-GANs over a 1 dB mean SNR\nimprovement. To further boost the performance gain, this study proposes\nmulti-pass restoration by cascaded CoRe-Nets trained with a novel paradigm\ncalled Progressive Transfer Learning (PTL), which enables iterative refinement,\nthus achieving an additional 2 dB mean SNR enhancement. Multi-pass CoRe-Net\ntraining by PTL consistently yields incremental performance improvements\nthrough successive restoration passes whilst highlighting CoRe-Net ability to\nhandle such a complex and varying blend of artifacts.",
       "published": "January 28, 2025",
       "categories": [
         "cs.LG"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2501.17125v1",
-      "pdf_link": "http://arxiv.org/pdf/2501.17125v1"
+      "pdf_link": "http://arxiv.org/pdf/2501.17125v1",
+      "arxiv_url": "http://arxiv.org/abs/2501.17125v1"
     },
     {
-      "title": "Automatic Machine Learning Framework to Study Morphological Parameters of AGN Host Galaxies within $z < 1.4$ in the Hyper Supreme-Cam Wide Survey",
+      "title": "Automatic Machine Learning Framework to Study Morphological Parameters\n  of AGN Host Galaxies within $z < 1.4$ in the Hyper Supreme-Cam Wide Survey",
       "authors": [
         "Chuan Tian",
         "C. Megan Urry",
@@ -768,18 +768,18 @@
         "Nico Cappelluti",
         "Kevin Schawinski"
       ],
-      "abstract": "We present a composite machine learning framework to estimate posterior probability distributions of bulge-to-total light ratio, half-light radius, and flux for Active Galactic Nucleus (AGN) host galaxies within $z<1.4$ and $m<23$ in the Hyper Supreme-Cam Wide survey. We divide the data into five redshift bins: low ($0<z<0.25$), mid ($0.25<z<0.5$), high ($0.5<z<0.9$), extra ($0.9<z<1.1$) and extreme ($1.1<z<1.4$), and train our models independently in each bin. We use PSFGAN to decompose the AGN point source light from its host galaxy, and invoke the Galaxy Morphology Posterior Estimation Network (GaMPEN) to estimate morphological parameters of the recovered host galaxy. We first trained our models on simulated data, and then fine-tuned our algorithm via transfer learning using labeled real data. To create training labels for transfer learning, we used GALFIT to fit $\\sim 20,000$ real HSC galaxies in each redshift bin. We comprehensively examined that the predicted values from our final models agree well with the GALFIT values for the vast majority of cases. Our PSFGAN + GaMPEN framework runs at least three orders of magnitude faster than traditional light-profile fitting methods, and can be easily retrained for other morphological parameters or on other datasets with diverse ranges of resolutions, seeing conditions, and signal-to-noise ratios, making it an ideal tool for analyzing AGN host galaxies from large surveys coming soon from the Rubin-LSST, Euclid, and Roman telescopes.",
+      "abstract": "We present a composite machine learning framework to estimate posterior\nprobability distributions of bulge-to-total light ratio, half-light radius, and\nflux for Active Galactic Nucleus (AGN) host galaxies within $z<1.4$ and $m<23$\nin the Hyper Supreme-Cam Wide survey. We divide the data into five redshift\nbins: low ($0<z<0.25$), mid ($0.25<z<0.5$), high ($0.5<z<0.9$), extra\n($0.9<z<1.1$) and extreme ($1.1<z<1.4$), and train our models independently in\neach bin. We use PSFGAN to decompose the AGN point source light from its host\ngalaxy, and invoke the Galaxy Morphology Posterior Estimation Network (GaMPEN)\nto estimate morphological parameters of the recovered host galaxy. We first\ntrained our models on simulated data, and then fine-tuned our algorithm via\ntransfer learning using labeled real data. To create training labels for\ntransfer learning, we used GALFIT to fit $\\sim 20,000$ real HSC galaxies in\neach redshift bin. We comprehensively examined that the predicted values from\nour final models agree well with the GALFIT values for the vast majority of\ncases. Our PSFGAN + GaMPEN framework runs at least three orders of magnitude\nfaster than traditional light-profile fitting methods, and can be easily\nretrained for other morphological parameters or on other datasets with diverse\nranges of resolutions, seeing conditions, and signal-to-noise ratios, making it\nan ideal tool for analyzing AGN host galaxies from large surveys coming soon\nfrom the Rubin-LSST, Euclid, and Roman telescopes.",
       "published": "January 27, 2025",
       "categories": [
         "astro-ph.GA",
         "astro-ph.IM",
         "cs.LG"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2501.15739v1",
-      "pdf_link": "http://arxiv.org/pdf/2501.15739v1"
+      "pdf_link": "http://arxiv.org/pdf/2501.15739v1",
+      "arxiv_url": "http://arxiv.org/abs/2501.15739v1"
     },
     {
-      "title": "Distributionally Robust Graph Out-of-Distribution Recommendation via Diffusion Model",
+      "title": "Distributionally Robust Graph Out-of-Distribution Recommendation via\n  Diffusion Model",
       "authors": [
         "Chu Zhao",
         "Enneng Yang",
@@ -788,7 +788,7 @@
         "Guibing Guo",
         "Xingwei Wang"
       ],
-      "abstract": "The distributionally robust optimization (DRO)-based graph neural network methods improve recommendation systems' out-of-distribution (OOD) generalization by optimizing the model's worst-case performance. However, these studies fail to consider the impact of noisy samples in the training data, which results in diminished generalization capabilities and lower accuracy. Through experimental and theoretical analysis, this paper reveals that current DRO-based graph recommendation methods assign greater weight to noise distribution, leading to model parameter learning being dominated by it. When the model overly focuses on fitting noise samples in the training data, it may learn irrelevant or meaningless features that cannot be generalized to OOD data. To address this challenge, we design a Distributionally Robust Graph model for OOD recommendation (DRGO). Specifically, our method first employs a simple and effective diffusion paradigm to alleviate the noisy effect in the latent space. Additionally, an entropy regularization term is introduced in the DRO objective function to avoid extreme sample weights in the worst-case distribution. Finally, we provide a theoretical proof of the generalization error bound of DRGO as well as a theoretical analysis of how our approach mitigates noisy sample effects, which helps to better understand the proposed framework from a theoretical perspective. We conduct extensive experiments on four datasets to evaluate the effectiveness of our framework against three typical distribution shifts, and the results demonstrate its superiority in both independently and identically distributed distributions (IID) and OOD.",
+      "abstract": "The distributionally robust optimization (DRO)-based graph neural network\nmethods improve recommendation systems' out-of-distribution (OOD)\ngeneralization by optimizing the model's worst-case performance. However, these\nstudies fail to consider the impact of noisy samples in the training data,\nwhich results in diminished generalization capabilities and lower accuracy.\nThrough experimental and theoretical analysis, this paper reveals that current\nDRO-based graph recommendation methods assign greater weight to noise\ndistribution, leading to model parameter learning being dominated by it. When\nthe model overly focuses on fitting noise samples in the training data, it may\nlearn irrelevant or meaningless features that cannot be generalized to OOD\ndata. To address this challenge, we design a Distributionally Robust Graph\nmodel for OOD recommendation (DRGO). Specifically, our method first employs a\nsimple and effective diffusion paradigm to alleviate the noisy effect in the\nlatent space. Additionally, an entropy regularization term is introduced in the\nDRO objective function to avoid extreme sample weights in the worst-case\ndistribution. Finally, we provide a theoretical proof of the generalization\nerror bound of DRGO as well as a theoretical analysis of how our approach\nmitigates noisy sample effects, which helps to better understand the proposed\nframework from a theoretical perspective. We conduct extensive experiments on\nfour datasets to evaluate the effectiveness of our framework against three\ntypical distribution shifts, and the results demonstrate its superiority in\nboth independently and identically distributed distributions (IID) and OOD.",
       "published": "January 26, 2025",
       "categories": [
         "cs.LG",
@@ -796,69 +796,69 @@
         "cs.GR",
         "stat.ML"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2501.15555v1",
-      "pdf_link": "http://arxiv.org/pdf/2501.15555v1"
+      "pdf_link": "http://arxiv.org/pdf/2501.15555v1",
+      "arxiv_url": "http://arxiv.org/abs/2501.15555v1"
     },
     {
       "title": "Building Efficient Lightweight CNN Models",
       "authors": [
         "Nathan Isong"
       ],
-      "abstract": "Convolutional Neural Networks (CNNs) are pivotal in image classification tasks due to their robust feature extraction capabilities. However, their high computational and memory requirements pose challenges for deployment in resource-constrained environments. This paper introduces a methodology to construct lightweight CNNs while maintaining competitive accuracy. The approach integrates two stages of training; dual-input-output model and transfer learning with progressive unfreezing. The dual-input-output model train on original and augmented datasets, enhancing robustness. Progressive unfreezing is applied to the unified model to optimize pre-learned features during fine-tuning, enabling faster convergence and improved model accuracy. The methodology was evaluated on three benchmark datasets; handwritten digit MNIST, fashion MNIST, and CIFAR-10. The proposed model achieved a state-of-the-art accuracy of 99% on the handwritten digit MNIST and 89% on fashion MNIST, with only 14,862 parameters and a model size of 0.17 MB. While performance on CIFAR-10 was comparatively lower (65% with less than 20,00 parameters), the results highlight the scalability of this method. The final model demonstrated fast inference times and low latency, making it suitable for real-time applications. Future directions include exploring advanced augmentation techniques, improving architectural scalability for complex datasets, and extending the methodology to tasks beyond classification. This research underscores the potential for creating efficient, scalable, and task-specific CNNs for diverse applications.",
+      "abstract": "Convolutional Neural Networks (CNNs) are pivotal in image classification\ntasks due to their robust feature extraction capabilities. However, their high\ncomputational and memory requirements pose challenges for deployment in\nresource-constrained environments. This paper introduces a methodology to\nconstruct lightweight CNNs while maintaining competitive accuracy. The approach\nintegrates two stages of training; dual-input-output model and transfer\nlearning with progressive unfreezing. The dual-input-output model train on\noriginal and augmented datasets, enhancing robustness. Progressive unfreezing\nis applied to the unified model to optimize pre-learned features during\nfine-tuning, enabling faster convergence and improved model accuracy.\n  The methodology was evaluated on three benchmark datasets; handwritten digit\nMNIST, fashion MNIST, and CIFAR-10. The proposed model achieved a\nstate-of-the-art accuracy of 99% on the handwritten digit MNIST and 89% on\nfashion MNIST, with only 14,862 parameters and a model size of 0.17 MB. While\nperformance on CIFAR-10 was comparatively lower (65% with less than 20,00\nparameters), the results highlight the scalability of this method. The final\nmodel demonstrated fast inference times and low latency, making it suitable for\nreal-time applications.\n  Future directions include exploring advanced augmentation techniques,\nimproving architectural scalability for complex datasets, and extending the\nmethodology to tasks beyond classification. This research underscores the\npotential for creating efficient, scalable, and task-specific CNNs for diverse\napplications.",
       "published": "January 26, 2025",
       "categories": [
         "cs.CV",
         "cs.AI",
         "cs.LG"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2501.15547v1",
-      "pdf_link": "http://arxiv.org/pdf/2501.15547v1"
+      "pdf_link": "http://arxiv.org/pdf/2501.15547v1",
+      "arxiv_url": "http://arxiv.org/abs/2501.15547v1"
     },
     {
-      "title": "Expert-Free Online Transfer Learning in Multi-Agent Reinforcement Learning",
+      "title": "Expert-Free Online Transfer Learning in Multi-Agent Reinforcement\n  Learning",
       "authors": [
         "Alberto Castagna"
       ],
-      "abstract": "Reinforcement Learning (RL) enables an intelligent agent to optimise its performance in a task by continuously taking action from an observed state and receiving a feedback from the environment in form of rewards. RL typically uses tables or linear approximators to map state-action tuples that maximises the reward. Combining RL with deep neural networks (DRL) significantly increases its scalability and enables it to address more complex problems than before. However, DRL also inherits downsides from both RL and deep learning. Despite DRL improves generalisation across similar state-action pairs when compared to simpler RL policy representations like tabular methods, it still requires the agent to adequately explore the state-action space. Additionally, deep methods require more training data, with the volume of data escalating with the complexity and size of the neural network. As a result, deep RL requires a long time to collect enough agent-environment samples and to successfully learn the underlying policy. Furthermore, often even a slight alteration to the task invalidates any previous acquired knowledge. To address these shortcomings, Transfer Learning (TL) has been introduced, which enables the use of external knowledge from other tasks or agents to enhance a learning process. The goal of TL is to reduce the learning complexity for an agent dealing with an unfamiliar task by simplifying the exploration process. This is achieved by lowering the amount of new information required by its learning model, resulting in a reduced overall convergence time...",
+      "abstract": "Reinforcement Learning (RL) enables an intelligent agent to optimise its\nperformance in a task by continuously taking action from an observed state and\nreceiving a feedback from the environment in form of rewards. RL typically uses\ntables or linear approximators to map state-action tuples that maximises the\nreward. Combining RL with deep neural networks (DRL) significantly increases\nits scalability and enables it to address more complex problems than before.\nHowever, DRL also inherits downsides from both RL and deep learning. Despite\nDRL improves generalisation across similar state-action pairs when compared to\nsimpler RL policy representations like tabular methods, it still requires the\nagent to adequately explore the state-action space. Additionally, deep methods\nrequire more training data, with the volume of data escalating with the\ncomplexity and size of the neural network. As a result, deep RL requires a long\ntime to collect enough agent-environment samples and to successfully learn the\nunderlying policy. Furthermore, often even a slight alteration to the task\ninvalidates any previous acquired knowledge. To address these shortcomings,\nTransfer Learning (TL) has been introduced, which enables the use of external\nknowledge from other tasks or agents to enhance a learning process. The goal of\nTL is to reduce the learning complexity for an agent dealing with an unfamiliar\ntask by simplifying the exploration process. This is achieved by lowering the\namount of new information required by its learning model, resulting in a\nreduced overall convergence time...",
       "published": "January 26, 2025",
       "categories": [
         "cs.AI",
         "cs.LG",
         "cs.MA"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2501.15495v1",
-      "pdf_link": "http://arxiv.org/pdf/2501.15495v1"
+      "pdf_link": "http://arxiv.org/pdf/2501.15495v1",
+      "arxiv_url": "http://arxiv.org/abs/2501.15495v1"
     },
     {
-      "title": "A Transfer Learning Framework for Anomaly Detection in Multivariate IoT Traffic Data",
+      "title": "A Transfer Learning Framework for Anomaly Detection in Multivariate IoT\n  Traffic Data",
       "authors": [
         "Mahshid Rezakhani",
         "Tolunay Seyfi",
         "Fatemeh Afghah"
       ],
-      "abstract": "In recent years, rapid technological advancements and expanded Internet access have led to a significant rise in anomalies within network traffic and time-series data. Prompt detection of these irregularities is crucial for ensuring service quality, preventing financial losses, and maintaining robust security standards. While machine learning algorithms have shown promise in achieving high accuracy for anomaly detection, their performance is often constrained by the specific conditions of their training data. A persistent challenge in this domain is the scarcity of labeled data for anomaly detection in time-series datasets. This limitation hampers the training efficacy of both traditional machine learning and advanced deep learning models. To address this, unsupervised transfer learning emerges as a viable solution, leveraging unlabeled data from a source domain to identify anomalies in an unlabeled target domain. However, many existing approaches still depend on a small amount of labeled data from the target domain. To overcome these constraints, we propose a transfer learning-based model for anomaly detection in multivariate time-series datasets. Unlike conventional methods, our approach does not require labeled data in either the source or target domains. Empirical evaluations on novel intrusion detection datasets demonstrate that our model outperforms existing techniques in accurately identifying anomalies within an entirely unlabeled target domain.",
+      "abstract": "In recent years, rapid technological advancements and expanded Internet\naccess have led to a significant rise in anomalies within network traffic and\ntime-series data. Prompt detection of these irregularities is crucial for\nensuring service quality, preventing financial losses, and maintaining robust\nsecurity standards. While machine learning algorithms have shown promise in\nachieving high accuracy for anomaly detection, their performance is often\nconstrained by the specific conditions of their training data. A persistent\nchallenge in this domain is the scarcity of labeled data for anomaly detection\nin time-series datasets. This limitation hampers the training efficacy of both\ntraditional machine learning and advanced deep learning models. To address\nthis, unsupervised transfer learning emerges as a viable solution, leveraging\nunlabeled data from a source domain to identify anomalies in an unlabeled\ntarget domain. However, many existing approaches still depend on a small amount\nof labeled data from the target domain. To overcome these constraints, we\npropose a transfer learning-based model for anomaly detection in multivariate\ntime-series datasets. Unlike conventional methods, our approach does not\nrequire labeled data in either the source or target domains. Empirical\nevaluations on novel intrusion detection datasets demonstrate that our model\noutperforms existing techniques in accurately identifying anomalies within an\nentirely unlabeled target domain.",
       "published": "January 26, 2025",
       "categories": [
         "cs.LG",
         "cs.CR",
         "cs.NI"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2501.15365v1",
-      "pdf_link": "http://arxiv.org/pdf/2501.15365v1"
+      "pdf_link": "http://arxiv.org/pdf/2501.15365v1",
+      "arxiv_url": "http://arxiv.org/abs/2501.15365v1"
     },
     {
       "title": "Explainable YOLO-Based Dyslexia Detection in Synthetic Handwriting Data",
       "authors": [
         "Nora Fink"
       ],
-      "abstract": "Dyslexia affects reading and writing skills across many languages. This work describes a new application of YOLO-based object detection to isolate and label handwriting patterns (Normal, Reversal, Corrected) within synthetic images that resemble real words. Individual letters are first collected, preprocessed into 32x32 samples, then assembled into larger synthetic 'words' to simulate realistic handwriting. Our YOLOv11 framework simultaneously localizes each letter and classifies it into one of three categories, reflecting key dyslexia traits. Empirically, we achieve near-perfect performance, with precision, recall, and F1 metrics typically exceeding 0.999. This surpasses earlier single-letter approaches that rely on conventional CNNs or transfer-learning classifiers (for example, MobileNet-based methods in Robaa et al. arXiv:2410.19821). Unlike simpler pipelines that consider each letter in isolation, our solution processes complete word images, resulting in more authentic representations of handwriting. Although relying on synthetic data raises concerns about domain gaps, these experiments highlight the promise of YOLO-based detection for faster and more interpretable dyslexia screening. Future work will expand to real-world handwriting, other languages, and deeper explainability methods to build confidence among educators, clinicians, and families.",
+      "abstract": "Dyslexia affects reading and writing skills across many languages. This work\ndescribes a new application of YOLO-based object detection to isolate and label\nhandwriting patterns (Normal, Reversal, Corrected) within synthetic images that\nresemble real words. Individual letters are first collected, preprocessed into\n32x32 samples, then assembled into larger synthetic 'words' to simulate\nrealistic handwriting. Our YOLOv11 framework simultaneously localizes each\nletter and classifies it into one of three categories, reflecting key dyslexia\ntraits. Empirically, we achieve near-perfect performance, with precision,\nrecall, and F1 metrics typically exceeding 0.999. This surpasses earlier\nsingle-letter approaches that rely on conventional CNNs or transfer-learning\nclassifiers (for example, MobileNet-based methods in Robaa et al.\narXiv:2410.19821). Unlike simpler pipelines that consider each letter in\nisolation, our solution processes complete word images, resulting in more\nauthentic representations of handwriting. Although relying on synthetic data\nraises concerns about domain gaps, these experiments highlight the promise of\nYOLO-based detection for faster and more interpretable dyslexia screening.\nFuture work will expand to real-world handwriting, other languages, and deeper\nexplainability methods to build confidence among educators, clinicians, and\nfamilies.",
       "published": "January 25, 2025",
       "categories": [
         "cs.CV",
         "cs.LG"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2501.15263v1",
-      "pdf_link": "http://arxiv.org/pdf/2501.15263v1"
+      "pdf_link": "http://arxiv.org/pdf/2501.15263v1",
+      "arxiv_url": "http://arxiv.org/abs/2501.15263v1"
     },
     {
       "title": "In-Context Operator Learning for Linear Propagator Models",
@@ -870,7 +870,7 @@
         "Stanley Osher",
         "Georg Menz"
       ],
-      "abstract": "We study operator learning in the context of linear propagator models for optimal order execution problems with transient price impact \\`a la Bouchaud et al. (2004) and Gatheral (2010). Transient price impact persists and decays over time according to some propagator kernel. Specifically, we propose to use In-Context Operator Networks (ICON), a novel transformer-based neural network architecture introduced by Yang et al. (2023), which facilitates data-driven learning of operators by merging offline pre-training with an online few-shot prompting inference. First, we train ICON to learn the operator from various propagator models that maps the trading rate to the induced transient price impact. The inference step is then based on in-context prediction, where ICON is presented only with a few examples. We illustrate that ICON is capable of accurately inferring the underlying price impact model from the data prompts, even with propagator kernels not seen in the training data. In a second step, we employ the pre-trained ICON model provided with context as a surrogate operator in solving an optimal order execution problem via a neural network control policy, and demonstrate that the exact optimal execution strategies from Abi Jaber and Neuman (2022) for the models generating the context are correctly retrieved. Our introduced methodology is very general, offering a new approach to solving optimal stochastic control problems with unknown state dynamics, inferred data-efficiently from a limited number of examples by leveraging the few-shot and transfer learning capabilities of transformer networks.",
+      "abstract": "We study operator learning in the context of linear propagator models for\noptimal order execution problems with transient price impact \\`a la Bouchaud et\nal. (2004) and Gatheral (2010). Transient price impact persists and decays over\ntime according to some propagator kernel. Specifically, we propose to use\nIn-Context Operator Networks (ICON), a novel transformer-based neural network\narchitecture introduced by Yang et al. (2023), which facilitates data-driven\nlearning of operators by merging offline pre-training with an online few-shot\nprompting inference. First, we train ICON to learn the operator from various\npropagator models that maps the trading rate to the induced transient price\nimpact. The inference step is then based on in-context prediction, where ICON\nis presented only with a few examples. We illustrate that ICON is capable of\naccurately inferring the underlying price impact model from the data prompts,\neven with propagator kernels not seen in the training data. In a second step,\nwe employ the pre-trained ICON model provided with context as a surrogate\noperator in solving an optimal order execution problem via a neural network\ncontrol policy, and demonstrate that the exact optimal execution strategies\nfrom Abi Jaber and Neuman (2022) for the models generating the context are\ncorrectly retrieved. Our introduced methodology is very general, offering a new\napproach to solving optimal stochastic control problems with unknown state\ndynamics, inferred data-efficiently from a limited number of examples by\nleveraging the few-shot and transfer learning capabilities of transformer\nnetworks.",
       "published": "January 25, 2025",
       "categories": [
         "q-fin.TR",
@@ -879,26 +879,26 @@
         "q-fin.CP",
         "93E20, 91G60, 68T07"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2501.15106v1",
-      "pdf_link": "http://arxiv.org/pdf/2501.15106v1"
+      "pdf_link": "http://arxiv.org/pdf/2501.15106v1",
+      "arxiv_url": "http://arxiv.org/abs/2501.15106v1"
     },
     {
-      "title": "A Recurrent Spiking Network with Hierarchical Intrinsic Excitability Modulation for Schema Learning",
+      "title": "A Recurrent Spiking Network with Hierarchical Intrinsic Excitability\n  Modulation for Schema Learning",
       "authors": [
         "Yingchao Yu",
         "Yaochu Jin",
         "Yuchen Xiao",
         "Yuping Yan"
       ],
-      "abstract": "Schema, a form of structured knowledge that promotes transfer learning, is attracting growing attention in both neuroscience and artificial intelligence (AI). Current schema research in neural computation is largely constrained to a single behavioral paradigm and relies heavily on recurrent neural networks (RNNs) which lack the neural plausibility and biological interpretability. To address these limitations, this work first constructs a generalized behavioral paradigm framework for schema learning and introduces three novel cognitive tasks, thus supporting a comprehensive schema exploration. Second, we propose a new model using recurrent spiking neural networks with hierarchical intrinsic excitability modulation (HM-RSNNs). The top level of the model selects excitability properties for task-specific demands, while the bottom level fine-tunes these properties for intra-task problems. Finally, extensive visualization analyses of HM-RSNNs are conducted to showcase their computational advantages, track the intrinsic excitability evolution during schema learning, and examine neural coordination differences across tasks. Biologically inspired lesion studies further uncover task-specific distributions of intrinsic excitability within schemas. Experimental results show that HM-RSNNs significantly outperform RSNN baselines across all tasks and exceed RNNs in three novel cognitive tasks. Additionally, HM-RSNNs offer deeper insights into neural dynamics underlying schema learning.",
+      "abstract": "Schema, a form of structured knowledge that promotes transfer learning, is\nattracting growing attention in both neuroscience and artificial intelligence\n(AI). Current schema research in neural computation is largely constrained to a\nsingle behavioral paradigm and relies heavily on recurrent neural networks\n(RNNs) which lack the neural plausibility and biological interpretability. To\naddress these limitations, this work first constructs a generalized behavioral\nparadigm framework for schema learning and introduces three novel cognitive\ntasks, thus supporting a comprehensive schema exploration. Second, we propose a\nnew model using recurrent spiking neural networks with hierarchical intrinsic\nexcitability modulation (HM-RSNNs). The top level of the model selects\nexcitability properties for task-specific demands, while the bottom level\nfine-tunes these properties for intra-task problems. Finally, extensive\nvisualization analyses of HM-RSNNs are conducted to showcase their\ncomputational advantages, track the intrinsic excitability evolution during\nschema learning, and examine neural coordination differences across tasks.\nBiologically inspired lesion studies further uncover task-specific\ndistributions of intrinsic excitability within schemas. Experimental results\nshow that HM-RSNNs significantly outperform RSNN baselines across all tasks and\nexceed RNNs in three novel cognitive tasks. Additionally, HM-RSNNs offer deeper\ninsights into neural dynamics underlying schema learning.",
       "published": "January 24, 2025",
       "categories": [
         "cs.NE",
         "cs.LG",
         "I.2.6"
       ],
-      "arxiv_url": "http://arxiv.org/abs/2501.14539v1",
-      "pdf_link": "http://arxiv.org/pdf/2501.14539v1"
+      "pdf_link": "http://arxiv.org/pdf/2501.14539v1",
+      "arxiv_url": "http://arxiv.org/abs/2501.14539v1"
     }
   ]
 }

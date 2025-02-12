@@ -12,9 +12,19 @@ MAX_RETRIES = 3
 RETRY_DELAY = 5  # seconds
 
 def fetch_arxiv_papers():
-    query = ('search_query=cat:cs.LG+AND+%28all:"transfer+learning"+OR+all:'
-             '"distributionally+robust"%29&sortBy=submittedDate&sortOrder=descending&max_results=50')
-    url = f"http://export.arxiv.org/api/query?{query}"
+    # Updated search query with proper encoding and exact phrase matching
+    query_params = {
+        'search_query': '(ti:"transfer learning" OR abs:"transfer learning" OR ti:"distributionally robust" OR abs:"distributionally robust")',
+        'sortBy': 'submittedDate',
+        'sortOrder': 'descending',
+        'max_results': 50
+    }
+    
+    # Properly encode the URL
+    query_string = '&'.join(f"{k}={urllib.parse.quote(v)}" for k, v in query_params.items())
+    url = f"http://export.arxiv.org/api/query?{query_string}"
+    
+    print(f"Fetching papers with URL: {url}")  # Debug logging
     
     headers = {
         'User-Agent': 'Mozilla/5.0 (Paper Fetcher; mailto:kzhan@g.harvard.edu)'
@@ -26,28 +36,51 @@ def fetch_arxiv_papers():
             with urllib.request.urlopen(req) as response:
                 xml_data = response.read().decode('utf-8')
                 
+            if 'The requested URL was not found' in xml_data:
+                print("Error: Invalid API request")
+                return load_cache()
+                
             root = ET.fromstring(xml_data)
             papers = []
             
-            for entry in root.findall('{http://www.w3.org/2005/Atom}entry'):
+            # Add namespace handling for arXiv XML
+            namespaces = {
+                'atom': 'http://www.w3.org/2005/Atom',
+                'arxiv': 'http://arxiv.org/schemas/atom'
+            }
+            
+            for entry in root.findall('.//atom:entry', namespaces):
+                # Extract paper details with proper namespace handling
+                title = entry.find('atom:title', namespaces).text.strip()
+                
+                # Only include papers that actually match our keywords
+                keywords = ['transfer learning', 'distributionally robust']
+                if not any(kw.lower() in title.lower() or 
+                          kw.lower() in entry.find('atom:abstract', namespaces).text.lower() 
+                          for kw in keywords):
+                    continue
+                    
                 paper = {
-                    'title': entry.find('{http://www.w3.org/2005/Atom}title').text.strip(),
-                    'authors': [author.find('{http://www.w3.org/2005/Atom}name').text.strip() 
-                               for author in entry.findall('{http://www.w3.org/2005/Atom}author')],
-                    'abstract': entry.find('{http://www.w3.org/2005/Atom}summary').text.strip(),
-                    'published': format_date(entry.find('{http://www.w3.org/2005/Atom}published').text),
-                    'categories': [cat.get('term') for cat in entry.findall('{http://www.w3.org/2005/Atom}category')],
-                    'pdf_link': next((link.get('href') for link in entry.findall('{http://www.w3.org/2005/Atom}link') 
+                    'title': title,
+                    'authors': [author.find('atom:name', namespaces).text.strip() 
+                               for author in entry.findall('atom:author', namespaces)],
+                    'abstract': entry.find('atom:summary', namespaces).text.strip(),
+                    'published': format_date(entry.find('atom:published', namespaces).text),
+                    'categories': [cat.get('term') for cat in entry.findall('atom:category', namespaces)],
+                    'pdf_link': next((link.get('href') for link in entry.findall('atom:link', namespaces) 
                                     if link.get('title') == 'pdf'), ''),
-                    'arxiv_url': next((link.get('href') for link in entry.findall('{http://www.w3.org/2005/Atom}link') 
+                    'arxiv_url': next((link.get('href') for link in entry.findall('atom:link', namespaces) 
                                      if link.get('rel') == 'alternate'), '')
                 }
                 papers.append(paper)
             
             if papers:
+                print(f"Successfully fetched {len(papers)} relevant papers")
                 save_cache(papers)
-                print(f"Successfully fetched {len(papers)} papers")
                 return papers
+            else:
+                print("No papers found matching the keywords")
+                return load_cache()
                 
         except Exception as e:
             print(f"Attempt {attempt + 1} failed: {str(e)}")

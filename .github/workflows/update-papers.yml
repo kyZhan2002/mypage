@@ -4,6 +4,8 @@ on:
   schedule:
     - cron: '0 0 * * *'  # Run at midnight UTC daily
   workflow_dispatch:      # Allow manual triggers
+  repository_dispatch:    # Add this trigger
+    types: [refresh-papers]
 
 permissions:
   contents: write

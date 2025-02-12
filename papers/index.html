@@ -52,12 +52,22 @@ function refreshPapers() {
   button.disabled = true;
   button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Refreshing...';
   
-  fetch('{{ site.baseurl }}/refresh-papers', {
+  // Trigger GitHub Action workflow
+  fetch('https://api.github.com/repos/kyZhan2002/mypage/dispatches', {
     method: 'POST',
+    headers: {
+      'Accept': 'application/vnd.github.v3+json',
+      'Authorization': 'Bearer YOUR_GITHUB_TOKEN'  // You'll need to set this up
+    },
+    body: JSON.stringify({
+      'event_type': 'refresh-papers'
+    })
   })
   .then(response => {
-    if (response.ok) {
-      location.reload();
+    if (response.ok || response.status === 204) {
+      alert('Refresh triggered! Changes will appear in a few minutes.');
+      // Wait 30 seconds before reloading to allow the action to complete
+      setTimeout(() => location.reload(), 30000);
     } else {
       throw new Error('Refresh failed');
     }
