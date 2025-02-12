@@ -136,9 +136,13 @@ function update() {
     drawDots();
     drawPacman();
     
+    // Update Pac-Man's grid position
+    pacmanX = pacmanCellX * CELL_SIZE;
+    pacmanY = pacmanCellY * CELL_SIZE;
+
     // Only move ghosts every GHOST_MOVE_DELAY frames
     if (frameCount % GHOST_MOVE_DELAY === 0) {
-        ghosts.forEach(g => moveGhost(g));
+        ghosts.forEach(ghost => ghost.move(pacmanX, pacmanY));
     }
     
     // Check collision with Pacman
@@ -152,11 +156,9 @@ function update() {
         }
     });
     
-    // Check dot collection
-    const pacmanGridX = Math.floor(pacmanX/CELL_SIZE);
-    const pacmanGridY = Math.floor(pacmanY/CELL_SIZE);
+    // Fix dot collection using cell coordinates
     dots = dots.filter(dot => {
-        if(dot.x === pacmanGridX && dot.y === pacmanGridY) {
+        if(dot.x === pacmanCellX && dot.y === pacmanCellY) {
             score += 10;
             return false;
         }
@@ -209,22 +211,17 @@ function moveGhost(ghost) {
     let newY = ghost.y;
     
     if (Math.random() < 0.8) {
-        // Improved ghost AI with wall checking
-        const possibleMoves = [];
-        const directions = [[0,1], [0,-1], [1,0], [-1,0]];
-        
-        directions.forEach(([mx, my]) => {
-            if (!isWall(ghost.x + mx, ghost.y + my)) {
-                const newDist = Math.abs((ghost.x + mx) - pacmanCellX) + Math.abs((ghost.y + my) - pacmanCellY);
-                possibleMoves.push({mx, my, dist: newDist});
+        // More aggressive ghost AI
+        if (Math.abs(dx) > Math.abs(dy)) {
+            newX += Math.sign(dx);
+            if (isWall(newX, ghost.y)) {
+                newY += Math.sign(dy);
             }
-        });
-        
-        if (possibleMoves.length > 0) {
-            possibleMoves.sort((a, b) => a.dist - b.dist);
-            const move = possibleMoves[0];
-            newX = ghost.x + move.mx;
-            newY = ghost.y + move.my;
+        } else {
+            newY += Math.sign(dy);
+            if (isWall(ghost.x, newY)) {
+                newX += Math.sign(dx);
+            }
         }
     } else {
         // Random movement with wall checking
