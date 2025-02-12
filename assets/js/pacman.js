@@ -113,7 +113,7 @@ let score = 0;
 let pacmanCellX = 14; // Keep X centered
 let pacmanCellY = 14; // Move closer to middle where ghosts are
 let frameCount = 0;
-const GHOST_MOVE_DELAY = 10; // Ghosts move every 10 frames
+const GHOST_MOVE_DELAY = 5; // Changed from 10 to 5 to make ghosts faster
 
 function initGame() {
     // Initialize dots
@@ -265,7 +265,7 @@ function drawPacman() {
     const centerX = Math.floor(pacmanCellX) * CELL_SIZE + CELL_SIZE/2;
     const centerY = Math.floor(pacmanCellY) * CELL_SIZE + CELL_SIZE/2;
     ctx.beginPath();
-    ctx.arc(centerX, centerY, PACMAN_SIZE/2, 0.2 * Math.PI + pacmanDirection, 1.8 * Math.PI + pacmanDirection);
+    ctx.arc(centerX+1, centerY, PACMAN_SIZE/2, 0.2 * Math.PI + pacmanDirection, 1.8 * Math.PI + pacmanDirection);
     ctx.lineTo(centerX, centerY);
     ctx.fillStyle = 'yellow';
     ctx.fill();

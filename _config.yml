@@ -9,6 +9,7 @@ social:
 
 plugins:
   - jekyll-seo-tag
+  - arxiv_papers
 
 sass:
   style: compressed
