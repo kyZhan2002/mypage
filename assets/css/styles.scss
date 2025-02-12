@@ -1,4 +1,3 @@
-
 ---
 ---
 
@@ -72,6 +71,86 @@ body {
     &:hover {
       background: var(--primary-color);
       color: white;
+    }
+  }
+}
+
+.main-nav {
+  background: var(--primary-color);
+  padding: 1rem 0;
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-brand {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+
+    a {
+      color: white;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.post-content {
+  max-width: 800px;
+  margin: 4rem auto;
+
+  .post-header {
+    margin-bottom: 2rem;
+    
+    h1 {
+      margin-bottom: 0.5rem;
+    }
+    
+    .post-meta {
+      color: #666;
+      font-size: 0.9rem;
+      
+      .category {
+        background: var(--primary-color);
+        color: white;
+        padding: 0.2rem 0.6rem;
+        border-radius: 15px;
+        margin-left: 1rem;
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  .post-body {
+    line-height: 1.8;
+    
+    h2, h3 {
+      margin-top: 2rem;
+    }
+    
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    
+    code {
+      background: #f4f4f4;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
     }
   }
 }
