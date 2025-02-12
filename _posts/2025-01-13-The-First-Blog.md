@@ -1,7 +1,18 @@
 ---
-title: "The-First-Blog"
-date: 2025-01-13
+layout: post
+title: "Hello World - Starting My Coding Blog"
+date: 2025-02-10
+categories: general
 ---
 
+Welcome to my first blog post! I'm excited to start sharing my technical journey here. This blog will serve as a platform for documenting my learning experiences, sharing knowledge, and connecting with the developer community.
 
-Today is the start of winter semester, and I learned how to create my page.
+## What to Expect
+
+I'll be covering topics including:
+- Software development best practices
+- Programming tutorials
+- Project walkthroughs
+- Learning resources
+
+Stay tuned for more content!

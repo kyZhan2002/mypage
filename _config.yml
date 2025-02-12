@@ -1,4 +1,6 @@
 theme: minima
-title: Keyao's Page
-author: Keyao Zhan
-description: Keyao's first GitHub Page
+title: "My Developer Journey"
+author: "Keyao Zhan"
+description: "A blog about software development, coding challenges, and technical discoveries"
+social:
+  github: keyaozhan
