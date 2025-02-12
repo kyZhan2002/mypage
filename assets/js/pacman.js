@@ -4,7 +4,7 @@ const ctx = canvas.getContext('2d');
 const CELL_SIZE = 16;
 const PACMAN_SIZE = CELL_SIZE * 0.8;
 let pacmanX = CELL_SIZE * 14;
-let pacmanY = CELL_SIZE * 23;
+let pacmanY = CELL_SIZE * 14; // Move closer to middle where ghosts are
 let pacmanDirection = 0;
 let gameLoop;
 let gameActive = false; // Add this
@@ -110,8 +110,8 @@ class Ghost {
 let ghosts = [];
 let dots = [];
 let score = 0;
-let pacmanCellX = 14;
-let pacmanCellY = 23;
+let pacmanCellX = 14; // Keep X centered
+let pacmanCellY = 14; // Move closer to middle where ghosts are
 let frameCount = 0;
 const GHOST_MOVE_DELAY = 10; // Ghosts move every 10 frames
 
@@ -235,26 +235,24 @@ function gameOver() {
 function startGame() {
     if (gameLoop) clearInterval(gameLoop);
     
-    // Reset Pacman position
+    // Reset to initial spawn position
     pacmanCellX = 14;
-    pacmanCellY = 23;
+    pacmanCellY = 14; // Updated spawn position
     pacmanX = CELL_SIZE * pacmanCellX;
     pacmanY = CELL_SIZE * pacmanCellY;
     pacmanDirection = 0;
     
-    // Reset score
+    // Reset game state
     score = 0;
-    
-    // Reset frame counter
     frameCount = 0;
     
-    // Initialize dots and ghosts
+    // Clear and reinitialize dots and ghosts
+    dots = [];
+    ghosts = [];
     initGame();
     
-    // Enable game controls
+    // Enable game controls and update display
     gameActive = true;
-    
-    // Update score display
     const scoreElement = document.getElementById('score');
     if (scoreElement) scoreElement.textContent = '0';
     

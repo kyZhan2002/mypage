@@ -53,21 +53,22 @@ module Jekyll
         max_results: 50
       )
       
-      uri = URI.parse("http://export.arxiv.org/api/query?#{query}")
+      uri = URI.parse("https://export.arxiv.org/api/query?#{query}")  # Changed to https
       
-      response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https') do |http|
-        http.read_timeout = 10
+      response = Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|  # Added use_ssl: true
+        http.read_timeout = 30  # Increased timeout
+        http.open_timeout = 30  # Added open_timeout
         http.get(uri.request_uri, {
-          'User-Agent' => 'Mozilla/5.0 (Jekyll Paper Fetcher; mailto:your-email@example.com)'
+          'User-Agent' => 'Mozilla/5.0 (Jekyll Paper Fetcher; mailto:kzhan@g.harvard.edu)'  # Updated email
         })
       end
 
-      return nil unless response.is_a?(Net::HTTPSuccess)
+      raise "Failed to fetch papers: #{response.code}" unless response.is_a?(Net::HTTPSuccess)
 
       doc = Nokogiri::XML(response.body)
       doc.remove_namespaces!
 
-      doc.xpath('//entry').map do |entry|
+      papers = doc.xpath('//entry').map do |entry|
         {
           'title' => sanitize_text(entry.at_xpath('.//title').text),
           'authors' => entry.xpath('.//author/name').map { |name| sanitize_text(name.text) },
@@ -78,9 +79,14 @@ module Jekyll
           'categories' => entry.xpath('.//category/@term').map(&:to_s)
         }
       end
+
+      raise "No papers found" if papers.empty?
+      papers
+
     rescue StandardError => e
       puts "Error fetching arXiv papers: #{e.message}"
-      nil
+      puts e.backtrace
+      load_cached_data || []  # Fallback to cache or empty array
     end
 
     def sanitize_text(text)
