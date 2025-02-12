@@ -21,7 +21,7 @@ title: "Keyao's Coding Blog"
       <div class="icon">📝</div>
       <h3>Latest Blog Posts</h3>
       <ul>
-        <li><a href="/2025/01/13/The-First-Blog.html">First Steps with GitHub Pages</a></li>
+        <li><a href="/blog/first-blog">First Steps with GitHub Pages</a></li>
         <li><em>More posts coming soon...</em></li>
       </ul>
     </div>
