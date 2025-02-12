@@ -6,14 +6,14 @@ title: Blog Posts
 <div class="container">
   <div class="header">
     <h1>Blog Posts</h1>
-    <p>My thoughts and experiences in software development</p>
+    <p>My thoughts and experiences during my learning journey</p>
   </div>
 
   <div class="posts-grid">
     {% assign blog_files = site.pages | where_exp: "page", "page.path contains 'blog'" | where_exp: "page", "page.name != 'index.html'" %}
     {% for post in blog_files %}
     <article class="card post-card">
-      <h2><a href="{{ post.permalink | default: post.url }}">{{ post.title }}</a></h2>
+      <h2><a href="{{ site.baseurl }}{{ post.permalink }}">{{ post.title }}</a></h2>
       <div class="post-meta">
         <time>{{ post.date | date: "%B %d, %Y" }}</time>
         {% if post.categories %}
@@ -25,7 +25,7 @@ title: Blog Posts
         {% endif %}
       </div>
       <p>{{ post.content | strip_html | truncatewords: 50 }}</p>
-      <a href="{{ post.permalink | default: post.url }}" class="read-more">Read more →</a>
+      <a href="{{ site.baseurl }}{{ post.permalink }}" class="read-more">Read more →</a>
     </article>
     {% endfor %}
   </div>

@@ -8,8 +8,13 @@ social:
   github: keyaozhan
 
 plugins:
-  - jekyll-seo-tag
-  - arxiv_papers
+  - jekyll-seo-tag  # Remove arxiv_papers since we're using Python now
+
+exclude:
+  - _scripts
+  - README.md
+  - Gemfile
+  - Gemfile.lock
 
 sass:
   style: compressed
@@ -24,7 +29,7 @@ permalink: /:categories/:title/
 defaults:
   - scope:
       path: "blog"
-      type: "pages"
+      type: "posts"    # Change from "pages" to "posts"
     values:
       layout: "post"
   - scope:
@@ -40,7 +45,7 @@ collections:
     permalink: /projects/:path/
   blog:
     output: true
-    permalink: /blog/:title
+    permalink: /blog/:name
 
 webrick:
   headers:

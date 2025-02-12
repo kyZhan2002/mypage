@@ -46,9 +46,8 @@ title: "Keyao's Coding Blog"
       <div class="icon">🎯</div>
       <h3>Skills & Interests</h3>
       <ul>
-        <li>Software Development</li>
+        <li>Statistics, Data analysis</li>
         <li>Algorithms & Data Structures</li>
-        <li>Web Technologies</li>
         <li>Machine Learning</li>
       </ul>
     </div>
