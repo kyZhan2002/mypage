@@ -10,7 +10,7 @@ title: Latest arXiv Papers
   </div>
 
   <div class="papers-list">
-    {% if site.data.arxiv_papers.size > 0 %}
+    {% if site.data.arxiv_papers and site.data.arxiv_papers.size > 0 %}
       {% for paper in site.data.arxiv_papers %}
         <div class="card paper-card">
           <h3>{{ paper.title }}</h3>
@@ -36,7 +36,8 @@ title: Latest arXiv Papers
       {% endfor %}
     {% else %}
       <div class="card">
-        <p>Unable to load papers at this time. Please try again later.</p>
+        <p>Loading papers... If this message persists, please check the site build logs.</p>
+        <p>Try refreshing the page in a few minutes.</p>
       </div>
     {% endif %}
   </div>

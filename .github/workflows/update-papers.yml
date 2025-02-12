@@ -20,9 +20,15 @@ jobs:
         run: |
           gem install nokogiri
           gem install jekyll
+          gem install httparty
+          gem install json
+          bundle install
+          
+      - name: Create data directory
+        run: mkdir -p _data
           
       - name: Build site
-        run: jekyll build
+        run: bundle exec jekyll build
         
       - name: Commit and push if changed
         run: |

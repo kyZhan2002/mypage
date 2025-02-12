@@ -11,15 +11,18 @@ module Jekyll
     CACHE_DURATION = 86400  # 24 hours in seconds
 
     def generate(site)
-      papers = load_cached_data || fetch_papers
+      FileUtils.mkdir_p('_data') unless File.directory?('_data')
       
-      if papers
-        save_cache(papers)
-        site.data['arxiv_papers'] = papers
-      else
-        # Fallback to empty array if both cache and fetch fail
-        site.data['arxiv_papers'] = []
+      papers = load_cached_data
+      if !papers || papers.empty?
+        papers = fetch_papers
+        save_cache(papers) if papers && !papers.empty?
       end
+      
+      site.data['arxiv_papers'] = papers || []
+    rescue => e
+      Jekyll.logger.error "ArxivPapers:", "Failed to generate papers: #{e.message}"
+      site.data['arxiv_papers'] = load_cached_data || []
     end
 
     private
@@ -84,9 +87,8 @@ module Jekyll
       papers
 
     rescue StandardError => e
-      puts "Error fetching arXiv papers: #{e.message}"
-      puts e.backtrace
-      load_cached_data || []  # Fallback to cache or empty array
+      Jekyll.logger.error "ArxivPapers:", "Error fetching papers: #{e.message}"
+      return load_cached_data
     end
 
     def sanitize_text(text)
