@@ -1,0 +1,43 @@
+---
+layout: default
+title: Latest arXiv Papers
+---
+
+<div class="container">
+  <div class="header">
+    <h1>Latest Research Papers</h1>
+    <p>Recent papers from arXiv on Transfer Learning and Distributionally Robust Optimization</p>
+  </div>
+
+  <div class="papers-list">
+    {% if site.data.arxiv_papers.size > 0 %}
+      {% for paper in site.data.arxiv_papers %}
+        <div class="card paper-card">
+          <h3>{{ paper.title }}</h3>
+          <p class="authors">
+            <strong>Authors:</strong> {{ paper.authors | join: ", " }}
+          </p>
+          <p class="categories">
+            <strong>Categories:</strong> {{ paper.categories | join: ", " }}
+          </p>
+          <p class="published-date">
+            <strong>Published:</strong> {{ paper.published }}
+          </p>
+          <p class="abstract">{{ paper.abstract }}</p>
+          <div class="paper-links">
+            <a href="{{ paper.pdf_link }}" class="button" target="_blank">
+              <i class="fas fa-file-pdf"></i> PDF
+            </a>
+            <a href="{{ paper.arxiv_url }}" class="button" target="_blank">
+              <i class="fas fa-external-link-alt"></i> arXiv
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="card">
+        <p>Unable to load papers at this time. Please try again later.</p>
+      </div>
+    {% endif %}
+  </div>
+</div>

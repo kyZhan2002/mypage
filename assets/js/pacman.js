@@ -7,6 +7,7 @@ let pacmanX = CELL_SIZE * 14;
 let pacmanY = CELL_SIZE * 23;
 let pacmanDirection = 0;
 let gameLoop;
+let gameActive = false; // Add this
 
 const MAZE_LAYOUT = [
     "WWWWWWWWWWWWWWWWWWWWWWWWWWWW",
@@ -133,7 +134,7 @@ function initGame() {
 
 function drawMaze() {
     for(let y = 0; y < MAZE_LAYOUT.length; y++) {
-        for(let x = 0; x < MAZE_LAYOUT[0].length; x++) {
+        for(let x = 0; x < MAZE_LAYOUT[y].length; x++) {
             if(MAZE_LAYOUT[y][x] === 'W') {
                 ctx.fillStyle = 'blue';
                 ctx.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
@@ -222,6 +223,8 @@ function gameOver() {
     ctx.fillText('Game Over!', canvas.width/2, canvas.height/2 - 50);
     ctx.fillText(`Score: ${score}`, canvas.width/2, canvas.height/2 + 50);
     
+    gameActive = false; // Disable further movement
+
     setTimeout(() => {
         if (confirm('Play again?')) {
             startGame();
@@ -235,6 +238,7 @@ function startGame() {
     pacmanY = CELL_SIZE * 23;
     score = 0;
     initGame();
+    gameActive = true; // Enable game controls
     gameLoop = setInterval(update, 50);
 }
 
@@ -289,6 +293,7 @@ function moveGhost(ghost) {
 
 // Update keydown event handler to prevent scrolling and wall collision
 document.addEventListener('keydown', (e) => {
+    if (!gameActive) return; // Stop if game is inactive
     // Prevent scrolling when using arrow keys
     if(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
         e.preventDefault();

@@ -270,6 +270,52 @@ body {
   }
 }
 
+.papers-list {
+  max-width: 900px;
+  margin: 0 auto;
+  
+  .paper-card {
+    margin-bottom: 2rem;
+    
+    h3 {
+      margin-top: 0;
+      color: var(--primary-color);
+    }
+    
+    .authors {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .published-date {
+      color: #888;
+      font-size: 0.8rem;
+    }
+    
+    .abstract {
+      margin: 1rem 0;
+      line-height: 1.6;
+    }
+    
+    .paper-links {
+      .button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--primary-color);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        text-decoration: none;
+        
+        &:hover {
+          background: var(--secondary-color);
+        }
+      }
+    }
+  }
+}
+
 footer {
   text-align: center;
   padding: 2rem;

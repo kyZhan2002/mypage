@@ -1,0 +1,33 @@
+name: Update arXiv Papers
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Run at midnight UTC daily
+  workflow_dispatch:      # Allow manual triggers
+
+jobs:
+  update-papers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          
+      - name: Install dependencies
+        run: |
+          gem install nokogiri
+          gem install jekyll
+          
+      - name: Build site
+        run: jekyll build
+        
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add -A
+          git commit -m "Update arXiv papers" || exit 0
+          git push
