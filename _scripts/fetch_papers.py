@@ -17,11 +17,14 @@ def fetch_arxiv_papers():
         'search_query': '(ti:"transfer learning" OR abs:"transfer learning" OR ti:"distributionally robust" OR abs:"distributionally robust")',
         'sortBy': 'submittedDate',
         'sortOrder': 'descending',
-        'max_results': 50
+        'max_results': '50'  # Convert to string
     }
     
-    # Properly encode the URL
-    query_string = '&'.join(f"{k}={urllib.parse.quote(v)}" for k, v in query_params.items())
+    # Fixed URL encoding
+    query_string = '&'.join(
+        f"{k}={urllib.parse.quote(str(v), encoding='utf-8', safe='')}"
+        for k, v in query_params.items()
+    )
     url = f"http://export.arxiv.org/api/query?{query_string}"
     
     print(f"Fetching papers with URL: {url}")  # Debug logging

@@ -2,7 +2,7 @@ name: Update arXiv Papers
 
 on:
   schedule:
-    - cron: '0 */24 * * *'  # Run every 24 hours
+    - cron: '0 0 * * *'  # Run every 24 hours
   workflow_dispatch:      # Allow manual triggers
 
 permissions:
