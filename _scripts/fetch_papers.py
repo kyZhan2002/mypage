@@ -38,6 +38,7 @@ def fetch_arxiv_papers():
             req = urllib.request.Request(url, headers=headers)
             with urllib.request.urlopen(req) as response:
                 xml_data = response.read().decode('utf-8')
+                print(f"Response received, length: {len(xml_data)}")  # Debug log
                 
             if 'The requested URL was not found' in xml_data:
                 print("Error: Invalid API request")
@@ -52,30 +53,49 @@ def fetch_arxiv_papers():
                 'arxiv': 'http://arxiv.org/schemas/atom'
             }
             
-            for entry in root.findall('.//atom:entry', namespaces):
-                # Extract paper details with proper namespace handling
-                title = entry.find('atom:title', namespaces).text.strip()
-                
-                # Only include papers that actually match our keywords
-                keywords = ['transfer learning', 'distributionally robust']
-                if not any(kw.lower() in title.lower() or 
-                          kw.lower() in entry.find('atom:abstract', namespaces).text.lower() 
-                          for kw in keywords):
-                    continue
+            entries = root.findall('.//atom:entry', namespaces)
+            print(f"Found {len(entries)} entries in response")  # Debug log
+            
+            for entry in entries:
+                try:
+                    title_elem = entry.find('atom:title', namespaces)
+                    abstract_elem = entry.find('atom:summary', namespaces)
                     
-                paper = {
-                    'title': title,
-                    'authors': [author.find('atom:name', namespaces).text.strip() 
-                               for author in entry.findall('atom:author', namespaces)],
-                    'abstract': entry.find('atom:summary', namespaces).text.strip(),
-                    'published': format_date(entry.find('atom:published', namespaces).text),
-                    'categories': [cat.get('term') for cat in entry.findall('atom:category', namespaces)],
-                    'pdf_link': next((link.get('href') for link in entry.findall('atom:link', namespaces) 
-                                    if link.get('title') == 'pdf'), ''),
-                    'arxiv_url': next((link.get('href') for link in entry.findall('atom:link', namespaces) 
-                                     if link.get('rel') == 'alternate'), '')
-                }
-                papers.append(paper)
+                    if title_elem is None or abstract_elem is None:
+                        print(f"Missing title or abstract for entry")  # Debug log
+                        continue
+                        
+                    title = title_elem.text.strip()
+                    abstract = abstract_elem.text.strip()
+                    
+                    # Only include papers that actually match our keywords
+                    keywords = ['transfer learning', 'distributionally robust']
+                    if not any(kw.lower() in title.lower() or 
+                             kw.lower() in abstract.lower() 
+                             for kw in keywords):
+                        continue
+                    
+                    published_elem = entry.find('atom:published', namespaces)
+                    if published_elem is None:
+                        print(f"Missing published date for paper: {title}")  # Debug log
+                        continue
+                        
+                    paper = {
+                        'title': title,
+                        'authors': [author.find('atom:name', namespaces).text.strip() 
+                                  for author in entry.findall('atom:author', namespaces)],
+                        'abstract': abstract,
+                        'published': format_date(published_elem.text),
+                        'categories': [cat.get('term') for cat in entry.findall('atom:category', namespaces)],
+                        'pdf_link': next((link.get('href') for link in entry.findall('atom:link', namespaces) 
+                                        if link.get('title') == 'pdf'), ''),
+                        'arxiv_url': next((link.get('href') for link in entry.findall('atom:link', namespaces) 
+                                         if link.get('rel') == 'alternate'), '')
+                    }
+                    papers.append(paper)
+                except Exception as e:
+                    print(f"Error processing entry: {str(e)}")  # Debug log
+                    continue
             
             if papers:
                 print(f"Successfully fetched {len(papers)} relevant papers")
