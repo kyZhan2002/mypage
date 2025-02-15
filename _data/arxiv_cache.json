@@ -1,6 +1,77 @@
 {
-  "timestamp": 1739495615,
+  "timestamp": 1739581951,
   "papers": [
+    {
+      "title": "A Survey of Reinforcement Learning for Optimization in Automation",
+      "authors": [
+        "Ahmad Farooq",
+        "Kamran Iqbal"
+      ],
+      "abstract": "Reinforcement Learning (RL) has become a critical tool for optimization\nchallenges within automation, leading to significant advancements in several\nareas. This review article examines the current landscape of RL within\nautomation, with a particular focus on its roles in manufacturing, energy\nsystems, and robotics. It discusses state-of-the-art methods, major challenges,\nand upcoming avenues of research within each sector, highlighting RL's capacity\nto solve intricate optimization challenges. The paper reviews the advantages\nand constraints of RL-driven optimization methods in automation. It points out\nprevalent challenges encountered in RL optimization, including issues related\nto sample efficiency and scalability; safety and robustness; interpretability\nand trustworthiness; transfer learning and meta-learning; and real-world\ndeployment and integration. It further explores prospective strategies and\nfuture research pathways to navigate these challenges. Additionally, the survey\nincludes a comprehensive list of relevant research papers, making it an\nindispensable guide for scholars and practitioners keen on exploring this\ndomain.",
+      "published": "February 13, 2025",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.NE",
+        "cs.RO",
+        "cs.SY",
+        "eess.SY",
+        "68T05, 90C40, 49M37",
+        "I.2.6; I.2.8; I.2.9; G.1.6; C.4; J.6"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.09417v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.09417v1"
+    },
+    {
+      "title": "Wasserstein distributional adversarial training for deep neural networks",
+      "authors": [
+        "Xingjian Bai",
+        "Guangyi He",
+        "Yifan Jiang",
+        "Jan Obloj"
+      ],
+      "abstract": "Design of adversarial attacks for deep neural networks, as well as methods of\nadversarial training against them, are subject of intense research. In this\npaper, we propose methods to train against distributional attack threats,\nextending the TRADES method used for pointwise attacks. Our approach leverages\nrecent contributions and relies on sensitivity analysis for Wasserstein\ndistributionally robust optimization problems. We introduce an efficient\nfine-tuning method which can be deployed on a previously trained model. We test\nour methods on a range of pre-trained models on RobustBench. These experimental\nresults demonstrate the additional training enhances Wasserstein distributional\nrobustness, while maintaining original levels of pointwise robustness, even for\nalready very successful networks. The improvements are less marked for models\npre-trained using huge synthetic datasets of 20-100M images. However,\nremarkably, sometimes our methods are still able to improve their performance\neven when trained using only the original training dataset (50k images).",
+      "published": "February 13, 2025",
+      "categories": [
+        "cs.LG",
+        "cs.CV",
+        "math.OC"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.09352v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.09352v1"
+    },
+    {
+      "title": "Revisiting Euclidean Alignment for Transfer Learning in EEG-Based\n  Brain-Computer Interfaces",
+      "authors": [
+        "Dongrui Wu"
+      ],
+      "abstract": "Due to the non-stationarity and large individual differences of EEG signals,\nEEG-based brain-computer interfaces (BCIs) usually need subject-specific\ncalibration to tailor the decoding algorithm for each new subject, which is\ntime-consuming and user-unfriendly, hindering their real-world applications.\nTransfer learning (TL) has been extensively used to expedite the calibration,\nby making use of EEG data from other subjects/sessions. An important\nconsideration in TL for EEG-based BCIs is to reduce the data distribution\ndiscrepancies among different subjects/session, to avoid negative transfer.\nEuclidean alignment (EA) was proposed in 2020 to address this challenge.\nNumerous experiments from 10 different BCI paradigms demonstrated its\neffectiveness and efficiency. This paper revisits the EA, explaining its\nprocedure and correct usage, introducing its applications and extensions, and\npointing out potential new research directions. It should be very helpful to\nBCI researchers, especially those who are working on EEG signal decoding.",
+      "published": "February 13, 2025",
+      "categories": [
+        "cs.HC",
+        "cs.LG"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.09203v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.09203v1"
+    },
+    {
+      "title": "A Hybrid Model for Few-Shot Text Classification Using Transfer and\n  Meta-Learning",
+      "authors": [
+        "Jia Gao",
+        "Shuangquan Lyu",
+        "Guiran Liu",
+        "Binrong Zhu",
+        "Hongye Zheng",
+        "Xiaoxuan Liao"
+      ],
+      "abstract": "With the continuous development of natural language processing (NLP)\ntechnology, text classification tasks have been widely used in multiple\napplication fields. However, obtaining labeled data is often expensive and\ndifficult, especially in few-shot learning scenarios. To solve this problem,\nthis paper proposes a few-shot text classification model based on transfer\nlearning and meta-learning. The model uses the knowledge of the pre-trained\nmodel for transfer and optimizes the model's rapid adaptability in few-sample\ntasks through a meta-learning mechanism. Through a series of comparative\nexperiments and ablation experiments, we verified the effectiveness of the\nproposed method. The experimental results show that under the conditions of few\nsamples and medium samples, the model based on transfer learning and\nmeta-learning significantly outperforms traditional machine learning and deep\nlearning methods. In addition, ablation experiments further analyzed the\ncontribution of each component to the model performance and confirmed the key\nrole of transfer learning and meta-learning in improving model accuracy.\nFinally, this paper discusses future research directions and looks forward to\nthe potential of this method in practical applications.",
+      "published": "February 13, 2025",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.09086v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.09086v1"
+    },
     {
       "title": "Multifidelity Simulation-based Inference for Computationally Expensive\n  Simulators",
       "authors": [
@@ -18,6 +89,26 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2502.08416v1",
       "arxiv_url": "http://arxiv.org/abs/2502.08416v1"
+    },
+    {
+      "title": "Advancing machine fault diagnosis: A detailed examination of\n  convolutional neural networks",
+      "authors": [
+        "Govind Vashishtha",
+        "Sumika Chauhan",
+        "Mert Sehri",
+        "Justyna Hebda-Sobkowicz",
+        "Radoslaw Zimroz",
+        "Patrick Dumond",
+        "Rajesh Kumar"
+      ],
+      "abstract": "The growing complexity of machinery and the increasing demand for operational\nefficiency and safety have driven the development of advanced fault diagnosis\ntechniques. Among these, convolutional neural networks (CNNs) have emerged as a\npowerful tool, offering robust and accurate fault detection and classification\ncapabilities. This comprehensive review delves into the application of CNNs in\nmachine fault diagnosis, covering its theoretical foundation, architectural\nvariations, and practical implementations. The strengths and limitations of\nCNNs are analyzed in this domain, discussing their effectiveness in handling\nvarious fault types, data complexities, and operational environments.\nFurthermore, we explore the evolving landscape of CNN-based fault diagnosis,\nexamining recent advancements in data augmentation, transfer learning, and\nhybrid architectures. Finally, we highlight future research directions and\npotential challenges to further enhance the application of CNNs for reliable\nand proactive machine fault diagnosis.",
+      "published": "February 12, 2025",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.08689v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.08689v1"
     },
     {
       "title": "Hi-End-MAE: Hierarchical encoder-driven masked autoencoders are stronger\n  vision learners for medical image segmentation",
@@ -715,112 +806,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2502.01930v1",
       "arxiv_url": "http://arxiv.org/abs/2502.01930v1"
-    },
-    {
-      "title": "Geometric Framework for 3D Cell Segmentation Correction",
-      "authors": [
-        "Peter Chen",
-        "Bryan Chang",
-        "Olivia Annette Creasey",
-        "Julie Beth Sneddon",
-        "Yining Liu"
-      ],
-      "abstract": "3D cellular image segmentation methods are commonly divided into non-2D-based\nand 2D-based approaches, the latter reconstructing 3D shapes from the\nsegmentation results of 2D layers. However, errors in 2D results often\npropagate, leading to oversegmentations in the final 3D results. To tackle this\nissue, we introduce an interpretable geometric framework that addresses the\noversegmentations by correcting the 2D segmentation results based on geometric\ninformation from adjacent layers. Leveraging both geometric (layer-to-layer,\n2D) and topological (3D shape) features, we use binary classification to\ndetermine whether neighboring cells should be stitched. We develop a\npre-trained classifier on public plant cell datasets and validate its\nperformance on animal cell datasets, confirming its effectiveness in correcting\noversegmentations under the transfer learning setting. Furthermore, we\ndemonstrate that our framework can be extended to correcting oversegmentation\non non-2D-based methods. A clear pipeline is provided for end-users to build\nthe pre-trained model to any labeled dataset.",
-      "published": "February 03, 2025",
-      "categories": [
-        "cs.CV",
-        "cs.LG"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.01890v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.01890v1"
-    },
-    {
-      "title": "Learning Hyperparameters via a Data-Emphasized Variational Objective",
-      "authors": [
-        "Ethan Harvey",
-        "Mikhail Petrov",
-        "Michael C. Hughes"
-      ],
-      "abstract": "When training large flexible models, practitioners often rely on grid search\nto select hyperparameters that control over-fitting. This grid search has\nseveral disadvantages: the search is computationally expensive, requires\ncarving out a validation set that reduces the available data for training, and\nrequires users to specify candidate values. In this paper, we propose an\nalternative: directly learning regularization hyperparameters on the full\ntraining set via the evidence lower bound (\"ELBo\") objective from variational\nmethods. For deep neural networks with millions of parameters, we recommend a\nmodified ELBo that upweights the influence of the data likelihood relative to\nthe prior. Our proposed technique overcomes all three disadvantages of grid\nsearch. In a case study on transfer learning of image classifiers, we show how\nour method reduces the 88+ hour grid search of past work to under 3 hours while\ndelivering comparable accuracy. We further demonstrate how our approach enables\nefficient yet accurate approximations of Gaussian processes with learnable\nlength-scale kernels.",
-      "published": "February 03, 2025",
-      "categories": [
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.01861v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.01861v1"
-    },
-    {
-      "title": "CTC-DRO: Robust Optimization for Reducing Language Disparities in Speech\n  Recognition",
-      "authors": [
-        "Martijn Bartelds",
-        "Ananjan Nandi",
-        "Moussa Koulako Bala Doumbouya",
-        "Dan Jurafsky",
-        "Tatsunori Hashimoto",
-        "Karen Livescu"
-      ],
-      "abstract": "Modern deep learning models often achieve high overall performance, but\nconsistently fail on specific subgroups. Group distributionally robust\noptimization (group DRO) addresses this problem by minimizing the worst-group\nloss, but it fails when group losses misrepresent performance differences\nbetween groups. This is common in domains like speech, where the widely used\nconnectionist temporal classification (CTC) loss scales with input length and\nvaries with linguistic and acoustic properties, leading to spurious differences\nbetween group losses. We present CTC-DRO, which addresses the shortcomings of\nthe group DRO objective by smoothing the group weight update to prevent\noveremphasis on consistently high-loss groups, while using input length-matched\nbatching to mitigate CTC's scaling issues. We evaluate CTC-DRO on the task of\nmultilingual automatic speech recognition (ASR) across five language sets from\nthe ML-SUPERB 2.0 benchmark. CTC-DRO consistently outperforms group DRO and\nCTC-based baseline models, reducing the worst-language error by up to 65.9% and\nthe average error by up to 47.7%. CTC-DRO can be applied to ASR with minimal\ncomputational costs, and offers the potential for reducing group disparities in\nother domains with similar challenges.",
-      "published": "February 03, 2025",
-      "categories": [
-        "cs.LG",
-        "cs.CL",
-        "eess.AS"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.01777v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.01777v1"
-    },
-    {
-      "title": "Grokking Explained: A Statistical Phenomenon",
-      "authors": [
-        "Breno W. Carvalho",
-        "Artur S. d'Avila Garcez",
-        "Lu\u00eds C. Lamb",
-        "Em\u00edlio Vital Brazil"
-      ],
-      "abstract": "Grokking, or delayed generalization, is an intriguing learning phenomenon\nwhere test set loss decreases sharply only after a model's training set loss\nhas converged. This challenges conventional understanding of the training\ndynamics in deep learning networks. In this paper, we formalize and investigate\ngrokking, highlighting that a key factor in its emergence is a distribution\nshift between training and test data. We introduce two synthetic datasets\nspecifically designed to analyze grokking. One dataset examines the impact of\nlimited sampling, and the other investigates transfer learning's role in\ngrokking. By inducing distribution shifts through controlled imbalanced\nsampling of sub-categories, we systematically reproduce the phenomenon,\ndemonstrating that while small-sampling is strongly associated with grokking,\nit is not its cause. Instead, small-sampling serves as a convenient mechanism\nfor achieving the necessary distribution shift. We also show that when classes\nform an equivariant map, grokking can be explained by the model's ability to\nlearn from similar classes or sub-categories. Unlike earlier work suggesting\nthat grokking primarily arises from high regularization and sparse data, we\ndemonstrate that it can also occur with dense data and minimal hyper-parameter\ntuning. Our findings deepen the understanding of grokking and pave the way for\ndeveloping better stopping criteria in future training processes.",
-      "published": "February 03, 2025",
-      "categories": [
-        "cs.LG",
-        "cs.AI"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.01774v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.01774v1"
-    },
-    {
-      "title": "Towards Robust and Generalizable Lensless Imaging with Modular Learned\n  Reconstruction",
-      "authors": [
-        "Eric Bezzam",
-        "Yohann Perron",
-        "Martin Vetterli"
-      ],
-      "abstract": "Lensless cameras disregard the conventional design that imaging should mimic\nthe human eye. This is done by replacing the lens with a thin mask, and moving\nimage formation to the digital post-processing. State-of-the-art lensless\nimaging techniques use learned approaches that combine physical modeling and\nneural networks. However, these approaches make simplifying modeling\nassumptions for ease of calibration and computation. Moreover, the\ngeneralizability of learned approaches to lensless measurements of new masks\nhas not been studied. To this end, we utilize a modular learned reconstruction\nin which a key component is a pre-processor prior to image recovery. We\ntheoretically demonstrate the pre-processor's necessity for standard image\nrecovery techniques (Wiener filtering and iterative algorithms), and through\nextensive experiments show its effectiveness for multiple lensless imaging\napproaches and across datasets of different mask types (amplitude and phase).\nWe also perform the first generalization benchmark across mask types to\nevaluate how well reconstructions trained with one system generalize to others.\nOur modular reconstruction enables us to use pre-trained components and\ntransfer learning on new systems to cut down weeks of tedious measurements and\ntraining. As part of our work, we open-source four datasets, and software for\nmeasuring datasets and for training our modular reconstruction.",
-      "published": "February 03, 2025",
-      "categories": [
-        "eess.IV",
-        "cs.CV"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.01102v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.01102v1"
-    },
-    {
-      "title": "Fruit Fly Classification (Diptera: Tephritidae) in Images, Applying\n  Transfer Learning",
-      "authors": [
-        "Erick Andrew Bustamante Flores",
-        "Harley Vera Olivera",
-        "Ivan Cesar Medrano Valencia",
-        "Carlos Fernando Montoya Cubas"
-      ],
-      "abstract": "This study develops a transfer learning model for the automated\nclassification of two species of fruit flies, Anastrepha fraterculus and\nCeratitis capitata, in a controlled laboratory environment. The research\naddresses the need to optimize identification and classification, which are\ncurrently performed manually by experts, being affected by human factors and\nfacing time challenges. The methodological process of this study includes the\ncapture of high-quality images using a mobile phone camera and a stereo\nmicroscope, followed by segmentation to reduce size and focus on relevant\nmorphological areas. The images were carefully labeled and preprocessed to\nensure the quality and consistency of the dataset used to train the pre-trained\nconvolutional neural network models VGG16, VGG19, and Inception-v3. The results\nwere evaluated using the F1-score, achieving 82% for VGG16 and VGG19, while\nInception-v3 reached an F1-score of 93%. Inception-v3's reliability was\nverified through model testing in uncontrolled environments, with positive\nresults, complemented by the Grad-CAM technique, demonstrating its ability to\ncapture essential morphological features. These findings indicate that\nInception-v3 is an effective and replicable approach for classifying Anastrepha\nfraterculus and Ceratitis capitata, with potential for implementation in\nautomated monitoring systems.",
-      "published": "February 02, 2025",
-      "categories": [
-        "cs.CV",
-        "cs.AI",
-        "68T10",
-        "I.2.10"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.00939v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.00939v1"
     }
   ]
 }
