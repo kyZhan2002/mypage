@@ -1,6 +1,86 @@
 {
-  "timestamp": 1739754973,
+  "timestamp": 1739841207,
   "papers": [
+    {
+      "title": "SPIRIT: Short-term Prediction of solar IRradIance for zero-shot Transfer\n  learning using Foundation Models",
+      "authors": [
+        "Aditya Mishra",
+        "Ravindra T",
+        "Srinivasan Iyengar",
+        "Shivkumar Kalyanaraman",
+        "Ponnurangam Kumaraguru"
+      ],
+      "abstract": "Traditional solar forecasting models are based on several years of\nsite-specific historical irradiance data, often spanning five or more years,\nwhich are unavailable for newer photovoltaic farms. As renewable energy is\nhighly intermittent, building accurate solar irradiance forecasting systems is\nessential for efficient grid management and enabling the ongoing proliferation\nof solar energy, which is crucial to achieve the United Nations' net zero\ngoals. In this work, we propose SPIRIT, a novel approach leveraging foundation\nmodels for solar irradiance forecasting, making it applicable to newer solar\ninstallations. Our approach outperforms state-of-the-art models in zero-shot\ntransfer learning by about 70%, enabling effective performance at new locations\nwithout relying on any historical data. Further improvements in performance are\nachieved through fine-tuning, as more location-specific data becomes available.\nThese findings are supported by statistical significance, further validating\nour approach. SPIRIT represents a pivotal step towards rapid, scalable, and\nadaptable solar forecasting solutions, advancing the integration of renewable\nenergy into global power systems.",
+      "published": "February 14, 2025",
+      "categories": [
+        "cs.LG",
+        "cs.CV"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.10307v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.10307v1"
+    },
+    {
+      "title": "ExoMiner++ on TESS with Transfer Learning from Kepler: Transit\n  Classification and Vetting Catalog for 2-min Data",
+      "authors": [
+        "Hamed Valizadegan",
+        "Miguel J. S. Martinho",
+        "Jon M. Jenkins",
+        "Joseph D. Twicken",
+        "Douglas A. Caldwell",
+        "Patrick Maynard",
+        "Hongbo Wei",
+        "William Zhong",
+        "Charles Yates",
+        "Sam Donald",
+        "Karen A. Collins",
+        "David Latham",
+        "Khalid Barkaoui",
+        "Perry Berlind",
+        "Michael L. Calkins",
+        "Kylee Carden",
+        "Nikita Chazov",
+        "Gilbert A. Esquerdo",
+        "Tristan Guillot",
+        "Vadim Krushinsky",
+        "Grzegorz Nowak",
+        "Benjamin V. Rackham",
+        "Amaury Triaud",
+        "Richard P. Schwarz",
+        "Denise Stephens",
+        "Chris Stockdale",
+        "Jiaqi Wang",
+        "Cristilyn N. Watkins",
+        "Francis P. Wilkin"
+      ],
+      "abstract": "We present ExoMiner++, an enhanced deep learning model that builds on the\nsuccess of ExoMiner to improve transit signal classification in 2-minute TESS\ndata. ExoMiner++ incorporates additional diagnostic inputs, including\nperiodogram, flux trend, difference image, unfolded flux, and spacecraft\nattitude control data, all of which are crucial for effectively distinguishing\ntransit signals from more challenging sources of false positives. To further\nenhance performance, we leverage transfer learning from high-quality labeled\ndata from the Kepler space telescope, mitigating the impact of TESS's noisier\nand more ambiguous labels. ExoMiner++ achieves high accuracy across various\nclassification and ranking metrics, significantly narrowing the search space\nfor follow-up investigations to confirm new planets. To serve the exoplanet\ncommunity, we introduce new TESS catalogs containing ExoMiner++ classifications\nand confidence scores for each transit signal. Among the 147,568 unlabeled\nTCEs, ExoMiner++ identifies 7,330 as planet candidates, with the remainder\nclassified as false positives. These 7,330 planet candidates correspond to\n1,868 existing TESS Objects of Interest (TOIs), 69 Community TESS Objects of\nInterest (CTOIs), and 50 newly introduced CTOIs. 1,797 out of the 2,506 TOIs\npreviously labeled as planet candidates in ExoFOP are classified as planet\ncandidates by ExoMiner++. This reduction in plausible candidates combined with\nthe excellent ranking quality of ExoMiner++ allows the follow-up efforts to be\nfocused on the most likely candidates, increasing the overall planet yield.",
+      "published": "February 13, 2025",
+      "categories": [
+        "astro-ph.EP",
+        "astro-ph.IM",
+        "cs.LG"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.09790v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.09790v1"
+    },
+    {
+      "title": "NeuralCFD: Deep Learning on High-Fidelity Automotive Aerodynamics\n  Simulations",
+      "authors": [
+        "Maurits Bleeker",
+        "Matthias Dorfer",
+        "Tobias Kronlachner",
+        "Reinhard Sonnleitner",
+        "Benedikt Alkin",
+        "Johannes Brandstetter"
+      ],
+      "abstract": "Recent advancements in neural operator learning are paving the way for\ntransformative innovations in fields such as automotive aerodynamics. However,\nkey challenges must be overcome before neural network-based simulation\nsurrogates can be implemented at an industry scale. First, surrogates must\nbecome scalable to large surface and volume meshes, especially when using raw\ngeometry inputs only, i.e., without relying on the simulation mesh. Second,\nsurrogates must be trainable with a limited number of high-fidelity numerical\nsimulation samples while still reaching the required performance levels. To\nthis end, we introduce Geometry-preserving Universal Physics Transformer\n(GP-UPT), which separates geometry encoding and physics predictions, ensuring\nflexibility with respect to geometry representations and surface sampling\nstrategies. GP-UPT enables independent scaling of the respective parts of the\nmodel according to practical requirements, offering scalable solutions to open\nchallenges. GP-UPT circumvents the creation of high-quality simulation meshes,\nenables accurate 3D velocity field predictions at 20 million mesh cells, and\nexcels in transfer learning from low-fidelity to high-fidelity simulation\ndatasets, requiring less than half of the high-fidelity data to match the\nperformance of models trained from scratch.",
+      "published": "February 13, 2025",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.09692v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.09692v1"
+    },
     {
       "title": "A Survey of Reinforcement Learning for Optimization in Automation",
       "authors": [
@@ -87,8 +167,8 @@
         "stat.ML",
         "cs.LG"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2502.08416v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.08416v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.08416v2",
+      "arxiv_url": "http://arxiv.org/abs/2502.08416v2"
     },
     {
       "title": "Advancing machine fault diagnosis: A detailed examination of\n  convolutional neural networks",
@@ -366,8 +446,8 @@
         "cs.LG",
         "cs.AI"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2502.06153v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.06153v1"
+      "pdf_link": "http://arxiv.org/pdf/2502.06153v2",
+      "arxiv_url": "http://arxiv.org/abs/2502.06153v2"
     },
     {
       "title": "Protecting Intellectual Property of EEG-based Neural Networks with\n  Watermarking",
@@ -756,56 +836,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2502.02451v2",
       "arxiv_url": "http://arxiv.org/abs/2502.02451v2"
-    },
-    {
-      "title": "Self-Supervised Convolutional Audio Models are Flexible Acoustic Feature\n  Learners: A Domain Specificity and Transfer-Learning Study",
-      "authors": [
-        "Mattson Ogg"
-      ],
-      "abstract": "Self-supervised learning (SSL) algorithms have emerged as powerful tools that\ncan leverage large quantities of unlabeled audio data to pre-train robust\nrepresentations that support strong performance on diverse downstream tasks. Up\nto now these have mostly been developed separately for speech and non-speech\napplications. Here, we explored the domain specificity of a convolutional\nmodel's pre-training data relative to different downstream speech and\nnon-speech tasks using a self-supervised pre-training approach (BYOL-A). We\nfound that these pre-trained models (regardless of whether they were\npre-trained on speech data, non-speech data or both) enabled good performance\non nearly all downstream tasks, beating or nearly matching the performance of\npopular domain-specific models. Only small domain-specificity advantages were\nobserved between the different pre-training datasets. The popular\ndomain-specific models used as baselines performed very well in their target\ndomains, but generally faltered outside of them. Together, these results\ndemonstrate that SSL methods can be a powerful way to learn flexible\nrepresentations for domain specific data without labels. These models can be a\npowerful resource for later transfer learning, fine-tuning or data exploration\napplications when the downstream data are similar, but also perhaps when there\nmay be a domain mismatch.",
-      "published": "February 04, 2025",
-      "categories": [
-        "eess.AS"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.02366v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.02366v1"
-    },
-    {
-      "title": "Transfer Risk Map: Mitigating Pixel-level Negative Transfer in Medical\n  Segmentation",
-      "authors": [
-        "Shutong Duan",
-        "Jingyun Yang",
-        "Yang Tan",
-        "Guoqing Zhang",
-        "Yang Li",
-        "Xiao-Ping Zhang"
-      ],
-      "abstract": "How to mitigate negative transfer in transfer learning is a long-standing and\nchallenging issue, especially in the application of medical image segmentation.\nExisting methods for reducing negative transfer focus on classification or\nregression tasks, ignoring the non-uniform negative transfer risk in different\nimage regions. In this work, we propose a simple yet effective weighted\nfine-tuning method that directs the model's attention towards regions with\nsignificant transfer risk for medical semantic segmentation. Specifically, we\ncompute a transferability-guided transfer risk map to quantify the transfer\nhardness for each pixel and the potential risks of negative transfer. During\nthe fine-tuning phase, we introduce a map-weighted loss function, normalized\nwith image foreground size to counter class imbalance. Extensive experiments on\nbrain segmentation datasets show our method significantly improves the target\ntask performance, with gains of 4.37% on FeTS2021 and 1.81% on iSeg2019,\navoiding negative transfer across modalities and tasks. Meanwhile, a 2.9% gain\nunder a few-shot scenario validates the robustness of our approach.",
-      "published": "February 04, 2025",
-      "categories": [
-        "cs.CV"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.02340v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.02340v1"
-    },
-    {
-      "title": "Distributionally Robust Direct Preference Optimization",
-      "authors": [
-        "Zaiyan Xu",
-        "Sushil Vemuri",
-        "Kishan Panaganti",
-        "Dileep Kalathil",
-        "Rahul Jain",
-        "Deepak Ramachandran"
-      ],
-      "abstract": "A major challenge in aligning large language models (LLMs) with human\npreferences is the issue of distribution shift. LLM alignment algorithms rely\non static preference datasets, assuming that they accurately represent\nreal-world user preferences. However, user preferences vary significantly\nacross geographical regions, demographics, linguistic patterns, and evolving\ncultural trends. This preference distribution shift leads to catastrophic\nalignment failures in many real-world applications. We address this problem\nusing the principled framework of distributionally robust optimization, and\ndevelop two novel distributionally robust direct preference optimization (DPO)\nalgorithms, namely, Wasserstein DPO (WDPO) and Kullback-Leibler DPO (KLDPO). We\ncharacterize the sample complexity of learning the optimal policy parameters\nfor WDPO and KLDPO. Moreover, we propose scalable gradient descent-style\nlearning algorithms by developing suitable approximations for the challenging\nminimax loss functions of WDPO and KLDPO. Our empirical experiments demonstrate\nthe superior performance of WDPO and KLDPO in substantially improving the\nalignment when there is a preference distribution shift.",
-      "published": "February 04, 2025",
-      "categories": [
-        "cs.LG",
-        "cs.AI"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.01930v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.01930v1"
     }
   ]
 }
