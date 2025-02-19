@@ -1,6 +1,130 @@
 {
-  "timestamp": 1739841207,
+  "timestamp": 1739927634,
   "papers": [
+    {
+      "title": "PreAdaptFWI: Pretrained-Based Adaptive Residual Learning for\n  Full-Waveform Inversion Without Dataset Dependency",
+      "authors": [
+        "Xintong Dong",
+        "Zhengyi Yuan",
+        "Jun Lin",
+        "Shiqi Dong",
+        "Xunqian Tong",
+        "Yue Li"
+      ],
+      "abstract": "Full-waveform inversion (FWI) is a method that utilizes seismic data to\ninvert the physical parameters of subsurface media by minimizing the difference\nbetween simulated and observed waveforms. Due to its ill-posed nature, FWI is\nsusceptible to getting trapped in local minima. Consequently, various research\nefforts have attempted to combine neural networks with FWI to stabilize the\ninversion process. This study presents a simple yet effective training\nframework that is independent of dataset reliance and requires only moderate\npre-training on a simple initial model to stabilize network outputs. During the\ntransfer learning phase, the conventional FWI gradients will simultaneously\nupdate both the neural network and the proposed adaptive residual learning\nmodule, which learns the residual mapping of large-scale distribution features\nin the network's output, rather than directly fitting the target mapping.\nThrough this synergistic training paradigm, the proposed algorithm effectively\ninfers the physically-informed prior knowledge into a global representation of\nstratigraphic distribution, as well as capturing subtle variations in\ninter-layer velocities within local details, thereby escaping local optima.\nEvaluating the method on two benchmark models under various conditions,\nincluding absent low-frequency data, noise interference, and differing initial\nmodels, along with corresponding ablation experiments, consistently\ndemonstrates the superiority of the proposed approach.",
+      "published": "February 17, 2025",
+      "categories": [
+        "physics.geo-ph",
+        "cs.LG"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.11913v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.11913v1"
+    },
+    {
+      "title": "On Data-Driven Robust Optimization With Multiple Uncertainty Subsets:\n  Unified Uncertainty Set Representation and Mitigating Conservatism",
+      "authors": [
+        "Yun Li",
+        "Neil Yorke-Smith",
+        "Tamas Keviczky"
+      ],
+      "abstract": "Constructing uncertainty sets as unions of multiple subsets has emerged as an\neffective approach for creating compact and flexible uncertainty\nrepresentations in data-driven robust optimization (RO). This paper focuses on\ntwo separate research questions. The first concerns the computational challenge\nin applying these uncertainty sets in RO-based predictive control. To address\nthis, a monolithic mixed-integer representation of the uncertainty set is\nproposed to uniformly describe the union of multiple subsets, enabling the\ncomputation of the worst-case uncertainty scenario across all subsets within a\nsingle mixed-integer linear programming (MILP) problem. The second research\nquestion focuses on mitigating the conservatism of conventional RO formulations\nby leveraging the structure of the uncertainty set. To achieve this, a novel\nobjective function is proposed to exploit the uncertainty set structure and\nintegrate the existing RO and distributionally robust optimization (DRO)\nformulations, yielding less conservative solutions than conventional RO\nformulations while avoiding the high-dimensional continuous uncertainty\ndistributions and incurring high computational burden typically associated with\nexisting DRO formulations. Given the proposed formulations, numerically\nefficient computation methods based on column-and-constraint generation (CCG)\nare also developed. Extensive simulations across three case studies are\nperformed to demonstrate the effectiveness of the proposed schemes.",
+      "published": "February 17, 2025",
+      "categories": [
+        "math.OC",
+        "cs.SY",
+        "eess.SY"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.11867v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.11867v1"
+    },
+    {
+      "title": "M-ABSA: A Multilingual Dataset for Aspect-Based Sentiment Analysis",
+      "authors": [
+        "Chengyan Wu",
+        "Bolei Ma",
+        "Yihong Liu",
+        "Zheyu Zhang",
+        "Ningyuan Deng",
+        "Yanshu Li",
+        "Baolan Chen",
+        "Yi Zhang",
+        "Barbara Plank",
+        "Yun Xue"
+      ],
+      "abstract": "Aspect-based sentiment analysis (ABSA) is a crucial task in information\nextraction and sentiment analysis, aiming to identify aspects with associated\nsentiment elements in text. However, existing ABSA datasets are predominantly\nEnglish-centric, limiting the scope for multilingual evaluation and research.\nTo bridge this gap, we present M-ABSA, a comprehensive dataset spanning 7\ndomains and 21 languages, making it the most extensive multilingual parallel\ndataset for ABSA to date. Our primary focus is on triplet extraction, which\ninvolves identifying aspect terms, aspect categories, and sentiment polarities.\nThe dataset is constructed through an automatic translation process with human\nreview to ensure quality. We perform extensive experiments using various\nbaselines to assess performance and compatibility on M-ABSA. Our empirical\nfindings highlight that the dataset enables diverse evaluation tasks, such as\nmultilingual and multi-domain transfer learning, and large language model\nevaluation, underscoring its inclusivity and its potential to drive\nadvancements in multilingual ABSA research.",
+      "published": "February 17, 2025",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.11824v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.11824v1"
+    },
+    {
+      "title": "Robust Optimization of Rank-Dependent Models with Uncertain\n  Probabilities",
+      "authors": [
+        "Guanyu Jin",
+        "Roger J. A. Laeven",
+        "Dick den Hertog"
+      ],
+      "abstract": "This paper studies distributionally robust optimization for a large class of\nrisk measures with ambiguity sets defined by $\\phi$-divergences. The risk\nmeasures are allowed to be non-linear in probabilities, are represented by a\nChoquet integral possibly induced by a probability weighting function, and\ninclude many well-known examples (for example, CVaR, Mean-Median Deviation,\nGini-type). Optimization for this class of robust risk measures is challenging\ndue to their rank-dependent nature. We show that for many types of probability\nweighting functions including concave, convex and inverse $S$-shaped, the\nrobust optimization problem can be reformulated into a rank-independent\nproblem. In the case of a concave probability weighting function, the problem\ncan be further reformulated into a convex optimization problem with finitely\nmany constraints that admits explicit conic representability for a collection\nof canonical examples. While the number of constraints in general scales\nexponentially with the dimension of the state space, we circumvent this\ndimensionality curse and provide two types of upper and lower bounds\nalgorithms.They yield tight upper and lower bounds on the exact optimal value\nand are formally shown to converge asymptotically. This is illustrated\nnumerically in two examples given by a robust newsvendor problem and a robust\nportfolio choice problem.",
+      "published": "February 17, 2025",
+      "categories": [
+        "math.OC",
+        "econ.TH",
+        "90C17, 91B06"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.11780v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.11780v1"
+    },
+    {
+      "title": "Transfer Learning of CATE with Kernel Ridge Regression",
+      "authors": [
+        "Seok-Jin Kim",
+        "Hongjie Liu",
+        "Molei Liu",
+        "Kaizheng Wang"
+      ],
+      "abstract": "The proliferation of data has sparked significant interest in leveraging\nfindings from one study to estimate treatment effects in a different target\npopulation without direct outcome observations. However, the transfer learning\nprocess is frequently hindered by substantial covariate shift and limited\noverlap between (i) the source and target populations, as well as (ii) the\ntreatment and control groups within the source. We propose a novel method for\noverlap-adaptive transfer learning of conditional average treatment effect\n(CATE) using kernel ridge regression (KRR). Our approach involves partitioning\nthe labeled source data into two subsets. The first one is used to train\ncandidate CATE models based on regression adjustment and pseudo-outcomes. An\noptimal model is then selected using the second subset and unlabeled target\ndata, employing another pseudo-outcome-based strategy. We provide a theoretical\njustification for our method through sharp non-asymptotic MSE bounds,\nhighlighting its adaptivity to both weak overlaps and the complexity of CATE\nfunction. Extensive numerical studies confirm that our method achieves superior\nfinite-sample efficiency and adaptability. We conclude by demonstrating the\neffectiveness of our approach using a 401(k) eligibility dataset.",
+      "published": "February 17, 2025",
+      "categories": [
+        "stat.ME",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.11331v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.11331v1"
+    },
+    {
+      "title": "Detecting Cadastral Boundary from Satellite Images Using U-Net model",
+      "authors": [
+        "Neda Rahimpour Anaraki",
+        "Maryam Tahmasbi",
+        "Saeed Reza Kheradpisheh"
+      ],
+      "abstract": "Finding the cadastral boundaries of farmlands is a crucial concern for land\nadministration. Therefore, using deep learning methods to expedite and simplify\nthe extraction of cadastral boundaries from satellite and unmanned aerial\nvehicle (UAV) images is critical. In this paper, we employ transfer learning to\ntrain a U-Net model with a ResNet34 backbone to detect cadastral boundaries\nthrough three-class semantic segmentation: \"boundary\", \"field\", and\n\"background\". We evaluate the performance on two satellite images from\nfarmlands in Iran using \"precision\", \"recall\", and \"F-score\", achieving high\nvalues of 88%, 75%, and 81%, respectively, which indicate promising results.",
+      "published": "February 16, 2025",
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.11044v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.11044v1"
+    },
+    {
+      "title": "Controlling Neural Collapse Enhances Out-of-Distribution Detection and\n  Transfer Learning",
+      "authors": [
+        "Md Yousuf Harun",
+        "Jhair Gallardo",
+        "Christopher Kanan"
+      ],
+      "abstract": "Out-of-distribution (OOD) detection and OOD generalization are widely studied\nin Deep Neural Networks (DNNs), yet their relationship remains poorly\nunderstood. We empirically show that the degree of Neural Collapse (NC) in a\nnetwork layer is inversely related with these objectives: stronger NC improves\nOOD detection but degrades generalization, while weaker NC enhances\ngeneralization at the cost of detection. This trade-off suggests that a single\nfeature space cannot simultaneously achieve both tasks. To address this, we\ndevelop a theoretical framework linking NC to OOD detection and generalization.\nWe show that entropy regularization mitigates NC to improve generalization,\nwhile a fixed Simplex Equiangular Tight Frame (ETF) projector enforces NC for\nbetter detection. Based on these insights, we propose a method to control NC at\ndifferent DNN layers. In experiments, our method excels at both tasks across\nOOD datasets and DNN architectures.",
+      "published": "February 15, 2025",
+      "categories": [
+        "cs.LG"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.10691v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.10691v1"
+    },
     {
       "title": "SPIRIT: Short-term Prediction of solar IRradIance for zero-shot Transfer\n  learning using Foundation Models",
       "authors": [
@@ -738,104 +862,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2502.03928v1",
       "arxiv_url": "http://arxiv.org/abs/2502.03928v1"
-    },
-    {
-      "title": "Self-Supervised Learning for Solar Radio Spectrum Classification",
-      "authors": [
-        "Siqi Li",
-        "Guowu Yuan",
-        "Jian Chen",
-        "Chengming Tan",
-        "Hao Zhou"
-      ],
-      "abstract": "Solar radio observation is an important way to study the Sun. Solar radio\nbursts contain important information about solar activity. Therefore, real-time\nautomatic detection and classification of solar radio bursts are of great value\nfor subsequent solar physics research and space weather warnings. Traditional\nimage classification methods based on deep learning often require consid-erable\ntraining data. To address insufficient solar radio spectrum images, transfer\nlearning is generally used. However, the large difference between natural\nimages and solar spectrum images has a large impact on the transfer learning\neffect. In this paper, we propose a self-supervised learning method for solar\nradio spectrum classification. Our method uses self-supervised training with a\nself-masking approach in natural language processing. Self-supervised learning\nis more conducive to learning the essential information about images compared\nwith supervised methods, and it is more suitable for transfer learning. First,\nthe method pre-trains using a large amount of other existing data. Then, the\ntrained model is fine-tuned on the solar radio spectrum dataset. Experiments\nshow that the method achieves a classification accuracy similar to that of\nconvolutional neural networks and Transformer networks with supervised\ntraining.",
-      "published": "February 06, 2025",
-      "categories": [
-        "astro-ph.IM",
-        "astro-ph.SR"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.03778v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.03778v1"
-    },
-    {
-      "title": "Prediction of the Most Fire-Sensitive Point in Building Structures with\n  Differentiable Agents for Thermal Simulators",
-      "authors": [
-        "Yuan Xinjie",
-        "Khalid M. Mosalam"
-      ],
-      "abstract": "Fire safety is a critical area of research in civil and mechanical\nengineering, particularly in ensuring the structural stability of buildings\nduring fire events. The Most Fire-Sensitive Point (MFSP) in a structure is the\nlocation where a fire would cause the greatest impact on structural stability.\nAccurate prediction of the MFSP is vital for streamlining structural\nassessments and optimizing the design process. This paper presents a novel\nframework for MFSP prediction using a neural network-based approach that\nintegrates fire dynamics and finite element analysis through a differentiable\nagent model. The framework focuses on predicting the Maximum Interstory Drift\nRatio (MIDR), a key indicator of structural performance under fire conditions.\nBy leveraging the differentiable agent model, we efficiently generate labeled\ndata for MFSP and directly train a predictor for this critical metric. To\nachieve this, we generated extensive simulation data encompassing structural\nand fire scenarios and employed graph neural networks to represent the building\nstructures. Transfer learning was applied to optimize the training process, and\nan edge update mechanism was introduced to dynamically adjust edge attributes,\nreflecting property changes under fire conditions. The proposed model was\nrigorously evaluated on simulation data, demonstrating strong performance in\naccurately predicting both MIDR and MFSP, thus advancing fire safety analysis\nfor building structures.",
-      "published": "February 05, 2025",
-      "categories": [
-        "cs.LG"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.03424v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.03424v1"
-    },
-    {
-      "title": "DES to HSC: Detecting low surface brightness galaxies in the Abell 194\n  cluster using transfer learning",
-      "authors": [
-        "H. Thuruthipilly",
-        "Junais",
-        "J. Koda",
-        "A. Pollo",
-        "M. Yagi",
-        "H. Yamanoi",
-        "Y. Komiyama",
-        "M. Romano",
-        "K. Ma\u0142ek",
-        "D. Donevski"
-      ],
-      "abstract": "Low surface brightness galaxies (LSBGs) are important for understanding\ngalaxy evolution and cosmological models. The upcoming large-scale surveys are\nexpected to uncover a large number of LSBGs, requiring accurate automated or\nmachine learning-based methods for their detection. We study the scope of\ntransfer learning for the identification of LSBGs. We use transformer models\ndivided into two categories: LSBG Detection Transformer (LSBG DETR) and LSBG\nVision Transformer (LSBG ViT), trained on Dark Energy Survey (DES) data, to\nidentify LSBGs from dedicated Hyper Suprime-Cam (HSC) observations of the Abell\n194 cluster, which are two magnitudes deeper than DES. The data from DES and\nHSC were standardized based on pixel-level surface brightness. We used two\ntransformer ensembles to detect LSBGs. This was followed by a single-component\nS\\'ersic model fit and a final visual inspection to filter out potential false\npositives and improve sample purity. We present a sample of 171 low surface\nbrightness galaxies (LSBGs) in the Abell 194 cluster using HSC data, including\n87 new discoveries. Of these, 159 were identified using transformer models, and\n12 additional LSBGs were found through visual inspection. The transformer model\nachieved a true positive rate (TPR) of 93% in HSC data without any fine-tuning.\nAmong the LSBGs, 28 were classified as ultra-diffuse galaxies (UDGs). The\nnumber of UDGs and the radial UDG number density suggest a linear relationship\nbetween UDG numbers and cluster mass on a log scale. UDGs share similar\nS\\'ersic parameters with dwarf galaxies and occupy the extended end of the\n$R_{\\mathrm{eff}}-M_g$ plane, suggesting they might be an extended\nsubpopulation of dwarf galaxies. We have demonstrated that transformer models\ntrained on shallower surveys can be successfully applied to deeper surveys with\nappropriate data normalization.",
-      "published": "February 05, 2025",
-      "categories": [
-        "astro-ph.GA"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.03142v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.03142v1"
-    },
-    {
-      "title": "Transferring Graph Neural Networks for Soft Sensor Modeling using\n  Process Topologies",
-      "authors": [
-        "Maximilian F. Theisen",
-        "Gabrie M. H. Meesters",
-        "Artur M. Schweidtmann"
-      ],
-      "abstract": "Data-driven soft sensors help in process operations by providing real-time\nestimates of otherwise hard- to-measure process quantities, e.g., viscosities\nor product concentrations. Currently, soft sensors need to be developed\nindividually per plant. Using transfer learning, machine learning-based soft\nsensors could be reused and fine-tuned across plants and applications. However,\ntransferring data-driven soft sensor models is in practice often not possible,\nbecause the fixed input structure of standard soft sensor models prohibits\ntransfer if, e.g., the sensor information is not identical in all plants. We\npropose a topology-aware graph neural network approach for transfer learning of\nsoft sensor models across multiple plants. In our method, plants are modeled as\ngraphs: Unit operations are nodes, streams are edges, and sensors are embedded\nas attributes. Our approach brings two advantages for transfer learning: First,\nwe not only include sensor data but also crucial information on the plant\ntopology. Second, the graph neural network algorithm is flexible with respect\nto its sensor inputs. This allows us to model data from different plants with\ndifferent sensor networks. We test the transfer learning capabilities of our\nmodeling approach on ammonia synthesis loops with different process topologies.\nWe build a soft sensor predicting the ammonia concentration in the product.\nAfter training on data from one process, we successfully transfer our soft\nsensor model to a previously unseen process with a different topology. Our\napproach promises to extend the data-driven soft sensors to cases to leverage\ndata from multiple plants.",
-      "published": "February 05, 2025",
-      "categories": [
-        "cs.LG",
-        "cs.AI"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.06826v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.06826v1"
-    },
-    {
-      "title": "Cross-Lingual Transfer for Low-Resource Natural Language Processing",
-      "authors": [
-        "Iker Garc\u00eda-Ferrero"
-      ],
-      "abstract": "Natural Language Processing (NLP) has seen remarkable advances in recent\nyears, particularly with the emergence of Large Language Models that have\nachieved unprecedented performance across many tasks. However, these\ndevelopments have mainly benefited a small number of high-resource languages\nsuch as English. The majority of languages still face significant challenges\ndue to the scarcity of training data and computational resources. To address\nthis issue, this thesis focuses on cross-lingual transfer learning, a research\narea aimed at leveraging data and models from high-resource languages to\nimprove NLP performance for low-resource languages. Specifically, we focus on\nSequence Labeling tasks such as Named Entity Recognition, Opinion Target\nExtraction, and Argument Mining.\n  The research is structured around three main objectives: (1) advancing\ndata-based cross-lingual transfer learning methods through improved translation\nand annotation projection techniques, (2) developing enhanced model-based\ntransfer learning approaches utilizing state-of-the-art multilingual models,\nand (3) applying these methods to real-world problems while creating\nopen-source resources that facilitate future research in low-resource NLP.\n  More specifically, this thesis presents a new method to improve data-based\ntransfer with T-Projection, a state-of-the-art annotation projection method\nthat leverages text-to-text multilingual models and machine translation\nsystems. T-Projection significantly outperforms previous annotation projection\nmethods by a wide margin. For model-based transfer, we introduce a constrained\ndecoding algorithm that enhances cross-lingual Sequence Labeling in zero-shot\nsettings using text-to-text models. Finally, we develop Medical mT5, the first\nmultilingual text-to-text medical model, demonstrating the practical impact of\nour research on real-world applications.",
-      "published": "February 04, 2025",
-      "categories": [
-        "cs.CL"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.02722v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.02722v1"
-    },
-    {
-      "title": "Beyond English: Evaluating Automated Measurement of Moral Foundations in\n  Non-English Discourse with a Chinese Case Study",
-      "authors": [
-        "Calvin Yixiang Cheng",
-        "Scott A Hale"
-      ],
-      "abstract": "This study explores computational approaches for measuring moral foundations\n(MFs) in non-English corpora. Since most resources are developed primarily for\nEnglish, cross-linguistic applications of moral foundation theory remain\nlimited. Using Chinese as a case study, this paper evaluates the effectiveness\nof applying English resources to machine translated text, local language\nlexicons, multilingual language models, and large language models (LLMs) in\nmeasuring MFs in non-English texts. The results indicate that machine\ntranslation and local lexicon approaches are insufficient for complex moral\nassessments, frequently resulting in a substantial loss of cultural\ninformation. In contrast, multilingual models and LLMs demonstrate reliable\ncross-language performance with transfer learning, with LLMs excelling in terms\nof data efficiency. Importantly, this study also underscores the need for\nhuman-in-the-loop validation of automated MF assessment, as the most advanced\nmodels may overlook cultural nuances in cross-language measurements. The\nfindings highlight the potential of LLMs for cross-language MF measurements and\nother complex multilingual deductive coding tasks.",
-      "published": "February 04, 2025",
-      "categories": [
-        "cs.CL",
-        "cs.SI"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.02451v2",
-      "arxiv_url": "http://arxiv.org/abs/2502.02451v2"
     }
   ]
 }
