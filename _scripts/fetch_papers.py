@@ -74,7 +74,13 @@ def fetch_arxiv_papers():
                              kw.lower() in abstract.lower() 
                              for kw in keywords):
                         continue
+
+                    categories = [cat.get('term') for cat in entry.findall('atom:category', namespaces)]
                     
+                    # Check if at least one category contains 'stat'
+                    if not any('stat' in cat.lower() for cat in categories):
+                        continue
+                        
                     published_elem = entry.find('atom:published', namespaces)
                     if published_elem is None:
                         print(f"Missing published date for paper: {title}")  # Debug log
@@ -86,7 +92,7 @@ def fetch_arxiv_papers():
                                   for author in entry.findall('atom:author', namespaces)],
                         'abstract': abstract,
                         'published': format_date(published_elem.text),
-                        'categories': [cat.get('term') for cat in entry.findall('atom:category', namespaces)],
+                        'categories': categories,
                         'pdf_link': next((link.get('href') for link in entry.findall('atom:link', namespaces) 
                                         if link.get('title') == 'pdf'), ''),
                         'arxiv_url': next((link.get('href') for link in entry.findall('atom:link', namespaces) 
