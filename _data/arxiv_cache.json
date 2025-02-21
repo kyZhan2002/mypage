@@ -1,5 +1,5 @@
 {
-  "timestamp": 1740014049,
+  "timestamp": 1740100465,
   "papers": [
     {
       "title": "Unsupervised optimal deep transfer learning for classification under\n  general conditional shift",
@@ -103,25 +103,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2502.06970v1",
       "arxiv_url": "http://arxiv.org/abs/2502.06970v1"
-    },
-    {
-      "title": "Provable Sample-Efficient Transfer Learning Conditional Diffusion Models\n  via Representation Learning",
-      "authors": [
-        "Ziheng Cheng",
-        "Tianyu Xie",
-        "Shiyue Zhang",
-        "Cheng Zhang"
-      ],
-      "abstract": "While conditional diffusion models have achieved remarkable success in\nvarious applications, they require abundant data to train from scratch, which\nis often infeasible in practice. To address this issue, transfer learning has\nemerged as an essential paradigm in small data regimes. Despite its empirical\nsuccess, the theoretical underpinnings of transfer learning conditional\ndiffusion models remain unexplored. In this paper, we take the first step\ntowards understanding the sample efficiency of transfer learning conditional\ndiffusion models through the lens of representation learning. Inspired by\npractical training procedures, we assume that there exists a low-dimensional\nrepresentation of conditions shared across all tasks. Our analysis shows that\nwith a well-learned representation from source tasks, the samplecomplexity of\ntarget tasks can be reduced substantially. In addition, we investigate the\npractical implications of our theoretical results in several real-world\napplications of conditional diffusion models. Numerical experiments are also\nconducted to verify our results.",
-      "published": "February 06, 2025",
-      "categories": [
-        "cs.LG",
-        "math.ST",
-        "stat.ML",
-        "stat.TH"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.04491v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.04491v1"
     }
   ]
 }
