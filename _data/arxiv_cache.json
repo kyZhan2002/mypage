@@ -1,6 +1,26 @@
 {
-  "timestamp": 1740100465,
+  "timestamp": 1740186736,
   "papers": [
+    {
+      "title": "Distribution Matching for Self-Supervised Transfer Learning",
+      "authors": [
+        "Yuling Jiao",
+        "Wensen Ma",
+        "Defeng Sun",
+        "Hansheng Wang",
+        "Yang Wang"
+      ],
+      "abstract": "In this paper, we propose a novel self-supervised transfer learning method\ncalled Distribution Matching (DM), which drives the representation distribution\ntoward a predefined reference distribution while preserving augmentation\ninvariance. The design of DM results in a learned representation space that is\nintuitively structured and offers easily interpretable hyperparameters.\nExperimental results across multiple real-world datasets and evaluation metrics\ndemonstrate that DM performs competitively on target classification tasks\ncompared to existing self-supervised transfer learning methods. Additionally,\nwe provide robust theoretical guarantees for DM, including a population theorem\nand an end-to-end sample theorem. The population theorem bridges the gap\nbetween the self-supervised learning task and target classification accuracy,\nwhile the sample theorem shows that, even with a limited number of samples from\nthe target domain, DM can deliver exceptional classification performance,\nprovided the unlabeled sample size is sufficiently large.",
+      "published": "February 20, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.AI",
+        "cs.LG",
+        "stat.ME"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.14424v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.14424v1"
+    },
     {
       "title": "Unsupervised optimal deep transfer learning for classification under\n  general conditional shift",
       "authors": [
