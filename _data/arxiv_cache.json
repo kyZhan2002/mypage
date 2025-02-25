@@ -1,6 +1,24 @@
 {
-  "timestamp": 1740359774,
+  "timestamp": 1740446145,
   "papers": [
+    {
+      "title": "Improving variable selection properties by using external data",
+      "authors": [
+        "Paul Rognon-Vael",
+        "David Rossell",
+        "Piotr Zwiernik"
+      ],
+      "abstract": "Sparse high-dimensional signal recovery is only possible under certain\nconditions on the number of parameters, sample size, signal strength and\nunderlying sparsity. We show that these mathematical limits can be pushed when\none has external information that allow splitting parameters into blocks. This\noccurs in many applications, including data integration and transfer learning\ntasks. Specifically, we consider the Gaussian sequence model and linear\nregression, and show how block-based $\\ell_0$ penalties attain model selection\nconsistency under milder conditions than standard $\\ell_0$ penalties, and they\nalso attain faster model recovery rates. We first provide results for\noracle-based $\\ell_0$ penalties that have access to perfect sparsity and signal\nstrength information, and subsequently empirical Bayes-motivated block $\\ell_0$\npenalties that does not require oracle information.",
+      "published": "February 21, 2025",
+      "categories": [
+        "math.ST",
+        "stat.ME",
+        "stat.TH",
+        "62F07 (Primary) 62C12, 62R07 (Secondary)"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.15584v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.15584v1"
+    },
     {
       "title": "Distribution Matching for Self-Supervised Transfer Learning",
       "authors": [
