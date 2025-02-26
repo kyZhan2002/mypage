@@ -1,6 +1,47 @@
 {
-  "timestamp": 1740446145,
+  "timestamp": 1740532522,
   "papers": [
+    {
+      "title": "Distributionally Robust Active Learning for Gaussian Process Regression",
+      "authors": [
+        "Shion Takeno",
+        "Yoshito Okura",
+        "Yu Inatsu",
+        "Aoyama Tatsuya",
+        "Tomonari Tanaka",
+        "Akahane Satoshi",
+        "Hiroyuki Hanada",
+        "Noriaki Hashimoto",
+        "Taro Murayama",
+        "Hanju Lee",
+        "Shinya Kojima",
+        "Ichiro Takeuchi"
+      ],
+      "abstract": "Gaussian process regression (GPR) or kernel ridge regression is a widely used\nand powerful tool for nonlinear prediction. Therefore, active learning (AL) for\nGPR, which actively collects data labels to achieve an accurate prediction with\nfewer data labels, is an important problem. However, existing AL methods do not\ntheoretically guarantee prediction accuracy for target distribution.\nFurthermore, as discussed in the distributionally robust learning literature,\nspecifying the target distribution is often difficult. Thus, this paper\nproposes two AL methods that effectively reduce the worst-case expected error\nfor GPR, which is the worst-case expectation in target distribution candidates.\nWe show an upper bound of the worst-case expected squared error, which suggests\nthat the error will be arbitrarily small by a finite number of data labels\nunder mild conditions. Finally, we demonstrate the effectiveness of the\nproposed methods through synthetic and real-world datasets.",
+      "published": "February 24, 2025",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.16870v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.16870v1"
+    },
+    {
+      "title": "Provable Benefits of Unsupervised Pre-training and Transfer Learning via\n  Single-Index Models",
+      "authors": [
+        "Taj Jones-McCormick",
+        "Aukosh Jagannath",
+        "Subhabrata Sen"
+      ],
+      "abstract": "Unsupervised pre-training and transfer learning are commonly used techniques\nto initialize training algorithms for neural networks, particularly in settings\nwith limited labeled data. In this paper, we study the effects of unsupervised\npre-training and transfer learning on the sample complexity of high-dimensional\nsupervised learning. Specifically, we consider the problem of training a\nsingle-layer neural network via online stochastic gradient descent. We\nestablish that pre-training and transfer learning (under concept shift) reduce\nsample complexity by polynomial factors (in the dimension) under very general\nassumptions. We also uncover some surprising settings where pre-training grants\nexponential improvement over random initialization in terms of sample\ncomplexity.",
+      "published": "February 24, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.16849v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.16849v1"
+    },
     {
       "title": "Improving variable selection properties by using external data",
       "authors": [
@@ -107,40 +148,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2502.08146v1",
       "arxiv_url": "http://arxiv.org/abs/2502.08146v1"
-    },
-    {
-      "title": "Generative Distribution Prediction: A Unified Approach to Multimodal\n  Learning",
-      "authors": [
-        "Xinyu Tian",
-        "Xiaotong Shen"
-      ],
-      "abstract": "Accurate prediction with multimodal data-encompassing tabular, textual, and\nvisual inputs or outputs-is fundamental to advancing analytics in diverse\napplication domains. Traditional approaches often struggle to integrate\nheterogeneous data types while maintaining high predictive accuracy. We\nintroduce Generative Distribution Prediction (GDP), a novel framework that\nleverages multimodal synthetic data generation-such as conditional diffusion\nmodels-to enhance predictive performance across structured and unstructured\nmodalities. GDP is model-agnostic, compatible with any high-fidelity generative\nmodel, and supports transfer learning for domain adaptation. We establish a\nrigorous theoretical foundation for GDP, providing statistical guarantees on\nits predictive accuracy when using diffusion models as the generative backbone.\nBy estimating the data-generating distribution and adapting to various loss\nfunctions for risk minimization, GDP enables accurate point predictions across\nmultimodal settings. We empirically validate GDP on four supervised learning\ntasks-tabular data prediction, question answering, image captioning, and\nadaptive quantile regression-demonstrating its versatility and effectiveness\nacross diverse domains.",
-      "published": "February 10, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.AI",
-        "cs.LG"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.07090v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.07090v1"
-    },
-    {
-      "title": "Model Diffusion for Certifiable Few-shot Transfer Learning",
-      "authors": [
-        "Fady Rezk",
-        "Royson Lee",
-        "Henry Gouk",
-        "Timothy Hospedales",
-        "Minyoung Kim"
-      ],
-      "abstract": "In modern large-scale deep learning, a prevalent and effective workflow for\nsolving low-data problems is adapting powerful pre-trained foundation models\n(FMs) to new tasks via parameter-efficient fine-tuning (PEFT). However, while\nempirically effective, the resulting solutions lack generalisation guarantees\nto certify their accuracy - which may be required for ethical or legal reasons\nprior to deployment in high-importance applications. In this paper we develop a\nnovel transfer learning approach that is designed to facilitate non-vacuous\nlearning theoretic generalisation guarantees for downstream tasks, even in the\nlow-shot regime. Specifically, we first use upstream tasks to train a\ndistribution over PEFT parameters. We then learn the downstream task by a\nsample-and-evaluate procedure -- sampling plausible PEFTs from the trained\ndiffusion model and selecting the one with the highest likelihood on the\ndownstream data. Crucially, this confines our model hypothesis to a finite set\nof PEFT samples. In contrast to learning in the typical continuous hypothesis\nspaces of neural network weights, this facilitates tighter risk certificates.\nWe instantiate our bound and show non-trivial generalization guarantees\ncompared to existing learning approaches which lead to vacuous bounds in the\nlow-shot regime.",
-      "published": "February 10, 2025",
-      "categories": [
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.06970v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.06970v1"
     }
   ]
 }
