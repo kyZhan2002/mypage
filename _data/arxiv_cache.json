@@ -1,6 +1,23 @@
 {
-  "timestamp": 1740532522,
+  "timestamp": 1740618938,
   "papers": [
+    {
+      "title": "Conformal Prediction Under Generalized Covariate Shift with Posterior\n  Drift",
+      "authors": [
+        "Baozhen Wang",
+        "Xingye Qiao"
+      ],
+      "abstract": "In many real applications of statistical learning, collecting sufficiently\nmany training data is often expensive, time-consuming, or even unrealistic. In\nthis case, a transfer learning approach, which aims to leverage knowledge from\na related source domain to improve the learning performance in the target\ndomain, is more beneficial. There have been many transfer learning methods\ndeveloped under various distributional assumptions. In this article, we study a\nparticular type of classification problem, called conformal prediction, under a\nnew distributional assumption for transfer learning. Classifiers under the\nconformal prediction framework predict a set of plausible labels instead of one\nsingle label for each data instance, affording a more cautious and safer\ndecision. We consider a generalization of the \\textit{covariate shift with\nposterior drift} setting for transfer learning. Under this setting, we propose\na weighted conformal classifier that leverages both the source and target\nsamples, with a coverage guarantee in the target domain. Theoretical studies\ndemonstrate favorable asymptotic properties. Numerical studies further\nillustrate the usefulness of the proposed method.",
+      "published": "February 25, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.ST",
+        "stat.TH"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.17744v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.17744v1"
+    },
     {
       "title": "Distributionally Robust Active Learning for Gaussian Process Regression",
       "authors": [
