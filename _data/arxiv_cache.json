@@ -1,5 +1,5 @@
 {
-  "timestamp": 1740618938,
+  "timestamp": 1740705356,
   "papers": [
     {
       "title": "Conformal Prediction Under Generalized Covariate Shift with Posterior\n  Drift",
@@ -129,42 +129,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2502.11331v1",
       "arxiv_url": "http://arxiv.org/abs/2502.11331v1"
-    },
-    {
-      "title": "Multifidelity Simulation-based Inference for Computationally Expensive\n  Simulators",
-      "authors": [
-        "Anastasia N. Krouglova",
-        "Hayden R. Johnson",
-        "Basile Confavreux",
-        "Michael Deistler",
-        "Pedro J. Gon\u00e7alves"
-      ],
-      "abstract": "Across many domains of science, stochastic models are an essential tool to\nunderstand the mechanisms underlying empirically observed data. Models can be\nof different levels of detail and accuracy, with models of high-fidelity (i.e.,\nhigh accuracy) to the phenomena under study being often preferable. However,\ninferring parameters of high-fidelity models via simulation-based inference is\nchallenging, especially when the simulator is computationally expensive. We\nintroduce MF-NPE, a multifidelity approach to neural posterior estimation that\nleverages inexpensive low-fidelity simulations to infer parameters of\nhigh-fidelity simulators within a limited simulation budget. MF-NPE performs\nneural posterior estimation with limited high-fidelity resources by virtue of\ntransfer learning, with the ability to prioritize individual observations using\nactive learning. On one statistical task with analytical ground-truth and two\nreal-world tasks, MF-NPE shows comparable performance to current approaches\nwhile requiring up to two orders of magnitude fewer high-fidelity simulations.\nOverall, MF-NPE opens new opportunities to perform efficient Bayesian inference\non computationally expensive simulators.",
-      "published": "February 12, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.08416v2",
-      "arxiv_url": "http://arxiv.org/abs/2502.08416v2"
-    },
-    {
-      "title": "Knowledge-Guided Wasserstein Distributionally Robust Optimization",
-      "authors": [
-        "Zitao Wang",
-        "Ziyuan Wang",
-        "Molei Liu",
-        "Nian Si"
-      ],
-      "abstract": "Transfer learning is a popular strategy to leverage external knowledge and\nimprove statistical efficiency, particularly with a limited target sample. We\npropose a novel knowledge-guided Wasserstein Distributionally Robust\nOptimization (KG-WDRO) framework that adaptively incorporates multiple sources\nof external knowledge to overcome the conservativeness of vanilla WDRO, which\noften results in overly pessimistic shrinkage toward zero. Our method\nconstructs smaller Wasserstein ambiguity sets by controlling the transportation\nalong directions informed by the source knowledge. This strategy can alleviate\nperturbations on the predictive projection of the covariates and protect\nagainst information loss. Theoretically, we establish the equivalence between\nour WDRO formulation and the knowledge-guided shrinkage estimation based on\ncollinear similarity, ensuring tractability and geometrizing the feasible set.\nThis also reveals a novel and general interpretation for recent shrinkage-based\ntransfer learning approaches from the perspective of distributional robustness.\nIn addition, our framework can adjust for scaling differences in the regression\nmodels between the source and target and accommodates general types of\nregularization such as lasso and ridge. Extensive simulations demonstrate the\nsuperior performance and adaptivity of KG-WDRO in enhancing small-sample\ntransfer learning.",
-      "published": "February 12, 2025",
-      "categories": [
-        "cs.LG",
-        "stat.ME",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.08146v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.08146v1"
     }
   ]
 }
