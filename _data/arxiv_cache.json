@@ -1,6 +1,25 @@
 {
-  "timestamp": 1740705356,
+  "timestamp": 1740792038,
   "papers": [
+    {
+      "title": "A Principled Approach to Bayesian Transfer Learning",
+      "authors": [
+        "Adam Bretherton",
+        "Joshua J. Bon",
+        "David J. Warne",
+        "Kerrie Mengersen",
+        "Christopher Drovandi"
+      ],
+      "abstract": "Updating $\\textit{a priori}$ information given some observed data is the core\ntenet of Bayesian inference. Bayesian transfer learning extends this idea by\nincorporating information from a related dataset to improve the inference on\nthe observed data which may have been collected under slightly different\nsettings. The use of related information can be useful when the observed data\nis scarce, for example. Current Bayesian transfer learning methods that are\nbased on the so-called $\\textit{power prior}$ can adaptively transfer\ninformation from related data. Unfortunately, it is not always clear under\nwhich scenario Bayesian transfer learning performs best or even if it will\nimprove Bayesian inference. Additionally, current power prior methods rely on\nconjugacy to evaluate the posterior of interest. We propose using leave-one-out\ncross validation on the target dataset as a means of evaluating Bayesian\ntransfer learning methods. Further, we introduce a new framework,\n$\\textit{transfer sequential Monte Carlo}$, for power prior approaches that\nefficiently chooses the transfer parameter while avoiding the need for\nconjugate priors. We assess the performance of our proposed methods in two\ncomprehensive simulation studies.",
+      "published": "February 27, 2025",
+      "categories": [
+        "stat.ME",
+        "stat.CO",
+        "62F15, 62F07 (Primary) 62-08 (Secondary)"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.19796v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.19796v1"
+    },
     {
       "title": "Conformal Prediction Under Generalized Covariate Shift with Posterior\n  Drift",
       "authors": [
