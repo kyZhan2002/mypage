@@ -1,5 +1,5 @@
 {
-  "timestamp": 1740964690,
+  "timestamp": 1741051000,
   "papers": [
     {
       "title": "A Principled Approach to Bayesian Transfer Learning",
@@ -79,6 +79,23 @@
       "arxiv_url": "http://arxiv.org/abs/2502.16849v1"
     },
     {
+      "title": "Transfer Learning through Enhanced Sufficient Representation: Enriching\n  Source Domain Knowledge with Target Data",
+      "authors": [
+        "Yeheng Ge",
+        "Xueyu Zhou",
+        "Jian Huang"
+      ],
+      "abstract": "Transfer learning is an important approach for addressing the challenges\nposed by limited data availability in various applications. It accomplishes\nthis by transferring knowledge from well-established source domains to a less\nfamiliar target domain. However, traditional transfer learning methods often\nface difficulties due to rigid model assumptions and the need for a high degree\nof similarity between source and target domain models. In this paper, we\nintroduce a novel method for transfer learning called Transfer learning through\nEnhanced Sufficient Representation (TESR). Our approach begins by estimating a\nsufficient and invariant representation from the source domains. This\nrepresentation is then enhanced with an independent component derived from the\ntarget data, ensuring that it is sufficient for the target domain and adaptable\nto its specific characteristics. A notable advantage of TESR is that it does\nnot rely on assuming similar model structures across different tasks. For\nexample, the source domain models can be regression models, while the target\ndomain task can be classification. This flexibility makes TESR applicable to a\nwide range of supervised learning problems. We explore the theoretical\nproperties of TESR and validate its performance through simulation studies and\nreal-world data applications, demonstrating its effectiveness in finite sample\nsettings.",
+      "published": "February 22, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "62G05, 68T07"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2502.20414v1",
+      "arxiv_url": "http://arxiv.org/abs/2502.20414v1"
+    },
+    {
       "title": "Improving variable selection properties by using external data",
       "authors": [
         "Paul Rognon-Vael",
@@ -130,24 +147,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2502.12729v1",
       "arxiv_url": "http://arxiv.org/abs/2502.12729v1"
-    },
-    {
-      "title": "Transfer Learning of CATE with Kernel Ridge Regression",
-      "authors": [
-        "Seok-Jin Kim",
-        "Hongjie Liu",
-        "Molei Liu",
-        "Kaizheng Wang"
-      ],
-      "abstract": "The proliferation of data has sparked significant interest in leveraging\nfindings from one study to estimate treatment effects in a different target\npopulation without direct outcome observations. However, the transfer learning\nprocess is frequently hindered by substantial covariate shift and limited\noverlap between (i) the source and target populations, as well as (ii) the\ntreatment and control groups within the source. We propose a novel method for\noverlap-adaptive transfer learning of conditional average treatment effect\n(CATE) using kernel ridge regression (KRR). Our approach involves partitioning\nthe labeled source data into two subsets. The first one is used to train\ncandidate CATE models based on regression adjustment and pseudo-outcomes. An\noptimal model is then selected using the second subset and unlabeled target\ndata, employing another pseudo-outcome-based strategy. We provide a theoretical\njustification for our method through sharp non-asymptotic MSE bounds,\nhighlighting its adaptivity to both weak overlaps and the complexity of CATE\nfunction. Extensive numerical studies confirm that our method achieves superior\nfinite-sample efficiency and adaptability. We conclude by demonstrating the\neffectiveness of our approach using a 401(k) eligibility dataset.",
-      "published": "February 17, 2025",
-      "categories": [
-        "stat.ME",
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.11331v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.11331v1"
     }
   ]
 }
