@@ -1,6 +1,41 @@
 {
-  "timestamp": 1741137408,
+  "timestamp": 1741223808,
   "papers": [
+    {
+      "title": "The Distributionally Robust Optimization Model of Sparse Principal\n  Component Analysis",
+      "authors": [
+        "Lei Wang",
+        "Xin Liu",
+        "Xiaojun Chen"
+      ],
+      "abstract": "We consider sparse principal component analysis (PCA) under a stochastic\nsetting where the underlying probability distribution of the random parameter\nis uncertain. This problem is formulated as a distributionally robust\noptimization (DRO) model based on a constructive approach to capturing\nuncertainty in the covariance matrix, which constitutes a nonsmooth constrained\nmin-max optimization problem. We further prove that the inner maximization\nproblem admits a closed-form solution, reformulating the original DRO model\ninto an equivalent minimization problem on the Stiefel manifold. This\ntransformation leads to a Riemannian optimization problem with intricate\nnonsmooth terms, a challenging formulation beyond the reach of existing\nalgorithms. To address this issue, we devise an efficient smoothing manifold\nproximal gradient algorithm. We prove the Riemannian gradient consistency and\nglobal convergence of our algorithm to a stationary point of the nonsmooth\nminimization problem. Moreover, we establish the iteration complexity of our\nalgorithm. Finally, numerical experiments are conducted to validate the\neffectiveness and scalability of our algorithm, as well as to highlight the\nnecessity and rationality of adopting the DRO model for sparse PCA.",
+      "published": "March 04, 2025",
+      "categories": [
+        "math.OC",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2503.02494v1",
+      "arxiv_url": "http://arxiv.org/abs/2503.02494v1"
+    },
+    {
+      "title": "Optimal Transfer Learning for Missing Not-at-Random Matrix Completion",
+      "authors": [
+        "Akhil Jalan",
+        "Yassir Jedra",
+        "Arya Mazumdar",
+        "Soumendu Sundar Mukherjee",
+        "Purnamrita Sarkar"
+      ],
+      "abstract": "We study transfer learning for matrix completion in a Missing Not-at-Random\n(MNAR) setting that is motivated by biological problems. The target matrix $Q$\nhas entire rows and columns missing, making estimation impossible without side\ninformation. To address this, we use a noisy and incomplete source matrix $P$,\nwhich relates to $Q$ via a feature shift in latent space. We consider both the\nactive and passive sampling of rows and columns. We establish minimax lower\nbounds for entrywise estimation error in each setting. Our computationally\nefficient estimation framework achieves this lower bound for the active\nsetting, which leverages the source data to query the most informative rows and\ncolumns of $Q$. This avoids the need for incoherence assumptions required for\nrate optimality in the passive sampling setting. We demonstrate the\neffectiveness of our approach through comparisons with existing algorithms on\nreal-world biological datasets.",
+      "published": "February 28, 2025",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2503.00174v1",
+      "arxiv_url": "http://arxiv.org/abs/2503.00174v1"
+    },
     {
       "title": "A Principled Approach to Bayesian Transfer Learning",
       "authors": [
@@ -132,21 +167,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2502.14424v1",
       "arxiv_url": "http://arxiv.org/abs/2502.14424v1"
-    },
-    {
-      "title": "Unsupervised optimal deep transfer learning for classification under\n  general conditional shift",
-      "authors": [
-        "Junjun Lang",
-        "Yukun Liu"
-      ],
-      "abstract": "Classifiers trained solely on labeled source data may yield misleading\nresults when applied to unlabeled target data drawn from a different\ndistribution. Transfer learning can rectify this by transferring knowledge from\nsource to target data, but its effectiveness frequently relies on stringent\nassumptions, such as label shift. In this paper, we introduce a novel General\nConditional Shift (GCS) assumption, which encompasses label shift as a special\nscenario. Under GCS, we demonstrate that both the target distribution and the\nshift function are identifiable. To estimate the conditional probabilities\n${\\bm\\eta}_P$ for source data, we propose leveraging deep neural networks\n(DNNs). Subsequent to transferring the DNN estimator, we estimate the target\nlabel distribution ${\\bm\\pi}_Q$ utilizing a pseudo-maximum likelihood approach.\nUltimately, by incorporating these estimates and circumventing the need to\nestimate the shift function, we construct our proposed Bayes classifier. We\nestablish concentration bounds for our estimators of both ${\\bm\\eta}_P$ and\n${\\bm\\pi}_Q$ in terms of the intrinsic dimension of ${\\bm\\eta}_P$ . Notably,\nour DNN-based classifier achieves the optimal minimax rate, up to a logarithmic\nfactor. A key advantage of our method is its capacity to effectively combat the\ncurse of dimensionality when ${\\bm\\eta}_P$ exhibits a low-dimensional\nstructure. Numerical simulations, along with an analysis of an Alzheimer's\ndisease dataset, underscore its exceptional performance.",
-      "published": "February 18, 2025",
-      "categories": [
-        "math.ST",
-        "stat.TH"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.12729v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.12729v1"
     }
   ]
 }
