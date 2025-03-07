@@ -1,5 +1,5 @@
 {
-  "timestamp": 1741223808,
+  "timestamp": 1741310249,
   "papers": [
     {
       "title": "The Distributionally Robust Optimization Model of Sparse Principal\n  Component Analysis",
@@ -17,6 +17,25 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2503.02494v1",
       "arxiv_url": "http://arxiv.org/abs/2503.02494v1"
+    },
+    {
+      "title": "Diagnosis of Patients with Viral, Bacterial, and Non-Pneumonia Based on\n  Chest X-Ray Images Using Convolutional Neural Networks",
+      "authors": [
+        "Carlos Arizmendi",
+        "Jorge Pinto",
+        "Alejandro Arboleda",
+        "Hernando Gonz\u00e1lez"
+      ],
+      "abstract": "According to the World Health Organization (WHO), pneumonia is a disease that\ncauses a significant number of deaths each year. In response to this issue, the\ndevelopment of a decision support system for the classification of patients\ninto those without pneumonia and those with viral or bacterial pneumonia is\nproposed. This is achieved by implementing transfer learning (TL) using\npre-trained convolutional neural network (CNN) models on chest x-ray (CXR)\nimages. The system is further enhanced by integrating Relief and Chi-square\nmethods as dimensionality reduction techniques, along with support vector\nmachines (SVM) for classification. The performance of a series of experiments\nwas evaluated to build a model capable of distinguishing between patients\nwithout pneumonia and those with viral or bacterial pneumonia. The obtained\nresults include an accuracy of 91.02%, precision of 97.73%, recall of 98.03%,\nand an F1 Score of 97.88% for discriminating between patients without pneumonia\nand those with pneumonia. In addition, accuracy of 93.66%, precision of 94.26%,\nrecall of 92.66%, and an F1 Score of 93.45% were achieved for discriminating\nbetween patients with viral pneumonia and those with bacterial pneumonia.",
+      "published": "March 03, 2025",
+      "categories": [
+        "eess.IV",
+        "cs.CV",
+        "cs.LG",
+        "stat.CO"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2503.02906v1",
+      "arxiv_url": "http://arxiv.org/abs/2503.02906v1"
     },
     {
       "title": "Optimal Transfer Learning for Missing Not-at-Random Matrix Completion",
@@ -147,26 +166,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2502.15584v1",
       "arxiv_url": "http://arxiv.org/abs/2502.15584v1"
-    },
-    {
-      "title": "Distribution Matching for Self-Supervised Transfer Learning",
-      "authors": [
-        "Yuling Jiao",
-        "Wensen Ma",
-        "Defeng Sun",
-        "Hansheng Wang",
-        "Yang Wang"
-      ],
-      "abstract": "In this paper, we propose a novel self-supervised transfer learning method\ncalled Distribution Matching (DM), which drives the representation distribution\ntoward a predefined reference distribution while preserving augmentation\ninvariance. The design of DM results in a learned representation space that is\nintuitively structured and offers easily interpretable hyperparameters.\nExperimental results across multiple real-world datasets and evaluation metrics\ndemonstrate that DM performs competitively on target classification tasks\ncompared to existing self-supervised transfer learning methods. Additionally,\nwe provide robust theoretical guarantees for DM, including a population theorem\nand an end-to-end sample theorem. The population theorem bridges the gap\nbetween the self-supervised learning task and target classification accuracy,\nwhile the sample theorem shows that, even with a limited number of samples from\nthe target domain, DM can deliver exceptional classification performance,\nprovided the unlabeled sample size is sufficiently large.",
-      "published": "February 20, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.AI",
-        "cs.LG",
-        "stat.ME"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.14424v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.14424v1"
     }
   ]
 }
