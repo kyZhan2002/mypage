@@ -1,6 +1,26 @@
 {
-  "timestamp": 1741310249,
+  "timestamp": 1741395711,
   "papers": [
+    {
+      "title": "Provable Robust Overfitting Mitigation in Wasserstein Distributionally\n  Robust Optimization",
+      "authors": [
+        "Shuang Liu",
+        "Yihan Wang",
+        "Yifan Zhu",
+        "Yibo Miao",
+        "Xiao-Shan Gao"
+      ],
+      "abstract": "Wasserstein distributionally robust optimization (WDRO) optimizes against\nworst-case distributional shifts within a specified uncertainty set, leading to\nenhanced generalization on unseen adversarial examples, compared to standard\nadversarial training which focuses on pointwise adversarial perturbations.\nHowever, WDRO still suffers fundamentally from the robust overfitting problem,\nas it does not consider statistical error. We address this gap by proposing a\nnovel robust optimization framework under a new uncertainty set for adversarial\nnoise via Wasserstein distance and statistical error via Kullback-Leibler\ndivergence, called the Statistically Robust WDRO. We establish a robust\ngeneralization bound for the new optimization framework, implying that\nout-of-distribution adversarial performance is at least as good as the\nstatistically robust training loss with high probability. Furthermore, we\nderive conditions under which Stackelberg and Nash equilibria exist between the\nlearner and the adversary, giving an optimal robust model in certain sense.\nFinally, through extensive experiments, we demonstrate that our method\nsignificantly mitigates robust overfitting and enhances robustness within the\nframework of WDRO.",
+      "published": "March 06, 2025",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "math.ST",
+        "stat.TH"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2503.04315v1",
+      "arxiv_url": "http://arxiv.org/abs/2503.04315v1"
+    },
     {
       "title": "The Distributionally Robust Optimization Model of Sparse Principal\n  Component Analysis",
       "authors": [
@@ -131,41 +151,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2502.16849v1",
       "arxiv_url": "http://arxiv.org/abs/2502.16849v1"
-    },
-    {
-      "title": "Transfer Learning through Enhanced Sufficient Representation: Enriching\n  Source Domain Knowledge with Target Data",
-      "authors": [
-        "Yeheng Ge",
-        "Xueyu Zhou",
-        "Jian Huang"
-      ],
-      "abstract": "Transfer learning is an important approach for addressing the challenges\nposed by limited data availability in various applications. It accomplishes\nthis by transferring knowledge from well-established source domains to a less\nfamiliar target domain. However, traditional transfer learning methods often\nface difficulties due to rigid model assumptions and the need for a high degree\nof similarity between source and target domain models. In this paper, we\nintroduce a novel method for transfer learning called Transfer learning through\nEnhanced Sufficient Representation (TESR). Our approach begins by estimating a\nsufficient and invariant representation from the source domains. This\nrepresentation is then enhanced with an independent component derived from the\ntarget data, ensuring that it is sufficient for the target domain and adaptable\nto its specific characteristics. A notable advantage of TESR is that it does\nnot rely on assuming similar model structures across different tasks. For\nexample, the source domain models can be regression models, while the target\ndomain task can be classification. This flexibility makes TESR applicable to a\nwide range of supervised learning problems. We explore the theoretical\nproperties of TESR and validate its performance through simulation studies and\nreal-world data applications, demonstrating its effectiveness in finite sample\nsettings.",
-      "published": "February 22, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "62G05, 68T07"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.20414v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.20414v1"
-    },
-    {
-      "title": "Improving variable selection properties by using external data",
-      "authors": [
-        "Paul Rognon-Vael",
-        "David Rossell",
-        "Piotr Zwiernik"
-      ],
-      "abstract": "Sparse high-dimensional signal recovery is only possible under certain\nconditions on the number of parameters, sample size, signal strength and\nunderlying sparsity. We show that these mathematical limits can be pushed when\none has external information that allow splitting parameters into blocks. This\noccurs in many applications, including data integration and transfer learning\ntasks. Specifically, we consider the Gaussian sequence model and linear\nregression, and show how block-based $\\ell_0$ penalties attain model selection\nconsistency under milder conditions than standard $\\ell_0$ penalties, and they\nalso attain faster model recovery rates. We first provide results for\noracle-based $\\ell_0$ penalties that have access to perfect sparsity and signal\nstrength information, and subsequently empirical Bayes-motivated block $\\ell_0$\npenalties that does not require oracle information.",
-      "published": "February 21, 2025",
-      "categories": [
-        "math.ST",
-        "stat.ME",
-        "stat.TH",
-        "62F07 (Primary) 62C12, 62R07 (Secondary)"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.15584v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.15584v1"
     }
   ]
 }
