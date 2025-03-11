@@ -1,5 +1,5 @@
 {
-  "timestamp": 1741568720,
+  "timestamp": 1741655848,
   "papers": [
     {
       "title": "Provable Robust Overfitting Mitigation in Wasserstein Distributionally\n  Robust Optimization",
@@ -93,64 +93,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2502.19796v1",
       "arxiv_url": "http://arxiv.org/abs/2502.19796v1"
-    },
-    {
-      "title": "Conformal Prediction Under Generalized Covariate Shift with Posterior\n  Drift",
-      "authors": [
-        "Baozhen Wang",
-        "Xingye Qiao"
-      ],
-      "abstract": "In many real applications of statistical learning, collecting sufficiently\nmany training data is often expensive, time-consuming, or even unrealistic. In\nthis case, a transfer learning approach, which aims to leverage knowledge from\na related source domain to improve the learning performance in the target\ndomain, is more beneficial. There have been many transfer learning methods\ndeveloped under various distributional assumptions. In this article, we study a\nparticular type of classification problem, called conformal prediction, under a\nnew distributional assumption for transfer learning. Classifiers under the\nconformal prediction framework predict a set of plausible labels instead of one\nsingle label for each data instance, affording a more cautious and safer\ndecision. We consider a generalization of the \\textit{covariate shift with\nposterior drift} setting for transfer learning. Under this setting, we propose\na weighted conformal classifier that leverages both the source and target\nsamples, with a coverage guarantee in the target domain. Theoretical studies\ndemonstrate favorable asymptotic properties. Numerical studies further\nillustrate the usefulness of the proposed method.",
-      "published": "February 25, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "math.ST",
-        "stat.TH"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.17744v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.17744v1"
-    },
-    {
-      "title": "Distributionally Robust Active Learning for Gaussian Process Regression",
-      "authors": [
-        "Shion Takeno",
-        "Yoshito Okura",
-        "Yu Inatsu",
-        "Aoyama Tatsuya",
-        "Tomonari Tanaka",
-        "Akahane Satoshi",
-        "Hiroyuki Hanada",
-        "Noriaki Hashimoto",
-        "Taro Murayama",
-        "Hanju Lee",
-        "Shinya Kojima",
-        "Ichiro Takeuchi"
-      ],
-      "abstract": "Gaussian process regression (GPR) or kernel ridge regression is a widely used\nand powerful tool for nonlinear prediction. Therefore, active learning (AL) for\nGPR, which actively collects data labels to achieve an accurate prediction with\nfewer data labels, is an important problem. However, existing AL methods do not\ntheoretically guarantee prediction accuracy for target distribution.\nFurthermore, as discussed in the distributionally robust learning literature,\nspecifying the target distribution is often difficult. Thus, this paper\nproposes two AL methods that effectively reduce the worst-case expected error\nfor GPR, which is the worst-case expectation in target distribution candidates.\nWe show an upper bound of the worst-case expected squared error, which suggests\nthat the error will be arbitrarily small by a finite number of data labels\nunder mild conditions. Finally, we demonstrate the effectiveness of the\nproposed methods through synthetic and real-world datasets.",
-      "published": "February 24, 2025",
-      "categories": [
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.16870v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.16870v1"
-    },
-    {
-      "title": "Provable Benefits of Unsupervised Pre-training and Transfer Learning via\n  Single-Index Models",
-      "authors": [
-        "Taj Jones-McCormick",
-        "Aukosh Jagannath",
-        "Subhabrata Sen"
-      ],
-      "abstract": "Unsupervised pre-training and transfer learning are commonly used techniques\nto initialize training algorithms for neural networks, particularly in settings\nwith limited labeled data. In this paper, we study the effects of unsupervised\npre-training and transfer learning on the sample complexity of high-dimensional\nsupervised learning. Specifically, we consider the problem of training a\nsingle-layer neural network via online stochastic gradient descent. We\nestablish that pre-training and transfer learning (under concept shift) reduce\nsample complexity by polynomial factors (in the dimension) under very general\nassumptions. We also uncover some surprising settings where pre-training grants\nexponential improvement over random initialization in terms of sample\ncomplexity.",
-      "published": "February 24, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2502.16849v1",
-      "arxiv_url": "http://arxiv.org/abs/2502.16849v1"
     }
   ]
 }
