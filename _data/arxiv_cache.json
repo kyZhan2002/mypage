@@ -1,5 +1,5 @@
 {
-  "timestamp": 1741914992,
+  "timestamp": 1742001373,
   "papers": [
     {
       "title": "Provable Robust Overfitting Mitigation in Wasserstein Distributionally\n  Robust Optimization",
@@ -56,24 +56,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2503.02906v1",
       "arxiv_url": "http://arxiv.org/abs/2503.02906v1"
-    },
-    {
-      "title": "Optimal Transfer Learning for Missing Not-at-Random Matrix Completion",
-      "authors": [
-        "Akhil Jalan",
-        "Yassir Jedra",
-        "Arya Mazumdar",
-        "Soumendu Sundar Mukherjee",
-        "Purnamrita Sarkar"
-      ],
-      "abstract": "We study transfer learning for matrix completion in a Missing Not-at-Random\n(MNAR) setting that is motivated by biological problems. The target matrix $Q$\nhas entire rows and columns missing, making estimation impossible without side\ninformation. To address this, we use a noisy and incomplete source matrix $P$,\nwhich relates to $Q$ via a feature shift in latent space. We consider both the\nactive and passive sampling of rows and columns. We establish minimax lower\nbounds for entrywise estimation error in each setting. Our computationally\nefficient estimation framework achieves this lower bound for the active\nsetting, which leverages the source data to query the most informative rows and\ncolumns of $Q$. This avoids the need for incoherence assumptions required for\nrate optimality in the passive sampling setting. We demonstrate the\neffectiveness of our approach through comparisons with existing algorithms on\nreal-world biological datasets.",
-      "published": "February 28, 2025",
-      "categories": [
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2503.00174v1",
-      "arxiv_url": "http://arxiv.org/abs/2503.00174v1"
     }
   ]
 }
