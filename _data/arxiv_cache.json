@@ -1,5 +1,5 @@
 {
-  "timestamp": 1742347114,
+  "timestamp": 1742433439,
   "papers": [
     {
       "title": "An Optimization Framework for Differentially Private Sparse Fine-Tuning",
@@ -21,6 +21,44 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2503.12822v1",
       "arxiv_url": "http://arxiv.org/abs/2503.12822v1"
+    },
+    {
+      "title": "Mixed-feature Logistic Regression Robust to Distribution Shifts",
+      "authors": [
+        "Qingshi Sun",
+        "Nathan Justin",
+        "Andres Gomez",
+        "Phebe Vayanos"
+      ],
+      "abstract": "Logistic regression models are widely used in the social and behavioral\nsciences and in high-stakes domains, due to their simplicity and\ninterpretability properties. At the same time, such domains are permeated by\ndistribution shifts, where the distribution generating the data changes between\ntraining and deployment. In this paper, we study a distributionally robust\nlogistic regression problem that seeks the model that will perform best against\nadversarial realizations of the data distribution drawn from a suitably\nconstructed Wasserstein ambiguity set. Our model and solution approach differ\nfrom prior work in that we can capture settings where the likelihood of\ndistribution shifts can vary across features, significantly broadening the\napplicability of our model relative to the state-of-the-art. We propose a\ngraph-based solution approach that can be integrated into off-the-shelf\noptimization solvers. We evaluate the performance of our model and algorithms\non numerous publicly available datasets. Our solution achieves a 408x speed-up\nrelative to the state-of-the-art. Additionally, compared to the\nstate-of-the-art, our model reduces average calibration error by up to 36.19%\nand worst-case calibration error by up to 41.70%, while increasing the average\narea under the ROC curve (AUC) by up to 18.02% and worst-case AUC by up to\n48.37%.",
+      "published": "March 15, 2025",
+      "categories": [
+        "cs.LG",
+        "math.OC",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2503.12012v1",
+      "arxiv_url": "http://arxiv.org/abs/2503.12012v1"
+    },
+    {
+      "title": "Provable Robust Overfitting Mitigation in Wasserstein Distributionally\n  Robust Optimization",
+      "authors": [
+        "Shuang Liu",
+        "Yihan Wang",
+        "Yifan Zhu",
+        "Yibo Miao",
+        "Xiao-Shan Gao"
+      ],
+      "abstract": "Wasserstein distributionally robust optimization (WDRO) optimizes against\nworst-case distributional shifts within a specified uncertainty set, leading to\nenhanced generalization on unseen adversarial examples, compared to standard\nadversarial training which focuses on pointwise adversarial perturbations.\nHowever, WDRO still suffers fundamentally from the robust overfitting problem,\nas it does not consider statistical error. We address this gap by proposing a\nnovel robust optimization framework under a new uncertainty set for adversarial\nnoise via Wasserstein distance and statistical error via Kullback-Leibler\ndivergence, called the Statistically Robust WDRO. We establish a robust\ngeneralization bound for the new optimization framework, implying that\nout-of-distribution adversarial performance is at least as good as the\nstatistically robust training loss with high probability. Furthermore, we\nderive conditions under which Stackelberg and Nash equilibria exist between the\nlearner and the adversary, giving an optimal robust model in certain sense.\nFinally, through extensive experiments, we demonstrate that our method\nsignificantly mitigates robust overfitting and enhances robustness within the\nframework of WDRO.",
+      "published": "March 06, 2025",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "math.ST",
+        "stat.TH"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2503.04315v1",
+      "arxiv_url": "http://arxiv.org/abs/2503.04315v1"
     }
   ]
 }
