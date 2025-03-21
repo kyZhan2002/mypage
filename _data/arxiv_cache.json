@@ -1,5 +1,5 @@
 {
-  "timestamp": 1742433439,
+  "timestamp": 1742519928,
   "papers": [
     {
       "title": "An Optimization Framework for Differentially Private Sparse Fine-Tuning",
@@ -39,26 +39,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2503.12012v1",
       "arxiv_url": "http://arxiv.org/abs/2503.12012v1"
-    },
-    {
-      "title": "Provable Robust Overfitting Mitigation in Wasserstein Distributionally\n  Robust Optimization",
-      "authors": [
-        "Shuang Liu",
-        "Yihan Wang",
-        "Yifan Zhu",
-        "Yibo Miao",
-        "Xiao-Shan Gao"
-      ],
-      "abstract": "Wasserstein distributionally robust optimization (WDRO) optimizes against\nworst-case distributional shifts within a specified uncertainty set, leading to\nenhanced generalization on unseen adversarial examples, compared to standard\nadversarial training which focuses on pointwise adversarial perturbations.\nHowever, WDRO still suffers fundamentally from the robust overfitting problem,\nas it does not consider statistical error. We address this gap by proposing a\nnovel robust optimization framework under a new uncertainty set for adversarial\nnoise via Wasserstein distance and statistical error via Kullback-Leibler\ndivergence, called the Statistically Robust WDRO. We establish a robust\ngeneralization bound for the new optimization framework, implying that\nout-of-distribution adversarial performance is at least as good as the\nstatistically robust training loss with high probability. Furthermore, we\nderive conditions under which Stackelberg and Nash equilibria exist between the\nlearner and the adversary, giving an optimal robust model in certain sense.\nFinally, through extensive experiments, we demonstrate that our method\nsignificantly mitigates robust overfitting and enhances robustness within the\nframework of WDRO.",
-      "published": "March 06, 2025",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "math.ST",
-        "stat.TH"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2503.04315v1",
-      "arxiv_url": "http://arxiv.org/abs/2503.04315v1"
     }
   ]
 }
