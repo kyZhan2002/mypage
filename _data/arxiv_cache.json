@@ -1,6 +1,23 @@
 {
-  "timestamp": 1742865576,
+  "timestamp": 1742951952,
   "papers": [
+    {
+      "title": "Similarity-Informed Transfer Learning for Multivariate Functional\n  Censored Quantile Regression",
+      "authors": [
+        "Hua Liu",
+        "Jiaqi Men",
+        "Shouxia Wang",
+        "Jinhong You",
+        "Jiguo Cao"
+      ],
+      "abstract": "To address the challenge of utilizing patient data from other organ\ntransplant centers (source cohorts) to improve survival time estimation and\ninference for a target center (target cohort) with limited samples and strict\ndata-sharing privacy constraints, we propose the Similarity-Informed Transfer\nLearning (SITL) method. This approach estimates multivariate functional\ncensored quantile regression by flexibly leveraging information from each\nsource cohort based on its similarity to the target cohort. Furthermore, the\nmethod is adaptable to continuously updated real-time data. We establish the\nasymptotic properties of the estimators obtained using the SITL method,\ndemonstrating improved convergence rates. Additionally, we develop an enhanced\napproach that combines the SITL method with a resampling technique to construct\nmore accurate confidence intervals for functional coefficients, backed by\ntheoretical guarantees. Extensive simulation studies and an application to\nkidney transplant data illustrate the significant advantages of the SITL\nmethod. Compared to methods that rely solely on the target cohort or\nindiscriminately pool data across source and target cohorts, the SITL method\nsubstantially improves both estimation and inference performance.",
+      "published": "March 24, 2025",
+      "categories": [
+        "stat.ME"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2503.18437v1",
+      "arxiv_url": "http://arxiv.org/abs/2503.18437v1"
+    },
     {
       "title": "An Optimization Framework for Differentially Private Sparse Fine-Tuning",
       "authors": [
