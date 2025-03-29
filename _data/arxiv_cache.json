@@ -1,6 +1,24 @@
 {
-  "timestamp": 1743124719,
+  "timestamp": 1743211075,
   "papers": [
+    {
+      "title": "Robust Mean Estimation for Optimization: The Impact of Heavy Tails",
+      "authors": [
+        "Bart P. G. van Parys",
+        "Bert Zwart"
+      ],
+      "abstract": "We consider the problem of constructing a least conservative estimator of the\nexpected value $\\mu$ of a non-negative heavy-tailed random variable. We require\nthat the probability of overestimating the expected value $\\mu$ is kept\nappropriately small; a natural requirement if its subsequent use in a decision\nprocess is anticipated. In this setting, we show it is optimal to estimate\n$\\mu$ by solving a distributionally robust optimization (DRO) problem using the\nKullback-Leibler (KL) divergence. We further show that the statistical\nproperties of KL-DRO compare favorably with other estimators based on\ntruncation, variance regularization, or Wasserstein DRO.",
+      "published": "March 27, 2025",
+      "categories": [
+        "math.OC",
+        "math.PR",
+        "math.ST",
+        "stat.TH",
+        "60F10, 62G35, 90C17"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2503.21421v1",
+      "arxiv_url": "http://arxiv.org/abs/2503.21421v1"
+    },
     {
       "title": "Wasserstein Distributionally Robust Bayesian Optimization with\n  Continuous Context",
       "authors": [
@@ -35,27 +53,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2503.18437v1",
       "arxiv_url": "http://arxiv.org/abs/2503.18437v1"
-    },
-    {
-      "title": "An Optimization Framework for Differentially Private Sparse Fine-Tuning",
-      "authors": [
-        "Mehdi Makni",
-        "Kayhan Behdin",
-        "Gabriel Afriat",
-        "Zheng Xu",
-        "Sergei Vassilvitskii",
-        "Natalia Ponomareva",
-        "Hussein Hazimeh",
-        "Rahul Mazumder"
-      ],
-      "abstract": "Differentially private stochastic gradient descent (DP-SGD) is broadly\nconsidered to be the gold standard for training and fine-tuning neural networks\nunder differential privacy (DP). With the increasing availability of\nhigh-quality pre-trained model checkpoints (e.g., vision and language models),\nfine-tuning has become a popular strategy. However, despite recent progress in\nunderstanding and applying DP-SGD for private transfer learning tasks,\nsignificant challenges remain -- most notably, the performance gap between\nmodels fine-tuned with DP-SGD and their non-private counterparts. Sparse\nfine-tuning on private data has emerged as an alternative to full-model\nfine-tuning; recent work has shown that privately fine-tuning only a small\nsubset of model weights and keeping the rest of the weights fixed can lead to\nbetter performance. In this work, we propose a new approach for sparse\nfine-tuning of neural networks under DP. Existing work on private sparse\nfinetuning often used fixed choice of trainable weights (e.g., updating only\nthe last layer), or relied on public model's weights to choose the subset of\nweights to modify. Such choice of weights remains suboptimal. In contrast, we\nexplore an optimization-based approach, where our selection method makes use of\nthe private gradient information, while using off the shelf privacy accounting\ntechniques. Our numerical experiments on several computer vision models and\ndatasets show that our selection method leads to better prediction accuracy,\ncompared to full-model private fine-tuning or existing private sparse\nfine-tuning approaches.",
-      "published": "March 17, 2025",
-      "categories": [
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2503.12822v1",
-      "arxiv_url": "http://arxiv.org/abs/2503.12822v1"
     }
   ]
 }
