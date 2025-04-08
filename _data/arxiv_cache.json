@@ -1,92 +1,35 @@
 {
-  "timestamp": 1743988909,
+  "timestamp": 1744075183,
   "papers": [
     {
-      "title": "Privacy-Preserving Transfer Learning for Community Detection using\n  Locally Distributed Multiple Networks",
+      "title": "Block Toeplitz Sparse Precision Matrix Estimation for Large-Scale\n  Interval-Valued Time Series Forecasting",
       "authors": [
-        "Xiao Guo",
-        "Xuming He",
-        "Xiangyu Chang",
-        "Shujie Ma"
+        "Wan Tian",
+        "Zhongfeng Qin"
       ],
-      "abstract": "This paper develops a new spectral clustering-based method called TransNet\nfor transfer learning in community detection of network data. Our goal is to\nimprove the clustering performance of the target network using auxiliary source\nnetworks, which are heterogeneous, privacy-preserved, and locally stored across\nvarious sources. The edges of each locally stored network are perturbed using\nthe randomized response mechanism to achieve differential privacy. Notably, we\nallow the source networks to have distinct privacy-preserving and heterogeneity\nlevels as often desired in practice. To better utilize the information from the\nsource networks, we propose a novel adaptive weighting method to aggregate the\neigenspaces of the source networks multiplied by adaptive weights chosen to\nincorporate the effects of privacy and heterogeneity. We propose a\nregularization method that combines the weighted average eigenspace of the\nsource networks with the eigenspace of the target network to achieve an optimal\nbalance between them. Theoretically, we show that the adaptive weighting method\nenjoys the error-bound-oracle property in the sense that the error bound of the\nestimated eigenspace only depends on informative source networks. We also\ndemonstrate that TransNet performs better than the estimator using only the\ntarget network and the estimator using only the weighted source networks.",
-      "published": "April 01, 2025",
+      "abstract": "Modeling and forecasting interval-valued time series (ITS) have attracted\nconsiderable attention due to their growing presence in various contexts. To\nthe best of our knowledge, there have been no efforts to model large-scale ITS.\nIn this paper, we propose a feature extraction procedure for large-scale ITS,\nwhich involves key steps such as auto-segmentation and clustering, and feature\ntransfer learning. This procedure can be seamlessly integrated with any\nsuitable prediction models for forecasting purposes. Specifically, we transform\nthe automatic segmentation and clustering of ITS into the estimation of\nToeplitz sparse precision matrices and assignment set. The\nmajorization-minimization algorithm is employed to convert this highly\nnon-convex optimization problem into two subproblems. We derive efficient\ndynamic programming and alternating direction method to solve these two\nsubproblems alternately and establish their convergence properties. By\nemploying the Joint Recurrence Plot (JRP) to image subsequence and assigning a\nclass label to each cluster, an image dataset is constructed. Then, an\nappropriate neural network is chosen to train on this image dataset and used to\nextract features for the next step of forecasting. Real data applications\ndemonstrate that the proposed method can effectively obtain invariant\nrepresentations of the raw data and enhance forecasting performance.",
+      "published": "April 04, 2025",
       "categories": [
         "stat.ML",
         "cs.LG"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2504.00890v1",
-      "arxiv_url": "http://arxiv.org/abs/2504.00890v1"
+      "pdf_link": "http://arxiv.org/pdf/2504.03322v1",
+      "arxiv_url": "http://arxiv.org/abs/2504.03322v1"
     },
     {
-      "title": "Nested Stochastic Gradient Descent for (Generalized) Sinkhorn\n  Distance-Regularized Distributionally Robust Optimization",
+      "title": "A model-free feature extraction procedure for interval-valued time\n  series prediction",
       "authors": [
-        "Yufeng Yang",
-        "Yi Zhou",
-        "Zhaosong Lu"
+        "Wan Tian",
+        "Zhongfeng Qin",
+        "Tao Hu"
       ],
-      "abstract": "Distributionally robust optimization (DRO) is a powerful technique to train\nrobust models against data distribution shift. This paper aims to solve\nregularized nonconvex DRO problems, where the uncertainty set is modeled by a\nso-called generalized Sinkhorn distance and the loss function is nonconvex and\npossibly unbounded. Such a distance allows to model uncertainty of\ndistributions with different probability supports and divergence functions. For\nthis class of regularized DRO problems, we derive a novel dual formulation\ntaking the form of nested stochastic programming, where the dual variable\ndepends on the data sample. To solve the dual problem, we provide theoretical\nevidence to design a nested stochastic gradient descent (SGD) algorithm, which\nleverages stochastic approximation to estimate the nested stochastic gradients.\nWe study the convergence rate of nested SGD and establish polynomial iteration\nand sample complexities that are independent of the data size and parameter\ndimension, indicating its potential for solving large-scale DRO problems. We\nconduct numerical experiments to demonstrate the efficiency and robustness of\nthe proposed algorithm.",
-      "published": "March 29, 2025",
+      "abstract": "In this paper, we present a novel feature extraction procedure to predict\ninterval-valued time series by combing transfer learning and imaging\napproaches. Initially, we represent interval-valued time series using a\nbivariate point-valued time series, which serves as a representative form. We\nfirst transform each time series into images by employing various imaging\napproaches such as recurrence plot, gramian angular summation/difference field,\nand Markov transition field, and construct an image dataset by treating each\nimaging method's output as a separate class. Based on this dataset, we train\nseveral candidates for a feature extraction network (FEN), specifically ResNet\nwith varying layers. Then we choose the penultimate layer of the FEN to extract\nthe most relevant features from the transformed images. We integrate the\nextracted features into conventional predictive models to formulate the\ncorresponding prediction models. To formulate prediction, we integrate the\nextracted features into a regular prediction model. The proposed methods are\nevaluated based on the S\\&P 500 index and three data-generating processes\n(DGPs), and the experimental results demonstrate a notable improvement in\nprediction performance compared to existing methods.",
+      "published": "April 04, 2025",
       "categories": [
-        "math.OC",
-        "cs.LG",
-        "stat.ML"
+        "stat.AP"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2503.22923v1",
-      "arxiv_url": "http://arxiv.org/abs/2503.22923v1"
-    },
-    {
-      "title": "Robust Mean Estimation for Optimization: The Impact of Heavy Tails",
-      "authors": [
-        "Bart P. G. van Parys",
-        "Bert Zwart"
-      ],
-      "abstract": "We consider the problem of constructing a least conservative estimator of the\nexpected value $\\mu$ of a non-negative heavy-tailed random variable. We require\nthat the probability of overestimating the expected value $\\mu$ is kept\nappropriately small; a natural requirement if its subsequent use in a decision\nprocess is anticipated. In this setting, we show it is optimal to estimate\n$\\mu$ by solving a distributionally robust optimization (DRO) problem using the\nKullback-Leibler (KL) divergence. We further show that the statistical\nproperties of KL-DRO compare favorably with other estimators based on\ntruncation, variance regularization, or Wasserstein DRO.",
-      "published": "March 27, 2025",
-      "categories": [
-        "math.OC",
-        "math.PR",
-        "math.ST",
-        "stat.TH",
-        "60F10, 62G35, 90C17"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2503.21421v1",
-      "arxiv_url": "http://arxiv.org/abs/2503.21421v1"
-    },
-    {
-      "title": "Wasserstein Distributionally Robust Bayesian Optimization with\n  Continuous Context",
-      "authors": [
-        "Francesco Micheli",
-        "Efe C. Balta",
-        "Anastasios Tsiamis",
-        "John Lygeros"
-      ],
-      "abstract": "We address the challenge of sequential data-driven decision-making under\ncontext distributional uncertainty. This problem arises in numerous real-world\nscenarios where the learner optimizes black-box objective functions in the\npresence of uncontrollable contextual variables. We consider the setting where\nthe context distribution is uncertain but known to lie within an ambiguity set\ndefined as a ball in the Wasserstein distance. We propose a novel algorithm for\nWasserstein Distributionally Robust Bayesian Optimization that can handle\ncontinuous context distributions while maintaining computational tractability.\nOur theoretical analysis combines recent results in self-normalized\nconcentration in Hilbert spaces and finite-sample bounds for distributionally\nrobust optimization to establish sublinear regret bounds that match\nstate-of-the-art results. Through extensive comparisons with existing\napproaches on both synthetic and real-world problems, we demonstrate the\nsimplicity, effectiveness, and practical applicability of our proposed method.",
-      "published": "March 26, 2025",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2503.20341v1",
-      "arxiv_url": "http://arxiv.org/abs/2503.20341v1"
-    },
-    {
-      "title": "Similarity-Informed Transfer Learning for Multivariate Functional\n  Censored Quantile Regression",
-      "authors": [
-        "Hua Liu",
-        "Jiaqi Men",
-        "Shouxia Wang",
-        "Jinhong You",
-        "Jiguo Cao"
-      ],
-      "abstract": "To address the challenge of utilizing patient data from other organ\ntransplant centers (source cohorts) to improve survival time estimation and\ninference for a target center (target cohort) with limited samples and strict\ndata-sharing privacy constraints, we propose the Similarity-Informed Transfer\nLearning (SITL) method. This approach estimates multivariate functional\ncensored quantile regression by flexibly leveraging information from each\nsource cohort based on its similarity to the target cohort. Furthermore, the\nmethod is adaptable to continuously updated real-time data. We establish the\nasymptotic properties of the estimators obtained using the SITL method,\ndemonstrating improved convergence rates. Additionally, we develop an enhanced\napproach that combines the SITL method with a resampling technique to construct\nmore accurate confidence intervals for functional coefficients, backed by\ntheoretical guarantees. Extensive simulation studies and an application to\nkidney transplant data illustrate the significant advantages of the SITL\nmethod. Compared to methods that rely solely on the target cohort or\nindiscriminately pool data across source and target cohorts, the SITL method\nsubstantially improves both estimation and inference performance.",
-      "published": "March 24, 2025",
-      "categories": [
-        "stat.ME"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2503.18437v1",
-      "arxiv_url": "http://arxiv.org/abs/2503.18437v1"
+      "pdf_link": "http://arxiv.org/pdf/2504.03310v1",
+      "arxiv_url": "http://arxiv.org/abs/2504.03310v1"
     }
   ]
 }
