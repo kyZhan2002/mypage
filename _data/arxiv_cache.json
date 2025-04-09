@@ -1,6 +1,21 @@
 {
-  "timestamp": 1744075183,
+  "timestamp": 1744161602,
   "papers": [
+    {
+      "title": "Sparse Optimization for Transfer Learning: A L0-Regularized Framework\n  for Multi-Source Domain Adaptation",
+      "authors": [
+        "Chenqi Gong",
+        "Hu Yang"
+      ],
+      "abstract": "This paper explores transfer learning in heterogeneous multi-source\nenvironments with distributional divergence between target and auxiliary\ndomains. To address challenges in statistical bias and computational\nefficiency, we propose a Sparse Optimization for Transfer Learning (SOTL)\nframework based on L0-regularization. The method extends the Joint Estimation\nTransferred from Strata (JETS) paradigm with two key innovations: (1)\nL0-constrained exact sparsity for parameter space compression and complexity\nreduction, and (2) refining optimization focus to emphasize target parameters\nover redundant ones. Simulations show that SOTL significantly improves both\nestimation accuracy and computational speed, especially under adversarial\nauxiliary domain conditions. Empirical validation on the Community and Crime\nbenchmarks demonstrates the statistical robustness of the SOTL method in\ncross-domain transfer.",
+      "published": "April 07, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2504.04812v1",
+      "arxiv_url": "http://arxiv.org/abs/2504.04812v1"
+    },
     {
       "title": "Block Toeplitz Sparse Precision Matrix Estimation for Large-Scale\n  Interval-Valued Time Series Forecasting",
       "authors": [
@@ -30,6 +45,76 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2504.03310v1",
       "arxiv_url": "http://arxiv.org/abs/2504.03310v1"
+    },
+    {
+      "title": "Privacy-Preserving Transfer Learning for Community Detection using\n  Locally Distributed Multiple Networks",
+      "authors": [
+        "Xiao Guo",
+        "Xuming He",
+        "Xiangyu Chang",
+        "Shujie Ma"
+      ],
+      "abstract": "This paper develops a new spectral clustering-based method called TransNet\nfor transfer learning in community detection of network data. Our goal is to\nimprove the clustering performance of the target network using auxiliary source\nnetworks, which are heterogeneous, privacy-preserved, and locally stored across\nvarious sources. The edges of each locally stored network are perturbed using\nthe randomized response mechanism to achieve differential privacy. Notably, we\nallow the source networks to have distinct privacy-preserving and heterogeneity\nlevels as often desired in practice. To better utilize the information from the\nsource networks, we propose a novel adaptive weighting method to aggregate the\neigenspaces of the source networks multiplied by adaptive weights chosen to\nincorporate the effects of privacy and heterogeneity. We propose a\nregularization method that combines the weighted average eigenspace of the\nsource networks with the eigenspace of the target network to achieve an optimal\nbalance between them. Theoretically, we show that the adaptive weighting method\nenjoys the error-bound-oracle property in the sense that the error bound of the\nestimated eigenspace only depends on informative source networks. We also\ndemonstrate that TransNet performs better than the estimator using only the\ntarget network and the estimator using only the weighted source networks.",
+      "published": "April 01, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2504.00890v1",
+      "arxiv_url": "http://arxiv.org/abs/2504.00890v1"
+    },
+    {
+      "title": "Nested Stochastic Gradient Descent for (Generalized) Sinkhorn\n  Distance-Regularized Distributionally Robust Optimization",
+      "authors": [
+        "Yufeng Yang",
+        "Yi Zhou",
+        "Zhaosong Lu"
+      ],
+      "abstract": "Distributionally robust optimization (DRO) is a powerful technique to train\nrobust models against data distribution shift. This paper aims to solve\nregularized nonconvex DRO problems, where the uncertainty set is modeled by a\nso-called generalized Sinkhorn distance and the loss function is nonconvex and\npossibly unbounded. Such a distance allows to model uncertainty of\ndistributions with different probability supports and divergence functions. For\nthis class of regularized DRO problems, we derive a novel dual formulation\ntaking the form of nested stochastic programming, where the dual variable\ndepends on the data sample. To solve the dual problem, we provide theoretical\nevidence to design a nested stochastic gradient descent (SGD) algorithm, which\nleverages stochastic approximation to estimate the nested stochastic gradients.\nWe study the convergence rate of nested SGD and establish polynomial iteration\nand sample complexities that are independent of the data size and parameter\ndimension, indicating its potential for solving large-scale DRO problems. We\nconduct numerical experiments to demonstrate the efficiency and robustness of\nthe proposed algorithm.",
+      "published": "March 29, 2025",
+      "categories": [
+        "math.OC",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2503.22923v1",
+      "arxiv_url": "http://arxiv.org/abs/2503.22923v1"
+    },
+    {
+      "title": "Robust Mean Estimation for Optimization: The Impact of Heavy Tails",
+      "authors": [
+        "Bart P. G. van Parys",
+        "Bert Zwart"
+      ],
+      "abstract": "We consider the problem of constructing a least conservative estimator of the\nexpected value $\\mu$ of a non-negative heavy-tailed random variable. We require\nthat the probability of overestimating the expected value $\\mu$ is kept\nappropriately small; a natural requirement if its subsequent use in a decision\nprocess is anticipated. In this setting, we show it is optimal to estimate\n$\\mu$ by solving a distributionally robust optimization (DRO) problem using the\nKullback-Leibler (KL) divergence. We further show that the statistical\nproperties of KL-DRO compare favorably with other estimators based on\ntruncation, variance regularization, or Wasserstein DRO.",
+      "published": "March 27, 2025",
+      "categories": [
+        "math.OC",
+        "math.PR",
+        "math.ST",
+        "stat.TH",
+        "60F10, 62G35, 90C17"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2503.21421v1",
+      "arxiv_url": "http://arxiv.org/abs/2503.21421v1"
+    },
+    {
+      "title": "Wasserstein Distributionally Robust Bayesian Optimization with\n  Continuous Context",
+      "authors": [
+        "Francesco Micheli",
+        "Efe C. Balta",
+        "Anastasios Tsiamis",
+        "John Lygeros"
+      ],
+      "abstract": "We address the challenge of sequential data-driven decision-making under\ncontext distributional uncertainty. This problem arises in numerous real-world\nscenarios where the learner optimizes black-box objective functions in the\npresence of uncontrollable contextual variables. We consider the setting where\nthe context distribution is uncertain but known to lie within an ambiguity set\ndefined as a ball in the Wasserstein distance. We propose a novel algorithm for\nWasserstein Distributionally Robust Bayesian Optimization that can handle\ncontinuous context distributions while maintaining computational tractability.\nOur theoretical analysis combines recent results in self-normalized\nconcentration in Hilbert spaces and finite-sample bounds for distributionally\nrobust optimization to establish sublinear regret bounds that match\nstate-of-the-art results. Through extensive comparisons with existing\napproaches on both synthetic and real-world problems, we demonstrate the\nsimplicity, effectiveness, and practical applicability of our proposed method.",
+      "published": "March 26, 2025",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2503.20341v1",
+      "arxiv_url": "http://arxiv.org/abs/2503.20341v1"
     }
   ]
 }
