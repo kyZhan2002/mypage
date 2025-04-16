@@ -1,5 +1,5 @@
 {
-  "timestamp": 1744593785,
+  "timestamp": 1744766513,
   "papers": [
     {
       "title": "Conditional Data Synthesis Augmentation",
@@ -77,23 +77,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2504.00890v1",
       "arxiv_url": "http://arxiv.org/abs/2504.00890v1"
-    },
-    {
-      "title": "Nested Stochastic Gradient Descent for (Generalized) Sinkhorn\n  Distance-Regularized Distributionally Robust Optimization",
-      "authors": [
-        "Yufeng Yang",
-        "Yi Zhou",
-        "Zhaosong Lu"
-      ],
-      "abstract": "Distributionally robust optimization (DRO) is a powerful technique to train\nrobust models against data distribution shift. This paper aims to solve\nregularized nonconvex DRO problems, where the uncertainty set is modeled by a\nso-called generalized Sinkhorn distance and the loss function is nonconvex and\npossibly unbounded. Such a distance allows to model uncertainty of\ndistributions with different probability supports and divergence functions. For\nthis class of regularized DRO problems, we derive a novel dual formulation\ntaking the form of nested stochastic programming, where the dual variable\ndepends on the data sample. To solve the dual problem, we provide theoretical\nevidence to design a nested stochastic gradient descent (SGD) algorithm, which\nleverages stochastic approximation to estimate the nested stochastic gradients.\nWe study the convergence rate of nested SGD and establish polynomial iteration\nand sample complexities that are independent of the data size and parameter\ndimension, indicating its potential for solving large-scale DRO problems. We\nconduct numerical experiments to demonstrate the efficiency and robustness of\nthe proposed algorithm.",
-      "published": "March 29, 2025",
-      "categories": [
-        "math.OC",
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2503.22923v1",
-      "arxiv_url": "http://arxiv.org/abs/2503.22923v1"
     }
   ]
 }
