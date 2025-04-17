@@ -1,6 +1,21 @@
 {
-  "timestamp": 1744766513,
+  "timestamp": 1744852852,
   "papers": [
+    {
+      "title": "Rank-based transfer learning for high-dimensional survival data with\n  application to sepsis data",
+      "authors": [
+        "Nan Qiao",
+        "Haowei Jiang",
+        "Cunjie Lin"
+      ],
+      "abstract": "Sepsis remains a critical challenge due to its high mortality and complex\nprognosis. To address data limitations in studying MSSA sepsis, we extend\nexisting transfer learning frameworks to accommodate transformation models for\nhigh-dimensional survival data. Specifically, we construct a measurement index\nbased on C-index for intelligently identifying the helpful source datasets, and\nthe target model performance is improved by leveraging information from the\nidentified source datasets via performing the transfer step and debiasing step.\nWe further provide an algorithm to construct confidence intervals for each\ncoefficient component. Another significant development is that statistical\nproperties are rigorously established, including $\\ell_1/\\ell_2$-estimation\nerror bounds of the transfer learning algorithm, detection consistency property\nof the transferable source detection algorithm and asymptotic theories for the\nconfidence interval construction. Extensive simulations and analysis of\nMIMIC-IV sepsis data demonstrate the estimation and prediction accuracy, and\npractical advantages of our approach, providing significant improvements in\nsurvival estimates for MSSA sepsis patients.",
+      "published": "April 15, 2025",
+      "categories": [
+        "stat.AP"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2504.11270v1",
+      "arxiv_url": "http://arxiv.org/abs/2504.11270v1"
+    },
     {
       "title": "Conditional Data Synthesis Augmentation",
       "authors": [
@@ -60,23 +75,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2504.03310v1",
       "arxiv_url": "http://arxiv.org/abs/2504.03310v1"
-    },
-    {
-      "title": "Privacy-Preserving Transfer Learning for Community Detection using\n  Locally Distributed Multiple Networks",
-      "authors": [
-        "Xiao Guo",
-        "Xuming He",
-        "Xiangyu Chang",
-        "Shujie Ma"
-      ],
-      "abstract": "This paper develops a new spectral clustering-based method called TransNet\nfor transfer learning in community detection of network data. Our goal is to\nimprove the clustering performance of the target network using auxiliary source\nnetworks, which are heterogeneous, privacy-preserved, and locally stored across\nvarious sources. The edges of each locally stored network are perturbed using\nthe randomized response mechanism to achieve differential privacy. Notably, we\nallow the source networks to have distinct privacy-preserving and heterogeneity\nlevels as often desired in practice. To better utilize the information from the\nsource networks, we propose a novel adaptive weighting method to aggregate the\neigenspaces of the source networks multiplied by adaptive weights chosen to\nincorporate the effects of privacy and heterogeneity. We propose a\nregularization method that combines the weighted average eigenspace of the\nsource networks with the eigenspace of the target network to achieve an optimal\nbalance between them. Theoretically, we show that the adaptive weighting method\nenjoys the error-bound-oracle property in the sense that the error bound of the\nestimated eigenspace only depends on informative source networks. We also\ndemonstrate that TransNet performs better than the estimator using only the\ntarget network and the estimator using only the weighted source networks.",
-      "published": "April 01, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2504.00890v1",
-      "arxiv_url": "http://arxiv.org/abs/2504.00890v1"
     }
   ]
 }
