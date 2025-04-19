@@ -1,6 +1,27 @@
 {
-  "timestamp": 1744939198,
+  "timestamp": 1745025479,
   "papers": [
+    {
+      "title": "TransST: Transfer Learning Embedded Spatial Factor Modeling of Spatial\n  Transcriptomics Data",
+      "authors": [
+        "Shuo Shuo Liu",
+        "Shikun Wang",
+        "Yuxuan Chen",
+        "Anil K. Rustgi",
+        "Ming Yuan",
+        "Jianhua Hu"
+      ],
+      "abstract": "Background: Spatial transcriptomics have emerged as a powerful tool in\nbiomedical research because of its ability to capture both the spatial contexts\nand abundance of the complete RNA transcript profile in organs of interest.\nHowever, limitations of the technology such as the relatively low resolution\nand comparatively insufficient sequencing depth make it difficult to reliably\nextract real biological signals from these data. To alleviate this challenge,\nwe propose a novel transfer learning framework, referred to as TransST, to\nadaptively leverage the cell-labeled information from external sources in\ninferring cell-level heterogeneity of a target spatial transcriptomics data.\n  Results: Applications in several real studies as well as a number of\nsimulation settings show that our approach significantly improves existing\ntechniques. For example, in the breast cancer study, TransST successfully\nidentifies five biologically meaningful cell clusters, including the two\nsubgroups of cancer in situ and invasive cancer; in addition, only TransST is\nable to separate the adipose tissues from the connective issues among all the\nstudied methods.\n  Conclusions: In summary, the proposed method TransST is both effective and\nrobust in identifying cell subclusters and detecting corresponding driving\nbiomarkers in spatial transcriptomics data.",
+      "published": "April 15, 2025",
+      "categories": [
+        "q-bio.GN",
+        "cs.LG",
+        "stat.AP",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2504.12353v1",
+      "arxiv_url": "http://arxiv.org/abs/2504.12353v1"
+    },
     {
       "title": "Rank-based transfer learning for high-dimensional survival data with\n  application to sepsis data",
       "authors": [
@@ -45,36 +66,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2504.04812v1",
       "arxiv_url": "http://arxiv.org/abs/2504.04812v1"
-    },
-    {
-      "title": "Block Toeplitz Sparse Precision Matrix Estimation for Large-Scale\n  Interval-Valued Time Series Forecasting",
-      "authors": [
-        "Wan Tian",
-        "Zhongfeng Qin"
-      ],
-      "abstract": "Modeling and forecasting interval-valued time series (ITS) have attracted\nconsiderable attention due to their growing presence in various contexts. To\nthe best of our knowledge, there have been no efforts to model large-scale ITS.\nIn this paper, we propose a feature extraction procedure for large-scale ITS,\nwhich involves key steps such as auto-segmentation and clustering, and feature\ntransfer learning. This procedure can be seamlessly integrated with any\nsuitable prediction models for forecasting purposes. Specifically, we transform\nthe automatic segmentation and clustering of ITS into the estimation of\nToeplitz sparse precision matrices and assignment set. The\nmajorization-minimization algorithm is employed to convert this highly\nnon-convex optimization problem into two subproblems. We derive efficient\ndynamic programming and alternating direction method to solve these two\nsubproblems alternately and establish their convergence properties. By\nemploying the Joint Recurrence Plot (JRP) to image subsequence and assigning a\nclass label to each cluster, an image dataset is constructed. Then, an\nappropriate neural network is chosen to train on this image dataset and used to\nextract features for the next step of forecasting. Real data applications\ndemonstrate that the proposed method can effectively obtain invariant\nrepresentations of the raw data and enhance forecasting performance.",
-      "published": "April 04, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2504.03322v1",
-      "arxiv_url": "http://arxiv.org/abs/2504.03322v1"
-    },
-    {
-      "title": "A model-free feature extraction procedure for interval-valued time\n  series prediction",
-      "authors": [
-        "Wan Tian",
-        "Zhongfeng Qin",
-        "Tao Hu"
-      ],
-      "abstract": "In this paper, we present a novel feature extraction procedure to predict\ninterval-valued time series by combing transfer learning and imaging\napproaches. Initially, we represent interval-valued time series using a\nbivariate point-valued time series, which serves as a representative form. We\nfirst transform each time series into images by employing various imaging\napproaches such as recurrence plot, gramian angular summation/difference field,\nand Markov transition field, and construct an image dataset by treating each\nimaging method's output as a separate class. Based on this dataset, we train\nseveral candidates for a feature extraction network (FEN), specifically ResNet\nwith varying layers. Then we choose the penultimate layer of the FEN to extract\nthe most relevant features from the transformed images. We integrate the\nextracted features into conventional predictive models to formulate the\ncorresponding prediction models. To formulate prediction, we integrate the\nextracted features into a regular prediction model. The proposed methods are\nevaluated based on the S\\&P 500 index and three data-generating processes\n(DGPs), and the experimental results demonstrate a notable improvement in\nprediction performance compared to existing methods.",
-      "published": "April 04, 2025",
-      "categories": [
-        "stat.AP"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2504.03310v1",
-      "arxiv_url": "http://arxiv.org/abs/2504.03310v1"
     }
   ]
 }
