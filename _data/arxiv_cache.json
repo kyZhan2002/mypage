@@ -1,5 +1,5 @@
 {
-  "timestamp": 1745198690,
+  "timestamp": 1745284878,
   "papers": [
     {
       "title": "TransST: Transfer Learning Embedded Spatial Factor Modeling of Spatial\n  Transcriptomics Data",
@@ -51,21 +51,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2504.07426v1",
       "arxiv_url": "http://arxiv.org/abs/2504.07426v1"
-    },
-    {
-      "title": "Sparse Optimization for Transfer Learning: A L0-Regularized Framework\n  for Multi-Source Domain Adaptation",
-      "authors": [
-        "Chenqi Gong",
-        "Hu Yang"
-      ],
-      "abstract": "This paper explores transfer learning in heterogeneous multi-source\nenvironments with distributional divergence between target and auxiliary\ndomains. To address challenges in statistical bias and computational\nefficiency, we propose a Sparse Optimization for Transfer Learning (SOTL)\nframework based on L0-regularization. The method extends the Joint Estimation\nTransferred from Strata (JETS) paradigm with two key innovations: (1)\nL0-constrained exact sparsity for parameter space compression and complexity\nreduction, and (2) refining optimization focus to emphasize target parameters\nover redundant ones. Simulations show that SOTL significantly improves both\nestimation accuracy and computational speed, especially under adversarial\nauxiliary domain conditions. Empirical validation on the Community and Crime\nbenchmarks demonstrates the statistical robustness of the SOTL method in\ncross-domain transfer.",
-      "published": "April 07, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2504.04812v1",
-      "arxiv_url": "http://arxiv.org/abs/2504.04812v1"
     }
   ]
 }
