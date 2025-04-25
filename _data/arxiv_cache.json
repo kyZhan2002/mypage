@@ -1,5 +1,5 @@
 {
-  "timestamp": 1745457704,
+  "timestamp": 1745544152,
   "papers": [
     {
       "title": "Transfer Learning for High-dimensional Reduced Rank Time Series Models",
@@ -50,21 +50,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2504.11270v1",
       "arxiv_url": "http://arxiv.org/abs/2504.11270v1"
-    },
-    {
-      "title": "Conditional Data Synthesis Augmentation",
-      "authors": [
-        "Xinyu Tian",
-        "Xiaotong Shen"
-      ],
-      "abstract": "Reliable machine learning and statistical analysis rely on diverse,\nwell-distributed training data. However, real-world datasets are often limited\nin size and exhibit underrepresentation across key subpopulations, leading to\nbiased predictions and reduced performance, particularly in supervised tasks\nsuch as classification. To address these challenges, we propose Conditional\nData Synthesis Augmentation (CoDSA), a novel framework that leverages\ngenerative models, such as diffusion models, to synthesize high-fidelity data\nfor improving model performance across multimodal domains including tabular,\ntextual, and image data. CoDSA generates synthetic samples that faithfully\ncapture the conditional distributions of the original data, with a focus on\nunder-sampled or high-interest regions. Through transfer learning, CoDSA\nfine-tunes pre-trained generative models to enhance the realism of synthetic\ndata and increase sample density in sparse areas. This process preserves\ninter-modal relationships, mitigates data imbalance, improves domain\nadaptation, and boosts generalization. We also introduce a theoretical\nframework that quantifies the statistical accuracy improvements enabled by\nCoDSA as a function of synthetic sample volume and targeted region allocation,\nproviding formal guarantees of its effectiveness. Extensive experiments\ndemonstrate that CoDSA consistently outperforms non-adaptive augmentation\nstrategies and state-of-the-art baselines in both supervised and unsupervised\nsettings.",
-      "published": "April 10, 2025",
-      "categories": [
-        "stat.ME",
-        "cs.LG"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2504.07426v1",
-      "arxiv_url": "http://arxiv.org/abs/2504.07426v1"
     }
   ]
 }
