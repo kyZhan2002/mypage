@@ -1,6 +1,22 @@
 {
-  "timestamp": 1745803451,
+  "timestamp": 1745889741,
   "papers": [
+    {
+      "title": "Post-Transfer Learning Statistical Inference in High-Dimensional\n  Regression",
+      "authors": [
+        "Nguyen Vu Khai Tam",
+        "Cao Huyen My",
+        "Vo Nguyen Le Duy"
+      ],
+      "abstract": "Transfer learning (TL) for high-dimensional regression (HDR) is an important\nproblem in machine learning, particularly when dealing with limited sample size\nin the target task. However, there currently lacks a method to quantify the\nstatistical significance of the relationship between features and the response\nin TL-HDR settings. In this paper, we introduce a novel statistical inference\nframework for assessing the reliability of feature selection in TL-HDR, called\nPTL-SI (Post-TL Statistical Inference). The core contribution of PTL-SI is its\nability to provide valid $p$-values to features selected in TL-HDR, thereby\nrigorously controlling the false positive rate (FPR) at desired significance\nlevel $\\alpha$ (e.g., 0.05). Furthermore, we enhance statistical power by\nincorporating a strategic divide-and-conquer approach into our framework. We\ndemonstrate the validity and effectiveness of the proposed PTL-SI through\nextensive experiments on both synthetic and real-world high-dimensional\ndatasets, confirming its theoretical properties and utility in testing the\nreliability of feature selection in TL scenarios.",
+      "published": "April 25, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2504.18212v1",
+      "arxiv_url": "http://arxiv.org/abs/2504.18212v1"
+    },
     {
       "title": "Transfer Learning for High-dimensional Reduced Rank Time Series Models",
       "authors": [
