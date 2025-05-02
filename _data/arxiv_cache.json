@@ -1,6 +1,22 @@
 {
-  "timestamp": 1746063482,
+  "timestamp": 1746148970,
   "papers": [
+    {
+      "title": "Convergence rate for Nearest Neighbour matching: geometry of the domain\n  and higher-order regularity",
+      "authors": [
+        "Simon Viel",
+        "Lionel Truquet",
+        "Ikko Yamane"
+      ],
+      "abstract": "Estimating some mathematical expectations from partially observed data and in\nparticular missing outcomes is a central problem encountered in numerous fields\nsuch as transfer learning, counterfactual analysis or causal inference.\nMatching estimators, estimators based on k-nearest neighbours, are widely used\nin this context. It is known that the variance of such estimators can converge\nto zero at a parametric rate, but their bias can have a slower rate when the\ndimension of the covariates is larger than 2. This makes analysis of this bias\nparticularly important. In this paper, we provide higher order properties of\nthe bias. In contrast to the existing literature related to this problem, we do\nnot assume that the support of the target distribution of the covariates is\nstrictly included in that of the source, and we analyse two geometric\nconditions on the support that avoid such boundary bias problems. We show that\nthese conditions are much more general than the usual convex support\nassumption, leading to an improvement of existing results. Furthermore, we show\nthat the matching estimator studied by Abadie and Imbens (2006) for the average\ntreatment effect can be asymptotically efficient when the dimension of the\ncovariates is less than 4, a result only known in dimension 1.",
+      "published": "April 30, 2025",
+      "categories": [
+        "math.ST",
+        "stat.TH"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2504.21633v1",
+      "arxiv_url": "http://arxiv.org/abs/2504.21633v1"
+    },
     {
       "title": "Transfer Learning Under High-Dimensional Network Convolutional\n  Regression Model",
       "authors": [
