@@ -1,6 +1,31 @@
 {
-  "timestamp": 1746148970,
+  "timestamp": 1746235251,
   "papers": [
+    {
+      "title": "AI-Assisted Decision-Making for Clinical Assessment of Auto-Segmented\n  Contour Quality",
+      "authors": [
+        "Biling Wang",
+        "Austen Maniscalco",
+        "Ti Bai",
+        "Siqiu Wang",
+        "Michael Dohopolski",
+        "Mu-Han Lin",
+        "Chenyang Shen",
+        "Dan Nguyen",
+        "Junzhou Huang",
+        "Steve Jiang",
+        "Xinlei Wang"
+      ],
+      "abstract": "Purpose: This study presents a Deep Learning (DL)-based quality assessment\n(QA) approach for evaluating auto-generated contours (auto-contours) in\nradiotherapy, with emphasis on Online Adaptive Radiotherapy (OART). Leveraging\nBayesian Ordinal Classification (BOC) and calibrated uncertainty thresholds,\nthe method enables confident QA predictions without relying on ground truth\ncontours or extensive manual labeling. Methods: We developed a BOC model to\nclassify auto-contour quality and quantify prediction uncertainty. A\ncalibration step was used to optimize uncertainty thresholds that meet clinical\naccuracy needs. The method was validated under three data scenarios: no manual\nlabels, limited labels, and extensive labels. For rectum contours in prostate\ncancer, we applied geometric surrogate labels when manual labels were absent,\ntransfer learning when limited, and direct supervision when ample labels were\navailable. Results: The BOC model delivered robust performance across all\nscenarios. Fine-tuning with just 30 manual labels and calibrating with 34\nsubjects yielded over 90% accuracy on test data. Using the calibrated\nthreshold, over 93% of the auto-contours' qualities were accurately predicted\nin over 98% of cases, reducing unnecessary manual reviews and highlighting\ncases needing correction. Conclusion: The proposed QA model enhances contouring\nefficiency in OART by reducing manual workload and enabling fast, informed\nclinical decisions. Through uncertainty quantification, it ensures safer, more\nreliable radiotherapy workflows.",
+      "published": "May 01, 2025",
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "stat.AP"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.00308v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.00308v1"
+    },
     {
       "title": "Convergence rate for Nearest Neighbour matching: geometry of the domain\n  and higher-order regularity",
       "authors": [
@@ -82,42 +107,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2504.15691v1",
       "arxiv_url": "http://arxiv.org/abs/2504.15691v1"
-    },
-    {
-      "title": "TransST: Transfer Learning Embedded Spatial Factor Modeling of Spatial\n  Transcriptomics Data",
-      "authors": [
-        "Shuo Shuo Liu",
-        "Shikun Wang",
-        "Yuxuan Chen",
-        "Anil K. Rustgi",
-        "Ming Yuan",
-        "Jianhua Hu"
-      ],
-      "abstract": "Background: Spatial transcriptomics have emerged as a powerful tool in\nbiomedical research because of its ability to capture both the spatial contexts\nand abundance of the complete RNA transcript profile in organs of interest.\nHowever, limitations of the technology such as the relatively low resolution\nand comparatively insufficient sequencing depth make it difficult to reliably\nextract real biological signals from these data. To alleviate this challenge,\nwe propose a novel transfer learning framework, referred to as TransST, to\nadaptively leverage the cell-labeled information from external sources in\ninferring cell-level heterogeneity of a target spatial transcriptomics data.\n  Results: Applications in several real studies as well as a number of\nsimulation settings show that our approach significantly improves existing\ntechniques. For example, in the breast cancer study, TransST successfully\nidentifies five biologically meaningful cell clusters, including the two\nsubgroups of cancer in situ and invasive cancer; in addition, only TransST is\nable to separate the adipose tissues from the connective issues among all the\nstudied methods.\n  Conclusions: In summary, the proposed method TransST is both effective and\nrobust in identifying cell subclusters and detecting corresponding driving\nbiomarkers in spatial transcriptomics data.",
-      "published": "April 15, 2025",
-      "categories": [
-        "q-bio.GN",
-        "cs.LG",
-        "stat.AP",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2504.12353v1",
-      "arxiv_url": "http://arxiv.org/abs/2504.12353v1"
-    },
-    {
-      "title": "Rank-based transfer learning for high-dimensional survival data with\n  application to sepsis data",
-      "authors": [
-        "Nan Qiao",
-        "Haowei Jiang",
-        "Cunjie Lin"
-      ],
-      "abstract": "Sepsis remains a critical challenge due to its high mortality and complex\nprognosis. To address data limitations in studying MSSA sepsis, we extend\nexisting transfer learning frameworks to accommodate transformation models for\nhigh-dimensional survival data. Specifically, we construct a measurement index\nbased on C-index for intelligently identifying the helpful source datasets, and\nthe target model performance is improved by leveraging information from the\nidentified source datasets via performing the transfer step and debiasing step.\nWe further provide an algorithm to construct confidence intervals for each\ncoefficient component. Another significant development is that statistical\nproperties are rigorously established, including $\\ell_1/\\ell_2$-estimation\nerror bounds of the transfer learning algorithm, detection consistency property\nof the transferable source detection algorithm and asymptotic theories for the\nconfidence interval construction. Extensive simulations and analysis of\nMIMIC-IV sepsis data demonstrate the estimation and prediction accuracy, and\npractical advantages of our approach, providing significant improvements in\nsurvival estimates for MSSA sepsis patients.",
-      "published": "April 15, 2025",
-      "categories": [
-        "stat.AP"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2504.11270v1",
-      "arxiv_url": "http://arxiv.org/abs/2504.11270v1"
     }
   ]
 }
