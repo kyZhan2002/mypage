@@ -1,6 +1,40 @@
 {
-  "timestamp": 1746581044,
+  "timestamp": 1746667463,
   "papers": [
+    {
+      "title": "Multi-modal cascade feature transfer for polymer property prediction",
+      "authors": [
+        "Kiichi Obuchi",
+        "Yuta Yahagi",
+        "Kiyohiko Toyama",
+        "Shukichi Tanaka",
+        "Kota Matsui"
+      ],
+      "abstract": "In this paper, we propose a novel transfer learning approach called\nmulti-modal cascade model with feature transfer for polymer property\nprediction.Polymers are characterized by a composite of data in several\ndifferent formats, including molecular descriptors and additive information as\nwell as chemical structures. However, in conventional approaches, prediction\nmodels were often constructed using each type of data separately. Our model\nenables more accurate prediction of physical properties for polymers by\ncombining features extracted from the chemical structure by graph convolutional\nneural networks (GCN) with features such as molecular descriptors and additive\ninformation. The predictive performance of the proposed method is empirically\nevaluated using several polymer datasets. We report that the proposed method\nshows high predictive performance compared to the baseline conventional\napproach using a single feature.",
+      "published": "May 06, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.03704v2",
+      "arxiv_url": "http://arxiv.org/abs/2505.03704v2"
+    },
+    {
+      "title": "Decision Making under Model Misspecification: DRO with Robust Bayesian\n  Ambiguity Sets",
+      "authors": [
+        "Charita Dellaporta",
+        "Patrick O'Hara",
+        "Theodoros Damoulas"
+      ],
+      "abstract": "Distributionally Robust Optimisation (DRO) protects risk-averse\ndecision-makers by considering the worst-case risk within an ambiguity set of\ndistributions based on the empirical distribution or a model. To further guard\nagainst finite, noisy data, model-based approaches admit Bayesian formulations\nthat propagate uncertainty from the posterior to the decision-making problem.\nHowever, when the model is misspecified, the decision maker must stretch the\nambiguity set to contain the data-generating process (DGP), leading to overly\nconservative decisions. We address this challenge by introducing DRO with\nRobust, to model misspecification, Bayesian Ambiguity Sets (DRO-RoBAS). These\nare Maximum Mean Discrepancy ambiguity sets centred at a robust posterior\npredictive distribution that incorporates beliefs about the DGP. We show that\nthe resulting optimisation problem obtains a dual formulation in the\nReproducing Kernel Hilbert Space and we give probabilistic guarantees on the\ntolerance level of the ambiguity set. Our method outperforms other Bayesian and\nempirical DRO approaches in out-of-sample performance on the Newsvendor and\nPortfolio problems with various cases of model misspecification.",
+      "published": "May 06, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.03585v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.03585v1"
+    },
     {
       "title": "StablePCA: Learning Shared Representations across Multiple Sources via\n  Minimax Optimization",
       "authors": [
