@@ -1,5 +1,5 @@
 {
-  "timestamp": 1747013209,
+  "timestamp": 1747099499,
   "papers": [
     {
       "title": "Multi-modal cascade feature transfer for polymer property prediction",
@@ -77,8 +77,8 @@
         "cs.AI",
         "stat.AP"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2505.00308v1",
-      "arxiv_url": "http://arxiv.org/abs/2505.00308v1"
+      "pdf_link": "http://arxiv.org/pdf/2505.00308v2",
+      "arxiv_url": "http://arxiv.org/abs/2505.00308v2"
     },
     {
       "title": "Convergence rate for Nearest Neighbour matching: geometry of the domain\n  and higher-order regularity",
@@ -147,20 +147,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2504.18212v1",
       "arxiv_url": "http://arxiv.org/abs/2504.18212v1"
-    },
-    {
-      "title": "Transfer Learning for High-dimensional Reduced Rank Time Series Models",
-      "authors": [
-        "Mingliang Ma Abolfazl Safikhani"
-      ],
-      "abstract": "The objective of transfer learning is to enhance estimation and inference in\na target data by leveraging knowledge gained from additional sources. Recent\nstudies have explored transfer learning for independent observations in\ncomplex, high-dimensional models assuming sparsity, yet research on time series\nmodels remains limited. Our focus is on transfer learning for sequences of\nobservations with temporal dependencies and a more intricate model parameter\nstructure. Specifically, we investigate the vector autoregressive model (VAR),\na widely recognized model for time series data, where the transition matrix can\nbe deconstructed into a combination of a sparse matrix and a low-rank one. We\npropose a new transfer learning algorithm tailored for estimating\nhigh-dimensional VAR models characterized by low-rank and sparse structures.\nAdditionally, we present a novel approach for selecting informative\nobservations from auxiliary datasets. Theoretical guarantees are established,\nencompassing model parameter consistency, informative set selection, and the\nasymptotic distribution of estimators under mild conditions. The latter\nfacilitates the construction of entry-wise confidence intervals for model\nparameters. Finally, we demonstrate the empirical efficacy of our methodologies\nthrough both simulated and real-world datasets.",
-      "published": "April 22, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2504.15691v1",
-      "arxiv_url": "http://arxiv.org/abs/2504.15691v1"
     }
   ]
 }
