@@ -1,6 +1,80 @@
 {
-  "timestamp": 1747099499,
+  "timestamp": 1747185827,
   "papers": [
+    {
+      "title": "Transfer Learning Across Fixed-Income Product Classes",
+      "authors": [
+        "Nicolas Camenzind",
+        "Damir Filipovic"
+      ],
+      "abstract": "We propose a framework for transfer learning of discount curves across\ndifferent fixed-income product classes. Motivated by challenges in estimating\ndiscount curves from sparse or noisy data, we extend kernel ridge regression\n(KR) to a vector-valued setting, formulating a convex optimization problem in a\nvector-valued reproducing kernel Hilbert space (RKHS). Each component of the\nsolution corresponds to the discount curve implied by a specific product class.\nWe introduce an additional regularization term motivated by economic\nprinciples, promoting smoothness of spread curves between product classes, and\nshow that it leads to a valid separable kernel structure. A main theoretical\ncontribution is a decomposition of the vector-valued RKHS norm induced by\nseparable kernels. We further provide a Gaussian process interpretation of\nvector-valued KR, enabling quantification of estimation uncertainty.\nIllustrative examples demonstrate that transfer learning significantly improves\nextrapolation performance and tightens confidence intervals compared to\nsingle-curve estimation.",
+      "published": "May 12, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "q-fin.CP",
+        "q-fin.MF"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.07676v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.07676v1"
+    },
+    {
+      "title": "Enhancing Inference for Small Cohorts via Transfer Learning and Weighted\n  Integration of Multiple Datasets",
+      "authors": [
+        "Subharup Guha",
+        "Mengqi Xu",
+        "Yi Li"
+      ],
+      "abstract": "Lung sepsis remains a significant concern in the Northeastern U.S., yet the\nnational eICU Collaborative Database includes only a small number of patients\nfrom this region, highlighting underrepresentation. Understanding clinical\nvariables such as FiO2, creatinine, platelets, and lactate, which reflect\noxygenation, kidney function, coagulation, and metabolism, is crucial because\nthese markers influence sepsis outcomes and may vary by sex. Transfer learning\nhelps address small sample sizes by borrowing information from larger datasets,\nalthough differences in covariates and outcome-generating mechanisms between\nthe target and external cohorts can complicate the process. We propose a novel\nweighting method, TRANSfer LeArning wiTh wEights (TRANSLATE), to integrate data\nfrom various sources by incorporating domain-specific characteristics through\nlearned weights that align external data with the target cohort. These weights\nadjust for cohort differences, are proportional to each cohort's effective\nsample size, and downweight dissimilar cohorts. TRANSLATE offers theoretical\nguarantees for improved precision and applies to a wide range of estimands,\nincluding means, variances, and distribution functions. Simulations and a\nreal-data application to sepsis outcomes in the Northeast cohort, using a much\nlarger sample from other U.S. regions, show that the method enhances inference\nwhile accounting for regional heterogeneity.",
+      "published": "May 11, 2025",
+      "categories": [
+        "stat.ME"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.07153v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.07153v1"
+    },
+    {
+      "title": "A systematic review of challenges and proposed solutions in modeling\n  multimodal data",
+      "authors": [
+        "Maryam Farhadizadeh",
+        "Maria Weymann",
+        "Michael Bla\u00df",
+        "Johann Kraus",
+        "Christopher Gundler",
+        "Sebastian Walter",
+        "Noah Hempen",
+        "Harald Binde",
+        "Nadine Binder"
+      ],
+      "abstract": "Multimodal data modeling has emerged as a powerful approach in clinical\nresearch, enabling the integration of diverse data types such as imaging,\ngenomics, wearable sensors, and electronic health records. Despite its\npotential to improve diagnostic accuracy and support personalized care,\nmodeling such heterogeneous data presents significant technical challenges.\nThis systematic review synthesizes findings from 69 studies to identify common\nobstacles, including missing modalities, limited sample sizes, dimensionality\nimbalance, interpretability issues, and finding the optimal fusion techniques.\nWe highlight recent methodological advances, such as transfer learning,\ngenerative models, attention mechanisms, and neural architecture search that\noffer promising solutions. By mapping current trends and innovations, this\nreview provides a comprehensive overview of the field and offers practical\ninsights to guide future research and development in multimodal modeling for\nmedical applications.",
+      "published": "May 11, 2025",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.06945v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.06945v1"
+    },
+    {
+      "title": "Model Steering: Learning with a Reference Model Improves Generalization\n  Bounds and Scaling Laws",
+      "authors": [
+        "Xiyuan Wei",
+        "Ming Lin",
+        "Fanjiang Ye",
+        "Fengguang Song",
+        "Liangliang Cao",
+        "My T. Thai",
+        "Tianbao Yang"
+      ],
+      "abstract": "This paper formalizes an emerging learning paradigm that uses a trained model\nas a reference to guide and enhance the training of a target model through\nstrategic data selection or weighting, named $\\textbf{model steering}$. While\nad-hoc methods have been used in various contexts, including the training of\nlarge foundation models, its underlying principles remain insufficiently\nunderstood, leading to sub-optimal performance. In this work, we propose a\ntheory-driven framework for model steering called $\\textbf{DRRho risk\nminimization}$, which is rooted in Distributionally Robust Optimization (DRO).\nThrough a generalization analysis, we provide theoretical insights into why\nthis approach improves generalization and data efficiency compared to training\nwithout a reference model. To the best of our knowledge, this is the first time\nsuch theoretical insights are provided for the new learning paradigm, which\nsignificantly enhance our understanding and practice of model steering.\nBuilding on these insights and the connection between contrastive learning and\nDRO, we introduce a novel method for Contrastive Language-Image Pretraining\n(CLIP) with a reference model, termed DRRho-CLIP. Extensive experiments\nvalidate the theoretical insights, reveal a superior scaling law compared to\nCLIP without a reference model, and demonstrate its strength over existing\nheuristic approaches.",
+      "published": "May 10, 2025",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.06699v2",
+      "arxiv_url": "http://arxiv.org/abs/2505.06699v2"
+    },
     {
       "title": "Multi-modal cascade feature transfer for polymer property prediction",
       "authors": [
