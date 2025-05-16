@@ -1,6 +1,24 @@
 {
-  "timestamp": 1747185827,
+  "timestamp": 1747358705,
   "papers": [
+    {
+      "title": "Wasserstein Distributionally Robust Nonparametric Regression",
+      "authors": [
+        "Changyu Liu",
+        "Yuling Jiao",
+        "Junhui Wang",
+        "Jian Huang"
+      ],
+      "abstract": "Distributionally robust optimization has become a powerful tool for\nprediction and decision-making under model uncertainty. By focusing on the\nlocal worst-case risk, it enhances robustness by identifying the most\nunfavorable distribution within a predefined ambiguity set. While extensive\nresearch has been conducted in parametric settings, studies on nonparametric\nframeworks remain limited. This paper studies the generalization properties of\nWasserstein distributionally robust nonparametric estimators, with particular\nattention to the impact of model misspecification, where non-negligible\ndiscrepancies between the estimation function space and target function can\nimpair generalization performance. We establish non-asymptotic error bounds for\nthe excess local worst-case risk by analyzing the regularization effects\ninduced by distributional perturbations and employing feedforward neural\nnetworks with Lipschitz constraints. These bounds illustrate how uncertainty\nlevels and neural network structures influence generalization performance and\nare applicable to both Lipschitz and quadratic loss functions. Furthermore, we\ninvestigate the Lagrangian relaxation of the local worst-case risk and derive\ncorresponding non-asymptotic error bounds for these estimators. The robustness\nof the proposed estimator is evaluated through simulation studies and\nillustrated with an application to the MNIST dataset.",
+      "published": "May 12, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "62G05, 62G08, 68T07"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.07967v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.07967v1"
+    },
     {
       "title": "Transfer Learning Across Fixed-Income Product Classes",
       "authors": [
@@ -43,7 +61,7 @@
         "Christopher Gundler",
         "Sebastian Walter",
         "Noah Hempen",
-        "Harald Binde",
+        "Harald Binder",
         "Nadine Binder"
       ],
       "abstract": "Multimodal data modeling has emerged as a powerful approach in clinical\nresearch, enabling the integration of diverse data types such as imaging,\ngenomics, wearable sensors, and electronic health records. Despite its\npotential to improve diagnostic accuracy and support personalized care,\nmodeling such heterogeneous data presents significant technical challenges.\nThis systematic review synthesizes findings from 69 studies to identify common\nobstacles, including missing modalities, limited sample sizes, dimensionality\nimbalance, interpretability issues, and finding the optimal fusion techniques.\nWe highlight recent methodological advances, such as transfer learning,\ngenerative models, attention mechanisms, and neural architecture search that\noffer promising solutions. By mapping current trends and innovations, this\nreview provides a comprehensive overview of the field and offers practical\ninsights to guide future research and development in multimodal modeling for\nmedical applications.",
@@ -52,8 +70,8 @@
         "cs.LG",
         "stat.ML"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2505.06945v1",
-      "arxiv_url": "http://arxiv.org/abs/2505.06945v1"
+      "pdf_link": "http://arxiv.org/pdf/2505.06945v2",
+      "arxiv_url": "http://arxiv.org/abs/2505.06945v2"
     },
     {
       "title": "Model Steering: Learning with a Reference Model Improves Generalization\n  Bounds and Scaling Laws",
@@ -169,58 +187,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2504.21633v1",
       "arxiv_url": "http://arxiv.org/abs/2504.21633v1"
-    },
-    {
-      "title": "Transfer Learning Under High-Dimensional Network Convolutional\n  Regression Model",
-      "authors": [
-        "Liyuan Wang",
-        "Jiachen Chen",
-        "Kathryn L. Lunetta",
-        "Danyang Huang",
-        "Huimin Cheng",
-        "Debarghya Mukherjee"
-      ],
-      "abstract": "Transfer learning enhances model performance by utilizing knowledge from\nrelated domains, particularly when labeled data is scarce. While existing\nresearch addresses transfer learning under various distribution shifts in\nindependent settings, handling dependencies in networked data remains\nchallenging. To address this challenge, we propose a high-dimensional transfer\nlearning framework based on network convolutional regression (NCR), inspired by\nthe success of graph convolutional networks (GCNs). The NCR model incorporates\nrandom network structure by allowing each node's response to depend on its\nfeatures and the aggregated features of its neighbors, capturing local\ndependencies effectively. Our methodology includes a two-step transfer learning\nalgorithm that addresses domain shift between source and target networks, along\nwith a source detection mechanism to identify informative domains.\nTheoretically, we analyze the lasso estimator in the context of a random graph\nbased on the Erdos-Renyi model assumption, demonstrating that transfer learning\nimproves convergence rates when informative sources are present. Empirical\nevaluations, including simulations and a real-world application using Sina\nWeibo data, demonstrate substantial improvements in prediction accuracy,\nparticularly when labeled data in the target domain is limited.",
-      "published": "April 28, 2025",
-      "categories": [
-        "cs.LG",
-        "stat.ME"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2504.19979v2",
-      "arxiv_url": "http://arxiv.org/abs/2504.19979v2"
-    },
-    {
-      "title": "Comments on the minimal training set for CNN: a case study of the\n  frustrated $J_1$-$J_2$ Ising model on the square lattice",
-      "authors": [
-        "Shang-Wei Li",
-        "Yuan-Heng Tseng",
-        "Ming-Che Hsieh",
-        "Fu-Jiun Jiang"
-      ],
-      "abstract": "The minimal training set to train a working CNN is explored in detail. The\nconsidered model is the frustrated $J_1$-$J_2$ Ising model on the square\nlattice. Here $J_1 < 0$ and $J_2 > 0$ are the nearest and next-to-nearest\nneighboring couplings, respectively. We train the CNN using the configurations\nof $g \\stackrel{\\text{def}}{=} J_2/|J_1| = 0.7$ and employ the resulting CNN to\nstudy the phase transition of $g = 0.8$. We find that this transfer learning is\nsuccessful. In particular, only configurations of two temperatures, one is\nbelow and one is above the critical temperature $T_c$ of $g=0.7$, are needed to\nreach accurately determination of the $T_c$ of $g=0.8$. However, it may be\nsubtle to use this strategy for the training. Specifically, for the considered\nmodel, due to the inefficiency of the single spin flip algorithm used in\nsampling the configurations at the low-temperature region, the two temperatures\nassociated with the training set should not be too far away from the $T_c$ of\n$g=0.7$, otherwise, the performance of the obtained CNN is not of high quality,\nhence cannot determine the $T_c$ of $g=0.8$ accurately. For the considered\nmodel, we also uncover the condition for training a successful CNN when only\nconfigurations of two temperatures are considered as the training set.",
-      "published": "April 28, 2025",
-      "categories": [
-        "hep-lat",
-        "cond-mat.stat-mech"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2504.19795v1",
-      "arxiv_url": "http://arxiv.org/abs/2504.19795v1"
-    },
-    {
-      "title": "Post-Transfer Learning Statistical Inference in High-Dimensional\n  Regression",
-      "authors": [
-        "Nguyen Vu Khai Tam",
-        "Cao Huyen My",
-        "Vo Nguyen Le Duy"
-      ],
-      "abstract": "Transfer learning (TL) for high-dimensional regression (HDR) is an important\nproblem in machine learning, particularly when dealing with limited sample size\nin the target task. However, there currently lacks a method to quantify the\nstatistical significance of the relationship between features and the response\nin TL-HDR settings. In this paper, we introduce a novel statistical inference\nframework for assessing the reliability of feature selection in TL-HDR, called\nPTL-SI (Post-TL Statistical Inference). The core contribution of PTL-SI is its\nability to provide valid $p$-values to features selected in TL-HDR, thereby\nrigorously controlling the false positive rate (FPR) at desired significance\nlevel $\\alpha$ (e.g., 0.05). Furthermore, we enhance statistical power by\nincorporating a strategic divide-and-conquer approach into our framework. We\ndemonstrate the validity and effectiveness of the proposed PTL-SI through\nextensive experiments on both synthetic and real-world high-dimensional\ndatasets, confirming its theoretical properties and utility in testing the\nreliability of feature selection in TL scenarios.",
-      "published": "April 25, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2504.18212v1",
-      "arxiv_url": "http://arxiv.org/abs/2504.18212v1"
     }
   ]
 }
