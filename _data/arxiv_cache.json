@@ -1,6 +1,39 @@
 {
-  "timestamp": 1747358705,
+  "timestamp": 1747444975,
   "papers": [
+    {
+      "title": "Sample Complexity of Distributionally Robust Average-Reward\n  Reinforcement Learning",
+      "authors": [
+        "Zijun Chen",
+        "Shengbo Wang",
+        "Nian Si"
+      ],
+      "abstract": "Motivated by practical applications where stable long-term performance is\ncritical-such as robotics, operations research, and healthcare-we study the\nproblem of distributionally robust (DR) average-reward reinforcement learning.\nWe propose two algorithms that achieve near-optimal sample complexity. The\nfirst reduces the problem to a DR discounted Markov decision process (MDP),\nwhile the second, Anchored DR Average-Reward MDP, introduces an anchoring state\nto stabilize the controlled transition kernels within the uncertainty set.\nAssuming the nominal MDP is uniformly ergodic, we prove that both algorithms\nattain a sample complexity of $\\widetilde{O}\\left(|\\mathbf{S}||\\mathbf{A}|\nt_{\\mathrm{mix}}^2\\varepsilon^{-2}\\right)$ for estimating the optimal policy as\nwell as the robust average reward under KL and $f_k$-divergence-based\nuncertainty sets, provided the uncertainty radius is sufficiently small. Here,\n$\\varepsilon$ is the target accuracy, $|\\mathbf{S}|$ and $|\\mathbf{A}|$ denote\nthe sizes of the state and action spaces, and $t_{\\mathrm{mix}}$ is the mixing\ntime of the nominal MDP. This represents the first finite-sample convergence\nguarantee for DR average-reward reinforcement learning. We further validate the\nconvergence rates of our algorithms through numerical experiments.",
+      "published": "May 15, 2025",
+      "categories": [
+        "cs.LG",
+        "math.OC",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.10007v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.10007v1"
+    },
+    {
+      "title": "Community-based Multi-Agent Reinforcement Learning with Transfer and\n  Active Exploration",
+      "authors": [
+        "Zhaoyang Shi"
+      ],
+      "abstract": "We propose a new framework for multi-agent reinforcement learning (MARL),\nwhere the agents cooperate in a time-evolving network with latent community\nstructures and mixed memberships. Unlike traditional neighbor-based or fixed\ninteraction graphs, our community-based framework captures flexible and\nabstract coordination patterns by allowing each agent to belong to multiple\noverlapping communities. Each community maintains shared policy and value\nfunctions, which are aggregated by individual agents according to personalized\nmembership weights. We also design actor-critic algorithms that exploit this\nstructure: agents inherit community-level estimates for policy updates and\nvalue learning, enabling structured information sharing without requiring\naccess to other agents' policies. Importantly, our approach supports both\ntransfer learning by adapting to new agents or tasks via membership estimation,\nand active learning by prioritizing uncertain communities during exploration.\nTheoretically, we establish convergence guarantees under linear function\napproximation for both actor and critic updates. To our knowledge, this is the\nfirst MARL framework that integrates community structure, transferability, and\nactive learning with provable guarantees.",
+      "published": "May 14, 2025",
+      "categories": [
+        "cs.LG",
+        "cs.MA",
+        "math.OC",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.09756v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.09756v1"
+    },
     {
       "title": "Wasserstein Distributionally Robust Nonparametric Regression",
       "authors": [
@@ -146,47 +179,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2505.00940v1",
       "arxiv_url": "http://arxiv.org/abs/2505.00940v1"
-    },
-    {
-      "title": "AI-Assisted Decision-Making for Clinical Assessment of Auto-Segmented\n  Contour Quality",
-      "authors": [
-        "Biling Wang",
-        "Austen Maniscalco",
-        "Ti Bai",
-        "Siqiu Wang",
-        "Michael Dohopolski",
-        "Mu-Han Lin",
-        "Chenyang Shen",
-        "Dan Nguyen",
-        "Junzhou Huang",
-        "Steve Jiang",
-        "Xinlei Wang"
-      ],
-      "abstract": "Purpose: This study presents a Deep Learning (DL)-based quality assessment\n(QA) approach for evaluating auto-generated contours (auto-contours) in\nradiotherapy, with emphasis on Online Adaptive Radiotherapy (OART). Leveraging\nBayesian Ordinal Classification (BOC) and calibrated uncertainty thresholds,\nthe method enables confident QA predictions without relying on ground truth\ncontours or extensive manual labeling. Methods: We developed a BOC model to\nclassify auto-contour quality and quantify prediction uncertainty. A\ncalibration step was used to optimize uncertainty thresholds that meet clinical\naccuracy needs. The method was validated under three data scenarios: no manual\nlabels, limited labels, and extensive labels. For rectum contours in prostate\ncancer, we applied geometric surrogate labels when manual labels were absent,\ntransfer learning when limited, and direct supervision when ample labels were\navailable. Results: The BOC model delivered robust performance across all\nscenarios. Fine-tuning with just 30 manual labels and calibrating with 34\nsubjects yielded over 90% accuracy on test data. Using the calibrated\nthreshold, over 93% of the auto-contours' qualities were accurately predicted\nin over 98% of cases, reducing unnecessary manual reviews and highlighting\ncases needing correction. Conclusion: The proposed QA model enhances contouring\nefficiency in OART by reducing manual workload and enabling fast, informed\nclinical decisions. Through uncertainty quantification, it ensures safer, more\nreliable radiotherapy workflows.",
-      "published": "May 01, 2025",
-      "categories": [
-        "cs.CV",
-        "cs.AI",
-        "stat.AP"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2505.00308v2",
-      "arxiv_url": "http://arxiv.org/abs/2505.00308v2"
-    },
-    {
-      "title": "Convergence rate for Nearest Neighbour matching: geometry of the domain\n  and higher-order regularity",
-      "authors": [
-        "Simon Viel",
-        "Lionel Truquet",
-        "Ikko Yamane"
-      ],
-      "abstract": "Estimating some mathematical expectations from partially observed data and in\nparticular missing outcomes is a central problem encountered in numerous fields\nsuch as transfer learning, counterfactual analysis or causal inference.\nMatching estimators, estimators based on k-nearest neighbours, are widely used\nin this context. It is known that the variance of such estimators can converge\nto zero at a parametric rate, but their bias can have a slower rate when the\ndimension of the covariates is larger than 2. This makes analysis of this bias\nparticularly important. In this paper, we provide higher order properties of\nthe bias. In contrast to the existing literature related to this problem, we do\nnot assume that the support of the target distribution of the covariates is\nstrictly included in that of the source, and we analyse two geometric\nconditions on the support that avoid such boundary bias problems. We show that\nthese conditions are much more general than the usual convex support\nassumption, leading to an improvement of existing results. Furthermore, we show\nthat the matching estimator studied by Abadie and Imbens (2006) for the average\ntreatment effect can be asymptotically efficient when the dimension of the\ncovariates is less than 4, a result only known in dimension 1.",
-      "published": "April 30, 2025",
-      "categories": [
-        "math.ST",
-        "stat.TH"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2504.21633v1",
-      "arxiv_url": "http://arxiv.org/abs/2504.21633v1"
     }
   ]
 }
