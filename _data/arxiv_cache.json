@@ -1,5 +1,5 @@
 {
-  "timestamp": 1747618100,
+  "timestamp": 1747704346,
   "papers": [
     {
       "title": "Sample Complexity of Distributionally Robust Average-Reward\n  Reinforcement Learning",
@@ -123,8 +123,8 @@
         "cs.LG",
         "stat.ML"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2505.06699v2",
-      "arxiv_url": "http://arxiv.org/abs/2505.06699v2"
+      "pdf_link": "http://arxiv.org/pdf/2505.06699v3",
+      "arxiv_url": "http://arxiv.org/abs/2505.06699v3"
     },
     {
       "title": "Multi-modal cascade feature transfer for polymer property prediction",
@@ -159,26 +159,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2505.03585v1",
       "arxiv_url": "http://arxiv.org/abs/2505.03585v1"
-    },
-    {
-      "title": "StablePCA: Learning Shared Representations across Multiple Sources via\n  Minimax Optimization",
-      "authors": [
-        "Zhenyu Wang",
-        "Molei Liu",
-        "Jing Lei",
-        "Francis Bach",
-        "Zijian Guo"
-      ],
-      "abstract": "When synthesizing multisource high-dimensional data, a key objective is to\nextract low-dimensional feature representations that effectively approximate\nthe original features across different sources. Such general feature extraction\nfacilitates the discovery of transferable knowledge, mitigates systematic\nbiases such as batch effects, and promotes fairness. In this paper, we propose\nStable Principal Component Analysis (StablePCA), a novel method for group\ndistributionally robust learning of latent representations from\nhigh-dimensional multi-source data. A primary challenge in generalizing PCA to\nthe multi-source regime lies in the nonconvexity of the fixed rank constraint,\nrendering the minimax optimization nonconvex. To address this challenge, we\nemploy the Fantope relaxation, reformulating the problem as a convex minimax\noptimization, with the objective defined as the maximum loss across sources. To\nsolve the relaxed formulation, we devise an optimistic-gradient Mirror Prox\nalgorithm with explicit closed-form updates. Theoretically, we establish the\nglobal convergence of the Mirror Prox algorithm, with the convergence rate\nprovided from the optimization perspective. Furthermore, we offer practical\ncriteria to assess how closely the solution approximates the original nonconvex\nformulation. Through extensive numerical experiments, we demonstrate\nStablePCA's high accuracy and efficiency in extracting robust low-dimensional\nrepresentations across various finite-sample scenarios.",
-      "published": "May 02, 2025",
-      "categories": [
-        "cs.LG",
-        "math.OC",
-        "stat.CO",
-        "stat.ME"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2505.00940v1",
-      "arxiv_url": "http://arxiv.org/abs/2505.00940v1"
     }
   ]
 }
