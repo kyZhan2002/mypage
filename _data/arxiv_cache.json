@@ -1,6 +1,37 @@
 {
-  "timestamp": 1747877081,
+  "timestamp": 1747963490,
   "papers": [
+    {
+      "title": "HR-VILAGE-3K3M: A Human Respiratory Viral Immunization Longitudinal Gene\n  Expression Dataset for Systems Immunity",
+      "authors": [
+        "Xuejun Sun",
+        "Yiran Song",
+        "Xiaochen Zhou",
+        "Ruilie Cai",
+        "Yu Zhang",
+        "Xinyi Li",
+        "Rui Peng",
+        "Jialiu Xie",
+        "Yuanyuan Yan",
+        "Muyao Tang",
+        "Prem Lakshmanane",
+        "Baiming Zou",
+        "James S. Hagood",
+        "Raymond J. Pickles",
+        "Didong Li",
+        "Fei Zou",
+        "Xiaojing Zheng"
+      ],
+      "abstract": "Respiratory viral infections pose a global health burden, yet the cellular\nimmune responses driving protection or pathology remain unclear. Natural\ninfection cohorts often lack pre-exposure baseline data and structured temporal\nsampling. In contrast, inoculation and vaccination trials generate insightful\nlongitudinal transcriptomic data. However, the scattering of these datasets\nacross platforms, along with inconsistent metadata and preprocessing procedure,\nhinders AI-driven discovery. To address these challenges, we developed the\nHuman Respiratory Viral Immunization LongitudinAl Gene Expression\n(HR-VILAGE-3K3M) repository: an AI-ready, rigorously curated dataset that\nintegrates 14,136 RNA-seq profiles from 3,178 subjects across 66 studies\nencompassing over 2.56 million cells. Spanning vaccination, inoculation, and\nmixed exposures, the dataset includes microarray, bulk RNA-seq, and single-cell\nRNA-seq from whole blood, PBMCs, and nasal swabs, sourced from GEO, ImmPort,\nand ArrayExpress. We harmonized subject-level metadata, standardized outcome\nmeasures, applied unified preprocessing pipelines with rigorous quality\ncontrol, and aligned all data to official gene symbols. To demonstrate the\nutility of HR-VILAGE-3K3M, we performed predictive modeling of vaccine\nresponders and evaluated batch-effect correction methods. Beyond these initial\ndemonstrations, it supports diverse systems immunology applications and\nbenchmarking of feature selection and transfer learning algorithms. Its scale\nand heterogeneity also make it ideal for pretraining foundation models of the\nhuman immune response and for advancing multimodal learning frameworks. As the\nlargest longitudinal transcriptomic resource for human respiratory viral\nimmunization, it provides an accessible platform for reproducible AI-driven\nresearch, accelerating systems immunology and vaccine development against\nemerging viral threats.",
+      "published": "May 19, 2025",
+      "categories": [
+        "q-bio.GN",
+        "cs.LG",
+        "stat.AP"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.14725v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.14725v1"
+    },
     {
       "title": "A Finite-Sample Analysis of Distributionally Robust Average-Reward\n  Reinforcement Learning",
       "authors": [
@@ -104,100 +135,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2505.09756v1",
       "arxiv_url": "http://arxiv.org/abs/2505.09756v1"
-    },
-    {
-      "title": "Wasserstein Distributionally Robust Nonparametric Regression",
-      "authors": [
-        "Changyu Liu",
-        "Yuling Jiao",
-        "Junhui Wang",
-        "Jian Huang"
-      ],
-      "abstract": "Distributionally robust optimization has become a powerful tool for\nprediction and decision-making under model uncertainty. By focusing on the\nlocal worst-case risk, it enhances robustness by identifying the most\nunfavorable distribution within a predefined ambiguity set. While extensive\nresearch has been conducted in parametric settings, studies on nonparametric\nframeworks remain limited. This paper studies the generalization properties of\nWasserstein distributionally robust nonparametric estimators, with particular\nattention to the impact of model misspecification, where non-negligible\ndiscrepancies between the estimation function space and target function can\nimpair generalization performance. We establish non-asymptotic error bounds for\nthe excess local worst-case risk by analyzing the regularization effects\ninduced by distributional perturbations and employing feedforward neural\nnetworks with Lipschitz constraints. These bounds illustrate how uncertainty\nlevels and neural network structures influence generalization performance and\nare applicable to both Lipschitz and quadratic loss functions. Furthermore, we\ninvestigate the Lagrangian relaxation of the local worst-case risk and derive\ncorresponding non-asymptotic error bounds for these estimators. The robustness\nof the proposed estimator is evaluated through simulation studies and\nillustrated with an application to the MNIST dataset.",
-      "published": "May 12, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "62G05, 62G08, 68T07"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2505.07967v1",
-      "arxiv_url": "http://arxiv.org/abs/2505.07967v1"
-    },
-    {
-      "title": "Transfer Learning Across Fixed-Income Product Classes",
-      "authors": [
-        "Nicolas Camenzind",
-        "Damir Filipovic"
-      ],
-      "abstract": "We propose a framework for transfer learning of discount curves across\ndifferent fixed-income product classes. Motivated by challenges in estimating\ndiscount curves from sparse or noisy data, we extend kernel ridge regression\n(KR) to a vector-valued setting, formulating a convex optimization problem in a\nvector-valued reproducing kernel Hilbert space (RKHS). Each component of the\nsolution corresponds to the discount curve implied by a specific product class.\nWe introduce an additional regularization term motivated by economic\nprinciples, promoting smoothness of spread curves between product classes, and\nshow that it leads to a valid separable kernel structure. A main theoretical\ncontribution is a decomposition of the vector-valued RKHS norm induced by\nseparable kernels. We further provide a Gaussian process interpretation of\nvector-valued KR, enabling quantification of estimation uncertainty.\nIllustrative examples demonstrate that transfer learning significantly improves\nextrapolation performance and tightens confidence intervals compared to\nsingle-curve estimation.",
-      "published": "May 12, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "q-fin.CP",
-        "q-fin.MF"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2505.07676v1",
-      "arxiv_url": "http://arxiv.org/abs/2505.07676v1"
-    },
-    {
-      "title": "Enhancing Inference for Small Cohorts via Transfer Learning and Weighted\n  Integration of Multiple Datasets",
-      "authors": [
-        "Subharup Guha",
-        "Mengqi Xu",
-        "Yi Li"
-      ],
-      "abstract": "Lung sepsis remains a significant concern in the Northeastern U.S., yet the\nnational eICU Collaborative Database includes only a small number of patients\nfrom this region, highlighting underrepresentation. Understanding clinical\nvariables such as FiO2, creatinine, platelets, and lactate, which reflect\noxygenation, kidney function, coagulation, and metabolism, is crucial because\nthese markers influence sepsis outcomes and may vary by sex. Transfer learning\nhelps address small sample sizes by borrowing information from larger datasets,\nalthough differences in covariates and outcome-generating mechanisms between\nthe target and external cohorts can complicate the process. We propose a novel\nweighting method, TRANSfer LeArning wiTh wEights (TRANSLATE), to integrate data\nfrom various sources by incorporating domain-specific characteristics through\nlearned weights that align external data with the target cohort. These weights\nadjust for cohort differences, are proportional to each cohort's effective\nsample size, and downweight dissimilar cohorts. TRANSLATE offers theoretical\nguarantees for improved precision and applies to a wide range of estimands,\nincluding means, variances, and distribution functions. Simulations and a\nreal-data application to sepsis outcomes in the Northeast cohort, using a much\nlarger sample from other U.S. regions, show that the method enhances inference\nwhile accounting for regional heterogeneity.",
-      "published": "May 11, 2025",
-      "categories": [
-        "stat.ME"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2505.07153v1",
-      "arxiv_url": "http://arxiv.org/abs/2505.07153v1"
-    },
-    {
-      "title": "A systematic review of challenges and proposed solutions in modeling\n  multimodal data",
-      "authors": [
-        "Maryam Farhadizadeh",
-        "Maria Weymann",
-        "Michael Bla\u00df",
-        "Johann Kraus",
-        "Christopher Gundler",
-        "Sebastian Walter",
-        "Noah Hempen",
-        "Harald Binder",
-        "Nadine Binder"
-      ],
-      "abstract": "Multimodal data modeling has emerged as a powerful approach in clinical\nresearch, enabling the integration of diverse data types such as imaging,\ngenomics, wearable sensors, and electronic health records. Despite its\npotential to improve diagnostic accuracy and support personalized care,\nmodeling such heterogeneous data presents significant technical challenges.\nThis systematic review synthesizes findings from 69 studies to identify common\nobstacles, including missing modalities, limited sample sizes, dimensionality\nimbalance, interpretability issues, and finding the optimal fusion techniques.\nWe highlight recent methodological advances, such as transfer learning,\ngenerative models, attention mechanisms, and neural architecture search that\noffer promising solutions. By mapping current trends and innovations, this\nreview provides a comprehensive overview of the field and offers practical\ninsights to guide future research and development in multimodal modeling for\nmedical applications.",
-      "published": "May 11, 2025",
-      "categories": [
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2505.06945v2",
-      "arxiv_url": "http://arxiv.org/abs/2505.06945v2"
-    },
-    {
-      "title": "Model Steering: Learning with a Reference Model Improves Generalization\n  Bounds and Scaling Laws",
-      "authors": [
-        "Xiyuan Wei",
-        "Ming Lin",
-        "Fanjiang Ye",
-        "Fengguang Song",
-        "Liangliang Cao",
-        "My T. Thai",
-        "Tianbao Yang"
-      ],
-      "abstract": "This paper formalizes an emerging learning paradigm that uses a trained model\nas a reference to guide and enhance the training of a target model through\nstrategic data selection or weighting, named $\\textbf{model steering}$. While\nad-hoc methods have been used in various contexts, including the training of\nlarge foundation models, its underlying principles remain insufficiently\nunderstood, leading to sub-optimal performance. In this work, we propose a\ntheory-driven framework for model steering called $\\textbf{DRRho risk\nminimization}$, which is rooted in Distributionally Robust Optimization (DRO).\nThrough a generalization analysis, we provide theoretical insights into why\nthis approach improves generalization and data efficiency compared to training\nwithout a reference model. To the best of our knowledge, this is the first time\nsuch theoretical insights are provided for the new learning paradigm, which\nsignificantly enhance our understanding and practice of model steering.\nBuilding on these insights and the connection between contrastive learning and\nDRO, we introduce a novel method for Contrastive Language-Image Pretraining\n(CLIP) with a reference model, termed DRRho-CLIP. Extensive experiments\nvalidate the theoretical insights, reveal a superior scaling law compared to\nCLIP without a reference model, and demonstrate its strength over existing\nheuristic approaches.",
-      "published": "May 10, 2025",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "cs.CV",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2505.06699v3",
-      "arxiv_url": "http://arxiv.org/abs/2505.06699v3"
     }
   ]
 }
