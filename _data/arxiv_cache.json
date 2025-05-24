@@ -1,5 +1,5 @@
 {
-  "timestamp": 1747963490,
+  "timestamp": 1748049731,
   "papers": [
     {
       "title": "HR-VILAGE-3K3M: A Human Respiratory Viral Immunization Longitudinal Gene\n  Expression Dataset for Systems Immunity",
@@ -119,22 +119,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2505.10007v1",
       "arxiv_url": "http://arxiv.org/abs/2505.10007v1"
-    },
-    {
-      "title": "Community-based Multi-Agent Reinforcement Learning with Transfer and\n  Active Exploration",
-      "authors": [
-        "Zhaoyang Shi"
-      ],
-      "abstract": "We propose a new framework for multi-agent reinforcement learning (MARL),\nwhere the agents cooperate in a time-evolving network with latent community\nstructures and mixed memberships. Unlike traditional neighbor-based or fixed\ninteraction graphs, our community-based framework captures flexible and\nabstract coordination patterns by allowing each agent to belong to multiple\noverlapping communities. Each community maintains shared policy and value\nfunctions, which are aggregated by individual agents according to personalized\nmembership weights. We also design actor-critic algorithms that exploit this\nstructure: agents inherit community-level estimates for policy updates and\nvalue learning, enabling structured information sharing without requiring\naccess to other agents' policies. Importantly, our approach supports both\ntransfer learning by adapting to new agents or tasks via membership estimation,\nand active learning by prioritizing uncertain communities during exploration.\nTheoretically, we establish convergence guarantees under linear function\napproximation for both actor and critic updates. To our knowledge, this is the\nfirst MARL framework that integrates community structure, transferability, and\nactive learning with provable guarantees.",
-      "published": "May 14, 2025",
-      "categories": [
-        "cs.LG",
-        "cs.MA",
-        "math.OC",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2505.09756v1",
-      "arxiv_url": "http://arxiv.org/abs/2505.09756v1"
     }
   ]
 }
