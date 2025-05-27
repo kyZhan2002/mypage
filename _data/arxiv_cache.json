@@ -1,6 +1,73 @@
 {
-  "timestamp": 1748137192,
+  "timestamp": 1748309044,
   "papers": [
+    {
+      "title": "Linear Mixture Distributionally Robust Markov Decision Processes",
+      "authors": [
+        "Zhishuai Liu",
+        "Pan Xu"
+      ],
+      "abstract": "Many real-world decision-making problems face the off-dynamics challenge: the\nagent learns a policy in a source domain and deploys it in a target domain with\ndifferent state transitions. The distributionally robust Markov decision\nprocess (DRMDP) addresses this challenge by finding a robust policy that\nperforms well under the worst-case environment within a pre-specified\nuncertainty set of transition dynamics. Its effectiveness heavily hinges on the\nproper design of these uncertainty sets, based on prior knowledge of the\ndynamics. In this work, we propose a novel linear mixture DRMDP framework,\nwhere the nominal dynamics is assumed to be a linear mixture model. In contrast\nwith existing uncertainty sets directly defined as a ball centered around the\nnominal kernel, linear mixture DRMDPs define the uncertainty sets based on a\nball around the mixture weighting parameter. We show that this new framework\nprovides a more refined representation of uncertainties compared to\nconventional models based on $(s,a)$-rectangularity and $d$-rectangularity,\nwhen prior knowledge about the mixture model is present. We propose a meta\nalgorithm for robust policy learning in linear mixture DRMDPs with general\n$f$-divergence defined uncertainty sets, and analyze its sample complexities\nunder three divergence metrics instantiations: total variation,\nKullback-Leibler, and $\\chi^2$ divergences. These results establish the\nstatistical learnability of linear mixture DRMDPs, laying the theoretical\nfoundation for future research on this new setting.",
+      "published": "May 23, 2025",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.RO",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.18044v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.18044v1"
+    },
+    {
+      "title": "A Distributionally-Robust Framework for Nuisance in Causal Effect\n  Estimation",
+      "authors": [
+        "Akira Tanimoto"
+      ],
+      "abstract": "Causal inference requires evaluating models on balanced distributions between\ntreatment and control groups, while training data often exhibits imbalance due\nto historical decision-making policies. Most conventional statistical methods\naddress this distribution shift through inverse probability weighting (IPW),\nwhich requires estimating propensity scores as an intermediate step. These\nmethods face two key challenges: inaccurate propensity estimation and\ninstability from extreme weights. We decompose the generalization error to\nisolate these issues--propensity ambiguity and statistical instability--and\naddress them through an adversarial loss function. Our approach combines\ndistributionally robust optimization for handling propensity uncertainty with\nweight regularization based on weighted Rademacher complexity. Experiments on\nsynthetic and real-world datasets demonstrate consistent improvements over\nexisting methods.",
+      "published": "May 23, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.17717v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.17717v1"
+    },
+    {
+      "title": "Wasserstein Transfer Learning",
+      "authors": [
+        "Kaicheng Zhang",
+        "Sinian Zhang",
+        "Doudou Zhou",
+        "Yidong Zhou"
+      ],
+      "abstract": "Transfer learning is a powerful paradigm for leveraging knowledge from source\ndomains to enhance learning in a target domain. However, traditional transfer\nlearning approaches often focus on scalar or multivariate data within Euclidean\nspaces, limiting their applicability to complex data structures such as\nprobability distributions. To address this, we introduce a novel framework for\ntransfer learning in regression models, where outputs are probability\ndistributions residing in the Wasserstein space. When the informative subset of\ntransferable source domains is known, we propose an estimator with provable\nasymptotic convergence rates, quantifying the impact of domain similarity on\ntransfer efficiency. For cases where the informative subset is unknown, we\ndevelop a data-driven transfer learning procedure designed to mitigate negative\ntransfer. The proposed methods are supported by rigorous theoretical analysis\nand are validated through extensive simulations and real-world applications.",
+      "published": "May 23, 2025",
+      "categories": [
+        "cs.LG",
+        "math.ST",
+        "stat.TH"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.17404v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.17404v1"
+    },
+    {
+      "title": "Transfer Faster, Price Smarter: Minimax Dynamic Pricing under\n  Cross-Market Preference Shift",
+      "authors": [
+        "Yi Zhang",
+        "Elynn Chen",
+        "Yujun Yan"
+      ],
+      "abstract": "We study contextual dynamic pricing when a target market can leverage K\nauxiliary markets -- offline logs or concurrent streams -- whose mean utilities\ndiffer by a structured preference shift. We propose Cross-Market Transfer\nDynamic Pricing (CM-TDP), the first algorithm that provably handles such\nmodel-shift transfer and delivers minimax-optimal regret for both linear and\nnon-parametric utility models.\n  For linear utilities of dimension d, where the difference between source- and\ntarget-task coefficients is $s_{0}$-sparse, CM-TDP attains regret\n$\\tilde{O}((d*K^{-1}+s_{0})\\log T)$. For nonlinear demand residing in a\nreproducing kernel Hilbert space with effective dimension $\\alpha$, complexity\n$\\beta$ and task-similarity parameter $H$, the regret becomes\n$\\tilde{O}\\!(K^{-2\\alpha\\beta/(2\\alpha\\beta+1)}T^{1/(2\\alpha\\beta+1)} +\nH^{2/(2\\alpha+1)}T^{1/(2\\alpha+1)})$, matching information-theoretic lower\nbounds up to logarithmic factors. The RKHS bound is the first of its kind for\ntransfer pricing and is of independent interest.\n  Extensive simulations show up to 50% lower cumulative regret and 5 times\nfaster learning relative to single-market pricing baselines. By bridging\ntransfer learning, robust aggregation, and revenue optimization, CM-TDP moves\ntoward pricing systems that transfer faster, price smarter.",
+      "published": "May 22, 2025",
+      "categories": [
+        "stat.ME",
+        "cs.LG",
+        "stat.AP"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.17203v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.17203v1"
+    },
     {
       "title": "HR-VILAGE-3K3M: A Human Respiratory Viral Immunization Longitudinal Gene\n  Expression Dataset for Systems Immunity",
       "authors": [
@@ -102,23 +169,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2505.11671v1",
       "arxiv_url": "http://arxiv.org/abs/2505.11671v1"
-    },
-    {
-      "title": "Sample Complexity of Distributionally Robust Average-Reward\n  Reinforcement Learning",
-      "authors": [
-        "Zijun Chen",
-        "Shengbo Wang",
-        "Nian Si"
-      ],
-      "abstract": "Motivated by practical applications where stable long-term performance is\ncritical-such as robotics, operations research, and healthcare-we study the\nproblem of distributionally robust (DR) average-reward reinforcement learning.\nWe propose two algorithms that achieve near-optimal sample complexity. The\nfirst reduces the problem to a DR discounted Markov decision process (MDP),\nwhile the second, Anchored DR Average-Reward MDP, introduces an anchoring state\nto stabilize the controlled transition kernels within the uncertainty set.\nAssuming the nominal MDP is uniformly ergodic, we prove that both algorithms\nattain a sample complexity of $\\widetilde{O}\\left(|\\mathbf{S}||\\mathbf{A}|\nt_{\\mathrm{mix}}^2\\varepsilon^{-2}\\right)$ for estimating the optimal policy as\nwell as the robust average reward under KL and $f_k$-divergence-based\nuncertainty sets, provided the uncertainty radius is sufficiently small. Here,\n$\\varepsilon$ is the target accuracy, $|\\mathbf{S}|$ and $|\\mathbf{A}|$ denote\nthe sizes of the state and action spaces, and $t_{\\mathrm{mix}}$ is the mixing\ntime of the nominal MDP. This represents the first finite-sample convergence\nguarantee for DR average-reward reinforcement learning. We further validate the\nconvergence rates of our algorithms through numerical experiments.",
-      "published": "May 15, 2025",
-      "categories": [
-        "cs.LG",
-        "math.OC",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2505.10007v1",
-      "arxiv_url": "http://arxiv.org/abs/2505.10007v1"
     }
   ]
 }
