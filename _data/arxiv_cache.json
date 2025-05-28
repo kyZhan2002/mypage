@@ -1,6 +1,24 @@
 {
-  "timestamp": 1748309044,
+  "timestamp": 1748395541,
   "papers": [
+    {
+      "title": "Distributionally Robust Deep Q-Learning",
+      "authors": [
+        "Chung I Lu",
+        "Julian Sester",
+        "Aijia Zhang"
+      ],
+      "abstract": "We propose a novel distributionally robust $Q$-learning algorithm for the\nnon-tabular case accounting for continuous state spaces where the state\ntransition of the underlying Markov decision process is subject to model\nuncertainty. The uncertainty is taken into account by considering the\nworst-case transition from a ball around a reference probability measure. To\ndetermine the optimal policy under the worst-case state transition, we solve\nthe associated non-linear Bellman equation by dualising and regularising the\nBellman operator with the Sinkhorn distance, which is then parameterized with\ndeep neural networks. This approach allows us to modify the Deep Q-Network\nalgorithm to optimise for the worst case state transition.\n  We illustrate the tractability and effectiveness of our approach through\nseveral applications, including a portfolio optimisation task based on\nS\\&{P}~500 data.",
+      "published": "May 25, 2025",
+      "categories": [
+        "cs.LG",
+        "math.OC",
+        "q-fin.PM",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.19058v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.19058v1"
+    },
     {
       "title": "Linear Mixture Distributionally Robust Markov Decision Processes",
       "authors": [
@@ -98,77 +116,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2505.14725v1",
       "arxiv_url": "http://arxiv.org/abs/2505.14725v1"
-    },
-    {
-      "title": "A Finite-Sample Analysis of Distributionally Robust Average-Reward\n  Reinforcement Learning",
-      "authors": [
-        "Zachary Roch",
-        "Chi Zhang",
-        "George Atia",
-        "Yue Wang"
-      ],
-      "abstract": "Robust reinforcement learning (RL) under the average-reward criterion is\ncrucial for long-term decision making under potential environment mismatches,\nyet its finite-sample complexity study remains largely unexplored. Existing\nworks offer algorithms with asymptotic guarantees, but the absence of\nfinite-sample analysis hinders its principled understanding and practical\ndeployment, especially in data-limited settings. We close this gap by proposing\nRobust Halpern Iteration (RHI), the first algorithm with provable finite-sample\ncomplexity guarantee. Under standard uncertainty sets -- including\ncontamination sets and $\\ell_p$-norm balls -- RHI attains an $\\epsilon$-optimal\npolicy with near-optimal sample complexity of $\\tilde{\\mathcal\nO}\\left(\\frac{SA\\mathcal H^{2}}{\\epsilon^{2}}\\right)$, where $S$ and $A$ denote\nthe numbers of states and actions, and $\\mathcal H$ is the robust optimal bias\nspan. This result gives the first polynomial sample complexity guarantee for\nrobust average-reward RL. Moreover, our RHI's independence from prior knowledge\ndistinguishes it from many previous average-reward RL studies. Our work thus\nconstitutes a significant advancement in enhancing the practical applicability\nof robust average-reward methods to complex, real-world problems.",
-      "published": "May 18, 2025",
-      "categories": [
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2505.12462v1",
-      "arxiv_url": "http://arxiv.org/abs/2505.12462v1"
-    },
-    {
-      "title": "Near-Optimal Sample Complexities of Divergence-based S-rectangular\n  Distributionally Robust Reinforcement Learning",
-      "authors": [
-        "Zhenghao Li",
-        "Shengbo Wang",
-        "Nian Si"
-      ],
-      "abstract": "Distributionally robust reinforcement learning (DR-RL) has recently gained\nsignificant attention as a principled approach that addresses discrepancies\nbetween training and testing environments. To balance robustness, conservatism,\nand computational traceability, the literature has introduced DR-RL models with\nSA-rectangular and S-rectangular adversaries. While most existing statistical\nanalyses focus on SA-rectangular models, owing to their algorithmic simplicity\nand the optimality of deterministic policies, S-rectangular models more\naccurately capture distributional discrepancies in many real-world applications\nand often yield more effective robust randomized policies. In this paper, we\nstudy the empirical value iteration algorithm for divergence-based\nS-rectangular DR-RL and establish near-optimal sample complexity bounds of\n$\\widetilde{O}(|\\mathcal{S}||\\mathcal{A}|(1-\\gamma)^{-4}\\varepsilon^{-2})$,\nwhere $\\varepsilon$ is the target accuracy, $|\\mathcal{S}|$ and $|\\mathcal{A}|$\ndenote the cardinalities of the state and action spaces, and $\\gamma$ is the\ndiscount factor. To the best of our knowledge, these are the first sample\ncomplexity results for divergence-based S-rectangular models that achieve\noptimal dependence on $|\\mathcal{S}|$, $|\\mathcal{A}|$, and $\\varepsilon$\nsimultaneously. We further validate this theoretical dependence through\nnumerical experiments on a robust inventory control problem and a theoretical\nworst-case example, demonstrating the fast learning performance of our proposed\nalgorithm.",
-      "published": "May 18, 2025",
-      "categories": [
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2505.12202v1",
-      "arxiv_url": "http://arxiv.org/abs/2505.12202v1"
-    },
-    {
-      "title": "Residual Feature Integration is Sufficient to Prevent Negative Transfer",
-      "authors": [
-        "Yichen Xu",
-        "Ryumei Nakada",
-        "Linjun Zhang",
-        "Lexin Li"
-      ],
-      "abstract": "Transfer learning typically leverages representations learned from a source\ndomain to improve performance on a target task. A common approach is to extract\nfeatures from a pre-trained model and directly apply them for target\nprediction. However, this strategy is prone to negative transfer where the\nsource representation fails to align with the target distribution. In this\narticle, we propose Residual Feature Integration (REFINE), a simple yet\neffective method designed to mitigate negative transfer. Our approach combines\na fixed source-side representation with a trainable target-side encoder and\nfits a shallow neural network on the resulting joint representation, which\nadapts to the target domain while preserving transferable knowledge from the\nsource domain. Theoretically, we prove that REFINE is sufficient to prevent\nnegative transfer under mild conditions, and derive the generalization bound\ndemonstrating its theoretical benefit. Empirically, we show that REFINE\nconsistently enhances performance across diverse application and data\nmodalities including vision, text, and tabular data, and outperforms numerous\nalternative solutions. Our method is lightweight, architecture-agnostic, and\nrobust, making it a valuable addition to the existing transfer learning\ntoolbox.",
-      "published": "May 17, 2025",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "math.ST",
-        "stat.ML",
-        "stat.TH"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2505.11771v1",
-      "arxiv_url": "http://arxiv.org/abs/2505.11771v1"
-    },
-    {
-      "title": "Humble your Overconfident Networks: Unlearning Overfitting via\n  Sequential Monte Carlo Tempered Deep Ensembles",
-      "authors": [
-        "Andrew Millard",
-        "Zheng Zhao",
-        "Joshua Murphy",
-        "Simon Maskell"
-      ],
-      "abstract": "Sequential Monte Carlo (SMC) methods offer a principled approach to Bayesian\nuncertainty quantification but are traditionally limited by the need for\nfull-batch gradient evaluations. We introduce a scalable variant by\nincorporating Stochastic Gradient Hamiltonian Monte Carlo (SGHMC) proposals\ninto SMC, enabling efficient mini-batch based sampling. Our resulting SMCSGHMC\nalgorithm outperforms standard stochastic gradient descent (SGD) and deep\nensembles across image classification, out-of-distribution (OOD) detection, and\ntransfer learning tasks. We further show that SMCSGHMC mitigates overfitting\nand improves calibration, providing a flexible, scalable pathway for converting\npretrained neural networks into well-calibrated Bayesian models.",
-      "published": "May 16, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "stat.CO"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2505.11671v1",
-      "arxiv_url": "http://arxiv.org/abs/2505.11671v1"
     }
   ]
 }
