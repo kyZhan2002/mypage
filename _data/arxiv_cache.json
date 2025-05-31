@@ -1,6 +1,22 @@
 {
-  "timestamp": 1748568202,
+  "timestamp": 1748654607,
   "papers": [
+    {
+      "title": "Epistemic Errors of Imperfect Multitask Learners When Distributions\n  Shift",
+      "authors": [
+        "Sabina J. Sloman",
+        "Michele Caprio",
+        "Samuel Kaski"
+      ],
+      "abstract": "When data are noisy, a statistical learner's goal is to resolve epistemic\nuncertainty about the data it will encounter at test-time, i.e., to identify\nthe distribution of test (target) data. Many real-world learning settings\nintroduce sources of epistemic uncertainty that can not be resolved on the\nbasis of training (source) data alone: The source data may arise from multiple\ntasks (multitask learning), the target data may differ systematically from the\nsource data tasks (distribution shift), and/or the learner may not arrive at an\naccurate characterization of the source data (imperfect learning). We introduce\na principled definition of epistemic error, and provide a generic,\ndecompositional epistemic error bound. Our error bound is the first to (i)\nconsider epistemic error specifically, (ii) accommodate all the sources of\nepistemic uncertainty above, and (iii) separately attribute the error to each\nof multiple aspects of the learning procedure and environment. As corollaries\nof the generic result, we provide (i) epistemic error bounds specialized to the\nsettings of Bayesian transfer learning and distribution shift within\n$\\epsilon$-neighborhoods, and (ii) a set of corresponding generalization\nbounds. Finally, we provide a novel definition of negative transfer, and\nvalidate its insights in a synthetic experimental setting.",
+      "published": "May 29, 2025",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.23496v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.23496v1"
+    },
     {
       "title": "GLAMP: An Approximate Message Passing Framework for Transfer Learning\n  with Applications to Lasso-based Estimators",
       "authors": [
@@ -18,6 +34,91 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2505.22594v1",
       "arxiv_url": "http://arxiv.org/abs/2505.22594v1"
+    },
+    {
+      "title": "Distributionally Robust Deep Q-Learning",
+      "authors": [
+        "Chung I Lu",
+        "Julian Sester",
+        "Aijia Zhang"
+      ],
+      "abstract": "We propose a novel distributionally robust $Q$-learning algorithm for the\nnon-tabular case accounting for continuous state spaces where the state\ntransition of the underlying Markov decision process is subject to model\nuncertainty. The uncertainty is taken into account by considering the\nworst-case transition from a ball around a reference probability measure. To\ndetermine the optimal policy under the worst-case state transition, we solve\nthe associated non-linear Bellman equation by dualising and regularising the\nBellman operator with the Sinkhorn distance, which is then parameterized with\ndeep neural networks. This approach allows us to modify the Deep Q-Network\nalgorithm to optimise for the worst case state transition.\n  We illustrate the tractability and effectiveness of our approach through\nseveral applications, including a portfolio optimisation task based on\nS\\&{P}~500 data.",
+      "published": "May 25, 2025",
+      "categories": [
+        "cs.LG",
+        "math.OC",
+        "q-fin.PM",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.19058v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.19058v1"
+    },
+    {
+      "title": "Linear Mixture Distributionally Robust Markov Decision Processes",
+      "authors": [
+        "Zhishuai Liu",
+        "Pan Xu"
+      ],
+      "abstract": "Many real-world decision-making problems face the off-dynamics challenge: the\nagent learns a policy in a source domain and deploys it in a target domain with\ndifferent state transitions. The distributionally robust Markov decision\nprocess (DRMDP) addresses this challenge by finding a robust policy that\nperforms well under the worst-case environment within a pre-specified\nuncertainty set of transition dynamics. Its effectiveness heavily hinges on the\nproper design of these uncertainty sets, based on prior knowledge of the\ndynamics. In this work, we propose a novel linear mixture DRMDP framework,\nwhere the nominal dynamics is assumed to be a linear mixture model. In contrast\nwith existing uncertainty sets directly defined as a ball centered around the\nnominal kernel, linear mixture DRMDPs define the uncertainty sets based on a\nball around the mixture weighting parameter. We show that this new framework\nprovides a more refined representation of uncertainties compared to\nconventional models based on $(s,a)$-rectangularity and $d$-rectangularity,\nwhen prior knowledge about the mixture model is present. We propose a meta\nalgorithm for robust policy learning in linear mixture DRMDPs with general\n$f$-divergence defined uncertainty sets, and analyze its sample complexities\nunder three divergence metrics instantiations: total variation,\nKullback-Leibler, and $\\chi^2$ divergences. These results establish the\nstatistical learnability of linear mixture DRMDPs, laying the theoretical\nfoundation for future research on this new setting.",
+      "published": "May 23, 2025",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.RO",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.18044v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.18044v1"
+    },
+    {
+      "title": "A Distributionally-Robust Framework for Nuisance in Causal Effect\n  Estimation",
+      "authors": [
+        "Akira Tanimoto"
+      ],
+      "abstract": "Causal inference requires evaluating models on balanced distributions between\ntreatment and control groups, while training data often exhibits imbalance due\nto historical decision-making policies. Most conventional statistical methods\naddress this distribution shift through inverse probability weighting (IPW),\nwhich requires estimating propensity scores as an intermediate step. These\nmethods face two key challenges: inaccurate propensity estimation and\ninstability from extreme weights. We decompose the generalization error to\nisolate these issues--propensity ambiguity and statistical instability--and\naddress them through an adversarial loss function. Our approach combines\ndistributionally robust optimization for handling propensity uncertainty with\nweight regularization based on weighted Rademacher complexity. Experiments on\nsynthetic and real-world datasets demonstrate consistent improvements over\nexisting methods.",
+      "published": "May 23, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.17717v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.17717v1"
+    },
+    {
+      "title": "Wasserstein Transfer Learning",
+      "authors": [
+        "Kaicheng Zhang",
+        "Sinian Zhang",
+        "Doudou Zhou",
+        "Yidong Zhou"
+      ],
+      "abstract": "Transfer learning is a powerful paradigm for leveraging knowledge from source\ndomains to enhance learning in a target domain. However, traditional transfer\nlearning approaches often focus on scalar or multivariate data within Euclidean\nspaces, limiting their applicability to complex data structures such as\nprobability distributions. To address this, we introduce a novel framework for\ntransfer learning in regression models, where outputs are probability\ndistributions residing in the Wasserstein space. When the informative subset of\ntransferable source domains is known, we propose an estimator with provable\nasymptotic convergence rates, quantifying the impact of domain similarity on\ntransfer efficiency. For cases where the informative subset is unknown, we\ndevelop a data-driven transfer learning procedure designed to mitigate negative\ntransfer. The proposed methods are supported by rigorous theoretical analysis\nand are validated through extensive simulations and real-world applications.",
+      "published": "May 23, 2025",
+      "categories": [
+        "cs.LG",
+        "math.ST",
+        "stat.TH"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.17404v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.17404v1"
+    },
+    {
+      "title": "Transfer Faster, Price Smarter: Minimax Dynamic Pricing under\n  Cross-Market Preference Shift",
+      "authors": [
+        "Yi Zhang",
+        "Elynn Chen",
+        "Yujun Yan"
+      ],
+      "abstract": "We study contextual dynamic pricing when a target market can leverage K\nauxiliary markets -- offline logs or concurrent streams -- whose mean utilities\ndiffer by a structured preference shift. We propose Cross-Market Transfer\nDynamic Pricing (CM-TDP), the first algorithm that provably handles such\nmodel-shift transfer and delivers minimax-optimal regret for both linear and\nnon-parametric utility models.\n  For linear utilities of dimension d, where the difference between source- and\ntarget-task coefficients is $s_{0}$-sparse, CM-TDP attains regret\n$\\tilde{O}((d*K^{-1}+s_{0})\\log T)$. For nonlinear demand residing in a\nreproducing kernel Hilbert space with effective dimension $\\alpha$, complexity\n$\\beta$ and task-similarity parameter $H$, the regret becomes\n$\\tilde{O}\\!(K^{-2\\alpha\\beta/(2\\alpha\\beta+1)}T^{1/(2\\alpha\\beta+1)} +\nH^{2/(2\\alpha+1)}T^{1/(2\\alpha+1)})$, matching information-theoretic lower\nbounds up to logarithmic factors. The RKHS bound is the first of its kind for\ntransfer pricing and is of independent interest.\n  Extensive simulations show up to 50% lower cumulative regret and 5 times\nfaster learning relative to single-market pricing baselines. By bridging\ntransfer learning, robust aggregation, and revenue optimization, CM-TDP moves\ntoward pricing systems that transfer faster, price smarter.",
+      "published": "May 22, 2025",
+      "categories": [
+        "stat.ME",
+        "cs.LG",
+        "stat.AP"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.17203v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.17203v1"
     }
   ]
 }
