@@ -1,6 +1,43 @@
 {
-  "timestamp": 1748828280,
+  "timestamp": 1748914004,
   "papers": [
+    {
+      "title": "Density Ratio Permutation Tests with connections to distributional\n  shifts and conditional two-sample testing",
+      "authors": [
+        "Alberto Bordino",
+        "Thomas B. Berrett"
+      ],
+      "abstract": "We introduce novel hypothesis tests to allow for statistical inference for\ndensity ratios. More precisely, we introduce the Density Ratio Permutation Test\n(DRPT) for testing $H_0: g \\propto r f$ based on independent data drawn from\ndistributions with densities $f$ and $g$, where the hypothesised density ratio\n$r$ is a fixed function. The proposed test employs an efficient Markov Chain\nMonte Carlo algorithm to draw permutations of the combined dataset according to\na distribution determined by $r$, producing exchangeable versions of the whole\nsample and thereby establishing finite-sample validity. Regarding the test's\nbehaviour under the alternative hypothesis, we begin by demonstrating that if\nthe test statistic is chosen as an Integral Probability Metric (IPM), the DRPT\nis consistent under mild assumptions on the function class that defines the\nIPM. We then narrow our focus to the setting where the function class is a\nReproducing Kernel Hilbert Space, and introduce a generalisation of the\nclassical Maximum Mean Discrepancy (MMD), which we term Shifted-MMD. For\ncontinuous data, assuming that a normalised version of $g - rf$ lies in a\nSobolev ball, we establish the minimax optimality of the DRPT based on the\nShifted-MMD. We further extend our approach to scenarios with an unknown shift\nfactor $r$, estimating it from part of the data using Density Ratio Estimation\ntechniques, and derive Type-I error bounds based on estimation error.\nAdditionally, we demonstrate how the DRPT can be adapted for conditional\ntwo-sample testing, establishing it as a versatile tool for assessing modelling\nassumptions on importance weights, covariate shifts and related scenarios,\nwhich frequently arise in contexts such as transfer learning and causal\ninference. Finally, we validate our theoretical findings through experiments on\nboth simulated and real-world datasets.",
+      "published": "May 30, 2025",
+      "categories": [
+        "stat.ME",
+        "math.ST",
+        "stat.TH",
+        "62G09 62G10"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.24529v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.24529v1"
+    },
+    {
+      "title": "Attractor learning for spatiotemporally chaotic dynamical systems using\n  echo state networks with transfer learning",
+      "authors": [
+        "Mohammad Shah Alam",
+        "William Ott",
+        "Ilya Timofeyev"
+      ],
+      "abstract": "In this paper, we explore the predictive capabilities of echo state networks\n(ESNs) for the generalized Kuramoto-Sivashinsky (gKS) equation, an archetypal\nnonlinear PDE that exhibits spatiotemporal chaos. We introduce a novel\nmethodology that integrates ESNs with transfer learning, aiming to enhance\npredictive performance across various parameter regimes of the gKS model. Our\nresearch focuses on predicting changes in long-term statistical patterns of the\ngKS model that result from varying the dispersion relation or the length of the\nspatial domain. We use transfer learning to adapt ESNs to different parameter\nsettings and successfully capture changes in the underlying chaotic attractor.",
+      "published": "May 30, 2025",
+      "categories": [
+        "math.DS",
+        "cs.AI",
+        "cs.LG",
+        "nlin.CD",
+        "stat.ML",
+        "37N99, 68T30"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.24099v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.24099v1"
+    },
     {
       "title": "Epistemic Errors of Imperfect Multitask Learners When Distributions\n  Shift",
       "authors": [
