@@ -1,6 +1,23 @@
 {
-  "timestamp": 1749000419,
+  "timestamp": 1749086741,
   "papers": [
+    {
+      "title": "Distributionally Robust Learning in Survival Analysis",
+      "authors": [
+        "Yeping Jin",
+        "Lauren Wise",
+        "Ioannis Paschalidis"
+      ],
+      "abstract": "We introduce an innovative approach that incorporates a Distributionally\nRobust Learning (DRL) approach into Cox regression to enhance the robustness\nand accuracy of survival predictions. By formulating a DRL framework with a\nWasserstein distance-based ambiguity set, we develop a variant Cox model that\nis less sensitive to assumptions about the underlying data distribution and\nmore resilient to model misspecification and data perturbations. By leveraging\nWasserstein duality, we reformulate the original min-max DRL problem into a\ntractable regularized empirical risk minimization problem, which can be\ncomputed by exponential conic programming. We provide guarantees on the finite\nsample behavior of our DRL-Cox model. Moreover, through extensive simulations\nand real world case studies, we demonstrate that our regression model achieves\nsuperior performance in terms of prediction accuracy and robustness compared\nwith traditional methods.",
+      "published": "June 02, 2025",
+      "categories": [
+        "cs.LG",
+        "math.OC",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2506.01348v1",
+      "arxiv_url": "http://arxiv.org/abs/2506.01348v1"
+    },
     {
       "title": "Density Ratio Permutation Tests with connections to distributional\n  shifts and conditional two-sample testing",
       "authors": [
@@ -106,56 +123,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2505.18044v1",
       "arxiv_url": "http://arxiv.org/abs/2505.18044v1"
-    },
-    {
-      "title": "A Distributionally-Robust Framework for Nuisance in Causal Effect\n  Estimation",
-      "authors": [
-        "Akira Tanimoto"
-      ],
-      "abstract": "Causal inference requires evaluating models on balanced distributions between\ntreatment and control groups, while training data often exhibits imbalance due\nto historical decision-making policies. Most conventional statistical methods\naddress this distribution shift through inverse probability weighting (IPW),\nwhich requires estimating propensity scores as an intermediate step. These\nmethods face two key challenges: inaccurate propensity estimation and\ninstability from extreme weights. We decompose the generalization error to\nisolate these issues--propensity ambiguity and statistical instability--and\naddress them through an adversarial loss function. Our approach combines\ndistributionally robust optimization for handling propensity uncertainty with\nweight regularization based on weighted Rademacher complexity. Experiments on\nsynthetic and real-world datasets demonstrate consistent improvements over\nexisting methods.",
-      "published": "May 23, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.AI",
-        "cs.LG"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2505.17717v1",
-      "arxiv_url": "http://arxiv.org/abs/2505.17717v1"
-    },
-    {
-      "title": "Wasserstein Transfer Learning",
-      "authors": [
-        "Kaicheng Zhang",
-        "Sinian Zhang",
-        "Doudou Zhou",
-        "Yidong Zhou"
-      ],
-      "abstract": "Transfer learning is a powerful paradigm for leveraging knowledge from source\ndomains to enhance learning in a target domain. However, traditional transfer\nlearning approaches often focus on scalar or multivariate data within Euclidean\nspaces, limiting their applicability to complex data structures such as\nprobability distributions. To address this, we introduce a novel framework for\ntransfer learning in regression models, where outputs are probability\ndistributions residing in the Wasserstein space. When the informative subset of\ntransferable source domains is known, we propose an estimator with provable\nasymptotic convergence rates, quantifying the impact of domain similarity on\ntransfer efficiency. For cases where the informative subset is unknown, we\ndevelop a data-driven transfer learning procedure designed to mitigate negative\ntransfer. The proposed methods are supported by rigorous theoretical analysis\nand are validated through extensive simulations and real-world applications.",
-      "published": "May 23, 2025",
-      "categories": [
-        "cs.LG",
-        "math.ST",
-        "stat.TH"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2505.17404v1",
-      "arxiv_url": "http://arxiv.org/abs/2505.17404v1"
-    },
-    {
-      "title": "Transfer Faster, Price Smarter: Minimax Dynamic Pricing under\n  Cross-Market Preference Shift",
-      "authors": [
-        "Yi Zhang",
-        "Elynn Chen",
-        "Yujun Yan"
-      ],
-      "abstract": "We study contextual dynamic pricing when a target market can leverage K\nauxiliary markets -- offline logs or concurrent streams -- whose mean utilities\ndiffer by a structured preference shift. We propose Cross-Market Transfer\nDynamic Pricing (CM-TDP), the first algorithm that provably handles such\nmodel-shift transfer and delivers minimax-optimal regret for both linear and\nnon-parametric utility models.\n  For linear utilities of dimension d, where the difference between source- and\ntarget-task coefficients is $s_{0}$-sparse, CM-TDP attains regret\n$\\tilde{O}((d*K^{-1}+s_{0})\\log T)$. For nonlinear demand residing in a\nreproducing kernel Hilbert space with effective dimension $\\alpha$, complexity\n$\\beta$ and task-similarity parameter $H$, the regret becomes\n$\\tilde{O}\\!(K^{-2\\alpha\\beta/(2\\alpha\\beta+1)}T^{1/(2\\alpha\\beta+1)} +\nH^{2/(2\\alpha+1)}T^{1/(2\\alpha+1)})$, matching information-theoretic lower\nbounds up to logarithmic factors. The RKHS bound is the first of its kind for\ntransfer pricing and is of independent interest.\n  Extensive simulations show up to 50% lower cumulative regret and 5 times\nfaster learning relative to single-market pricing baselines. By bridging\ntransfer learning, robust aggregation, and revenue optimization, CM-TDP moves\ntoward pricing systems that transfer faster, price smarter.",
-      "published": "May 22, 2025",
-      "categories": [
-        "stat.ME",
-        "cs.LG",
-        "stat.AP"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2505.17203v1",
-      "arxiv_url": "http://arxiv.org/abs/2505.17203v1"
     }
   ]
 }
