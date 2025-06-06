@@ -1,5 +1,5 @@
 {
-  "timestamp": 1749086741,
+  "timestamp": 1749173127,
   "papers": [
     {
       "title": "Distributionally Robust Learning in Survival Analysis",
@@ -88,41 +88,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2505.22594v1",
       "arxiv_url": "http://arxiv.org/abs/2505.22594v1"
-    },
-    {
-      "title": "Distributionally Robust Deep Q-Learning",
-      "authors": [
-        "Chung I Lu",
-        "Julian Sester",
-        "Aijia Zhang"
-      ],
-      "abstract": "We propose a novel distributionally robust $Q$-learning algorithm for the\nnon-tabular case accounting for continuous state spaces where the state\ntransition of the underlying Markov decision process is subject to model\nuncertainty. The uncertainty is taken into account by considering the\nworst-case transition from a ball around a reference probability measure. To\ndetermine the optimal policy under the worst-case state transition, we solve\nthe associated non-linear Bellman equation by dualising and regularising the\nBellman operator with the Sinkhorn distance, which is then parameterized with\ndeep neural networks. This approach allows us to modify the Deep Q-Network\nalgorithm to optimise for the worst case state transition.\n  We illustrate the tractability and effectiveness of our approach through\nseveral applications, including a portfolio optimisation task based on\nS\\&{P}~500 data.",
-      "published": "May 25, 2025",
-      "categories": [
-        "cs.LG",
-        "math.OC",
-        "q-fin.PM",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2505.19058v1",
-      "arxiv_url": "http://arxiv.org/abs/2505.19058v1"
-    },
-    {
-      "title": "Linear Mixture Distributionally Robust Markov Decision Processes",
-      "authors": [
-        "Zhishuai Liu",
-        "Pan Xu"
-      ],
-      "abstract": "Many real-world decision-making problems face the off-dynamics challenge: the\nagent learns a policy in a source domain and deploys it in a target domain with\ndifferent state transitions. The distributionally robust Markov decision\nprocess (DRMDP) addresses this challenge by finding a robust policy that\nperforms well under the worst-case environment within a pre-specified\nuncertainty set of transition dynamics. Its effectiveness heavily hinges on the\nproper design of these uncertainty sets, based on prior knowledge of the\ndynamics. In this work, we propose a novel linear mixture DRMDP framework,\nwhere the nominal dynamics is assumed to be a linear mixture model. In contrast\nwith existing uncertainty sets directly defined as a ball centered around the\nnominal kernel, linear mixture DRMDPs define the uncertainty sets based on a\nball around the mixture weighting parameter. We show that this new framework\nprovides a more refined representation of uncertainties compared to\nconventional models based on $(s,a)$-rectangularity and $d$-rectangularity,\nwhen prior knowledge about the mixture model is present. We propose a meta\nalgorithm for robust policy learning in linear mixture DRMDPs with general\n$f$-divergence defined uncertainty sets, and analyze its sample complexities\nunder three divergence metrics instantiations: total variation,\nKullback-Leibler, and $\\chi^2$ divergences. These results establish the\nstatistical learnability of linear mixture DRMDPs, laying the theoretical\nfoundation for future research on this new setting.",
-      "published": "May 23, 2025",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "cs.RO",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2505.18044v1",
-      "arxiv_url": "http://arxiv.org/abs/2505.18044v1"
     }
   ]
 }
