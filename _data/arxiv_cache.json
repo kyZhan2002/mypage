@@ -1,6 +1,20 @@
 {
-  "timestamp": 1749173127,
+  "timestamp": 1749259512,
   "papers": [
+    {
+      "title": "Unregularized limit of stochastic gradient method for Wasserstein\n  distributionally robust optimization",
+      "authors": [
+        "Tam Le"
+      ],
+      "abstract": "Distributionally robust optimization offers a compelling framework for model\nfitting in machine learning, as it systematically accounts for data\nuncertainty. Focusing on Wasserstein distributionally robust optimization, we\ninvestigate the regularized problem where entropic smoothing yields a\nsampling-based approximation of the original objective. We establish the\nconvergence of the approximate gradient over a compact set, leading to the\nconcentration of the regularized problem critical points onto the original\nproblem critical set as regularization diminishes and the number of\napproximation samples increases. Finally, we deduce convergence guarantees for\na projected stochastic gradient method. Our analysis covers a general machine\nlearning situation with an unbounded sample space and mixed continuous-discrete\ndata.",
+      "published": "June 05, 2025",
+      "categories": [
+        "math.OC",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2506.04948v1",
+      "arxiv_url": "http://arxiv.org/abs/2506.04948v1"
+    },
     {
       "title": "Distributionally Robust Learning in Survival Analysis",
       "authors": [
