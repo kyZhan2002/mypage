@@ -1,5 +1,5 @@
 {
-  "timestamp": 1749433236,
+  "timestamp": 1749518852,
   "papers": [
     {
       "title": "Unregularized limit of stochastic gradient method for Wasserstein\n  distributionally robust optimization",
@@ -20,7 +20,7 @@
       "authors": [
         "Yeping Jin",
         "Lauren Wise",
-        "Ioannis Paschalidis"
+        "Ioannis Ch. Paschalidis"
       ],
       "abstract": "We introduce an innovative approach that incorporates a Distributionally\nRobust Learning (DRL) approach into Cox regression to enhance the robustness\nand accuracy of survival predictions. By formulating a DRL framework with a\nWasserstein distance-based ambiguity set, we develop a variant Cox model that\nis less sensitive to assumptions about the underlying data distribution and\nmore resilient to model misspecification and data perturbations. By leveraging\nWasserstein duality, we reformulate the original min-max DRL problem into a\ntractable regularized empirical risk minimization problem, which can be\ncomputed by exponential conic programming. We provide guarantees on the finite\nsample behavior of our DRL-Cox model. Moreover, through extensive simulations\nand real world case studies, we demonstrate that our regression model achieves\nsuperior performance in terms of prediction accuracy and robustness compared\nwith traditional methods.",
       "published": "June 02, 2025",
@@ -29,8 +29,8 @@
         "math.OC",
         "stat.ML"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2506.01348v1",
-      "arxiv_url": "http://arxiv.org/abs/2506.01348v1"
+      "pdf_link": "http://arxiv.org/pdf/2506.01348v2",
+      "arxiv_url": "http://arxiv.org/abs/2506.01348v2"
     },
     {
       "title": "Density Ratio Permutation Tests with connections to distributional\n  shifts and conditional two-sample testing",
