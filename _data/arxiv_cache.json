@@ -1,5 +1,5 @@
 {
-  "timestamp": 1749691562,
+  "timestamp": 1749778023,
   "papers": [
     {
       "title": "Flowing Datasets with Wasserstein over Wasserstein Gradient Flows",
@@ -67,6 +67,40 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2506.04948v1",
       "arxiv_url": "http://arxiv.org/abs/2506.04948v1"
+    },
+    {
+      "title": "Distributionally Robust Learning in Survival Analysis",
+      "authors": [
+        "Yeping Jin",
+        "Lauren Wise",
+        "Ioannis Ch. Paschalidis"
+      ],
+      "abstract": "We introduce an innovative approach that incorporates a Distributionally\nRobust Learning (DRL) approach into Cox regression to enhance the robustness\nand accuracy of survival predictions. By formulating a DRL framework with a\nWasserstein distance-based ambiguity set, we develop a variant Cox model that\nis less sensitive to assumptions about the underlying data distribution and\nmore resilient to model misspecification and data perturbations. By leveraging\nWasserstein duality, we reformulate the original min-max DRL problem into a\ntractable regularized empirical risk minimization problem, which can be\ncomputed by exponential conic programming. We provide guarantees on the finite\nsample behavior of our DRL-Cox model. Moreover, through extensive simulations\nand real world case studies, we demonstrate that our regression model achieves\nsuperior performance in terms of prediction accuracy and robustness compared\nwith traditional methods.",
+      "published": "June 02, 2025",
+      "categories": [
+        "cs.LG",
+        "math.OC",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2506.01348v2",
+      "arxiv_url": "http://arxiv.org/abs/2506.01348v2"
+    },
+    {
+      "title": "Density Ratio Permutation Tests with connections to distributional\n  shifts and conditional two-sample testing",
+      "authors": [
+        "Alberto Bordino",
+        "Thomas B. Berrett"
+      ],
+      "abstract": "We introduce novel hypothesis tests to allow for statistical inference for\ndensity ratios. More precisely, we introduce the Density Ratio Permutation Test\n(DRPT) for testing $H_0: g \\propto r f$ based on independent data drawn from\ndistributions with densities $f$ and $g$, where the hypothesised density ratio\n$r$ is a fixed function. The proposed test employs an efficient Markov Chain\nMonte Carlo algorithm to draw permutations of the combined dataset according to\na distribution determined by $r$, producing exchangeable versions of the whole\nsample and thereby establishing finite-sample validity. Regarding the test's\nbehaviour under the alternative hypothesis, we begin by demonstrating that if\nthe test statistic is chosen as an Integral Probability Metric (IPM), the DRPT\nis consistent under mild assumptions on the function class that defines the\nIPM. We then narrow our focus to the setting where the function class is a\nReproducing Kernel Hilbert Space, and introduce a generalisation of the\nclassical Maximum Mean Discrepancy (MMD), which we term Shifted-MMD. For\ncontinuous data, assuming that a normalised version of $g - rf$ lies in a\nSobolev ball, we establish the minimax optimality of the DRPT based on the\nShifted-MMD. We further extend our approach to scenarios with an unknown shift\nfactor $r$, estimating it from part of the data using Density Ratio Estimation\ntechniques, and derive Type-I error bounds based on estimation error.\nAdditionally, we demonstrate how the DRPT can be adapted for conditional\ntwo-sample testing, establishing it as a versatile tool for assessing modelling\nassumptions on importance weights, covariate shifts and related scenarios,\nwhich frequently arise in contexts such as transfer learning and causal\ninference. Finally, we validate our theoretical findings through experiments on\nboth simulated and real-world datasets.",
+      "published": "May 30, 2025",
+      "categories": [
+        "stat.ME",
+        "math.ST",
+        "stat.TH",
+        "62G09 62G10"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2505.24529v1",
+      "arxiv_url": "http://arxiv.org/abs/2505.24529v1"
     }
   ]
 }
