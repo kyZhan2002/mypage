@@ -1,6 +1,22 @@
 {
-  "timestamp": 1750037922,
+  "timestamp": 1750123647,
   "papers": [
+    {
+      "title": "Coefficient Shape Transfer Learning for Functional Linear Regression",
+      "authors": [
+        "Shuhao Jiao",
+        "Ian W. Mckeague",
+        "N. -H. Chan"
+      ],
+      "abstract": "In this paper, we develop a novel transfer learning methodology to tackle the\nchallenge of data scarcity in functional linear models. The methodology\nincorporates samples from the target model (target domain) alongside those from\nauxiliary models (source domains), transferring knowledge of coefficient shape\nfrom the source domains to the target domain. This shape-based knowledge\ntransfer offers two key advantages. First, it is robust to covariate scaling,\nensuring effectiveness despite variations in data distributions across\ndifferent source domains. Second, the notion of coefficient shape homogeneity\nrepresents a meaningful advance beyond traditional coefficient homogeneity,\nallowing the method to exploit a wider range of source domains and achieve\nsignificantly improved model estimation. We rigorously analyze the convergence\nrates of the proposed estimator and examine the minimax optimality. Our\nfindings show that the degree of improvement depends not only on the similarity\nof coefficient shapes between the target and source domains, but also on\ncoefficient magnitudes and the spectral decay rates of the functional\ncovariates covariance operators. To address situations where only a subset of\nauxiliary models is informative for the target model, we further develop a\ndata-driven procedure for identifying such informative sources. The\neffectiveness of the proposed methodology is demonstrated through comprehensive\nsimulation studies and an application to occupation time analysis using\nphysical activity data from the U.S. National Health and Nutrition Examination\nSurvey.",
+      "published": "June 13, 2025",
+      "categories": [
+        "stat.ME",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2506.11367v1",
+      "arxiv_url": "http://arxiv.org/abs/2506.11367v1"
+    },
     {
       "title": "Flowing Datasets with Wasserstein over Wasserstein Gradient Flows",
       "authors": [
