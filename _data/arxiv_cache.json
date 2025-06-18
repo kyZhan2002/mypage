@@ -1,6 +1,22 @@
 {
-  "timestamp": 1750123647,
+  "timestamp": 1750209994,
   "papers": [
+    {
+      "title": "A Transfer Learning Framework for Multilayer Networks via Model\n  Averaging",
+      "authors": [
+        "Yongqin Qiu",
+        "Xinyu Zhang"
+      ],
+      "abstract": "Link prediction in multilayer networks is a key challenge in applications\nsuch as recommendation systems and protein-protein interaction prediction.\nWhile many techniques have been developed, most rely on assumptions about\nshared structures and require access to raw auxiliary data, limiting their\npracticality. To address these issues, we propose a novel transfer learning\nframework for multilayer networks using a bi-level model averaging method. A\n$K$-fold cross-validation criterion based on edges is used to automatically\nweight inter-layer and intra-layer candidate models. This enables the transfer\nof information from auxiliary layers while mitigating model uncertainty, even\nwithout prior knowledge of shared structures. Theoretically, we prove the\noptimality and weight convergence of our method under mild conditions.\nComputationally, our framework is efficient and privacy-preserving, as it\navoids raw data sharing and supports parallel processing across multiple\nservers. Simulations show our method outperforms others in predictive accuracy\nand robustness. We further demonstrate its practical value through two\nreal-world recommendation system applications.",
+      "published": "June 14, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "stat.ME"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2506.12455v1",
+      "arxiv_url": "http://arxiv.org/abs/2506.12455v1"
+    },
     {
       "title": "Coefficient Shape Transfer Learning for Functional Linear Regression",
       "authors": [
@@ -83,23 +99,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2506.04948v1",
       "arxiv_url": "http://arxiv.org/abs/2506.04948v1"
-    },
-    {
-      "title": "Distributionally Robust Learning in Survival Analysis",
-      "authors": [
-        "Yeping Jin",
-        "Lauren Wise",
-        "Ioannis Ch. Paschalidis"
-      ],
-      "abstract": "We introduce an innovative approach that incorporates a Distributionally\nRobust Learning (DRL) approach into Cox regression to enhance the robustness\nand accuracy of survival predictions. By formulating a DRL framework with a\nWasserstein distance-based ambiguity set, we develop a variant Cox model that\nis less sensitive to assumptions about the underlying data distribution and\nmore resilient to model misspecification and data perturbations. By leveraging\nWasserstein duality, we reformulate the original min-max DRL problem into a\ntractable regularized empirical risk minimization problem, which can be\ncomputed by exponential conic programming. We provide guarantees on the finite\nsample behavior of our DRL-Cox model. Moreover, through extensive simulations\nand real world case studies, we demonstrate that our regression model achieves\nsuperior performance in terms of prediction accuracy and robustness compared\nwith traditional methods.",
-      "published": "June 02, 2025",
-      "categories": [
-        "cs.LG",
-        "math.OC",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2506.01348v2",
-      "arxiv_url": "http://arxiv.org/abs/2506.01348v2"
     }
   ]
 }
