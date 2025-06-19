@@ -1,6 +1,25 @@
 {
-  "timestamp": 1750209994,
+  "timestamp": 1750296443,
   "papers": [
+    {
+      "title": "Adjustment for Confounding using Pre-Trained Representations",
+      "authors": [
+        "Rickmer Schulte",
+        "David R\u00fcgamer",
+        "Thomas Nagler"
+      ],
+      "abstract": "There is growing interest in extending average treatment effect (ATE)\nestimation to incorporate non-tabular data, such as images and text, which may\nact as sources of confounding. Neglecting these effects risks biased results\nand flawed scientific conclusions. However, incorporating non-tabular data\nnecessitates sophisticated feature extractors, often in combination with ideas\nof transfer learning. In this work, we investigate how latent features from\npre-trained neural networks can be leveraged to adjust for sources of\nconfounding. We formalize conditions under which these latent features enable\nvalid adjustment and statistical inference in ATE estimation, demonstrating\nresults along the example of double machine learning. We discuss critical\nchallenges inherent to latent feature learning and downstream parameter\nestimation arising from the high dimensionality and non-identifiability of\nrepresentations. Common structural assumptions for obtaining fast convergence\nrates with additive or sparse linear models are shown to be unrealistic for\nlatent features. We argue, however, that neural networks are largely\ninsensitive to these issues. In particular, we show that neural networks can\nachieve fast convergence rates by adapting to intrinsic notions of sparsity and\ndimension of the learning problem.",
+      "published": "June 17, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.AI",
+        "cs.LG",
+        "stat.CO",
+        "stat.ME"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2506.14329v1",
+      "arxiv_url": "http://arxiv.org/abs/2506.14329v1"
+    },
     {
       "title": "A Transfer Learning Framework for Multilayer Networks via Model\n  Averaging",
       "authors": [
