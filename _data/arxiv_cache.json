@@ -1,5 +1,5 @@
 {
-  "timestamp": 1750556573,
+  "timestamp": 1750642893,
   "papers": [
     {
       "title": "Adjustment for Confounding using Pre-Trained Representations",
@@ -51,73 +51,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2506.11367v1",
       "arxiv_url": "http://arxiv.org/abs/2506.11367v1"
-    },
-    {
-      "title": "Flowing Datasets with Wasserstein over Wasserstein Gradient Flows",
-      "authors": [
-        "Cl\u00e9ment Bonet",
-        "Christophe Vauthier",
-        "Anna Korba"
-      ],
-      "abstract": "Many applications in machine learning involve data represented as probability\ndistributions. The emergence of such data requires radically novel techniques\nto design tractable gradient flows on probability distributions over this type\nof (infinite-dimensional) objects. For instance, being able to flow labeled\ndatasets is a core task for applications ranging from domain adaptation to\ntransfer learning or dataset distillation. In this setting, we propose to\nrepresent each class by the associated conditional distribution of features,\nand to model the dataset as a mixture distribution supported on these classes\n(which are themselves probability distributions), meaning that labeled datasets\ncan be seen as probability distributions over probability distributions. We\nendow this space with a metric structure from optimal transport, namely the\nWasserstein over Wasserstein (WoW) distance, derive a differential structure on\nthis space, and define WoW gradient flows. The latter enables to design\ndynamics over this space that decrease a given objective functional. We apply\nour framework to transfer learning and dataset distillation tasks, leveraging\nour gradient flow construction as well as novel tractable functionals that take\nthe form of Maximum Mean Discrepancies with Sliced-Wasserstein based kernels\nbetween probability distributions.",
-      "published": "June 09, 2025",
-      "categories": [
-        "cs.LG",
-        "math.OC",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2506.07534v1",
-      "arxiv_url": "http://arxiv.org/abs/2506.07534v1"
-    },
-    {
-      "title": "State Entropy Regularization for Robust Reinforcement Learning",
-      "authors": [
-        "Uri Koren",
-        "Yonatan Ashlag",
-        "Mirco Mutti",
-        "Esther Derman",
-        "Pierre-Luc Bacon",
-        "Shie Mannor"
-      ],
-      "abstract": "State entropy regularization has empirically shown better exploration and\nsample complexity in reinforcement learning (RL). However, its theoretical\nguarantees have not been studied. In this paper, we show that state entropy\nregularization improves robustness to structured and spatially correlated\nperturbations. These types of variation are common in transfer learning but\noften overlooked by standard robust RL methods, which typically focus on small,\nuncorrelated changes. We provide a comprehensive characterization of these\nrobustness properties, including formal guarantees under reward and transition\nuncertainty, as well as settings where the method performs poorly. Much of our\nanalysis contrasts state entropy with the widely used policy entropy\nregularization, highlighting their different benefits. Finally, from a\npractical standpoint, we illustrate that compared with policy entropy, the\nrobustness advantages of state entropy are more sensitive to the number of\nrollouts used for policy evaluation.",
-      "published": "June 08, 2025",
-      "categories": [
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2506.07085v1",
-      "arxiv_url": "http://arxiv.org/abs/2506.07085v1"
-    },
-    {
-      "title": "Efficient $Q$-Learning and Actor-Critic Methods for Robust Average\n  Reward Reinforcement Learning",
-      "authors": [
-        "Yang Xu",
-        "Swetha Ganesh",
-        "Vaneet Aggarwal"
-      ],
-      "abstract": "We present the first $Q$-learning and actor-critic algorithms for robust\naverage reward Markov Decision Processes (MDPs) with non-asymptotic convergence\nunder contamination, TV distance and Wasserstein distance uncertainty sets. We\nshow that the robust $Q$ Bellman operator is a strict contractive mapping with\nrespect to a carefully constructed semi-norm with constant functions being\nquotiented out. This property supports a stochastic approximation update, that\nlearns the optimal robust $Q$ function in $\\tilde{\\cO}(\\epsilon^{-2})$ samples.\nWe also show that the same idea can be used for robust $Q$ function estimation,\nwhich can be further used for critic estimation. Coupling it with theories in\nrobust policy mirror descent update, we present a natural actor-critic\nalgorithm that attains an $\\epsilon$-optimal robust policy in\n$\\tilde{\\cO}(\\epsilon^{-3})$ samples. These results advance the theory of\ndistributionally robust reinforcement learning in the average reward setting.",
-      "published": "June 08, 2025",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2506.07040v1",
-      "arxiv_url": "http://arxiv.org/abs/2506.07040v1"
-    },
-    {
-      "title": "Unregularized limit of stochastic gradient method for Wasserstein\n  distributionally robust optimization",
-      "authors": [
-        "Tam Le"
-      ],
-      "abstract": "Distributionally robust optimization offers a compelling framework for model\nfitting in machine learning, as it systematically accounts for data\nuncertainty. Focusing on Wasserstein distributionally robust optimization, we\ninvestigate the regularized problem where entropic smoothing yields a\nsampling-based approximation of the original objective. We establish the\nconvergence of the approximate gradient over a compact set, leading to the\nconcentration of the regularized problem critical points onto the original\nproblem critical set as regularization diminishes and the number of\napproximation samples increases. Finally, we deduce convergence guarantees for\na projected stochastic gradient method. Our analysis covers a general machine\nlearning situation with an unbounded sample space and mixed continuous-discrete\ndata.",
-      "published": "June 05, 2025",
-      "categories": [
-        "math.OC",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2506.04948v1",
-      "arxiv_url": "http://arxiv.org/abs/2506.04948v1"
     }
   ]
 }
