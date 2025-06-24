@@ -1,6 +1,22 @@
 {
-  "timestamp": 1750642893,
+  "timestamp": 1750728466,
   "papers": [
+    {
+      "title": "On Design of Representative Distributionally Robust Formulations for\n  Evaluation of Tail Risk Measures",
+      "authors": [
+        "Anand Deo"
+      ],
+      "abstract": "Conditional Value-at-Risk (CVaR) is a risk measure widely used to quantify\nthe impact of extreme losses. Owing to the lack of representative samples CVaR\nis sensitive to the tails of the underlying distribution. In order to combat\nthis sensitivity, Distributionally Robust Optimization (DRO), which evaluates\nthe worst-case CVaR measure over a set of plausible data distributions is often\ndeployed. Unfortunately, an improper choice of the DRO formulation can lead to\na severe underestimation of tail risk. This paper aims at leveraging extreme\nvalue theory to arrive at a DRO formulation which leads to representative\nworst-case CVaR evaluations in that the above pitfall is avoided while\nsimultaneously, the worst case evaluation is not a gross over-estimate of the\ntrue CVaR. We demonstrate theoretically that even when there is paucity of\nsamples in the tail of the distribution, our formulation is readily\nimplementable from data, only requiring calibration of a single scalar\nparameter. We showcase that our formulation can be easily extended to provide\nrobustness to tail risk in multivariate applications as well as in the\nevaluation of other commonly used risk measures. Numerical illustrations on\nsynthetic and real-world data showcase the practical utility of our approach.",
+      "published": "June 19, 2025",
+      "categories": [
+        "q-fin.RM",
+        "math.PR",
+        "stat.ME",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2506.16230v1",
+      "arxiv_url": "http://arxiv.org/abs/2506.16230v1"
+    },
     {
       "title": "Adjustment for Confounding using Pre-Trained Representations",
       "authors": [
@@ -19,38 +35,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2506.14329v1",
       "arxiv_url": "http://arxiv.org/abs/2506.14329v1"
-    },
-    {
-      "title": "A Transfer Learning Framework for Multilayer Networks via Model\n  Averaging",
-      "authors": [
-        "Yongqin Qiu",
-        "Xinyu Zhang"
-      ],
-      "abstract": "Link prediction in multilayer networks is a key challenge in applications\nsuch as recommendation systems and protein-protein interaction prediction.\nWhile many techniques have been developed, most rely on assumptions about\nshared structures and require access to raw auxiliary data, limiting their\npracticality. To address these issues, we propose a novel transfer learning\nframework for multilayer networks using a bi-level model averaging method. A\n$K$-fold cross-validation criterion based on edges is used to automatically\nweight inter-layer and intra-layer candidate models. This enables the transfer\nof information from auxiliary layers while mitigating model uncertainty, even\nwithout prior knowledge of shared structures. Theoretically, we prove the\noptimality and weight convergence of our method under mild conditions.\nComputationally, our framework is efficient and privacy-preserving, as it\navoids raw data sharing and supports parallel processing across multiple\nservers. Simulations show our method outperforms others in predictive accuracy\nand robustness. We further demonstrate its practical value through two\nreal-world recommendation system applications.",
-      "published": "June 14, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "stat.ME"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2506.12455v1",
-      "arxiv_url": "http://arxiv.org/abs/2506.12455v1"
-    },
-    {
-      "title": "Coefficient Shape Transfer Learning for Functional Linear Regression",
-      "authors": [
-        "Shuhao Jiao",
-        "Ian W. Mckeague",
-        "N. -H. Chan"
-      ],
-      "abstract": "In this paper, we develop a novel transfer learning methodology to tackle the\nchallenge of data scarcity in functional linear models. The methodology\nincorporates samples from the target model (target domain) alongside those from\nauxiliary models (source domains), transferring knowledge of coefficient shape\nfrom the source domains to the target domain. This shape-based knowledge\ntransfer offers two key advantages. First, it is robust to covariate scaling,\nensuring effectiveness despite variations in data distributions across\ndifferent source domains. Second, the notion of coefficient shape homogeneity\nrepresents a meaningful advance beyond traditional coefficient homogeneity,\nallowing the method to exploit a wider range of source domains and achieve\nsignificantly improved model estimation. We rigorously analyze the convergence\nrates of the proposed estimator and examine the minimax optimality. Our\nfindings show that the degree of improvement depends not only on the similarity\nof coefficient shapes between the target and source domains, but also on\ncoefficient magnitudes and the spectral decay rates of the functional\ncovariates covariance operators. To address situations where only a subset of\nauxiliary models is informative for the target model, we further develop a\ndata-driven procedure for identifying such informative sources. The\neffectiveness of the proposed methodology is demonstrated through comprehensive\nsimulation studies and an application to occupation time analysis using\nphysical activity data from the U.S. National Health and Nutrition Examination\nSurvey.",
-      "published": "June 13, 2025",
-      "categories": [
-        "stat.ME",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2506.11367v1",
-      "arxiv_url": "http://arxiv.org/abs/2506.11367v1"
     }
   ]
 }
