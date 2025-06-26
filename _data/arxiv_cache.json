@@ -1,6 +1,42 @@
 {
-  "timestamp": 1750814886,
+  "timestamp": 1750901221,
   "papers": [
+    {
+      "title": "Duality and Policy Evaluation in Distributionally Robust Bayesian\n  Diffusion Control",
+      "authors": [
+        "Jose Blanchet",
+        "Jiayi Cheng",
+        "Hao Liu",
+        "Yang Liu"
+      ],
+      "abstract": "We consider a Bayesian diffusion control problem of expected terminal utility\nmaximization. The controller imposes a prior distribution on the unknown drift\nof an underlying diffusion. The Bayesian optimal control, tracking the\nposterior distribution of the unknown drift, can be characterized explicitly.\nHowever, in practice, the prior will generally be incorrectly specified, and\nthe degree of model misspecification can have a significant impact on policy\nperformance. To mitigate this and reduce overpessimism, we introduce a\ndistributionally robust Bayesian control (DRBC) formulation in which the\ncontroller plays a game against an adversary who selects a prior in divergence\nneighborhood of a baseline prior. The adversarial approach has been studied in\neconomics and efficient algorithms have been proposed in static optimization\nsettings. We develop a strong duality result for our DRBC formulation.\nCombining these results together with tools from stochastic analysis, we are\nable to derive a loss that can be efficiently trained (as we demonstrate in our\nnumerical experiments) using a suitable neural network architecture. As a\nresult, we obtain an effective algorithm for computing the DRBC optimal\nstrategy. The methodology for computing the DRBC optimal strategy is greatly\nsimplified, as we show, in the important case in which the adversary chooses a\nprior from a Kullback-Leibler distributional uncertainty set.",
+      "published": "June 24, 2025",
+      "categories": [
+        "math.OC",
+        "math.PR",
+        "q-fin.PM",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2506.19294v1",
+      "arxiv_url": "http://arxiv.org/abs/2506.19294v1"
+    },
+    {
+      "title": "These are Not All the Features You are Looking For: A Fundamental\n  Bottleneck In Supervised Pretraining",
+      "authors": [
+        "Xingyu Alice Yang",
+        "Jianyu Zhang",
+        "L\u00e9on Bottou"
+      ],
+      "abstract": "Transfer learning is a cornerstone of modern machine learning, promising a\nway to adapt models pretrained on a broad mix of data to new tasks with minimal\nnew data. However, a significant challenge remains in ensuring that transferred\nfeatures are sufficient to handle unseen datasets, amplified by the difficulty\nof quantifying whether two tasks are \"related\". To address these challenges, we\nevaluate model transfer from a pretraining mixture to each of its component\ntasks, assessing whether pretrained features can match the performance of\ntask-specific direct training. We identify a fundamental limitation in deep\nlearning models -- an \"information saturation bottleneck\" -- where networks\nfail to learn new features once they encode similar competing features during\ntraining. When restricted to learning only a subset of key features during\npretraining, models will permanently lose critical features for transfer and\nperform inconsistently on data distributions, even components of the training\nmixture. Empirical evidence from published studies suggests that this\nphenomenon is pervasive in deep learning architectures -- factors such as data\ndistribution or ordering affect the features that current representation\nlearning methods can learn over time. This study suggests that relying solely\non large-scale networks may not be as effective as focusing on task-specific\ntraining, when available. We propose richer feature representations as a\npotential solution to better generalize across new datasets and, specifically,\npresent existing methods alongside a novel approach, the initial steps towards\naddressing this challenge.",
+      "published": "June 23, 2025",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2506.18221v1",
+      "arxiv_url": "http://arxiv.org/abs/2506.18221v1"
+    },
     {
       "title": "DRO-Augment Framework: Robustness by Synergizing Wasserstein\n  Distributionally Robust Optimization and Data Augmentation",
       "authors": [
@@ -15,8 +51,8 @@
         "cs.CV",
         "cs.LG"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2506.17874v1",
-      "arxiv_url": "http://arxiv.org/abs/2506.17874v1"
+      "pdf_link": "http://arxiv.org/pdf/2506.17874v2",
+      "arxiv_url": "http://arxiv.org/abs/2506.17874v2"
     },
     {
       "title": "On Design of Representative Distributionally Robust Formulations for\n  Evaluation of Tail Risk Measures",
