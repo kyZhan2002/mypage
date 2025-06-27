@@ -1,5 +1,5 @@
 {
-  "timestamp": 1750901221,
+  "timestamp": 1750987675,
   "papers": [
     {
       "title": "Duality and Policy Evaluation in Distributionally Robust Bayesian\n  Diffusion Control",
@@ -21,7 +21,7 @@
       "arxiv_url": "http://arxiv.org/abs/2506.19294v1"
     },
     {
-      "title": "These are Not All the Features You are Looking For: A Fundamental\n  Bottleneck In Supervised Pretraining",
+      "title": "These Are Not All the Features You Are Looking For: A Fundamental\n  Bottleneck in Supervised Pretraining",
       "authors": [
         "Xingyu Alice Yang",
         "Jianyu Zhang",
@@ -34,8 +34,8 @@
         "cs.AI",
         "stat.ML"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2506.18221v1",
-      "arxiv_url": "http://arxiv.org/abs/2506.18221v1"
+      "pdf_link": "http://arxiv.org/pdf/2506.18221v2",
+      "arxiv_url": "http://arxiv.org/abs/2506.18221v2"
     },
     {
       "title": "DRO-Augment Framework: Robustness by Synergizing Wasserstein\n  Distributionally Robust Optimization and Data Augmentation",
