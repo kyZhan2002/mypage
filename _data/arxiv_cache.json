@@ -1,6 +1,43 @@
 {
-  "timestamp": 1751334374,
+  "timestamp": 1751419662,
   "papers": [
+    {
+      "title": "CoMMiT: Co-informed inference of microbiome-metabolome interactions via\n  transfer learning",
+      "authors": [
+        "Leiyue Li",
+        "Chenglong Ye",
+        "Tim Randolph",
+        "Meredith Hullar",
+        "Johanna Lampe",
+        "Marian Neuhouser",
+        "Daniel Raftery",
+        "Yue Wang"
+      ],
+      "abstract": "Recent multi-omic microbiome studies enable integrative analysis of microbes\nand metabolites, uncovering their associations with various host conditions.\nSuch analyses require multivariate models capable of accounting for the complex\ncorrelation structures between microbes and metabolites. However, existing\nmultivariate models often suffer from low statistical power for detecting\nmicrobiome-metabolome interactions due to small sample sizes and weak\nbiological signals. To address these challenges, we introduce CoMMiT,\nCo-informed inference of Microbiome-Metabolome Interactions via novel Transfer\nlearning models. Unlike conventional transfer-learning methods that borrow\ninformation from external datasets, CoMMiT leverages similarities across\nmetabolites within a single cohort, reducing the risk of negative transfer\noften caused by differences in sequencing platforms and bioinformatic pipelines\nacross studies. CoMMiT operates under the flexible assumption that auxiliary\nmetabolites are collectively informative for the target metabolite, without\nrequiring individual auxiliary metabolites to be informative. CoMMiT uses a\nnovel data-driven approach to selecting the optimal set of auxiliary\nmetabolites. Using this optimal set, CoMMiT employs a de-biasing framework to\nenable efficient calculation of p-values, facilitating the identification of\nstatistically significant microbiome-metabolome interactions. Applying CoMMiT\nto a feeding study reveals biologically meaningful microbiome-metabolome\ninteractions under a low glycemic load diet, demonstrating the diet-host link\nthrough gut metabolism.",
+      "published": "June 30, 2025",
+      "categories": [
+        "stat.ME",
+        "q-bio.GN",
+        "stat.AP"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2506.24013v1",
+      "arxiv_url": "http://arxiv.org/abs/2506.24013v1"
+    },
+    {
+      "title": "Are Fast Methods Stable in Adversarially Robust Transfer Learning?",
+      "authors": [
+        "Joshua C. Zhao",
+        "Saurabh Bagchi"
+      ],
+      "abstract": "Transfer learning is often used to decrease the computational cost of model\ntraining, as fine-tuning a model allows a downstream task to leverage the\nfeatures learned from the pre-training dataset and quickly adapt them to a new\ntask. This is particularly useful for achieving adversarial robustness, as\nadversarially training models from scratch is very computationally expensive.\nHowever, high robustness in transfer learning still requires adversarial\ntraining during the fine-tuning phase, which requires up to an order of\nmagnitude more time than standard fine-tuning. In this work, we revisit the use\nof the fast gradient sign method (FGSM) in robust transfer learning to improve\nthe computational cost of adversarial fine-tuning. We surprisingly find that\nFGSM is much more stable in adversarial fine-tuning than when training from\nscratch. In particular, FGSM fine-tuning does not suffer from any issues with\ncatastrophic overfitting at standard perturbation budgets of $\\varepsilon=4$ or\n$\\varepsilon=8$. This stability is further enhanced with parameter-efficient\nfine-tuning methods, where FGSM remains stable even up to $\\varepsilon=32$ for\nlinear probing. We demonstrate how this stability translates into performance\nacross multiple datasets. Compared to fine-tuning with the more commonly used\nmethod of projected gradient descent (PGD), on average, FGSM only loses 0.39%\nand 1.39% test robustness for $\\varepsilon=4$ and $\\varepsilon=8$ while using\n$4\\times$ less training time. Surprisingly, FGSM may not only be a\nsignificantly more efficient alternative to PGD in adversarially robust\ntransfer learning but also a well-performing one.",
+      "published": "June 27, 2025",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2506.22602v1",
+      "arxiv_url": "http://arxiv.org/abs/2506.22602v1"
+    },
     {
       "title": "Duality and Policy Evaluation in Distributionally Robust Bayesian\n  Diffusion Control",
       "authors": [
@@ -17,8 +54,8 @@
         "q-fin.PM",
         "stat.ML"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2506.19294v1",
-      "arxiv_url": "http://arxiv.org/abs/2506.19294v1"
+      "pdf_link": "http://arxiv.org/pdf/2506.19294v2",
+      "arxiv_url": "http://arxiv.org/abs/2506.19294v2"
     },
     {
       "title": "These Are Not All the Features You Are Looking For: A Fundamental\n  Bottleneck in Supervised Pretraining",
@@ -88,38 +125,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2506.14329v1",
       "arxiv_url": "http://arxiv.org/abs/2506.14329v1"
-    },
-    {
-      "title": "A Transfer Learning Framework for Multilayer Networks via Model\n  Averaging",
-      "authors": [
-        "Yongqin Qiu",
-        "Xinyu Zhang"
-      ],
-      "abstract": "Link prediction in multilayer networks is a key challenge in applications\nsuch as recommendation systems and protein-protein interaction prediction.\nWhile many techniques have been developed, most rely on assumptions about\nshared structures and require access to raw auxiliary data, limiting their\npracticality. To address these issues, we propose a novel transfer learning\nframework for multilayer networks using a bi-level model averaging method. A\n$K$-fold cross-validation criterion based on edges is used to automatically\nweight inter-layer and intra-layer candidate models. This enables the transfer\nof information from auxiliary layers while mitigating model uncertainty, even\nwithout prior knowledge of shared structures. Theoretically, we prove the\noptimality and weight convergence of our method under mild conditions.\nComputationally, our framework is efficient and privacy-preserving, as it\navoids raw data sharing and supports parallel processing across multiple\nservers. Simulations show our method outperforms others in predictive accuracy\nand robustness. We further demonstrate its practical value through two\nreal-world recommendation system applications.",
-      "published": "June 14, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "stat.ME"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2506.12455v1",
-      "arxiv_url": "http://arxiv.org/abs/2506.12455v1"
-    },
-    {
-      "title": "Coefficient Shape Transfer Learning for Functional Linear Regression",
-      "authors": [
-        "Shuhao Jiao",
-        "Ian W. Mckeague",
-        "N. -H. Chan"
-      ],
-      "abstract": "In this paper, we develop a novel transfer learning methodology to tackle the\nchallenge of data scarcity in functional linear models. The methodology\nincorporates samples from the target model (target domain) alongside those from\nauxiliary models (source domains), transferring knowledge of coefficient shape\nfrom the source domains to the target domain. This shape-based knowledge\ntransfer offers two key advantages. First, it is robust to covariate scaling,\nensuring effectiveness despite variations in data distributions across\ndifferent source domains. Second, the notion of coefficient shape homogeneity\nrepresents a meaningful advance beyond traditional coefficient homogeneity,\nallowing the method to exploit a wider range of source domains and achieve\nsignificantly improved model estimation. We rigorously analyze the convergence\nrates of the proposed estimator and examine the minimax optimality. Our\nfindings show that the degree of improvement depends not only on the similarity\nof coefficient shapes between the target and source domains, but also on\ncoefficient magnitudes and the spectral decay rates of the functional\ncovariates covariance operators. To address situations where only a subset of\nauxiliary models is informative for the target model, we further develop a\ndata-driven procedure for identifying such informative sources. The\neffectiveness of the proposed methodology is demonstrated through comprehensive\nsimulation studies and an application to occupation time analysis using\nphysical activity data from the U.S. National Health and Nutrition Examination\nSurvey.",
-      "published": "June 13, 2025",
-      "categories": [
-        "stat.ME",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2506.11367v1",
-      "arxiv_url": "http://arxiv.org/abs/2506.11367v1"
     }
   ]
 }
