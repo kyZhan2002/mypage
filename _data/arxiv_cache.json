@@ -1,6 +1,23 @@
 {
-  "timestamp": 1751506065,
+  "timestamp": 1751592435,
   "papers": [
+    {
+      "title": "Phase Transition in Nonparametric Minimax Rates for Covariate Shifts on\n  Approximate Manifolds",
+      "authors": [
+        "Yuyao Wang",
+        "Nabarun Deb",
+        "Debarghya Mukherjee"
+      ],
+      "abstract": "We study nonparametric regression under covariate shift with structured data,\nwhere a small amount of labeled target data is supplemented by a large labeled\nsource dataset. In many real-world settings, the covariates in the target\ndomain lie near a low-dimensional manifold within the support of the source,\ne.g., personalized handwritten digits (target) within a large, high-dimensional\nimage repository (source). Since density ratios may not exist in these\nsettings, standard transfer learning techniques often fail to leverage such\nstructure. This necessitates the development of methods that exploit both the\nsize of the source dataset and the structured nature of the target.\n  Motivated by this, we establish new minimax rates under covariate shift for\nestimating a regression function in a general H\\\"older class, assuming the\ntarget distribution lies near -- but not exactly on -- a smooth submanifold of\nthe source. General smoothness helps reduce the curse of dimensionality when\nthe target function is highly regular, while approximate manifolds capture\nrealistic, noisy data. We identify a phase transition in the minimax rate of\nestimation governed by the distance to the manifold, source and target sample\nsizes, function smoothness, and intrinsic versus ambient dimensions. We propose\na local polynomial regression estimator that achieves optimal rates on either\nside of the phase transition boundary. Additionally, we construct a fully\nadaptive procedure that adjusts to unknown smoothness and intrinsic dimension,\nand attains nearly optimal rates. Our results unify and extend key threads in\ncovariate shift, manifold learning, and adaptive nonparametric inference.",
+      "published": "July 01, 2025",
+      "categories": [
+        "math.ST",
+        "stat.TH",
+        "62G05, 62H12"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2507.00889v1",
+      "arxiv_url": "http://arxiv.org/abs/2507.00889v1"
+    },
     {
       "title": "CoMMiT: Co-informed inference of microbiome-metabolome interactions via\n  transfer learning",
       "authors": [
@@ -106,25 +123,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2506.16230v1",
       "arxiv_url": "http://arxiv.org/abs/2506.16230v1"
-    },
-    {
-      "title": "Adjustment for Confounding using Pre-Trained Representations",
-      "authors": [
-        "Rickmer Schulte",
-        "David R\u00fcgamer",
-        "Thomas Nagler"
-      ],
-      "abstract": "There is growing interest in extending average treatment effect (ATE)\nestimation to incorporate non-tabular data, such as images and text, which may\nact as sources of confounding. Neglecting these effects risks biased results\nand flawed scientific conclusions. However, incorporating non-tabular data\nnecessitates sophisticated feature extractors, often in combination with ideas\nof transfer learning. In this work, we investigate how latent features from\npre-trained neural networks can be leveraged to adjust for sources of\nconfounding. We formalize conditions under which these latent features enable\nvalid adjustment and statistical inference in ATE estimation, demonstrating\nresults along the example of double machine learning. We discuss critical\nchallenges inherent to latent feature learning and downstream parameter\nestimation arising from the high dimensionality and non-identifiability of\nrepresentations. Common structural assumptions for obtaining fast convergence\nrates with additive or sparse linear models are shown to be unrealistic for\nlatent features. We argue, however, that neural networks are largely\ninsensitive to these issues. In particular, we show that neural networks can\nachieve fast convergence rates by adapting to intrinsic notions of sparsity and\ndimension of the learning problem.",
-      "published": "June 17, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.AI",
-        "cs.LG",
-        "stat.CO",
-        "stat.ME"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2506.14329v1",
-      "arxiv_url": "http://arxiv.org/abs/2506.14329v1"
     }
   ]
 }
