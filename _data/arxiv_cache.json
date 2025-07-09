@@ -1,6 +1,39 @@
 {
-  "timestamp": 1751938627,
+  "timestamp": 1752025088,
   "papers": [
+    {
+      "title": "Transfer Learning in Infinite Width Feature Learning Networks",
+      "authors": [
+        "Clarissa Lauditi",
+        "Blake Bordelon",
+        "Cengiz Pehlevan"
+      ],
+      "abstract": "We develop a theory of transfer learning in infinitely wide neural networks\nwhere both the pretraining (source) and downstream (target) task can operate in\na feature learning regime. We analyze both the Bayesian framework, where\nlearning is described by a posterior distribution over the weights, and\ngradient flow training of randomly initialized networks trained with weight\ndecay. Both settings track how representations evolve in both source and target\ntasks. The summary statistics of these theories are adapted feature kernels\nwhich, after transfer learning, depend on data and labels from both source and\ntarget tasks. Reuse of features during transfer learning is controlled by an\nelastic weight coupling which controls the reliance of the network on features\nlearned during training on the source task. We apply our theory to linear and\npolynomial regression tasks as well as real datasets. Our theory and\nexperiments reveal interesting interplays between elastic weight coupling,\nfeature learning strength, dataset size, and source and target task alignment\non the utility of transfer learning.",
+      "published": "July 06, 2025",
+      "categories": [
+        "cs.LG",
+        "cond-mat.dis-nn",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2507.04448v1",
+      "arxiv_url": "http://arxiv.org/abs/2507.04448v1"
+    },
+    {
+      "title": "Mixed-Sample SGD: an End-to-end Analysis of Supervised Transfer Learning",
+      "authors": [
+        "Yuyang Deng",
+        "Samory Kpotufe"
+      ],
+      "abstract": "Theoretical works on supervised transfer learning (STL) -- where the learner\nhas access to labeled samples from both source and target distributions -- have\nfor the most part focused on statistical aspects of the problem, while\nefficient optimization has received less attention. We consider the problem of\ndesigning an SGD procedure for STL that alternates sampling between source and\ntarget data, while maintaining statistical transfer guarantees without prior\nknowledge of the quality of the source data. A main algorithmic difficulty is\nin understanding how to design such an adaptive sub-sampling mechanism at each\nSGD step, to automatically gain from the source when it is informative, or bias\ntowards the target and avoid negative transfer when the source is less\ninformative.\n  We show that, such a mixed-sample SGD procedure is feasible for general\nprediction tasks with convex losses, rooted in tracking an abstract sequence of\nconstrained convex programs that serve to maintain the desired transfer\nguarantees.\n  We instantiate these results in the concrete setting of linear regression\nwith square loss, and show that the procedure converges, with $1/\\sqrt{T}$\nrate, to a solution whose statistical performance on the target is adaptive to\nthe a priori unknown quality of the source. Experiments with synthetic and real\ndatasets support the theory.",
+      "published": "July 06, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2507.04194v1",
+      "arxiv_url": "http://arxiv.org/abs/2507.04194v1"
+    },
     {
       "title": "Transfer Learning for Matrix Completion",
       "authors": [
@@ -90,40 +123,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2506.19294v2",
       "arxiv_url": "http://arxiv.org/abs/2506.19294v2"
-    },
-    {
-      "title": "These Are Not All the Features You Are Looking For: A Fundamental\n  Bottleneck in Supervised Pretraining",
-      "authors": [
-        "Xingyu Alice Yang",
-        "Jianyu Zhang",
-        "L\u00e9on Bottou"
-      ],
-      "abstract": "Transfer learning is a cornerstone of modern machine learning, promising a\nway to adapt models pretrained on a broad mix of data to new tasks with minimal\nnew data. However, a significant challenge remains in ensuring that transferred\nfeatures are sufficient to handle unseen datasets, amplified by the difficulty\nof quantifying whether two tasks are \"related\". To address these challenges, we\nevaluate model transfer from a pretraining mixture to each of its component\ntasks, assessing whether pretrained features can match the performance of\ntask-specific direct training. We identify a fundamental limitation in deep\nlearning models -- an \"information saturation bottleneck\" -- where networks\nfail to learn new features once they encode similar competing features during\ntraining. When restricted to learning only a subset of key features during\npretraining, models will permanently lose critical features for transfer and\nperform inconsistently on data distributions, even components of the training\nmixture. Empirical evidence from published studies suggests that this\nphenomenon is pervasive in deep learning architectures -- factors such as data\ndistribution or ordering affect the features that current representation\nlearning methods can learn over time. This study suggests that relying solely\non large-scale networks may not be as effective as focusing on task-specific\ntraining, when available. We propose richer feature representations as a\npotential solution to better generalize across new datasets and, specifically,\npresent existing methods alongside a novel approach, the initial steps towards\naddressing this challenge.",
-      "published": "June 23, 2025",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2506.18221v2",
-      "arxiv_url": "http://arxiv.org/abs/2506.18221v2"
-    },
-    {
-      "title": "DRO-Augment Framework: Robustness by Synergizing Wasserstein\n  Distributionally Robust Optimization and Data Augmentation",
-      "authors": [
-        "Jiaming Hu",
-        "Debarghya Mukherjee",
-        "Ioannis Ch. Paschalidis"
-      ],
-      "abstract": "In many real-world applications, ensuring the robustness and stability of\ndeep neural networks (DNNs) is crucial, particularly for image classification\ntasks that encounter various input perturbations. While data augmentation\ntechniques have been widely adopted to enhance the resilience of a trained\nmodel against such perturbations, there remains significant room for\nimprovement in robustness against corrupted data and adversarial attacks\nsimultaneously. To address this challenge, we introduce DRO-Augment, a novel\nframework that integrates Wasserstein Distributionally Robust Optimization\n(W-DRO) with various data augmentation strategies to improve the robustness of\nthe models significantly across a broad spectrum of corruptions. Our method\noutperforms existing augmentation methods under severe data perturbations and\nadversarial attack scenarios while maintaining the accuracy on the clean\ndatasets on a range of benchmark datasets, including but not limited to\nCIFAR-10-C, CIFAR-100-C, MNIST, and Fashion-MNIST. On the theoretical side, we\nestablish novel generalization error bounds for neural networks trained using a\ncomputationally efficient, variation-regularized loss function closely related\nto the W-DRO problem.",
-      "published": "June 22, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.CV",
-        "cs.LG"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2506.17874v2",
-      "arxiv_url": "http://arxiv.org/abs/2506.17874v2"
     }
   ]
 }
