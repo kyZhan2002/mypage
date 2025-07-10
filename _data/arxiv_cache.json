@@ -1,5 +1,5 @@
 {
-  "timestamp": 1752025088,
+  "timestamp": 1752111495,
   "papers": [
     {
       "title": "Transfer Learning in Infinite Width Feature Learning Networks",
@@ -104,25 +104,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2506.22602v1",
       "arxiv_url": "http://arxiv.org/abs/2506.22602v1"
-    },
-    {
-      "title": "Duality and Policy Evaluation in Distributionally Robust Bayesian\n  Diffusion Control",
-      "authors": [
-        "Jose Blanchet",
-        "Jiayi Cheng",
-        "Hao Liu",
-        "Yang Liu"
-      ],
-      "abstract": "We consider a Bayesian diffusion control problem of expected terminal utility\nmaximization. The controller imposes a prior distribution on the unknown drift\nof an underlying diffusion. The Bayesian optimal control, tracking the\nposterior distribution of the unknown drift, can be characterized explicitly.\nHowever, in practice, the prior will generally be incorrectly specified, and\nthe degree of model misspecification can have a significant impact on policy\nperformance. To mitigate this and reduce overpessimism, we introduce a\ndistributionally robust Bayesian control (DRBC) formulation in which the\ncontroller plays a game against an adversary who selects a prior in divergence\nneighborhood of a baseline prior. The adversarial approach has been studied in\neconomics and efficient algorithms have been proposed in static optimization\nsettings. We develop a strong duality result for our DRBC formulation.\nCombining these results together with tools from stochastic analysis, we are\nable to derive a loss that can be efficiently trained (as we demonstrate in our\nnumerical experiments) using a suitable neural network architecture. As a\nresult, we obtain an effective algorithm for computing the DRBC optimal\nstrategy. The methodology for computing the DRBC optimal strategy is greatly\nsimplified, as we show, in the important case in which the adversary chooses a\nprior from a Kullback-Leibler distributional uncertainty set.",
-      "published": "June 24, 2025",
-      "categories": [
-        "math.OC",
-        "math.PR",
-        "q-fin.PM",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2506.19294v2",
-      "arxiv_url": "http://arxiv.org/abs/2506.19294v2"
     }
   ]
 }
