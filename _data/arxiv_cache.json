@@ -1,109 +1,24 @@
 {
-  "timestamp": 1752543845,
+  "timestamp": 1752630049,
   "papers": [
     {
-      "title": "Transfer Learning in Infinite Width Feature Learning Networks",
+      "title": "Statistical Inference for Conditional Group Distributionally Robust\n  Optimization with Cross-Entropy Loss",
       "authors": [
-        "Clarissa Lauditi",
-        "Blake Bordelon",
-        "Cengiz Pehlevan"
+        "Zijian Guo",
+        "Zhenyu Wang",
+        "Yifan Hu",
+        "Francis Bach"
       ],
-      "abstract": "We develop a theory of transfer learning in infinitely wide neural networks\nwhere both the pretraining (source) and downstream (target) task can operate in\na feature learning regime. We analyze both the Bayesian framework, where\nlearning is described by a posterior distribution over the weights, and\ngradient flow training of randomly initialized networks trained with weight\ndecay. Both settings track how representations evolve in both source and target\ntasks. The summary statistics of these theories are adapted feature kernels\nwhich, after transfer learning, depend on data and labels from both source and\ntarget tasks. Reuse of features during transfer learning is controlled by an\nelastic weight coupling which controls the reliance of the network on features\nlearned during training on the source task. We apply our theory to linear and\npolynomial regression tasks as well as real datasets. Our theory and\nexperiments reveal interesting interplays between elastic weight coupling,\nfeature learning strength, dataset size, and source and target task alignment\non the utility of transfer learning.",
-      "published": "July 06, 2025",
-      "categories": [
-        "cs.LG",
-        "cond-mat.dis-nn",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2507.04448v1",
-      "arxiv_url": "http://arxiv.org/abs/2507.04448v1"
-    },
-    {
-      "title": "Mixed-Sample SGD: an End-to-end Analysis of Supervised Transfer Learning",
-      "authors": [
-        "Yuyang Deng",
-        "Samory Kpotufe"
-      ],
-      "abstract": "Theoretical works on supervised transfer learning (STL) -- where the learner\nhas access to labeled samples from both source and target distributions -- have\nfor the most part focused on statistical aspects of the problem, while\nefficient optimization has received less attention. We consider the problem of\ndesigning an SGD procedure for STL that alternates sampling between source and\ntarget data, while maintaining statistical transfer guarantees without prior\nknowledge of the quality of the source data. A main algorithmic difficulty is\nin understanding how to design such an adaptive sub-sampling mechanism at each\nSGD step, to automatically gain from the source when it is informative, or bias\ntowards the target and avoid negative transfer when the source is less\ninformative.\n  We show that, such a mixed-sample SGD procedure is feasible for general\nprediction tasks with convex losses, rooted in tracking an abstract sequence of\nconstrained convex programs that serve to maintain the desired transfer\nguarantees.\n  We instantiate these results in the concrete setting of linear regression\nwith square loss, and show that the procedure converges, with $1/\\sqrt{T}$\nrate, to a solution whose statistical performance on the target is adaptive to\nthe a priori unknown quality of the source. Experiments with synthetic and real\ndatasets support the theory.",
-      "published": "July 06, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.AI",
-        "cs.LG"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2507.04194v1",
-      "arxiv_url": "http://arxiv.org/abs/2507.04194v1"
-    },
-    {
-      "title": "Transfer Learning for Matrix Completion",
-      "authors": [
-        "Dali Liu",
-        "Haolei Weng"
-      ],
-      "abstract": "In this paper, we explore the knowledge transfer under the setting of matrix\ncompletion, which aims to enhance the estimation of a low-rank target matrix\nwith auxiliary data available. We propose a transfer learning procedure given\nprior information on which source datasets are favorable. We study its\nconvergence rates and prove its minimax optimality. Our analysis reveals that\nwith the source matrices close enough to the target matrix, out method\noutperforms the traditional method using the single target data. In particular,\nwe leverage the advanced sharp concentration inequalities introduced in\n\\cite{brailovskaya2024universality} to eliminate a logarithmic factor in the\nconvergence rate, which is crucial for proving the minimax optimality. When the\nrelevance of source datasets is unknown, we develop an efficient detection\nprocedure to identify informative sources and establish its selection\nconsistency. Simulations and real data analysis are conducted to support the\nvalidity of our methodology.",
-      "published": "July 03, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "15A83",
-        "I.2.6; G.3"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2507.02248v1",
-      "arxiv_url": "http://arxiv.org/abs/2507.02248v1"
-    },
-    {
-      "title": "Phase Transition in Nonparametric Minimax Rates for Covariate Shifts on\n  Approximate Manifolds",
-      "authors": [
-        "Yuyao Wang",
-        "Nabarun Deb",
-        "Debarghya Mukherjee"
-      ],
-      "abstract": "We study nonparametric regression under covariate shift with structured data,\nwhere a small amount of labeled target data is supplemented by a large labeled\nsource dataset. In many real-world settings, the covariates in the target\ndomain lie near a low-dimensional manifold within the support of the source,\ne.g., personalized handwritten digits (target) within a large, high-dimensional\nimage repository (source). Since density ratios may not exist in these\nsettings, standard transfer learning techniques often fail to leverage such\nstructure. This necessitates the development of methods that exploit both the\nsize of the source dataset and the structured nature of the target.\n  Motivated by this, we establish new minimax rates under covariate shift for\nestimating a regression function in a general H\\\"older class, assuming the\ntarget distribution lies near -- but not exactly on -- a smooth submanifold of\nthe source. General smoothness helps reduce the curse of dimensionality when\nthe target function is highly regular, while approximate manifolds capture\nrealistic, noisy data. We identify a phase transition in the minimax rate of\nestimation governed by the distance to the manifold, source and target sample\nsizes, function smoothness, and intrinsic versus ambient dimensions. We propose\na local polynomial regression estimator that achieves optimal rates on either\nside of the phase transition boundary. Additionally, we construct a fully\nadaptive procedure that adjusts to unknown smoothness and intrinsic dimension,\nand attains nearly optimal rates. Our results unify and extend key threads in\ncovariate shift, manifold learning, and adaptive nonparametric inference.",
-      "published": "July 01, 2025",
-      "categories": [
-        "math.ST",
-        "stat.TH",
-        "62G05, 62H12"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2507.00889v1",
-      "arxiv_url": "http://arxiv.org/abs/2507.00889v1"
-    },
-    {
-      "title": "CoMMiT: Co-informed inference of microbiome-metabolome interactions via\n  transfer learning",
-      "authors": [
-        "Leiyue Li",
-        "Chenglong Ye",
-        "Tim Randolph",
-        "Meredith Hullar",
-        "Johanna Lampe",
-        "Marian Neuhouser",
-        "Daniel Raftery",
-        "Yue Wang"
-      ],
-      "abstract": "Recent multi-omic microbiome studies enable integrative analysis of microbes\nand metabolites, uncovering their associations with various host conditions.\nSuch analyses require multivariate models capable of accounting for the complex\ncorrelation structures between microbes and metabolites. However, existing\nmultivariate models often suffer from low statistical power for detecting\nmicrobiome-metabolome interactions due to small sample sizes and weak\nbiological signals. To address these challenges, we introduce CoMMiT,\nCo-informed inference of Microbiome-Metabolome Interactions via novel Transfer\nlearning models. Unlike conventional transfer-learning methods that borrow\ninformation from external datasets, CoMMiT leverages similarities across\nmetabolites within a single cohort, reducing the risk of negative transfer\noften caused by differences in sequencing platforms and bioinformatic pipelines\nacross studies. CoMMiT operates under the flexible assumption that auxiliary\nmetabolites are collectively informative for the target metabolite, without\nrequiring individual auxiliary metabolites to be informative. CoMMiT uses a\nnovel data-driven approach to selecting the optimal set of auxiliary\nmetabolites. Using this optimal set, CoMMiT employs a de-biasing framework to\nenable efficient calculation of p-values, facilitating the identification of\nstatistically significant microbiome-metabolome interactions. Applying CoMMiT\nto a feeding study reveals biologically meaningful microbiome-metabolome\ninteractions under a low glycemic load diet, demonstrating the diet-host link\nthrough gut metabolism.",
-      "published": "June 30, 2025",
+      "abstract": "In multi-source learning with discrete labels, distributional heterogeneity\nacross domains poses a central challenge to developing predictive models that\ntransfer reliably to unseen domains. We study multi-source unsupervised domain\nadaptation, where labeled data are drawn from multiple source domains and only\nunlabeled data from a target domain. To address potential distribution shifts,\nwe propose a novel Conditional Group Distributionally Robust Optimization\n(CG-DRO) framework that learns a classifier by minimizing the worst-case\ncross-entropy loss over the convex combinations of the conditional outcome\ndistributions from the sources. To solve the resulting minimax problem, we\ndevelop an efficient Mirror Prox algorithm, where we employ a double machine\nlearning procedure to estimate the risk function. This ensures that the errors\nof the machine learning estimators for the nuisance models enter only at\nhigher-order rates, thereby preserving statistical efficiency under covariate\nshift. We establish fast statistical convergence rates for the estimator by\nconstructing two surrogate minimax optimization problems that serve as\ntheoretical bridges. A distinguishing challenge for CG-DRO is the emergence of\nnonstandard asymptotics: the empirical estimator may fail to converge to a\nstandard limiting distribution due to boundary effects and system instability.\nTo address this, we introduce a perturbation-based inference procedure that\nenables uniformly valid inference, including confidence interval construction\nand hypothesis testing.",
+      "published": "July 14, 2025",
       "categories": [
         "stat.ME",
-        "q-bio.GN",
-        "stat.AP"
+        "math.ST",
+        "stat.ML",
+        "stat.TH"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2506.24013v1",
-      "arxiv_url": "http://arxiv.org/abs/2506.24013v1"
-    },
-    {
-      "title": "Are Fast Methods Stable in Adversarially Robust Transfer Learning?",
-      "authors": [
-        "Joshua C. Zhao",
-        "Saurabh Bagchi"
-      ],
-      "abstract": "Transfer learning is often used to decrease the computational cost of model\ntraining, as fine-tuning a model allows a downstream task to leverage the\nfeatures learned from the pre-training dataset and quickly adapt them to a new\ntask. This is particularly useful for achieving adversarial robustness, as\nadversarially training models from scratch is very computationally expensive.\nHowever, high robustness in transfer learning still requires adversarial\ntraining during the fine-tuning phase, which requires up to an order of\nmagnitude more time than standard fine-tuning. In this work, we revisit the use\nof the fast gradient sign method (FGSM) in robust transfer learning to improve\nthe computational cost of adversarial fine-tuning. We surprisingly find that\nFGSM is much more stable in adversarial fine-tuning than when training from\nscratch. In particular, FGSM fine-tuning does not suffer from any issues with\ncatastrophic overfitting at standard perturbation budgets of $\\varepsilon=4$ or\n$\\varepsilon=8$. This stability is further enhanced with parameter-efficient\nfine-tuning methods, where FGSM remains stable even up to $\\varepsilon=32$ for\nlinear probing. We demonstrate how this stability translates into performance\nacross multiple datasets. Compared to fine-tuning with the more commonly used\nmethod of projected gradient descent (PGD), on average, FGSM only loses 0.39%\nand 1.39% test robustness for $\\varepsilon=4$ and $\\varepsilon=8$ while using\n$4\\times$ less training time. Surprisingly, FGSM may not only be a\nsignificantly more efficient alternative to PGD in adversarially robust\ntransfer learning but also a well-performing one.",
-      "published": "June 27, 2025",
-      "categories": [
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2506.22602v1",
-      "arxiv_url": "http://arxiv.org/abs/2506.22602v1"
+      "pdf_link": "http://arxiv.org/pdf/2507.09905v1",
+      "arxiv_url": "http://arxiv.org/abs/2507.09905v1"
     }
   ]
 }
