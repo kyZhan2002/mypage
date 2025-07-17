@@ -1,5 +1,5 @@
 {
-  "timestamp": 1752630049,
+  "timestamp": 1752716501,
   "papers": [
     {
       "title": "Statistical Inference for Conditional Group Distributionally Robust\n  Optimization with Cross-Entropy Loss",
@@ -13,12 +13,77 @@
       "published": "July 14, 2025",
       "categories": [
         "stat.ME",
+        "math.OC",
         "math.ST",
         "stat.ML",
         "stat.TH"
       ],
       "pdf_link": "http://arxiv.org/pdf/2507.09905v1",
       "arxiv_url": "http://arxiv.org/abs/2507.09905v1"
+    },
+    {
+      "title": "The Bayesian Approach to Continual Learning: An Overview",
+      "authors": [
+        "Tameem Adel"
+      ],
+      "abstract": "Continual learning is an online paradigm where a learner continually\naccumulates knowledge from different tasks encountered over sequential time\nsteps. Importantly, the learner is required to extend and update its knowledge\nwithout forgetting about the learning experience acquired from the past, and\nwhile avoiding the need to retrain from scratch. Given its sequential nature\nand its resemblance to the way humans think, continual learning offers an\nopportunity to address several challenges which currently stand in the way of\nwidening the range of applicability of deep models to further real-world\nproblems. The continual need to update the learner with data arriving\nsequentially strikes inherent congruence between continual learning and\nBayesian inference which provides a principal platform to keep updating the\nprior beliefs of a model given new data, without completely forgetting the\nknowledge acquired from the old data. This survey inspects different settings\nof Bayesian continual learning, namely task-incremental learning and\nclass-incremental learning. We begin by discussing definitions of continual\nlearning along with its Bayesian setting, as well as the links with related\nfields, such as domain adaptation, transfer learning and meta-learning.\nAfterwards, we introduce a taxonomy offering a comprehensive categorization of\nalgorithms belonging to the Bayesian continual learning paradigm. Meanwhile, we\nanalyze the state-of-the-art while zooming in on some of the most prominent\nBayesian continual learning algorithms to date. Furthermore, we shed some light\non links between continual learning and developmental psychology, and\ncorrespondingly introduce analogies between both fields. We follow that with a\ndiscussion of current challenges, and finally conclude with potential areas for\nfuture research on Bayesian continual learning.",
+      "published": "July 11, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2507.08922v1",
+      "arxiv_url": "http://arxiv.org/abs/2507.08922v1"
+    },
+    {
+      "title": "Transfer Learning in Infinite Width Feature Learning Networks",
+      "authors": [
+        "Clarissa Lauditi",
+        "Blake Bordelon",
+        "Cengiz Pehlevan"
+      ],
+      "abstract": "We develop a theory of transfer learning in infinitely wide neural networks\nwhere both the pretraining (source) and downstream (target) task can operate in\na feature learning regime. We analyze both the Bayesian framework, where\nlearning is described by a posterior distribution over the weights, and\ngradient flow training of randomly initialized networks trained with weight\ndecay. Both settings track how representations evolve in both source and target\ntasks. The summary statistics of these theories are adapted feature kernels\nwhich, after transfer learning, depend on data and labels from both source and\ntarget tasks. Reuse of features during transfer learning is controlled by an\nelastic weight coupling which controls the reliance of the network on features\nlearned during training on the source task. We apply our theory to linear and\npolynomial regression tasks as well as real datasets. Our theory and\nexperiments reveal interesting interplays between elastic weight coupling,\nfeature learning strength, dataset size, and source and target task alignment\non the utility of transfer learning.",
+      "published": "July 06, 2025",
+      "categories": [
+        "cs.LG",
+        "cond-mat.dis-nn",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2507.04448v1",
+      "arxiv_url": "http://arxiv.org/abs/2507.04448v1"
+    },
+    {
+      "title": "Mixed-Sample SGD: an End-to-end Analysis of Supervised Transfer Learning",
+      "authors": [
+        "Yuyang Deng",
+        "Samory Kpotufe"
+      ],
+      "abstract": "Theoretical works on supervised transfer learning (STL) -- where the learner\nhas access to labeled samples from both source and target distributions -- have\nfor the most part focused on statistical aspects of the problem, while\nefficient optimization has received less attention. We consider the problem of\ndesigning an SGD procedure for STL that alternates sampling between source and\ntarget data, while maintaining statistical transfer guarantees without prior\nknowledge of the quality of the source data. A main algorithmic difficulty is\nin understanding how to design such an adaptive sub-sampling mechanism at each\nSGD step, to automatically gain from the source when it is informative, or bias\ntowards the target and avoid negative transfer when the source is less\ninformative.\n  We show that, such a mixed-sample SGD procedure is feasible for general\nprediction tasks with convex losses, rooted in tracking an abstract sequence of\nconstrained convex programs that serve to maintain the desired transfer\nguarantees.\n  We instantiate these results in the concrete setting of linear regression\nwith square loss, and show that the procedure converges, with $1/\\sqrt{T}$\nrate, to a solution whose statistical performance on the target is adaptive to\nthe a priori unknown quality of the source. Experiments with synthetic and real\ndatasets support the theory.",
+      "published": "July 06, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2507.04194v1",
+      "arxiv_url": "http://arxiv.org/abs/2507.04194v1"
+    },
+    {
+      "title": "Transfer Learning for Matrix Completion",
+      "authors": [
+        "Dali Liu",
+        "Haolei Weng"
+      ],
+      "abstract": "In this paper, we explore the knowledge transfer under the setting of matrix\ncompletion, which aims to enhance the estimation of a low-rank target matrix\nwith auxiliary data available. We propose a transfer learning procedure given\nprior information on which source datasets are favorable. We study its\nconvergence rates and prove its minimax optimality. Our analysis reveals that\nwith the source matrices close enough to the target matrix, out method\noutperforms the traditional method using the single target data. In particular,\nwe leverage the advanced sharp concentration inequalities introduced in\n\\cite{brailovskaya2024universality} to eliminate a logarithmic factor in the\nconvergence rate, which is crucial for proving the minimax optimality. When the\nrelevance of source datasets is unknown, we develop an efficient detection\nprocedure to identify informative sources and establish its selection\nconsistency. Simulations and real data analysis are conducted to support the\nvalidity of our methodology.",
+      "published": "July 03, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "15A83",
+        "I.2.6; G.3"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2507.02248v1",
+      "arxiv_url": "http://arxiv.org/abs/2507.02248v1"
     }
   ]
 }
