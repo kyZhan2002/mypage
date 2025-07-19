@@ -1,6 +1,26 @@
 {
-  "timestamp": 1752802949,
+  "timestamp": 1752889085,
   "papers": [
+    {
+      "title": "Improving physics-informed neural network extrapolation via transfer\n  learning and adaptive activation functions",
+      "authors": [
+        "Athanasios Papastathopoulos-Katsaros",
+        "Alexandra Stavrianidi",
+        "Zhandong Liu"
+      ],
+      "abstract": "Physics-Informed Neural Networks (PINNs) are deep learning models that\nincorporate the governing physical laws of a system into the learning process,\nmaking them well-suited for solving complex scientific and engineering\nproblems. Recently, PINNs have gained widespread attention as a powerful\nframework for combining physical principles with data-driven modeling to\nimprove prediction accuracy. Despite their successes, however, PINNs often\nexhibit poor extrapolation performance outside the training domain and are\nhighly sensitive to the choice of activation functions (AFs). In this paper, we\nintroduce a transfer learning (TL) method to improve the extrapolation\ncapability of PINNs. Our approach applies transfer learning (TL) within an\nextended training domain, using only a small number of carefully selected\ncollocation points. Additionally, we propose an adaptive AF that takes the form\nof a linear combination of standard AFs, which improves both the robustness and\naccuracy of the model. Through a series of experiments, we demonstrate that our\nmethod achieves an average of 40% reduction in relative L2 error and an average\nof 50% reduction in mean absolute error in the extrapolation domain, all\nwithout a significant increase in computational cost. The code is available at\nhttps://github.com/LiuzLab/PINN-extrapolation .",
+      "published": "July 16, 2025",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.NA",
+        "math.DS",
+        "math.NA",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2507.12659v1",
+      "arxiv_url": "http://arxiv.org/abs/2507.12659v1"
+    },
     {
       "title": "Statistical Inference for Conditional Group Distributionally Robust\n  Optimization with Cross-Entropy Loss",
       "authors": [
@@ -67,23 +87,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2507.04194v1",
       "arxiv_url": "http://arxiv.org/abs/2507.04194v1"
-    },
-    {
-      "title": "Transfer Learning for Matrix Completion",
-      "authors": [
-        "Dali Liu",
-        "Haolei Weng"
-      ],
-      "abstract": "In this paper, we explore the knowledge transfer under the setting of matrix\ncompletion, which aims to enhance the estimation of a low-rank target matrix\nwith auxiliary data available. We propose a transfer learning procedure given\nprior information on which source datasets are favorable. We study its\nconvergence rates and prove its minimax optimality. Our analysis reveals that\nwith the source matrices close enough to the target matrix, out method\noutperforms the traditional method using the single target data. In particular,\nwe leverage the advanced sharp concentration inequalities introduced in\n\\cite{brailovskaya2024universality} to eliminate a logarithmic factor in the\nconvergence rate, which is crucial for proving the minimax optimality. When the\nrelevance of source datasets is unknown, we develop an efficient detection\nprocedure to identify informative sources and establish its selection\nconsistency. Simulations and real data analysis are conducted to support the\nvalidity of our methodology.",
-      "published": "July 03, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "15A83",
-        "I.2.6; G.3"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2507.02248v1",
-      "arxiv_url": "http://arxiv.org/abs/2507.02248v1"
     }
   ]
 }
