@@ -1,6 +1,38 @@
 {
-  "timestamp": 1753148516,
+  "timestamp": 1753234969,
   "papers": [
+    {
+      "title": "Sufficiency-principled Transfer Learning via Model Averaging",
+      "authors": [
+        "Xiyuan Zhang",
+        "Huihang Liu",
+        "Xinyu Zhang"
+      ],
+      "abstract": "When the transferable set is unknowable, transfering informative knowledge as\nmuch as possible\\textemdash a principle we refer to as \\emph{sufficiency},\nbecomes crucial for enhancing transfer learning effectiveness. However,\nexisting transfer learning methods not only overlook the sufficiency principle,\nbut also rely on restrictive single-similarity assumptions (\\eg individual or\ncombinatorial similarity), leading to suboptimal performance. To address these\nlimitations, we propose a sufficiency-principled transfer learning framework\nvia unified model averaging algorithms, accommodating both individual and\ncombinatorial similarities. Theoretically, we establish the\nasymptotic/high-probability optimality, enhanced convergence rate and\nasymptotic normality for multi-source linear regression models with a diverging\nnumber of parameters, achieving sufficiency, robustness to negative transfer,\nprivacy protection and feasible statistical inference. Extensive simulations\nand an empirical data analysis of Beijing housing rental data demonstrate the\npromising superiority of our framework over conventional alternatives.",
+      "published": "July 21, 2025",
+      "categories": [
+        "stat.ME",
+        "math.ST",
+        "stat.TH"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2507.15416v1",
+      "arxiv_url": "http://arxiv.org/abs/2507.15416v1"
+    },
+    {
+      "title": "Parameter-transfer in spatial autoregressive models via model averaging",
+      "authors": [
+        "Fen Jiang",
+        "Wenhui Li",
+        "Xinyu Zhang"
+      ],
+      "abstract": "Econometric modeling in spatial autoregressive models often suffers from\ninsufficient samples in practice, such as spatial analysis of infectious\ndiseases at the country level with limited data. Transfer learning offers a\npromising solution by leveraging information from regions or domains with\nsimilar spatial spillover effects to improve the analysis of the target data.\nIn this paper, we propose a parameter-transfer approach based on Mallows model\naveraging for spatial autoregressive models to improve the prediction accuracy.\nOur approach does not require sharing multi-source spatial data and can be\ncombined with various parameter estimation methods, such as the maximum\nlikelihood and the two-stage least squares. Theoretical analyses demonstrate\nthat our method achieves asymptotic optimality and ensures weight convergence\nwith an explicit convergence rate. Simulation studies and the application of\ninfection count prediction in Africa further demonstrate the effectiveness of\nour approach.",
+      "published": "July 19, 2025",
+      "categories": [
+        "stat.ME"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2507.14453v1",
+      "arxiv_url": "http://arxiv.org/abs/2507.14453v1"
+    },
     {
       "title": "Improving physics-informed neural network extrapolation via transfer\n  learning and adaptive activation functions",
       "authors": [
@@ -54,39 +86,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2507.08922v1",
       "arxiv_url": "http://arxiv.org/abs/2507.08922v1"
-    },
-    {
-      "title": "Transfer Learning in Infinite Width Feature Learning Networks",
-      "authors": [
-        "Clarissa Lauditi",
-        "Blake Bordelon",
-        "Cengiz Pehlevan"
-      ],
-      "abstract": "We develop a theory of transfer learning in infinitely wide neural networks\nwhere both the pretraining (source) and downstream (target) task can operate in\na feature learning regime. We analyze both the Bayesian framework, where\nlearning is described by a posterior distribution over the weights, and\ngradient flow training of randomly initialized networks trained with weight\ndecay. Both settings track how representations evolve in both source and target\ntasks. The summary statistics of these theories are adapted feature kernels\nwhich, after transfer learning, depend on data and labels from both source and\ntarget tasks. Reuse of features during transfer learning is controlled by an\nelastic weight coupling which controls the reliance of the network on features\nlearned during training on the source task. We apply our theory to linear and\npolynomial regression tasks as well as real datasets. Our theory and\nexperiments reveal interesting interplays between elastic weight coupling,\nfeature learning strength, dataset size, and source and target task alignment\non the utility of transfer learning.",
-      "published": "July 06, 2025",
-      "categories": [
-        "cs.LG",
-        "cond-mat.dis-nn",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2507.04448v1",
-      "arxiv_url": "http://arxiv.org/abs/2507.04448v1"
-    },
-    {
-      "title": "Mixed-Sample SGD: an End-to-end Analysis of Supervised Transfer Learning",
-      "authors": [
-        "Yuyang Deng",
-        "Samory Kpotufe"
-      ],
-      "abstract": "Theoretical works on supervised transfer learning (STL) -- where the learner\nhas access to labeled samples from both source and target distributions -- have\nfor the most part focused on statistical aspects of the problem, while\nefficient optimization has received less attention. We consider the problem of\ndesigning an SGD procedure for STL that alternates sampling between source and\ntarget data, while maintaining statistical transfer guarantees without prior\nknowledge of the quality of the source data. A main algorithmic difficulty is\nin understanding how to design such an adaptive sub-sampling mechanism at each\nSGD step, to automatically gain from the source when it is informative, or bias\ntowards the target and avoid negative transfer when the source is less\ninformative.\n  We show that, such a mixed-sample SGD procedure is feasible for general\nprediction tasks with convex losses, rooted in tracking an abstract sequence of\nconstrained convex programs that serve to maintain the desired transfer\nguarantees.\n  We instantiate these results in the concrete setting of linear regression\nwith square loss, and show that the procedure converges, with $1/\\sqrt{T}$\nrate, to a solution whose statistical performance on the target is adaptive to\nthe a priori unknown quality of the source. Experiments with synthetic and real\ndatasets support the theory.",
-      "published": "July 06, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.AI",
-        "cs.LG"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2507.04194v1",
-      "arxiv_url": "http://arxiv.org/abs/2507.04194v1"
     }
   ]
 }
