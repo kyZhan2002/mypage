@@ -1,5 +1,5 @@
 {
-  "timestamp": 1753407700,
+  "timestamp": 1753493928,
   "papers": [
     {
       "title": "On the Interaction of Compressibility and Adversarial Robustness",
@@ -19,6 +19,22 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2507.17725v1",
       "arxiv_url": "http://arxiv.org/abs/2507.17725v1"
+    },
+    {
+      "title": "Causal Mechanism Estimation in Multi-Sensor Systems Across Multiple\n  Domains",
+      "authors": [
+        "Jingyi Yu",
+        "Tim Pychynski",
+        "Marco F. Huber"
+      ],
+      "abstract": "To gain deeper insights into a complex sensor system through the lens of\ncausality, we present common and individual causal mechanism estimation\n(CICME), a novel three-step approach to inferring causal mechanisms from\nheterogeneous data collected across multiple domains. By leveraging the\nprinciple of Causal Transfer Learning (CTL), CICME is able to reliably detect\ndomain-invariant causal mechanisms when provided with sufficient samples. The\nidentified common causal mechanisms are further used to guide the estimation of\nthe remaining causal mechanisms in each domain individually. The performance of\nCICME is evaluated on linear Gaussian models under scenarios inspired from a\nmanufacturing process. Building upon existing continuous optimization-based\ncausal discovery methods, we show that CICME leverages the benefits of applying\ncausal discovery on the pooled data and repeatedly on data from individual\ndomains, and it even outperforms both baseline methods under certain scenarios.",
+      "published": "July 23, 2025",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2507.17792v1",
+      "arxiv_url": "http://arxiv.org/abs/2507.17792v1"
     },
     {
       "title": "Sufficiency-principled Transfer Learning via Model Averaging",
@@ -91,20 +107,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2507.09905v1",
       "arxiv_url": "http://arxiv.org/abs/2507.09905v1"
-    },
-    {
-      "title": "The Bayesian Approach to Continual Learning: An Overview",
-      "authors": [
-        "Tameem Adel"
-      ],
-      "abstract": "Continual learning is an online paradigm where a learner continually\naccumulates knowledge from different tasks encountered over sequential time\nsteps. Importantly, the learner is required to extend and update its knowledge\nwithout forgetting about the learning experience acquired from the past, and\nwhile avoiding the need to retrain from scratch. Given its sequential nature\nand its resemblance to the way humans think, continual learning offers an\nopportunity to address several challenges which currently stand in the way of\nwidening the range of applicability of deep models to further real-world\nproblems. The continual need to update the learner with data arriving\nsequentially strikes inherent congruence between continual learning and\nBayesian inference which provides a principal platform to keep updating the\nprior beliefs of a model given new data, without completely forgetting the\nknowledge acquired from the old data. This survey inspects different settings\nof Bayesian continual learning, namely task-incremental learning and\nclass-incremental learning. We begin by discussing definitions of continual\nlearning along with its Bayesian setting, as well as the links with related\nfields, such as domain adaptation, transfer learning and meta-learning.\nAfterwards, we introduce a taxonomy offering a comprehensive categorization of\nalgorithms belonging to the Bayesian continual learning paradigm. Meanwhile, we\nanalyze the state-of-the-art while zooming in on some of the most prominent\nBayesian continual learning algorithms to date. Furthermore, we shed some light\non links between continual learning and developmental psychology, and\ncorrespondingly introduce analogies between both fields. We follow that with a\ndiscussion of current challenges, and finally conclude with potential areas for\nfuture research on Bayesian continual learning.",
-      "published": "July 11, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2507.08922v1",
-      "arxiv_url": "http://arxiv.org/abs/2507.08922v1"
     }
   ]
 }
