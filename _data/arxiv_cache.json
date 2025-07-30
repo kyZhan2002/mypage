@@ -1,5 +1,5 @@
 {
-  "timestamp": 1753754024,
+  "timestamp": 1753839850,
   "papers": [
     {
       "title": "On the Interaction of Compressibility and Adversarial Robustness",
@@ -87,26 +87,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2507.12659v1",
       "arxiv_url": "http://arxiv.org/abs/2507.12659v1"
-    },
-    {
-      "title": "Statistical Inference for Conditional Group Distributionally Robust\n  Optimization with Cross-Entropy Loss",
-      "authors": [
-        "Zijian Guo",
-        "Zhenyu Wang",
-        "Yifan Hu",
-        "Francis Bach"
-      ],
-      "abstract": "In multi-source learning with discrete labels, distributional heterogeneity\nacross domains poses a central challenge to developing predictive models that\ntransfer reliably to unseen domains. We study multi-source unsupervised domain\nadaptation, where labeled data are drawn from multiple source domains and only\nunlabeled data from a target domain. To address potential distribution shifts,\nwe propose a novel Conditional Group Distributionally Robust Optimization\n(CG-DRO) framework that learns a classifier by minimizing the worst-case\ncross-entropy loss over the convex combinations of the conditional outcome\ndistributions from the sources. To solve the resulting minimax problem, we\ndevelop an efficient Mirror Prox algorithm, where we employ a double machine\nlearning procedure to estimate the risk function. This ensures that the errors\nof the machine learning estimators for the nuisance models enter only at\nhigher-order rates, thereby preserving statistical efficiency under covariate\nshift. We establish fast statistical convergence rates for the estimator by\nconstructing two surrogate minimax optimization problems that serve as\ntheoretical bridges. A distinguishing challenge for CG-DRO is the emergence of\nnonstandard asymptotics: the empirical estimator may fail to converge to a\nstandard limiting distribution due to boundary effects and system instability.\nTo address this, we introduce a perturbation-based inference procedure that\nenables uniformly valid inference, including confidence interval construction\nand hypothesis testing.",
-      "published": "July 14, 2025",
-      "categories": [
-        "stat.ME",
-        "math.OC",
-        "math.ST",
-        "stat.ML",
-        "stat.TH"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2507.09905v1",
-      "arxiv_url": "http://arxiv.org/abs/2507.09905v1"
     }
   ]
 }
