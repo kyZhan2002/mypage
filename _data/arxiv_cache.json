@@ -1,6 +1,21 @@
 {
-  "timestamp": 1754358394,
+  "timestamp": 1754444702,
   "papers": [
+    {
+      "title": "Model Recycling Framework for Multi-Source Data-Free Supervised Transfer\n  Learning",
+      "authors": [
+        "Sijia Wang",
+        "Ricardo Henao"
+      ],
+      "abstract": "Increasing concerns for data privacy and other difficulties associated with\nretrieving source data for model training have created the need for source-free\ntransfer learning, in which one only has access to pre-trained models instead\nof data from the original source domains. This setting introduces many\nchallenges, as many existing transfer learning methods typically rely on access\nto source data, which limits their direct applicability to scenarios where\nsource data is unavailable. Further, practical concerns make it more difficult,\nfor instance efficiently selecting models for transfer without information on\nsource data, and transferring without full access to the source models. So\nmotivated, we propose a model recycling framework for parameter-efficient\ntraining of models that identifies subsets of related source models to reuse in\nboth white-box and black-box settings. Consequently, our framework makes it\npossible for Model as a Service (MaaS) providers to build libraries of\nefficient pre-trained models, thus creating an opportunity for multi-source\ndata-free supervised transfer learning.",
+      "published": "August 04, 2025",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2508.02039v1",
+      "arxiv_url": "http://arxiv.org/abs/2508.02039v1"
+    },
     {
       "title": "Formal Bayesian Transfer Learning via the Total Risk Prior",
       "authors": [
@@ -68,21 +83,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2507.15416v1",
       "arxiv_url": "http://arxiv.org/abs/2507.15416v1"
-    },
-    {
-      "title": "Parameter-transfer in spatial autoregressive models via model averaging",
-      "authors": [
-        "Fen Jiang",
-        "Wenhui Li",
-        "Xinyu Zhang"
-      ],
-      "abstract": "Econometric modeling in spatial autoregressive models often suffers from\ninsufficient samples in practice, such as spatial analysis of infectious\ndiseases at the country level with limited data. Transfer learning offers a\npromising solution by leveraging information from regions or domains with\nsimilar spatial spillover effects to improve the analysis of the target data.\nIn this paper, we propose a parameter-transfer approach based on Mallows model\naveraging for spatial autoregressive models to improve the prediction accuracy.\nOur approach does not require sharing multi-source spatial data and can be\ncombined with various parameter estimation methods, such as the maximum\nlikelihood and the two-stage least squares. Theoretical analyses demonstrate\nthat our method achieves asymptotic optimality and ensures weight convergence\nwith an explicit convergence rate. Simulation studies and the application of\ninfection count prediction in Africa further demonstrate the effectiveness of\nour approach.",
-      "published": "July 19, 2025",
-      "categories": [
-        "stat.ME"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2507.14453v1",
-      "arxiv_url": "http://arxiv.org/abs/2507.14453v1"
     }
   ]
 }
