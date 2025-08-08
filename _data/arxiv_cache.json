@@ -1,5 +1,5 @@
 {
-  "timestamp": 1754531105,
+  "timestamp": 1754617472,
   "papers": [
     {
       "title": "Model Recycling Framework for Multi-Source Data-Free Supervised Transfer\n  Learning",
@@ -50,22 +50,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2507.17725v1",
       "arxiv_url": "http://arxiv.org/abs/2507.17725v1"
-    },
-    {
-      "title": "Causal Mechanism Estimation in Multi-Sensor Systems Across Multiple\n  Domains",
-      "authors": [
-        "Jingyi Yu",
-        "Tim Pychynski",
-        "Marco F. Huber"
-      ],
-      "abstract": "To gain deeper insights into a complex sensor system through the lens of\ncausality, we present common and individual causal mechanism estimation\n(CICME), a novel three-step approach to inferring causal mechanisms from\nheterogeneous data collected across multiple domains. By leveraging the\nprinciple of Causal Transfer Learning (CTL), CICME is able to reliably detect\ndomain-invariant causal mechanisms when provided with sufficient samples. The\nidentified common causal mechanisms are further used to guide the estimation of\nthe remaining causal mechanisms in each domain individually. The performance of\nCICME is evaluated on linear Gaussian models under scenarios inspired from a\nmanufacturing process. Building upon existing continuous optimization-based\ncausal discovery methods, we show that CICME leverages the benefits of applying\ncausal discovery on the pooled data and repeatedly on data from individual\ndomains, and it even outperforms both baseline methods under certain scenarios.",
-      "published": "July 23, 2025",
-      "categories": [
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2507.17792v2",
-      "arxiv_url": "http://arxiv.org/abs/2507.17792v2"
     }
   ]
 }
