@@ -1,5 +1,5 @@
 {
-  "timestamp": 1754617472,
+  "timestamp": 1754702842,
   "papers": [
     {
       "title": "Model Recycling Framework for Multi-Source Data-Free Supervised Transfer\n  Learning",
@@ -31,25 +31,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2507.23768v1",
       "arxiv_url": "http://arxiv.org/abs/2507.23768v1"
-    },
-    {
-      "title": "On the Interaction of Compressibility and Adversarial Robustness",
-      "authors": [
-        "Melih Barsbey",
-        "Ant\u00f4nio H. Ribeiro",
-        "Umut \u015eim\u015fekli",
-        "Tolga Birdal"
-      ],
-      "abstract": "Modern neural networks are expected to simultaneously satisfy a host of\ndesirable properties: accurate fitting to training data, generalization to\nunseen inputs, parameter and computational efficiency, and robustness to\nadversarial perturbations. While compressibility and robustness have each been\nstudied extensively, a unified understanding of their interaction still remains\nelusive. In this work, we develop a principled framework to analyze how\ndifferent forms of compressibility - such as neuron-level sparsity and spectral\ncompressibility - affect adversarial robustness. We show that these forms of\ncompression can induce a small number of highly sensitive directions in the\nrepresentation space, which adversaries can exploit to construct effective\nperturbations. Our analysis yields a simple yet instructive robustness bound,\nrevealing how neuron and spectral compressibility impact $L_\\infty$ and $L_2$\nrobustness via their effects on the learned representations. Crucially, the\nvulnerabilities we identify arise irrespective of how compression is achieved -\nwhether via regularization, architectural bias, or implicit learning dynamics.\nThrough empirical evaluations across synthetic and realistic tasks, we confirm\nour theoretical predictions, and further demonstrate that these vulnerabilities\npersist under adversarial training and transfer learning, and contribute to the\nemergence of universal adversarial perturbations. Our findings show a\nfundamental tension between structured compressibility and robustness, and\nsuggest new pathways for designing models that are both efficient and secure.",
-      "published": "July 23, 2025",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "cs.CV",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2507.17725v1",
-      "arxiv_url": "http://arxiv.org/abs/2507.17725v1"
     }
   ]
 }
