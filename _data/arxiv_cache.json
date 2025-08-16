@@ -1,5 +1,5 @@
 {
-  "timestamp": 1755135445,
+  "timestamp": 1755307479,
   "papers": [
     {
       "title": "Empirical Bayes for Data Integration",
@@ -29,22 +29,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2508.02039v1",
       "arxiv_url": "http://arxiv.org/abs/2508.02039v1"
-    },
-    {
-      "title": "Formal Bayesian Transfer Learning via the Total Risk Prior",
-      "authors": [
-        "Nathan Wycoff",
-        "Ali Arab",
-        "Lisa O. Singh"
-      ],
-      "abstract": "In analyses with severe data-limitations, augmenting the target dataset with\ninformation from ancillary datasets in the application domain, called source\ndatasets, can lead to significantly improved statistical procedures. However,\nexisting methods for this transfer learning struggle to deal with situations\nwhere the source datasets are also limited and not guaranteed to be\nwell-aligned with the target dataset. A typical strategy is to use the\nempirical loss minimizer on the source data as a prior mean for the target\nparameters, which places the estimation of source parameters outside of the\nBayesian formalism. Our key conceptual contribution is to use a risk minimizer\nconditional on source parameters instead. This allows us to construct a single\njoint prior distribution for all parameters from the source datasets as well as\nthe target dataset. As a consequence, we benefit from full Bayesian uncertainty\nquantification and can perform model averaging via Gibbs sampling over\nindicator variables governing the inclusion of each source dataset. We show how\na particular instantiation of our prior leads to a Bayesian Lasso in a\ntransformed coordinate system and discuss computational techniques to scale our\napproach to moderately sized datasets. We also demonstrate that recently\nproposed minimax-frequentist transfer learning techniques may be viewed as an\napproximate Maximum a Posteriori approach to our model. Finally, we demonstrate\nsuperior predictive performance relative to the frequentist baseline on a\ngenetics application, especially when the source data are limited.",
-      "published": "July 31, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2507.23768v1",
-      "arxiv_url": "http://arxiv.org/abs/2507.23768v1"
     }
   ]
 }
