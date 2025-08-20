@@ -1,6 +1,23 @@
 {
-  "timestamp": 1755566668,
+  "timestamp": 1755652956,
   "papers": [
+    {
+      "title": "Robust Data Fusion via Subsampling",
+      "authors": [
+        "Jing Wang",
+        "HaiYing Wang",
+        "Kun Chen"
+      ],
+      "abstract": "Data fusion and transfer learning are rapidly growing fields that enhance\nmodel performance for a target population by leveraging other related data\nsources or tasks. The challenges lie in the various potential heterogeneities\nbetween the target and external data, as well as various practical concerns\nthat prevent a na\\\"ive data integration. We consider a realistic scenario where\nthe target data is limited in size while the external data is large but\ncontaminated with outliers; such data contamination, along with other\ncomputational and operational constraints, necessitates proper selection or\nsubsampling of the external data for transfer learning. To our\nknowledge,transfer learning and subsampling under data contamination have not\nbeen thoroughly investigated. We address this gap by studying various transfer\nlearning methods with subsamples of the external data, accounting for outliers\ndeviating from the underlying true model due to arbitrary mean shifts. Two\nsubsampling strategies are investigated: one aimed at reducing biases and the\nother at minimizing variances. Approaches to combine these strategies are also\nintroduced to enhance the performance of the estimators. We provide\nnon-asymptotic error bounds for the transfer learning estimators, clarifying\nthe roles of sample sizes, signal strength, sampling rates, magnitude of\noutliers, and tail behaviors of model error distributions, among other factors.\nExtensive simulations show the superior performance of the proposed methods.\nAdditionally, we apply our methods to analyze the risk of hard landings in A380\nairplanes by utilizing data from other airplane types,demonstrating that robust\ntransfer learning can improve estimation efficiency for relatively rare\nairplane types with the help of data from other types of airplanes.",
+      "published": "August 16, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "62K05"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2508.12048v1",
+      "arxiv_url": "http://arxiv.org/abs/2508.12048v1"
+    },
     {
       "title": "Deconfounding via Profiled Transfer Learning",
       "authors": [
@@ -49,21 +66,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2508.08336v1",
       "arxiv_url": "http://arxiv.org/abs/2508.08336v1"
-    },
-    {
-      "title": "Model Recycling Framework for Multi-Source Data-Free Supervised Transfer\n  Learning",
-      "authors": [
-        "Sijia Wang",
-        "Ricardo Henao"
-      ],
-      "abstract": "Increasing concerns for data privacy and other difficulties associated with\nretrieving source data for model training have created the need for source-free\ntransfer learning, in which one only has access to pre-trained models instead\nof data from the original source domains. This setting introduces many\nchallenges, as many existing transfer learning methods typically rely on access\nto source data, which limits their direct applicability to scenarios where\nsource data is unavailable. Further, practical concerns make it more difficult,\nfor instance efficiently selecting models for transfer without information on\nsource data, and transferring without full access to the source models. So\nmotivated, we propose a model recycling framework for parameter-efficient\ntraining of models that identifies subsets of related source models to reuse in\nboth white-box and black-box settings. Consequently, our framework makes it\npossible for Model as a Service (MaaS) providers to build libraries of\nefficient pre-trained models, thus creating an opportunity for multi-source\ndata-free supervised transfer learning.",
-      "published": "August 04, 2025",
-      "categories": [
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2508.02039v1",
-      "arxiv_url": "http://arxiv.org/abs/2508.02039v1"
     }
   ]
 }
