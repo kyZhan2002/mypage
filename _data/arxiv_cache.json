@@ -1,5 +1,5 @@
 {
-  "timestamp": 1756171407,
+  "timestamp": 1756257653,
   "papers": [
     {
       "title": "A nonstationary spatial model of PM2.5 with localized transfer learning\n  from numerical model output",
@@ -85,20 +85,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2508.10970v1",
       "arxiv_url": "http://arxiv.org/abs/2508.10970v1"
-    },
-    {
-      "title": "Empirical Bayes for Data Integration",
-      "authors": [
-        "Paul Rognon-Vael",
-        "David Rossell"
-      ],
-      "abstract": "We discuss the use of empirical Bayes for data integration, in the sense of\ntransfer learning. Our main interest is in settings where one wishes to learn\nstructure (e.g. feature selection) and one only has access to incomplete data\nfrom previous studies, such as summaries, estimates or lists of relevant\nfeatures. We discuss differences between full Bayes and empirical Bayes, and\ndevelop a computational framework for the latter. We discuss how empirical\nBayes attains consistent variable selection under weaker conditions (sparsity\nand betamin assumptions) than full Bayes and other standard criteria do, and\nhow it attains faster convergence rates. Our high-dimensional regression\nexamples show that fully Bayesian inference enjoys excellent properties, and\nthat data integration with empirical Bayes can offer moderate yet meaningful\nimprovements in practice.",
-      "published": "August 10, 2025",
-      "categories": [
-        "stat.ME"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2508.08336v1",
-      "arxiv_url": "http://arxiv.org/abs/2508.08336v1"
     }
   ]
 }
