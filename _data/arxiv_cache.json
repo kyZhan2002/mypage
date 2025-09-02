@@ -1,5 +1,5 @@
 {
-  "timestamp": 1756690886,
+  "timestamp": 1756776086,
   "papers": [
     {
       "title": "Transfer Learning for Classification under Decision Rule Drift with\n  Application to Optimal Individualized Treatment Rule Estimation",
@@ -84,25 +84,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2508.11622v1",
       "arxiv_url": "http://arxiv.org/abs/2508.11622v1"
-    },
-    {
-      "title": "Holistic Bioprocess Development Across Scales Using Multi-Fidelity Batch\n  Bayesian Optimization",
-      "authors": [
-        "Adrian Martens",
-        "Mathias Neufang",
-        "Alessandro Butt\u00e9",
-        "Moritz von Stosch",
-        "Antonio del Rio Chanona",
-        "Laura Marie Helleckes"
-      ],
-      "abstract": "Bioprocesses are central to modern biotechnology, enabling sustainable\nproduction in pharmaceuticals, specialty chemicals, cosmetics, and food.\nHowever, developing high-performing processes is costly and complex, requiring\niterative, multi-scale experimentation from microtiter plates to pilot\nreactors. Conventional Design of Experiments (DoE) approaches often struggle to\naddress process scale-up and the joint optimization of reaction conditions and\nbiocatalyst selection.\n  We propose a multi-fidelity batch Bayesian optimization framework to\naccelerate bioprocess development and reduce experimental costs. The method\nintegrates Gaussian Processes tailored for multi-fidelity modeling and\nmixed-variable optimization, guiding experiment selection across scales and\nbiocatalysts. A custom simulation of a Chinese Hamster Ovary bioprocess,\ncapturing non-linear and coupled scale-up dynamics, is used for benchmarking\nagainst multiple simulated industrial DoE baselines. Multiple case studies show\nhow the proposed workflow can achieve a reduction in experimental costs and\nincreased yield.\n  This work provides a data-efficient strategy for bioprocess optimization and\nhighlights future opportunities in transfer learning and uncertainty-aware\ndesign for sustainable biotechnology.",
-      "published": "August 14, 2025",
-      "categories": [
-        "q-bio.QM",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2508.10970v1",
-      "arxiv_url": "http://arxiv.org/abs/2508.10970v1"
     }
   ]
 }
