@@ -1,5 +1,5 @@
 {
-  "timestamp": 1756862211,
+  "timestamp": 1756948600,
   "papers": [
     {
       "title": "Transfer Learning for Classification under Decision Rule Drift with\n  Application to Optimal Individualized Treatment Rule Estimation",
@@ -82,8 +82,8 @@
       "categories": [
         "stat.ME"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2508.11622v1",
-      "arxiv_url": "http://arxiv.org/abs/2508.11622v1"
+      "pdf_link": "http://arxiv.org/pdf/2508.11622v2",
+      "arxiv_url": "http://arxiv.org/abs/2508.11622v2"
     }
   ]
 }
