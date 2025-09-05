@@ -1,6 +1,27 @@
 {
-  "timestamp": 1756948600,
+  "timestamp": 1757035115,
   "papers": [
+    {
+      "title": "Speech transformer models for extracting information from baby cries",
+      "authors": [
+        "Guillem Bonafos",
+        "J\u00e9remy Rouch",
+        "L\u00e9ny Lego",
+        "David Reby",
+        "Hugues Patural",
+        "Nicolas Mathevon",
+        "R\u00e9my Emonet"
+      ],
+      "abstract": "Transfer learning using latent representations from pre-trained speech models\nachieves outstanding performance in tasks where labeled data is scarce.\nHowever, their applicability to non-speech data and the specific acoustic\nproperties encoded in these representations remain largely unexplored. In this\nstudy, we investigate both aspects. We evaluate five pre-trained speech models\non eight baby cries datasets, encompassing 115 hours of audio from 960 babies.\nFor each dataset, we assess the latent representations of each model across all\navailable classification tasks. Our results demonstrate that the latent\nrepresentations of these models can effectively classify human baby cries and\nencode key information related to vocal source instability and identity of the\ncrying baby. In addition, a comparison of the architectures and training\nstrategies of these models offers valuable insights for the design of future\nmodels tailored to similar tasks, such as emotion detection.",
+      "published": "September 02, 2025",
+      "categories": [
+        "cs.SD",
+        "cs.LG",
+        "stat.AP"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2509.02259v1",
+      "arxiv_url": "http://arxiv.org/abs/2509.02259v1"
+    },
     {
       "title": "Transfer Learning for Classification under Decision Rule Drift with\n  Application to Optimal Individualized Treatment Rule Estimation",
       "authors": [
@@ -51,39 +72,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2508.13890v1",
       "arxiv_url": "http://arxiv.org/abs/2508.13890v1"
-    },
-    {
-      "title": "Robust Data Fusion via Subsampling",
-      "authors": [
-        "Jing Wang",
-        "HaiYing Wang",
-        "Kun Chen"
-      ],
-      "abstract": "Data fusion and transfer learning are rapidly growing fields that enhance\nmodel performance for a target population by leveraging other related data\nsources or tasks. The challenges lie in the various potential heterogeneities\nbetween the target and external data, as well as various practical concerns\nthat prevent a na\\\"ive data integration. We consider a realistic scenario where\nthe target data is limited in size while the external data is large but\ncontaminated with outliers; such data contamination, along with other\ncomputational and operational constraints, necessitates proper selection or\nsubsampling of the external data for transfer learning. To our\nknowledge,transfer learning and subsampling under data contamination have not\nbeen thoroughly investigated. We address this gap by studying various transfer\nlearning methods with subsamples of the external data, accounting for outliers\ndeviating from the underlying true model due to arbitrary mean shifts. Two\nsubsampling strategies are investigated: one aimed at reducing biases and the\nother at minimizing variances. Approaches to combine these strategies are also\nintroduced to enhance the performance of the estimators. We provide\nnon-asymptotic error bounds for the transfer learning estimators, clarifying\nthe roles of sample sizes, signal strength, sampling rates, magnitude of\noutliers, and tail behaviors of model error distributions, among other factors.\nExtensive simulations show the superior performance of the proposed methods.\nAdditionally, we apply our methods to analyze the risk of hard landings in A380\nairplanes by utilizing data from other airplane types,demonstrating that robust\ntransfer learning can improve estimation efficiency for relatively rare\nairplane types with the help of data from other types of airplanes.",
-      "published": "August 16, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "62K05"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2508.12048v1",
-      "arxiv_url": "http://arxiv.org/abs/2508.12048v1"
-    },
-    {
-      "title": "Deconfounding via Profiled Transfer Learning",
-      "authors": [
-        "Ziyuan Chen",
-        "Yifan Jiang",
-        "Jingyuan Liu",
-        "Fang Yao"
-      ],
-      "abstract": "Unmeasured confounders are a major source of bias in regression-based effect\nestimation and causal inference. In this paper, we advocate a new profiled\ntransfer learning framework, ProTrans, to address confounding effects in the\ntarget dataset, when additional source datasets that possess similar\nconfounding structures are available. We introduce the concept of profiled\nresiduals to characterize the shared confounding patterns between source and\ntarget datasets. By incorporating these profiled residuals into the target\ndebiasing step, we effectively mitigates the latent confounding effects. We\nalso propose a source selection strategy to enhance robustness of ProTrans\nagainst noninformative sources. As a byproduct, ProTrans can also be utilized\nto estimate treatment effects when potential confounders exist, without the use\nof auxiliary features such as instrumental or proxy variables, which are often\nchallenging to select in practice. Theoretically, we prove that the resulting\nestimated model shift from sources to target is confounding-free without any\nassumptions imposed on the true confounding structure, and that the target\nparameter estimation achieves the minimax optimal rate under mild conditions.\nSimulated and real-world experiments validate the effectiveness of ProTrans and\nsupport the theoretical findings.",
-      "published": "August 15, 2025",
-      "categories": [
-        "stat.ME"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2508.11622v2",
-      "arxiv_url": "http://arxiv.org/abs/2508.11622v2"
     }
   ]
 }
