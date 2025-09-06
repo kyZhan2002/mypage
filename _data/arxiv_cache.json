@@ -1,5 +1,5 @@
 {
-  "timestamp": 1757035115,
+  "timestamp": 1757121381,
   "papers": [
     {
       "title": "Speech transformer models for extracting information from baby cries",
@@ -56,22 +56,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2508.15978v1",
       "arxiv_url": "http://arxiv.org/abs/2508.15978v1"
-    },
-    {
-      "title": "Diffusion-Driven High-Dimensional Variable Selection",
-      "authors": [
-        "Minjie Wang",
-        "Xiaotong Shen",
-        "Wei Pan"
-      ],
-      "abstract": "Variable selection for high-dimensional, highly correlated data has long been\na challenging problem, often yielding unstable and unreliable models. We\npropose a resample-aggregate framework that exploits diffusion models' ability\nto generate high-fidelity synthetic data. Specifically, we draw multiple\npseudo-data sets from a diffusion model fitted to the original data, apply any\noff-the-shelf selector (e.g., lasso or SCAD), and store the resulting inclusion\nindicators and coefficients. Aggregating across replicas produces a stable\nsubset of predictors with calibrated stability scores for variable selection.\nTheoretically, we show that the proposed method is selection consistent under\nmild assumptions. Because the generative model imports knowledge from large\npre-trained weights, the procedure naturally benefits from transfer learning,\nboosting power when the observed sample is small or noisy. We also extend the\nframework of aggregating synthetic data to other model selection problems,\nincluding graphical model selection, and statistical inference that supports\nvalid confidence intervals and hypothesis tests. Extensive simulations show\nconsistent gains over the lasso, stability selection, and knockoff baselines,\nespecially when predictors are strongly correlated, achieving higher\ntrue-positive rates and lower false-discovery proportions. By coupling\ndiffusion-based data augmentation with principled aggregation, our method\nadvances variable selection methodology and broadens the toolkit for\ninterpretable, statistically rigorous analysis in complex scientific\napplications.",
-      "published": "August 19, 2025",
-      "categories": [
-        "stat.ME",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2508.13890v1",
-      "arxiv_url": "http://arxiv.org/abs/2508.13890v1"
     }
   ]
 }
