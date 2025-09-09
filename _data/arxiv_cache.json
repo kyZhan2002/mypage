@@ -1,5 +1,5 @@
 {
-  "timestamp": 1757294546,
+  "timestamp": 1757380792,
   "papers": [
     {
       "title": "Speech transformer models for extracting information from baby cries",
@@ -39,23 +39,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2508.20942v1",
       "arxiv_url": "http://arxiv.org/abs/2508.20942v1"
-    },
-    {
-      "title": "A nonstationary spatial model of PM2.5 with localized transfer learning\n  from numerical model output",
-      "authors": [
-        "Wenlong Gong",
-        "Brian J. Reich",
-        "Joseph Guinness"
-      ],
-      "abstract": "Ambient air pollution measurements from regulatory monitoring networks are\nroutinely used to support epidemiologic studies and environmental policy\ndecision making. However, regulatory monitors are spatially sparse and\npreferentially located in areas with large populations. Numerical air pollution\nmodel output can be leveraged into the inference and prediction of air\npollution data combining with measurements from monitors. Nonstationary\ncovariance functions allow the model to adapt to spatial surfaces whose\nvariability changes with location like air pollution data. In the paper, we\nemploy localized covariance parameters learned from the numerical output model\nto knit together into a global nonstationary covariance, to incorporate in a\nfully Bayesian model. We model the nonstationary structure in a computationally\nefficient way to make the Bayesian model scalable.",
-      "published": "August 21, 2025",
-      "categories": [
-        "stat.AP",
-        "stat.CO",
-        "stat.ME"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2508.15978v1",
-      "arxiv_url": "http://arxiv.org/abs/2508.15978v1"
     }
   ]
 }
