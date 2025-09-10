@@ -1,6 +1,56 @@
 {
-  "timestamp": 1757380792,
+  "timestamp": 1757467040,
   "papers": [
+    {
+      "title": "Robust and Adaptive Spectral Method for Representation Multi-Task\n  Learning with Contamination",
+      "authors": [
+        "Yian Huang",
+        "Yang Feng",
+        "Zhiliang Ying"
+      ],
+      "abstract": "Representation-based multi-task learning (MTL) improves efficiency by\nlearning a shared structure across tasks, but its practical application is\noften hindered by contamination, outliers, or adversarial tasks. Most existing\nmethods and theories assume a clean or near-clean setting, failing when\ncontamination is significant. This paper tackles representation MTL with an\nunknown and potentially large contamination proportion, while also allowing for\nheterogeneity among inlier tasks. We introduce a Robust and Adaptive Spectral\nmethod (RAS) that can distill the shared inlier representation effectively and\nefficiently, while requiring no prior knowledge of the contamination level or\nthe true representation dimension. Theoretically, we provide non-asymptotic\nerror bounds for both the learned representation and the per-task parameters.\nThese bounds adapt to inlier task similarity and outlier structure, and\nguarantee that RAS performs at least as well as single-task learning, thus\npreventing negative transfer. We also extend our framework to transfer learning\nwith corresponding theoretical guarantees for the target task. Extensive\nexperiments confirm our theory, showcasing the robustness and adaptivity of\nRAS, and its superior performance in regimes with up to 80\\% task\ncontamination.",
+      "published": "September 08, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "stat.ME"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2509.06575v1",
+      "arxiv_url": "http://arxiv.org/abs/2509.06575v1"
+    },
+    {
+      "title": "Minimax optimal transfer learning for high-dimensional additive\n  regression",
+      "authors": [
+        "Seung Hyun Moon"
+      ],
+      "abstract": "This paper studies high-dimensional additive regression under the transfer\nlearning framework, where one observes samples from a target population\ntogether with auxiliary samples from different but potentially related\nregression models. We first introduce a target-only estimation procedure based\non the smooth backfitting estimator with local linear smoothing. In contrast to\nprevious work, we establish general error bounds under sub-Weibull($\\alpha$)\nnoise, thereby accommodating heavy-tailed error distributions. In the\nsub-exponential case ($\\alpha=1$), we show that the estimator attains the\nminimax lower bound under regularity conditions, which requires a substantial\ndeparture from existing proof strategies. We then develop a novel two-stage\nestimation method within a transfer learning framework, and provide theoretical\nguarantees at both the population and empirical levels. Error bounds are\nderived for each stage under general tail conditions, and we further\ndemonstrate that the minimax optimal rate is achieved when the auxiliary and\ntarget distributions are sufficiently close. All theoretical results are\nsupported by simulation studies and real data analysis.",
+      "published": "September 08, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.ST",
+        "stat.TH"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2509.06308v1",
+      "arxiv_url": "http://arxiv.org/abs/2509.06308v1"
+    },
+    {
+      "title": "Additive Distributionally Robust Ranking and Selection",
+      "authors": [
+        "Zaile Li",
+        "Yuchen Wan",
+        "L. Jeff Hong"
+      ],
+      "abstract": "Ranking and selection (R&S) aims to identify the alternative with the best\nmean performance among $k$ simulated alternatives. The practical value of R&S\ndepends on accurate simulation input modeling, which often suffers from the\ncurse of input uncertainty due to limited data. Distributionally robust ranking\nand selection (DRR&S) addresses this challenge by modeling input uncertainty\nvia an ambiguity set of $m > 1$ plausible input distributions, resulting in\n$km$ scenarios in total. Recent DRR&S studies suggest a key structural insight:\nadditivity in budget allocation is essential for efficiency. However, existing\njustifications are heuristic, and fundamental properties such as consistency\nand the precise allocation pattern induced by additivity remain poorly\nunderstood. In this paper, we propose a simple additive allocation (AA)\nprocedure that aims to exclusively sample the $k + m - 1$ previously\nhypothesized critical scenarios. Leveraging boundary-crossing arguments, we\nestablish a lower bound on the probability of correct selection and\ncharacterize the procedure's budget allocation behavior. We then prove that AA\nis consistent and, surprisingly, achieves additivity in the strongest sense: as\nthe total budget increases, only $k + m - 1$ scenarios are sampled infinitely\noften. Notably, the worst-case scenarios of non-best alternatives may not be\namong them, challenging prior beliefs about their criticality. These results\noffer new and counterintuitive insights into the additive structure of DRR&S.\nTo improve practical performance while preserving this structure, we introduce\na general additive allocation (GAA) framework that flexibly incorporates\nsampling rules from traditional R&S procedures in a modular fashion. Numerical\nexperiments support our theoretical findings and demonstrate the competitive\nperformance of the proposed GAA procedures.",
+      "published": "September 07, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "stat.ME"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2509.06147v1",
+      "arxiv_url": "http://arxiv.org/abs/2509.06147v1"
+    },
     {
       "title": "Speech transformer models for extracting information from baby cries",
       "authors": [
