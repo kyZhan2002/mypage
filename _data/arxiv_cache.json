@@ -1,5 +1,5 @@
 {
-  "timestamp": 1757467040,
+  "timestamp": 1757553555,
   "papers": [
     {
       "title": "Robust and Adaptive Spectral Method for Representation Multi-Task\n  Learning with Contamination",
@@ -71,24 +71,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2509.02259v1",
       "arxiv_url": "http://arxiv.org/abs/2509.02259v1"
-    },
-    {
-      "title": "Transfer Learning for Classification under Decision Rule Drift with\n  Application to Optimal Individualized Treatment Rule Estimation",
-      "authors": [
-        "Xiaohan Wang",
-        "Yang Ning"
-      ],
-      "abstract": "In this paper, we extend the transfer learning classification framework from\nregression function-based methods to decision rules. We propose a novel\nmethodology for modeling posterior drift through Bayes decision rules. By\nexploiting the geometric transformation of the Bayes decision boundary, our\nmethod reformulates the problem as a low-dimensional empirical risk\nminimization problem. Under mild regularity conditions, we establish the\nconsistency of our estimators and derive the risk bounds. Moreover, we\nillustrate the broad applicability of our method by adapting it to the\nestimation of optimal individualized treatment rules. Extensive simulation\nstudies and analyses of real-world data further demonstrate both superior\nperformance and robustness of our approach.",
-      "published": "August 28, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "math.ST",
-        "stat.ME",
-        "stat.TH"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2508.20942v1",
-      "arxiv_url": "http://arxiv.org/abs/2508.20942v1"
     }
   ]
 }
