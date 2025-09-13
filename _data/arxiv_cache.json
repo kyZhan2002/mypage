@@ -1,6 +1,22 @@
 {
-  "timestamp": 1757639775,
+  "timestamp": 1757725979,
   "papers": [
+    {
+      "title": "Representation-Aware Distributionally Robust Optimization: A Knowledge\n  Transfer Framework",
+      "authors": [
+        "Zitao Wang",
+        "Nian Si",
+        "Molei Liu"
+      ],
+      "abstract": "We propose REpresentation-Aware Distributionally Robust Estimation (READ), a\nnovel framework for Wasserstein distributionally robust learning that accounts\nfor predictive representations when guarding against distributional shifts.\nUnlike classical approaches that treat all feature perturbations equally, READ\nembeds a multidimensional alignment parameter into the transport cost, allowing\nthe model to differentially discourage perturbations along directions\nassociated with informative representations. This yields robustness to feature\nvariation while preserving invariant structure. Our first contribution is a\ntheoretical foundation: we show that seminorm regularizations for linear\nregression and binary classification arise as Wasserstein distributionally\nrobust objectives, thereby providing tractable reformulations of READ and\nunifying a broad class of regularized estimators under the DRO lens. Second, we\nadopt a principled procedure for selecting the Wasserstein radius using the\ntechniques of robust Wasserstein profile inference. This further enables the\nconstruction of valid, representation-aware confidence regions for model\nparameters with distinct geometric features. Finally, we analyze the geometry\nof READ estimators as the alignment parameters vary and propose an optimization\nalgorithm to estimate the projection of the global optimum onto this solution\nsurface. This procedure selects among equally robust estimators while optimally\nconstructing a representation structure. We conclude by demonstrating the\neffectiveness of our framework through extensive simulations and a real-world\nstudy, providing a powerful robust estimation grounded in learning\nrepresentation.",
+      "published": "September 11, 2025",
+      "categories": [
+        "stat.ME",
+        "cs.LG"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2509.09371v1",
+      "arxiv_url": "http://arxiv.org/abs/2509.09371v1"
+    },
     {
       "title": "Robust and Adaptive Spectral Method for Representation Multi-Task\n  Learning with Contamination",
       "authors": [
