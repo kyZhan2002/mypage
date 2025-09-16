@@ -1,5 +1,5 @@
 {
-  "timestamp": 1757899408,
+  "timestamp": 1757985437,
   "papers": [
     {
       "title": "Representation-Aware Distributionally Robust Optimization: A Knowledge\n  Transfer Framework",
@@ -66,27 +66,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2509.06147v1",
       "arxiv_url": "http://arxiv.org/abs/2509.06147v1"
-    },
-    {
-      "title": "Speech transformer models for extracting information from baby cries",
-      "authors": [
-        "Guillem Bonafos",
-        "J\u00e9remy Rouch",
-        "L\u00e9ny Lego",
-        "David Reby",
-        "Hugues Patural",
-        "Nicolas Mathevon",
-        "R\u00e9my Emonet"
-      ],
-      "abstract": "Transfer learning using latent representations from pre-trained speech models\nachieves outstanding performance in tasks where labeled data is scarce.\nHowever, their applicability to non-speech data and the specific acoustic\nproperties encoded in these representations remain largely unexplored. In this\nstudy, we investigate both aspects. We evaluate five pre-trained speech models\non eight baby cries datasets, encompassing 115 hours of audio from 960 babies.\nFor each dataset, we assess the latent representations of each model across all\navailable classification tasks. Our results demonstrate that the latent\nrepresentations of these models can effectively classify human baby cries and\nencode key information related to vocal source instability and identity of the\ncrying baby. In addition, a comparison of the architectures and training\nstrategies of these models offers valuable insights for the design of future\nmodels tailored to similar tasks, such as emotion detection.",
-      "published": "September 02, 2025",
-      "categories": [
-        "cs.SD",
-        "cs.LG",
-        "stat.AP"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2509.02259v1",
-      "arxiv_url": "http://arxiv.org/abs/2509.02259v1"
     }
   ]
 }
