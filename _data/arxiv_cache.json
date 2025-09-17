@@ -1,5 +1,5 @@
 {
-  "timestamp": 1757985437,
+  "timestamp": 1758071841,
   "papers": [
     {
       "title": "Representation-Aware Distributionally Robust Optimization: A Knowledge\n  Transfer Framework",
@@ -47,8 +47,8 @@
         "math.ST",
         "stat.TH"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2509.06308v1",
-      "arxiv_url": "http://arxiv.org/abs/2509.06308v1"
+      "pdf_link": "http://arxiv.org/pdf/2509.06308v2",
+      "arxiv_url": "http://arxiv.org/abs/2509.06308v2"
     },
     {
       "title": "Additive Distributionally Robust Ranking and Selection",
