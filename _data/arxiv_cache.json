@@ -1,5 +1,5 @@
 {
-  "timestamp": 1758244755,
+  "timestamp": 1758330944,
   "papers": [
     {
       "title": "Representation-Aware Distributionally Robust Optimization: A Knowledge\n  Transfer Framework",
@@ -49,23 +49,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2509.06308v2",
       "arxiv_url": "http://arxiv.org/abs/2509.06308v2"
-    },
-    {
-      "title": "Additive Distributionally Robust Ranking and Selection",
-      "authors": [
-        "Zaile Li",
-        "Yuchen Wan",
-        "L. Jeff Hong"
-      ],
-      "abstract": "Ranking and selection (R&S) aims to identify the alternative with the best\nmean performance among $k$ simulated alternatives. The practical value of R&S\ndepends on accurate simulation input modeling, which often suffers from the\ncurse of input uncertainty due to limited data. Distributionally robust ranking\nand selection (DRR&S) addresses this challenge by modeling input uncertainty\nvia an ambiguity set of $m > 1$ plausible input distributions, resulting in\n$km$ scenarios in total. Recent DRR&S studies suggest a key structural insight:\nadditivity in budget allocation is essential for efficiency. However, existing\njustifications are heuristic, and fundamental properties such as consistency\nand the precise allocation pattern induced by additivity remain poorly\nunderstood. In this paper, we propose a simple additive allocation (AA)\nprocedure that aims to exclusively sample the $k + m - 1$ previously\nhypothesized critical scenarios. Leveraging boundary-crossing arguments, we\nestablish a lower bound on the probability of correct selection and\ncharacterize the procedure's budget allocation behavior. We then prove that AA\nis consistent and, surprisingly, achieves additivity in the strongest sense: as\nthe total budget increases, only $k + m - 1$ scenarios are sampled infinitely\noften. Notably, the worst-case scenarios of non-best alternatives may not be\namong them, challenging prior beliefs about their criticality. These results\noffer new and counterintuitive insights into the additive structure of DRR&S.\nTo improve practical performance while preserving this structure, we introduce\na general additive allocation (GAA) framework that flexibly incorporates\nsampling rules from traditional R&S procedures in a modular fashion. Numerical\nexperiments support our theoretical findings and demonstrate the competitive\nperformance of the proposed GAA procedures.",
-      "published": "September 07, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "stat.ME"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2509.06147v1",
-      "arxiv_url": "http://arxiv.org/abs/2509.06147v1"
     }
   ]
 }
