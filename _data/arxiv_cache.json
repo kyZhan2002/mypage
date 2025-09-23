@@ -1,6 +1,56 @@
 {
-  "timestamp": 1758504276,
+  "timestamp": 1758590284,
   "papers": [
+    {
+      "title": "What is a good matching of probability measures? A counterfactual lens\n  on transport maps",
+      "authors": [
+        "Lucas De Lara",
+        "Luca Ganassali"
+      ],
+      "abstract": "Coupling probability measures lies at the core of many problems in statistics\nand machine learning, from domain adaptation to transfer learning and causal\ninference. Yet, even when restricted to deterministic transports, such\ncouplings are not identifiable: two atomless marginals admit infinitely many\ntransport maps. The common recourse to optimal transport, motivated by cost\nminimization and cyclical monotonicity, obscures the fact that several distinct\nnotions of multivariate monotone matchings coexist. In this work, we first\ncarry a comparative analysis of three constructions of transport maps:\ncyclically monotone, quantile-preserving and triangular monotone maps. We\nestablish necessary and sufficient conditions for their equivalence, thereby\nclarifying their respective structural properties. In parallel, we formulate\ncounterfactual reasoning within the framework of structural causal models as a\nproblem of selecting transport maps between fixed marginals, which makes\nexplicit the role of untestable assumptions in counterfactual reasoning. Then,\nwe are able to connect these two perspectives by identifying conditions on\ncausal graphs and structural equations under which counterfactual maps coincide\nwith classical statistical transports. In this way, we delineate the\ncircumstances in which causal assumptions support the use of a specific\nstructure of transport map. Taken together, our results aim to enrich the\ntheoretical understanding of families of transport maps and to clarify their\npossible causal interpretations. We hope this work contributes to establishing\nnew bridges between statistical transport and causal inference.",
+      "published": "September 19, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.ST",
+        "stat.ME",
+        "stat.TH"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2509.16027v1",
+      "arxiv_url": "http://arxiv.org/abs/2509.16027v1"
+    },
+    {
+      "title": "Transfer learning under latent space model",
+      "authors": [
+        "Kuangnan Fang",
+        "Ruixuan Qin",
+        "Xinyan Fan"
+      ],
+      "abstract": "Latent space model plays a crucial role in network analysis, and accurate\nestimation of latent variables is essential for downstream tasks such as link\nprediction. However, the large number of parameters to be estimated presents a\nchallenge, especially when the latent space dimension is not exceptionally\nsmall. In this paper, we propose a transfer learning method that leverages\ninformation from networks with latent variables similar to those in the target\nnetwork, thereby improving the estimation accuracy for the target. Given\ntransferable source networks, we introduce a two-stage transfer learning\nalgorithm that accommodates differences in node numbers between source and\ntarget networks. In each stage, we derive sufficient identification conditions\nand design tailored projected gradient descent algorithms for estimation.\nTheoretical properties of the resulting estimators are established. When the\ntransferable networks are unknown, a detection algorithm is introduced to\nidentify suitable source networks. Simulation studies and analyses of two real\ndatasets demonstrate the effectiveness of the proposed methods.",
+      "published": "September 19, 2025",
+      "categories": [
+        "stat.ME",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2509.15797v1",
+      "arxiv_url": "http://arxiv.org/abs/2509.15797v1"
+    },
+    {
+      "title": "SETrLUSI: Stochastic Ensemble Multi-Source Transfer Learning Using\n  Statistical Invariant",
+      "authors": [
+        "Chunna Li",
+        "Yiwei Song",
+        "Yuanhai Shao"
+      ],
+      "abstract": "In transfer learning, a source domain often carries diverse knowledge, and\ndifferent domains usually emphasize different types of knowledge. Different\nfrom handling only a single type of knowledge from all domains in traditional\ntransfer learning methods, we introduce an ensemble learning framework with a\nweak mode of convergence in the form of Statistical Invariant (SI) for\nmulti-source transfer learning, formulated as Stochastic Ensemble Multi-Source\nTransfer Learning Using Statistical Invariant (SETrLUSI). The proposed SI\nextracts and integrates various types of knowledge from both source and target\ndomains, which not only effectively utilizes diverse knowledge but also\naccelerates the convergence process. Further, SETrLUSI incorporates stochastic\nSI selection, proportional source domain sampling, and target domain\nbootstrapping, which improves training efficiency while enhancing model\nstability. Experiments show that SETrLUSI has good convergence and outperforms\nrelated methods with a lower time cost.",
+      "published": "September 19, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2509.15593v1",
+      "arxiv_url": "http://arxiv.org/abs/2509.15593v1"
+    },
     {
       "title": "Representation-Aware Distributionally Robust Optimization: A Knowledge\n  Transfer Framework",
       "authors": [
@@ -33,22 +83,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2509.06575v1",
       "arxiv_url": "http://arxiv.org/abs/2509.06575v1"
-    },
-    {
-      "title": "Minimax optimal transfer learning for high-dimensional additive\n  regression",
-      "authors": [
-        "Seung Hyun Moon"
-      ],
-      "abstract": "This paper studies high-dimensional additive regression under the transfer\nlearning framework, where one observes samples from a target population\ntogether with auxiliary samples from different but potentially related\nregression models. We first introduce a target-only estimation procedure based\non the smooth backfitting estimator with local linear smoothing. In contrast to\nprevious work, we establish general error bounds under sub-Weibull($\\alpha$)\nnoise, thereby accommodating heavy-tailed error distributions. In the\nsub-exponential case ($\\alpha=1$), we show that the estimator attains the\nminimax lower bound under regularity conditions, which requires a substantial\ndeparture from existing proof strategies. We then develop a novel two-stage\nestimation method within a transfer learning framework, and provide theoretical\nguarantees at both the population and empirical levels. Error bounds are\nderived for each stage under general tail conditions, and we further\ndemonstrate that the minimax optimal rate is achieved when the auxiliary and\ntarget distributions are sufficiently close. All theoretical results are\nsupported by simulation studies and real data analysis.",
-      "published": "September 08, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "math.ST",
-        "stat.TH"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2509.06308v2",
-      "arxiv_url": "http://arxiv.org/abs/2509.06308v2"
     }
   ]
 }
