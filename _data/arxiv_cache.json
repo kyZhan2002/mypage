@@ -1,6 +1,25 @@
 {
-  "timestamp": 1758590284,
+  "timestamp": 1758676713,
   "papers": [
+    {
+      "title": "A Generative Conditional Distribution Equality Testing Framework and Its\n  Minimax Analysis",
+      "authors": [
+        "Siming Zheng",
+        "Meifang Lan",
+        "Tong Wang",
+        "Yuanyuan Lin"
+      ],
+      "abstract": "In this paper, we propose a general framework for testing the equality of the\nconditional distributions in a two-sample problem. This problem is most\nrelevant to transfer learning under covariate shift. Our framework is built on\nneural network-based generative methods and sample splitting techniques by\ntransforming the conditional distribution testing problem into an unconditional\none. We introduce two special tests: the generative permutation-based\nconditional distribution equality test and the generative classification\naccuracy-based conditional distribution equality test. Theoretically, we\nestablish a minimax lower bound for statistical inference in testing the\nequality of two conditional distributions under certain smoothness conditions.\nWe demonstrate that the generative permutation-based conditional distribution\nequality test and its modified version can attain this lower bound precisely or\nup to some iterated logarithmic factor. Moreover, we prove the testing\nconsistency of the generative classification accuracy-based conditional\ndistribution equality test. We also establish the convergence rate for the\nlearned conditional generator by deriving new results related to the\nrecently-developed offset Rademacher complexity and approximation properties\nusing neural networks. Empirically, we conduct numerical studies including\nsynthetic datasets and two real-world datasets, demonstrating the effectiveness\nof our approach.",
+      "published": "September 22, 2025",
+      "categories": [
+        "cs.LG",
+        "math.ST",
+        "stat.ME",
+        "stat.TH"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2509.17729v1",
+      "arxiv_url": "http://arxiv.org/abs/2509.17729v1"
+    },
     {
       "title": "What is a good matching of probability measures? A counterfactual lens\n  on transport maps",
       "authors": [
@@ -66,23 +85,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2509.09371v1",
       "arxiv_url": "http://arxiv.org/abs/2509.09371v1"
-    },
-    {
-      "title": "Robust and Adaptive Spectral Method for Representation Multi-Task\n  Learning with Contamination",
-      "authors": [
-        "Yian Huang",
-        "Yang Feng",
-        "Zhiliang Ying"
-      ],
-      "abstract": "Representation-based multi-task learning (MTL) improves efficiency by\nlearning a shared structure across tasks, but its practical application is\noften hindered by contamination, outliers, or adversarial tasks. Most existing\nmethods and theories assume a clean or near-clean setting, failing when\ncontamination is significant. This paper tackles representation MTL with an\nunknown and potentially large contamination proportion, while also allowing for\nheterogeneity among inlier tasks. We introduce a Robust and Adaptive Spectral\nmethod (RAS) that can distill the shared inlier representation effectively and\nefficiently, while requiring no prior knowledge of the contamination level or\nthe true representation dimension. Theoretically, we provide non-asymptotic\nerror bounds for both the learned representation and the per-task parameters.\nThese bounds adapt to inlier task similarity and outlier structure, and\nguarantee that RAS performs at least as well as single-task learning, thus\npreventing negative transfer. We also extend our framework to transfer learning\nwith corresponding theoretical guarantees for the target task. Extensive\nexperiments confirm our theory, showcasing the robustness and adaptivity of\nRAS, and its superior performance in regimes with up to 80\\% task\ncontamination.",
-      "published": "September 08, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "stat.ME"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2509.06575v1",
-      "arxiv_url": "http://arxiv.org/abs/2509.06575v1"
     }
   ]
 }
