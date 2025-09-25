@@ -1,6 +1,38 @@
 {
-  "timestamp": 1758676713,
+  "timestamp": 1758763149,
   "papers": [
+    {
+      "title": "DRO-REBEL: Distributionally Robust Relative-Reward Regression for Fast\n  and Efficient LLM Alignment",
+      "authors": [
+        "Sharan Sahu",
+        "Martin T. Wells"
+      ],
+      "abstract": "Reinforcement learning with human feedback (RLHF) has become crucial for\naligning Large Language Models (LLMs) with human intent. However, existing\noffline RLHF approaches suffer from overoptimization, where models overfit to\nreward misspecification and drift from preferred behaviors observed during\ntraining. We introduce DRO-REBEL, a unified family of robust REBEL updates with\ntype-$p$ Wasserstein, KL, and $\\chi^2$ ambiguity sets. Using Fenchel duality,\neach update reduces to a simple relative-reward regression, preserving\nscalability and avoiding PPO-style clipping or auxiliary value networks. Under\nstandard linear-reward and log-linear policy classes with a data-coverage\ncondition, we establish $O(n^{-1/4})$ estimation bounds with tighter constants\nthan prior DRO-DPO approaches, and recover the minimax-optimal $O(n^{-1/2})$\nrate via a localized Rademacher complexity analysis. The same analysis closes\nthe gap for Wasserstein-DPO and KL-DPO, showing both also attain optimal\nparametric rates. We derive practical SGD algorithms for all three divergences:\ngradient regularization (Wasserstein), importance weighting (KL), and a fast\n1-D dual solve ($\\chi^2$). Experiments on Emotion Alignment, the large-scale\nArmoRM multi-objective benchmark, and HH-Alignment demonstrate strong\nworst-case robustness across unseen preference mixtures, model sizes, and data\nscales, with $\\chi^2$-REBEL showing consistently strong empirical performance.\nA controlled radius--coverage study validates a no-free-lunch trade-off: radii\nshrinking faster than empirical divergence concentration rates achieve\nminimax-optimal parametric rates but forfeit coverage, while\ncoverage-guaranteeing radii incur $O(n^{-1/4})$ rates.",
+      "published": "September 23, 2025",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2509.19104v1",
+      "arxiv_url": "http://arxiv.org/abs/2509.19104v1"
+    },
+    {
+      "title": "Asymptotically Optimal Problem-Dependent Bandit Policies for Transfer\n  Learning",
+      "authors": [
+        "Adrien Prevost",
+        "Timothee Mathieu",
+        "Odalric-Ambrym Maillard"
+      ],
+      "abstract": "We study the non-contextual multi-armed bandit problem in a transfer learning\nsetting: before any pulls, the learner is given N'_k i.i.d. samples from each\nsource distribution nu'_k, and the true target distributions nu_k lie within a\nknown distance bound d_k(nu_k, nu'_k) <= L_k. In this framework, we first\nderive a problem-dependent asymptotic lower bound on cumulative regret that\nextends the classical Lai-Robbins result to incorporate the transfer parameters\n(d_k, L_k, N'_k). We then propose KL-UCB-Transfer, a simple index policy that\nmatches this new bound in the Gaussian case. Finally, we validate our approach\nvia simulations, showing that KL-UCB-Transfer significantly outperforms the\nno-prior baseline when source and target distributions are sufficiently close.",
+      "published": "September 23, 2025",
+      "categories": [
+        "cs.LG",
+        "math.ST",
+        "stat.TH"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2509.19098v1",
+      "arxiv_url": "http://arxiv.org/abs/2509.19098v1"
+    },
     {
       "title": "A Generative Conditional Distribution Equality Testing Framework and Its\n  Minimax Analysis",
       "authors": [
@@ -17,8 +49,8 @@
         "stat.ME",
         "stat.TH"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2509.17729v1",
-      "arxiv_url": "http://arxiv.org/abs/2509.17729v1"
+      "pdf_link": "http://arxiv.org/pdf/2509.17729v2",
+      "arxiv_url": "http://arxiv.org/abs/2509.17729v2"
     },
     {
       "title": "What is a good matching of probability measures? A counterfactual lens\n  on transport maps",
