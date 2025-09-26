@@ -1,6 +1,45 @@
 {
-  "timestamp": 1758763149,
+  "timestamp": 1758849528,
   "papers": [
+    {
+      "title": "Transfer Learning in Regression with Influential Points",
+      "authors": [
+        "Bingbing Wang",
+        "Jiaqi Wang",
+        "Yu Tang"
+      ],
+      "abstract": "Regression prediction plays a crucial role in practical applications and\nstrongly relies on data annotation. However, due to prohibitive annotation\ncosts or domain-specific constraints, labeled data in the target domain is\noften scarce, making transfer learning a critical solution by leveraging\nknowledge from resource-rich source domains. In the practical target scenario,\nalthough transfer learning has been widely applied, influential points can\nsignificantly distort parameter estimation for the target domain model. This\nissue is further compounded when influential points are also present in source\ndomains, leading to aggravated performance degradation and posing critical\nrobustness challenges for existing transfer learning frameworks. In this study,\nwe innovatively introduce a transfer learning collaborative optimization\n(Trans-CO) framework for influential point detection and regression model\nfitting. Extensive simulation experiments demonstrate that the proposed\nTrans-CO algorithm outperforms competing methods in terms of model fitting\nperformance and influential point identification accuracy. Furthermore, it\nachieves superior predictive accuracy on real-world datasets, providing a novel\nsolution for transfer learning in regression with influential points",
+      "published": "September 24, 2025",
+      "categories": [
+        "stat.ME"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2509.20272v1",
+      "arxiv_url": "http://arxiv.org/abs/2509.20272v1"
+    },
+    {
+      "title": "A Realistic Evaluation of Cross-Frequency Transfer Learning and\n  Foundation Forecasting Models",
+      "authors": [
+        "Kin G. Olivares",
+        "Malcolm Wolff",
+        "Tatiana Konstantinova",
+        "Shankar Ramasubramanian",
+        "Andrew Gordon Wilson",
+        "Andres Potapczynski",
+        "Willa Potosnak",
+        "Mengfei Cao",
+        "Boris Oreshkin",
+        "Dmitry Efimov"
+      ],
+      "abstract": "Cross-frequency transfer learning (CFTL) has emerged as a popular framework\nfor curating large-scale time series datasets to pre-train foundation\nforecasting models (FFMs). Although CFTL has shown promise, current\nbenchmarking practices fall short of accurately assessing its performance. This\nshortcoming stems from many factors: an over-reliance on small-scale evaluation\ndatasets; inadequate treatment of sample size when computing summary\nstatistics; reporting of suboptimal statistical models; and failing to account\nfor non-negligible risks of overlap between pre-training and test datasets. To\naddress these limitations, we introduce a unified reimplementation of\nwidely-adopted neural forecasting networks, adapting them for the CFTL setup;\nwe pre-train only on proprietary and synthetic data, being careful to prevent\ntest leakage; and we evaluate on 15 large, diverse public forecast competition\ndatasets. Our empirical analysis reveals that statistical models' accuracy is\nfrequently underreported. Notably, we confirm that statistical models and their\nensembles consistently outperform existing FFMs by more than 8.2% in sCRPS, and\nby more than 20% MASE, across datasets. However, we also find that synthetic\ndataset pre-training does improve the accuracy of a FFM by 7% percent.",
+      "published": "September 23, 2025",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "stat.AP"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2509.19465v1",
+      "arxiv_url": "http://arxiv.org/abs/2509.19465v1"
+    },
     {
       "title": "DRO-REBEL: Distributionally Robust Relative-Reward Regression for Fast\n  and Efficient LLM Alignment",
       "authors": [
@@ -101,22 +140,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2509.15593v1",
       "arxiv_url": "http://arxiv.org/abs/2509.15593v1"
-    },
-    {
-      "title": "Representation-Aware Distributionally Robust Optimization: A Knowledge\n  Transfer Framework",
-      "authors": [
-        "Zitao Wang",
-        "Nian Si",
-        "Molei Liu"
-      ],
-      "abstract": "We propose REpresentation-Aware Distributionally Robust Estimation (READ), a\nnovel framework for Wasserstein distributionally robust learning that accounts\nfor predictive representations when guarding against distributional shifts.\nUnlike classical approaches that treat all feature perturbations equally, READ\nembeds a multidimensional alignment parameter into the transport cost, allowing\nthe model to differentially discourage perturbations along directions\nassociated with informative representations. This yields robustness to feature\nvariation while preserving invariant structure. Our first contribution is a\ntheoretical foundation: we show that seminorm regularizations for linear\nregression and binary classification arise as Wasserstein distributionally\nrobust objectives, thereby providing tractable reformulations of READ and\nunifying a broad class of regularized estimators under the DRO lens. Second, we\nadopt a principled procedure for selecting the Wasserstein radius using the\ntechniques of robust Wasserstein profile inference. This further enables the\nconstruction of valid, representation-aware confidence regions for model\nparameters with distinct geometric features. Finally, we analyze the geometry\nof READ estimators as the alignment parameters vary and propose an optimization\nalgorithm to estimate the projection of the global optimum onto this solution\nsurface. This procedure selects among equally robust estimators while optimally\nconstructing a representation structure. We conclude by demonstrating the\neffectiveness of our framework through extensive simulations and a real-world\nstudy, providing a powerful robust estimation grounded in learning\nrepresentation.",
-      "published": "September 11, 2025",
-      "categories": [
-        "stat.ME",
-        "cs.LG"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2509.09371v1",
-      "arxiv_url": "http://arxiv.org/abs/2509.09371v1"
     }
   ]
 }
