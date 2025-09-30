@@ -1,6 +1,24 @@
 {
-  "timestamp": 1759108843,
+  "timestamp": 1759195185,
   "papers": [
+    {
+      "title": "Transfer Learning under Group-Label Shift: A Semiparametric Exponential\n  Tilting Approach",
+      "authors": [
+        "Manli Cheng",
+        "Subha Maity",
+        "Qinglong Tian",
+        "Pengfei Li"
+      ],
+      "abstract": "We propose a new framework for binary classification in transfer learning\nsettings where both covariate and label distributions may shift between source\nand target domains. Unlike traditional covariate shift or label shift\nassumptions, we introduce a group-label shift assumption that accommodates\nsubpopulation imbalance and mitigates spurious correlations, thereby improving\nrobustness to real-world distributional changes. To model the joint\ndistribution difference, we adopt a flexible exponential tilting formulation\nand establish mild, verifiable identification conditions via an instrumental\nvariable strategy. We develop a computationally efficient two-step\nlikelihood-based estimation procedure that combines logistic regression for the\nsource outcome model with conditional likelihood estimation using both source\nand target covariates. We derive consistency and asymptotic normality for the\nresulting estimators, and extend the theory to receiver operating\ncharacteristic curves, the area under the curve, and other target functionals,\naddressing the nonstandard challenges posed by plug-in classifiers. Simulation\nstudies demonstrate that our method outperforms existing alternatives under\nsubpopulation shift scenarios. A semi-synthetic application using the\nwaterbirds dataset further confirms the proposed method's ability to transfer\ninformation effectively and improve target-domain classification accuracy.",
+      "published": "September 26, 2025",
+      "categories": [
+        "stat.ME",
+        "math.ST",
+        "stat.TH"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2509.22268v1",
+      "arxiv_url": "http://arxiv.org/abs/2509.22268v1"
+    },
     {
       "title": "Transfer Learning in Regression with Influential Points",
       "authors": [
