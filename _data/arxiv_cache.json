@@ -1,5 +1,5 @@
 {
-  "timestamp": 1759282044,
+  "timestamp": 1759367836,
   "papers": [
     {
       "title": "Conditional Risk Minimization with Side Information: A Tractable,\n  Universal Optimal Transport Framework",
@@ -144,38 +144,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2509.16027v1",
       "arxiv_url": "http://arxiv.org/abs/2509.16027v1"
-    },
-    {
-      "title": "Transfer learning under latent space model",
-      "authors": [
-        "Kuangnan Fang",
-        "Ruixuan Qin",
-        "Xinyan Fan"
-      ],
-      "abstract": "Latent space model plays a crucial role in network analysis, and accurate\nestimation of latent variables is essential for downstream tasks such as link\nprediction. However, the large number of parameters to be estimated presents a\nchallenge, especially when the latent space dimension is not exceptionally\nsmall. In this paper, we propose a transfer learning method that leverages\ninformation from networks with latent variables similar to those in the target\nnetwork, thereby improving the estimation accuracy for the target. Given\ntransferable source networks, we introduce a two-stage transfer learning\nalgorithm that accommodates differences in node numbers between source and\ntarget networks. In each stage, we derive sufficient identification conditions\nand design tailored projected gradient descent algorithms for estimation.\nTheoretical properties of the resulting estimators are established. When the\ntransferable networks are unknown, a detection algorithm is introduced to\nidentify suitable source networks. Simulation studies and analyses of two real\ndatasets demonstrate the effectiveness of the proposed methods.",
-      "published": "September 19, 2025",
-      "categories": [
-        "stat.ME",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2509.15797v1",
-      "arxiv_url": "http://arxiv.org/abs/2509.15797v1"
-    },
-    {
-      "title": "SETrLUSI: Stochastic Ensemble Multi-Source Transfer Learning Using\n  Statistical Invariant",
-      "authors": [
-        "Chunna Li",
-        "Yiwei Song",
-        "Yuanhai Shao"
-      ],
-      "abstract": "In transfer learning, a source domain often carries diverse knowledge, and\ndifferent domains usually emphasize different types of knowledge. Different\nfrom handling only a single type of knowledge from all domains in traditional\ntransfer learning methods, we introduce an ensemble learning framework with a\nweak mode of convergence in the form of Statistical Invariant (SI) for\nmulti-source transfer learning, formulated as Stochastic Ensemble Multi-Source\nTransfer Learning Using Statistical Invariant (SETrLUSI). The proposed SI\nextracts and integrates various types of knowledge from both source and target\ndomains, which not only effectively utilizes diverse knowledge but also\naccelerates the convergence process. Further, SETrLUSI incorporates stochastic\nSI selection, proportional source domain sampling, and target domain\nbootstrapping, which improves training efficiency while enhancing model\nstability. Experiments show that SETrLUSI has good convergence and outperforms\nrelated methods with a lower time cost.",
-      "published": "September 19, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2509.15593v1",
-      "arxiv_url": "http://arxiv.org/abs/2509.15593v1"
     }
   ]
 }
