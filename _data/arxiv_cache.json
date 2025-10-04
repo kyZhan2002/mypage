@@ -1,6 +1,46 @@
 {
-  "timestamp": 1759454226,
+  "timestamp": 1759540491,
   "papers": [
+    {
+      "title": "Exactly or Approximately Wasserstein Distributionally Robust Estimation\n  According to Wasserstein Radii Being Small or Large",
+      "authors": [
+        "Xiao Ding",
+        "Enbin Song",
+        "Dunbiao Niu",
+        "Zhujun Cao",
+        "Qingjiang Shi"
+      ],
+      "abstract": "This paper primarily considers the robust estimation problem under\nWasserstein distance constraints on the parameter and noise distributions in\nthe linear measurement model with additive noise, which can be formulated as an\ninfinite-dimensional nonconvex minimax problem. We prove that the existence of\na saddle point for this problem is equivalent to that for a finite-dimensional\nminimax problem, and give a counterexample demonstrating that the saddle point\nmay not exist. Motivated by this observation, we present a verifiable necessary\nand sufficient condition whose parameters can be derived from a convex problem\nand its dual. Additionally, we also introduce a simplified sufficient\ncondition, which intuitively indicates that when the Wasserstein radii are\nsmall enough, the saddle point always exists. In the absence of the saddle\npoint, we solve an finite-dimensional nonconvex minimax problem, obtained by\nrestricting the estimator to be linear. Its optimal value establishes an upper\nbound on the robust estimation problem, while its optimal solution yields a\nrobust linear estimator. Numerical experiments are also provided to validate\nour theoretical results.",
+      "published": "October 02, 2025",
+      "categories": [
+        "eess.SP",
+        "math.OC",
+        "math.ST",
+        "stat.TH"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.01763v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.01763v1"
+    },
+    {
+      "title": "Deep Learning Approaches with Explainable AI for Differentiating\n  Alzheimer Disease and Mild Cognitive Impairment",
+      "authors": [
+        "Fahad Mostafa",
+        "Kannon Hossain",
+        "Hafiz Khan"
+      ],
+      "abstract": "Early and accurate diagnosis of Alzheimer Disease is critical for effective\nclinical intervention, particularly in distinguishing it from Mild Cognitive\nImpairment, a prodromal stage marked by subtle structural changes. In this\nstudy, we propose a hybrid deep learning ensemble framework for Alzheimer\nDisease classification using structural magnetic resonance imaging. Gray and\nwhite matter slices are used as inputs to three pretrained convolutional neural\nnetworks such as ResNet50, NASNet, and MobileNet, each fine tuned through an\nend to end process. To further enhance performance, we incorporate a stacked\nensemble learning strategy with a meta learner and weighted averaging to\noptimally combine the base models. Evaluated on the Alzheimer Disease\nNeuroimaging Initiative dataset, the proposed method achieves state of the art\naccuracy of 99.21% for Alzheimer Disease vs. Mild Cognitive Impairment and\n91.0% for Mild Cognitive Impairment vs. Normal Controls, outperforming\nconventional transfer learning and baseline ensemble methods. To improve\ninterpretability in image based diagnostics, we integrate Explainable AI\ntechniques by Gradient weighted Class Activation, which generates heatmaps and\nattribution maps that highlight critical regions in gray and white matter\nslices, revealing structural biomarkers that influence model decisions. These\nresults highlight the frameworks potential for robust and scalable clinical\ndecision support in neurodegenerative disease diagnostics.",
+      "published": "September 27, 2025",
+      "categories": [
+        "eess.IV",
+        "cs.AI",
+        "cs.CV",
+        "cs.LG",
+        "stat.AP",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.00048v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.00048v1"
+    },
     {
       "title": "Conditional Risk Minimization with Side Information: A Tractable,\n  Universal Optimal Transport Framework",
       "authors": [
@@ -126,24 +166,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2509.17729v2",
       "arxiv_url": "http://arxiv.org/abs/2509.17729v2"
-    },
-    {
-      "title": "What is a good matching of probability measures? A counterfactual lens\n  on transport maps",
-      "authors": [
-        "Lucas De Lara",
-        "Luca Ganassali"
-      ],
-      "abstract": "Coupling probability measures lies at the core of many problems in statistics\nand machine learning, from domain adaptation to transfer learning and causal\ninference. Yet, even when restricted to deterministic transports, such\ncouplings are not identifiable: two atomless marginals admit infinitely many\ntransport maps. The common recourse to optimal transport, motivated by cost\nminimization and cyclical monotonicity, obscures the fact that several distinct\nnotions of multivariate monotone matchings coexist. In this work, we first\ncarry a comparative analysis of three constructions of transport maps:\ncyclically monotone, quantile-preserving and triangular monotone maps. We\nestablish necessary and sufficient conditions for their equivalence, thereby\nclarifying their respective structural properties. In parallel, we formulate\ncounterfactual reasoning within the framework of structural causal models as a\nproblem of selecting transport maps between fixed marginals, which makes\nexplicit the role of untestable assumptions in counterfactual reasoning. Then,\nwe are able to connect these two perspectives by identifying conditions on\ncausal graphs and structural equations under which counterfactual maps coincide\nwith classical statistical transports. In this way, we delineate the\ncircumstances in which causal assumptions support the use of a specific\nstructure of transport map. Taken together, our results aim to enrich the\ntheoretical understanding of families of transport maps and to clarify their\npossible causal interpretations. We hope this work contributes to establishing\nnew bridges between statistical transport and causal inference.",
-      "published": "September 19, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "math.ST",
-        "stat.ME",
-        "stat.TH"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2509.16027v1",
-      "arxiv_url": "http://arxiv.org/abs/2509.16027v1"
     }
   ]
 }
