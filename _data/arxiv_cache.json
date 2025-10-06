@@ -1,5 +1,5 @@
 {
-  "timestamp": 1759627525,
+  "timestamp": 1759713567,
   "papers": [
     {
       "title": "Exactly or Approximately Wasserstein Distributionally Robust Estimation\n  According to Wasserstein Radii Being Small or Large",
@@ -18,8 +18,8 @@
         "math.ST",
         "stat.TH"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2510.01763v1",
-      "arxiv_url": "http://arxiv.org/abs/2510.01763v1"
+      "pdf_link": "http://arxiv.org/pdf/2510.01763v2",
+      "arxiv_url": "http://arxiv.org/abs/2510.01763v2"
     },
     {
       "title": "Deep Learning Approaches with Explainable AI for Differentiating\n  Alzheimer Disease and Mild Cognitive Impairment",
