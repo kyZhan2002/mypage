@@ -1,6 +1,59 @@
 {
-  "timestamp": 1759799891,
+  "timestamp": 1759886284,
   "papers": [
+    {
+      "title": "Busemann Functions in the Wasserstein Space: Existence, Closed-Forms,\n  and Applications to Slicing",
+      "authors": [
+        "Cl\u00e9ment Bonet",
+        "Elsa Cazelles",
+        "Lucas Drumetz",
+        "Nicolas Courty"
+      ],
+      "abstract": "The Busemann function has recently found much interest in a variety of\ngeometric machine learning problems, as it naturally defines projections onto\ngeodesic rays of Riemannian manifolds and generalizes the notion of\nhyperplanes. As several sources of data can be conveniently modeled as\nprobability distributions, it is natural to study this function in the\nWasserstein space, which carries a rich formal Riemannian structure induced by\nOptimal Transport metrics. In this work, we investigate the existence and\ncomputation of Busemann functions in Wasserstein space, which admits geodesic\nrays. We establish closed-form expressions in two important cases:\none-dimensional distributions and Gaussian measures. These results enable\nexplicit projection schemes for probability distributions on $\\mathbb{R}$,\nwhich in turn allow us to define novel Sliced-Wasserstein distances over\nGaussian mixtures and labeled datasets. We demonstrate the efficiency of those\noriginal schemes on synthetic datasets as well as transfer learning problems.",
+      "published": "October 06, 2025",
+      "categories": [
+        "cs.LG",
+        "math.MG",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.04579v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.04579v1"
+    },
+    {
+      "title": "Optimal Regularization Under Uncertainty: Distributional Robustness and\n  Convexity Constraints",
+      "authors": [
+        "Oscar Leong",
+        "Eliza O'Reilly",
+        "Yong Sheng Soh"
+      ],
+      "abstract": "Regularization is a central tool for addressing ill-posedness in inverse\nproblems and statistical estimation, with the choice of a suitable penalty\noften determining the reliability and interpretability of downstream solutions.\nWhile recent work has characterized optimal regularizers for well-specified\ndata distributions, practical deployments are often complicated by\ndistributional uncertainty and the need to enforce structural constraints such\nas convexity. In this paper, we introduce a framework for distributionally\nrobust optimal regularization, which identifies regularizers that remain\neffective under perturbations of the data distribution. Our approach leverages\nconvex duality to reformulate the underlying distributionally robust\noptimization problem, eliminating the inner maximization and yielding\nformulations that are amenable to numerical computation. We show how the\nresulting robust regularizers interpolate between memorization of the training\ndistribution and uniform priors, providing insights into their behavior as\nrobustness parameters vary. For example, we show how certain ambiguity sets,\nsuch as those based on the Wasserstein-1 distance, naturally induce regularity\nin the optimal regularizer by promoting regularizers with smaller Lipschitz\nconstants. We further investigate the setting where regularizers are required\nto be convex, formulating a convex program for their computation and\nillustrating their stability with respect to distributional shifts. Taken\ntogether, our results provide both theoretical and computational foundations\nfor designing regularizers that are reliable under model uncertainty and\nstructurally constrained for robust deployment.",
+      "published": "October 03, 2025",
+      "categories": [
+        "math.OC",
+        "math.MG",
+        "math.ST",
+        "stat.ML",
+        "stat.TH"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.03464v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.03464v1"
+    },
+    {
+      "title": "Bayesian Transfer Learning for High-Dimensional Linear Regression via\n  Adaptive Shrinkage",
+      "authors": [
+        "Parsa Jamshidian",
+        "Donatello Telesca"
+      ],
+      "abstract": "We introduce BLAST, Bayesian Linear regression with Adaptive Shrinkage for\nTransfer, a Bayesian multi-source transfer learning framework for\nhigh-dimensional linear regression. The proposed analytical framework leverages\nglobal-local shrinkage priors together with Bayesian source selection to\nbalance information sharing and regularization. We show how Bayesian source\nselection allows for the extraction of the most useful data sources, while\ndiscounting biasing information that may lead to negative transfer. In this\nframework, both source selection and sparse regression are jointly accounted\nfor in prediction and inference via Bayesian model averaging. The structure of\nour model admits efficient posterior simulation via a Gibbs sampling algorithm\nallowing full posterior inference for the target regression coefficients,\nmaking BLAST both computationally practical and inferentially straightforward.\nOur method achieves more accurate posterior inference for the target than\nregularization approaches based on target data alone, while offering\ncompetitive predictive performance and superior uncertainty quantification\ncompared to current state-of-the-art transfer learning methods. We validate its\neffectiveness through extensive simulation studies and illustrate its\nanalytical properties when applied to a case study on the estimation of tumor\nmutational burden from gene expression, using data from The Cancer Genome Atlas\n(TCGA).",
+      "published": "October 03, 2025",
+      "categories": [
+        "stat.ME",
+        "stat.AP",
+        "stat.CO"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.03449v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.03449v1"
+    },
     {
       "title": "Exactly or Approximately Wasserstein Distributionally Robust Estimation\n  According to Wasserstein Radii Being Small or Large",
       "authors": [
@@ -38,8 +91,8 @@
         "stat.AP",
         "stat.ML"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2510.00048v1",
-      "arxiv_url": "http://arxiv.org/abs/2510.00048v1"
+      "pdf_link": "http://arxiv.org/pdf/2510.00048v2",
+      "arxiv_url": "http://arxiv.org/abs/2510.00048v2"
     },
     {
       "title": "Conditional Risk Minimization with Side Information: A Tractable,\n  Universal Optimal Transport Framework",
@@ -76,77 +129,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2509.22268v1",
       "arxiv_url": "http://arxiv.org/abs/2509.22268v1"
-    },
-    {
-      "title": "Transfer Learning in Regression with Influential Points",
-      "authors": [
-        "Bingbing Wang",
-        "Jiaqi Wang",
-        "Yu Tang"
-      ],
-      "abstract": "Regression prediction plays a crucial role in practical applications and\nstrongly relies on data annotation. However, due to prohibitive annotation\ncosts or domain-specific constraints, labeled data in the target domain is\noften scarce, making transfer learning a critical solution by leveraging\nknowledge from resource-rich source domains. In the practical target scenario,\nalthough transfer learning has been widely applied, influential points can\nsignificantly distort parameter estimation for the target domain model. This\nissue is further compounded when influential points are also present in source\ndomains, leading to aggravated performance degradation and posing critical\nrobustness challenges for existing transfer learning frameworks. In this study,\nwe innovatively introduce a transfer learning collaborative optimization\n(Trans-CO) framework for influential point detection and regression model\nfitting. Extensive simulation experiments demonstrate that the proposed\nTrans-CO algorithm outperforms competing methods in terms of model fitting\nperformance and influential point identification accuracy. Furthermore, it\nachieves superior predictive accuracy on real-world datasets, providing a novel\nsolution for transfer learning in regression with influential points",
-      "published": "September 24, 2025",
-      "categories": [
-        "stat.ME"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2509.20272v1",
-      "arxiv_url": "http://arxiv.org/abs/2509.20272v1"
-    },
-    {
-      "title": "A Realistic Evaluation of Cross-Frequency Transfer Learning and\n  Foundation Forecasting Models",
-      "authors": [
-        "Kin G. Olivares",
-        "Malcolm Wolff",
-        "Tatiana Konstantinova",
-        "Shankar Ramasubramanian",
-        "Andrew Gordon Wilson",
-        "Andres Potapczynski",
-        "Willa Potosnak",
-        "Mengfei Cao",
-        "Boris Oreshkin",
-        "Dmitry Efimov"
-      ],
-      "abstract": "Cross-frequency transfer learning (CFTL) has emerged as a popular framework\nfor curating large-scale time series datasets to pre-train foundation\nforecasting models (FFMs). Although CFTL has shown promise, current\nbenchmarking practices fall short of accurately assessing its performance. This\nshortcoming stems from many factors: an over-reliance on small-scale evaluation\ndatasets; inadequate treatment of sample size when computing summary\nstatistics; reporting of suboptimal statistical models; and failing to account\nfor non-negligible risks of overlap between pre-training and test datasets. To\naddress these limitations, we introduce a unified reimplementation of\nwidely-adopted neural forecasting networks, adapting them for the CFTL setup;\nwe pre-train only on proprietary and synthetic data, being careful to prevent\ntest leakage; and we evaluate on 15 large, diverse public forecast competition\ndatasets. Our empirical analysis reveals that statistical models' accuracy is\nfrequently underreported. Notably, we confirm that statistical models and their\nensembles consistently outperform existing FFMs by more than 8.2% in sCRPS, and\nby more than 20% MASE, across datasets. However, we also find that synthetic\ndataset pre-training does improve the accuracy of a FFM by 7% percent.",
-      "published": "September 23, 2025",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "stat.AP"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2509.19465v1",
-      "arxiv_url": "http://arxiv.org/abs/2509.19465v1"
-    },
-    {
-      "title": "DRO-REBEL: Distributionally Robust Relative-Reward Regression for Fast\n  and Efficient LLM Alignment",
-      "authors": [
-        "Sharan Sahu",
-        "Martin T. Wells"
-      ],
-      "abstract": "Reinforcement learning with human feedback (RLHF) has become crucial for\naligning Large Language Models (LLMs) with human intent. However, existing\noffline RLHF approaches suffer from overoptimization, where models overfit to\nreward misspecification and drift from preferred behaviors observed during\ntraining. We introduce DRO-REBEL, a unified family of robust REBEL updates with\ntype-$p$ Wasserstein, KL, and $\\chi^2$ ambiguity sets. Using Fenchel duality,\neach update reduces to a simple relative-reward regression, preserving\nscalability and avoiding PPO-style clipping or auxiliary value networks. Under\nstandard linear-reward and log-linear policy classes with a data-coverage\ncondition, we establish $O(n^{-1/4})$ estimation bounds with tighter constants\nthan prior DRO-DPO approaches, and recover the minimax-optimal $O(n^{-1/2})$\nrate via a localized Rademacher complexity analysis. The same analysis closes\nthe gap for Wasserstein-DPO and KL-DPO, showing both also attain optimal\nparametric rates. We derive practical SGD algorithms for all three divergences:\ngradient regularization (Wasserstein), importance weighting (KL), and a fast\n1-D dual solve ($\\chi^2$). Experiments on Emotion Alignment, the large-scale\nArmoRM multi-objective benchmark, and HH-Alignment demonstrate strong\nworst-case robustness across unseen preference mixtures, model sizes, and data\nscales, with $\\chi^2$-REBEL showing consistently strong empirical performance.\nA controlled radius--coverage study validates a no-free-lunch trade-off: radii\nshrinking faster than empirical divergence concentration rates achieve\nminimax-optimal parametric rates but forfeit coverage, while\ncoverage-guaranteeing radii incur $O(n^{-1/4})$ rates.",
-      "published": "September 23, 2025",
-      "categories": [
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2509.19104v1",
-      "arxiv_url": "http://arxiv.org/abs/2509.19104v1"
-    },
-    {
-      "title": "Asymptotically Optimal Problem-Dependent Bandit Policies for Transfer\n  Learning",
-      "authors": [
-        "Adrien Prevost",
-        "Timothee Mathieu",
-        "Odalric-Ambrym Maillard"
-      ],
-      "abstract": "We study the non-contextual multi-armed bandit problem in a transfer learning\nsetting: before any pulls, the learner is given N'_k i.i.d. samples from each\nsource distribution nu'_k, and the true target distributions nu_k lie within a\nknown distance bound d_k(nu_k, nu'_k) <= L_k. In this framework, we first\nderive a problem-dependent asymptotic lower bound on cumulative regret that\nextends the classical Lai-Robbins result to incorporate the transfer parameters\n(d_k, L_k, N'_k). We then propose KL-UCB-Transfer, a simple index policy that\nmatches this new bound in the Gaussian case. Finally, we validate our approach\nvia simulations, showing that KL-UCB-Transfer significantly outperforms the\nno-prior baseline when source and target distributions are sufficiently close.",
-      "published": "September 23, 2025",
-      "categories": [
-        "cs.LG",
-        "math.ST",
-        "stat.TH"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2509.19098v1",
-      "arxiv_url": "http://arxiv.org/abs/2509.19098v1"
     }
   ]
 }
