@@ -1,6 +1,23 @@
 {
-  "timestamp": 1759972733,
+  "timestamp": 1760059141,
   "papers": [
+    {
+      "title": "Scalable deep fusion of spaceborne lidar and synthetic aperture radar\n  for global forest structural complexity mapping",
+      "authors": [
+        "Tiago de Conto",
+        "John Armston",
+        "Ralph Dubayah"
+      ],
+      "abstract": "Forest structural complexity metrics integrate multiple canopy attributes\ninto a single value that reflects habitat quality and ecosystem function.\nSpaceborne lidar from the Global Ecosystem Dynamics Investigation (GEDI) has\nenabled mapping of structural complexity in temperate and tropical forests, but\nits sparse sampling limits continuous high-resolution mapping. We present a\nscalable, deep learning framework fusing GEDI observations with multimodal\nSynthetic Aperture Radar (SAR) datasets to produce global, high-resolution (25\nm) wall-to-wall maps of forest structural complexity. Our adapted\nEfficientNetV2 architecture, trained on over 130 million GEDI footprints,\nachieves high performance (global R2 = 0.82) with fewer than 400,000\nparameters, making it an accessible tool that enables researchers to process\ndatasets at any scale without requiring specialized computing infrastructure.\nThe model produces accurate predictions with calibrated uncertainty estimates\nacross biomes and time periods, preserving fine-scale spatial patterns. It has\nbeen used to generate a global, multi-temporal dataset of forest structural\ncomplexity from 2015 to 2022. Through transfer learning, this framework can be\nextended to predict additional forest structural variables with minimal\ncomputational cost. This approach supports continuous, multi-temporal\nmonitoring of global forest structural dynamics and provides tools for\nbiodiversity conservation and ecosystem management efforts in a changing\nclimate.",
+      "published": "October 07, 2025",
+      "categories": [
+        "cs.CV",
+        "cs.LG",
+        "stat.AP"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.06299v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.06299v1"
+    },
     {
       "title": "Transfer Learning on Edge Connecting Probability Estimation under\n  Graphon Model",
       "authors": [
@@ -91,44 +108,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2510.01763v2",
       "arxiv_url": "http://arxiv.org/abs/2510.01763v2"
-    },
-    {
-      "title": "Deep Learning Approaches with Explainable AI for Differentiating\n  Alzheimer Disease and Mild Cognitive Impairment",
-      "authors": [
-        "Fahad Mostafa",
-        "Kannon Hossain",
-        "Hafiz Khan"
-      ],
-      "abstract": "Early and accurate diagnosis of Alzheimer Disease is critical for effective\nclinical intervention, particularly in distinguishing it from Mild Cognitive\nImpairment, a prodromal stage marked by subtle structural changes. In this\nstudy, we propose a hybrid deep learning ensemble framework for Alzheimer\nDisease classification using structural magnetic resonance imaging. Gray and\nwhite matter slices are used as inputs to three pretrained convolutional neural\nnetworks such as ResNet50, NASNet, and MobileNet, each fine tuned through an\nend to end process. To further enhance performance, we incorporate a stacked\nensemble learning strategy with a meta learner and weighted averaging to\noptimally combine the base models. Evaluated on the Alzheimer Disease\nNeuroimaging Initiative dataset, the proposed method achieves state of the art\naccuracy of 99.21% for Alzheimer Disease vs. Mild Cognitive Impairment and\n91.0% for Mild Cognitive Impairment vs. Normal Controls, outperforming\nconventional transfer learning and baseline ensemble methods. To improve\ninterpretability in image based diagnostics, we integrate Explainable AI\ntechniques by Gradient weighted Class Activation, which generates heatmaps and\nattribution maps that highlight critical regions in gray and white matter\nslices, revealing structural biomarkers that influence model decisions. These\nresults highlight the frameworks potential for robust and scalable clinical\ndecision support in neurodegenerative disease diagnostics.",
-      "published": "September 27, 2025",
-      "categories": [
-        "eess.IV",
-        "cs.AI",
-        "cs.CV",
-        "cs.LG",
-        "stat.AP",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2510.00048v2",
-      "arxiv_url": "http://arxiv.org/abs/2510.00048v2"
-    },
-    {
-      "title": "Conditional Risk Minimization with Side Information: A Tractable,\n  Universal Optimal Transport Framework",
-      "authors": [
-        "Xinqiao Xie",
-        "Jonathan Yu-Meng Li"
-      ],
-      "abstract": "Conditional risk minimization arises in high-stakes decisions where risk must\nbe assessed in light of side information, such as stressed economic conditions,\nspecific customer profiles, or other contextual covariates. Constructing\nreliable conditional distributions from limited data is notoriously difficult,\nmotivating a series of optimal-transport-based proposals that address this\nuncertainty in a distributionally robust manner. Yet these approaches remain\nfragmented, each constrained by its own limitations: some rely on point\nestimates or restrictive structural assumptions, others apply only to narrow\nclasses of risk measures, and their structural connections are unclear. We\nintroduce a universal framework for distributionally robust conditional risk\nminimization, built on a novel union-ball formulation in optimal transport.\nThis framework offers three key advantages: interpretability, by subsuming\nexisting methods as special cases and revealing their deep structural links;\ntractability, by yielding convex reformulations for virtually all major risk\nfunctionals studied in the literature; and scalability, by supporting\ncutting-plane algorithms for large-scale conditional risk problems.\nApplications to portfolio optimization with rank-dependent expected utility\nhighlight the practical effectiveness of the framework, with conditional models\nconverging to optimal solutions where unconditional ones clearly do not.",
-      "published": "September 27, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "math.OC",
-        "q-fin.PM",
-        "q-fin.RM"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2509.23128v1",
-      "arxiv_url": "http://arxiv.org/abs/2509.23128v1"
     }
   ]
 }
