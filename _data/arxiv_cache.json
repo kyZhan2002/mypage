@@ -1,6 +1,40 @@
 {
-  "timestamp": 1760232155,
+  "timestamp": 1760404732,
   "papers": [
+    {
+      "title": "Distributionally robust approximation property of neural networks",
+      "authors": [
+        "Mihriban Ceylan",
+        "David J. Pr\u00f6mel"
+      ],
+      "abstract": "The universal approximation property uniformly with respect to weakly compact\nfamilies of measures is established for several classes of neural networks. To\nthat end, we prove that these neural networks are dense in Orlicz spaces,\nthereby extending classical universal approximation theorems even beyond the\ntraditional $L^p$-setting. The covered classes of neural networks include\nwidely used architectures like feedforward neural networks with non-polynomial\nactivation functions, deep narrow networks with ReLU activation functions and\nfunctional input neural networks.",
+      "published": "October 10, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.FA",
+        "math.PR"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.09177v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.09177v1"
+    },
+    {
+      "title": "Structured Output Regularization: a framework for few-shot transfer\n  learning",
+      "authors": [
+        "Nicolas Ewen",
+        "Jairo Diaz-Rodriguez",
+        "Kelly Ramsay"
+      ],
+      "abstract": "Traditional transfer learning typically reuses large pre-trained networks by\nfreezing some of their weights and adding task-specific layers. While this\napproach is computationally efficient, it limits the model's ability to adapt\nto domain-specific features and can still lead to overfitting with very limited\ndata. To address these limitations, we propose Structured Output Regularization\n(SOR), a simple yet effective framework that freezes the internal network\nstructures (e.g., convolutional filters) while using a combination of group\nlasso and $L_1$ penalties. This framework tailors the model to specific data\nwith minimal additional parameters and is easily applicable to various network\ncomponents, such as convolutional filters or various blocks in neural networks\nenabling broad applicability for transfer learning tasks. We evaluate SOR on\nthree few shot medical imaging classification tasks and we achieve competitive\nresults using DenseNet121, and EfficientNetB4 bases compared to established\nbenchmarks.",
+      "published": "October 09, 2025",
+      "categories": [
+        "cs.CV",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.08728v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.08728v1"
+    },
     {
       "title": "Scalable deep fusion of spaceborne lidar and synthetic aperture radar\n  for global forest structural complexity mapping",
       "authors": [
