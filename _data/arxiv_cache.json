@@ -1,6 +1,57 @@
 {
-  "timestamp": 1760404732,
+  "timestamp": 1760491262,
   "papers": [
+    {
+      "title": "Transfer Learning with Distance Covariance for Random Forest: Error\n  Bounds and an EHR Application",
+      "authors": [
+        "Chenze Li",
+        "Subhadeep Paul"
+      ],
+      "abstract": "Random forest is an important method for ML applications due to its broad\noutperformance over competing methods for structured tabular data. We propose a\nmethod for transfer learning in nonparametric regression using a centered\nrandom forest (CRF) with distance covariance-based feature weights, assuming\nthe unknown source and target regression functions are different for a few\nfeatures (sparsely different). Our method first obtains residuals from\npredicting the response in the target domain using a source domain-trained CRF.\nThen, we fit another CRF to the residuals, but with feature splitting\nprobabilities proportional to the sample distance covariance between the\nfeatures and the residuals in an independent sample. We derive an upper bound\non the mean square error rate of the procedure as a function of sample sizes\nand difference dimension, theoretically demonstrating transfer learning\nbenefits in random forests. In simulations, we show that the results obtained\nfor the CRFs also hold numerically for the standard random forest (SRF) method\nwith data-driven feature split selection. Beyond transfer learning, our results\nalso show the benefit of distance-covariance-based weights on the performance\nof RF in some situations. Our method shows significant gains in predicting the\nmortality of ICU patients in smaller-bed target hospitals using a large\nmulti-hospital dataset of electronic health records for 200,000 ICU patients.",
+      "published": "October 13, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.ST",
+        "stat.ME",
+        "stat.TH"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.10870v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.10870v1"
+    },
+    {
+      "title": "Quantifying Dataset Similarity to Guide Transfer Learning",
+      "authors": [
+        "Shudong Sun",
+        "Hao Helen Zhang"
+      ],
+      "abstract": "Transfer learning has become a cornerstone of modern machine learning, as it\ncan empower models by leveraging knowledge from related domains to improve\nlearning effectiveness. However, transferring from poorly aligned data can harm\nrather than help performance, making it crucial to determine whether the\ntransfer will be beneficial before implementation. This work aims to address\nthis challenge by proposing an innovative metric to measure dataset similarity\nand provide quantitative guidance on transferability. In the literature,\nexisting methods largely focus on feature distributions while overlooking label\ninformation and predictive relationships, potentially missing critical\ntransferability insights. In contrast, our proposed metric, the Cross-Learning\nScore (CLS), measures dataset similarity through bidirectional generalization\nperformance between domains. We provide a theoretical justification for CLS by\nestablishing its connection to the cosine similarity between the decision\nboundaries for the target and source datasets. Computationally, CLS is\nefficient and fast to compute as it bypasses the problem of expensive\ndistribution estimation for high-dimensional problems. We further introduce a\ngeneral framework that categorizes source datasets into positive, ambiguous, or\nnegative transfer zones based on their CLS relative to the baseline error,\nenabling informed decisions. Additionally, we extend this approach to\nencoder-head architectures in deep learning to better reflect modern transfer\npipelines. Extensive experiments on diverse synthetic and real-world tasks\ndemonstrate that CLS can reliably predict whether transfer will improve or\ndegrade performance, offering a principled tool for guiding data selection in\ntransfer learning.",
+      "published": "October 13, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.10866v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.10866v1"
+    },
+    {
+      "title": "Tight Robustness Certificates and Wasserstein Distributional Attacks for\n  Deep Neural Networks",
+      "authors": [
+        "Bach C. Le",
+        "Tung V. Dao",
+        "Binh T. Nguyen",
+        "Hong T. M. Chu"
+      ],
+      "abstract": "Wasserstein distributionally robust optimization (WDRO) provides a framework\nfor adversarial robustness, yet existing methods based on global Lipschitz\ncontinuity or strong duality often yield loose upper bounds or require\nprohibitive computation. In this work, we address these limitations by\nintroducing a primal approach and adopting a notion of exact Lipschitz\ncertificate to tighten this upper bound of WDRO. In addition, we propose a\nnovel Wasserstein distributional attack (WDA) that directly constructs a\ncandidate for the worst-case distribution. Compared to existing point-wise\nattack and its variants, our WDA offers greater flexibility in the number and\nlocation of attack points. In particular, by leveraging the piecewise-affine\nstructure of ReLU networks on their activation cells, our approach results in\nan exact tractable characterization of the corresponding WDRO problem.\nExtensive evaluations demonstrate that our method achieves competitive robust\naccuracy against state-of-the-art baselines while offering tighter certificates\nthan existing methods. Our code is available at\nhttps://github.com/OLab-Repo/WDA",
+      "published": "October 11, 2025",
+      "categories": [
+        "cs.LG",
+        "math.OC",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.10000v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.10000v1"
+    },
     {
       "title": "Distributionally robust approximation property of neural networks",
       "authors": [
@@ -122,26 +173,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2510.03449v1",
       "arxiv_url": "http://arxiv.org/abs/2510.03449v1"
-    },
-    {
-      "title": "Exactly or Approximately Wasserstein Distributionally Robust Estimation\n  According to Wasserstein Radii Being Small or Large",
-      "authors": [
-        "Xiao Ding",
-        "Enbin Song",
-        "Dunbiao Niu",
-        "Zhujun Cao",
-        "Qingjiang Shi"
-      ],
-      "abstract": "This paper primarily considers the robust estimation problem under\nWasserstein distance constraints on the parameter and noise distributions in\nthe linear measurement model with additive noise, which can be formulated as an\ninfinite-dimensional nonconvex minimax problem. We prove that the existence of\na saddle point for this problem is equivalent to that for a finite-dimensional\nminimax problem, and give a counterexample demonstrating that the saddle point\nmay not exist. Motivated by this observation, we present a verifiable necessary\nand sufficient condition whose parameters can be derived from a convex problem\nand its dual. Additionally, we also introduce a simplified sufficient\ncondition, which intuitively indicates that when the Wasserstein radii are\nsmall enough, the saddle point always exists. In the absence of the saddle\npoint, we solve an finite-dimensional nonconvex minimax problem, obtained by\nrestricting the estimator to be linear. Its optimal value establishes an upper\nbound on the robust estimation problem, while its optimal solution yields a\nrobust linear estimator. Numerical experiments are also provided to validate\nour theoretical results.",
-      "published": "October 02, 2025",
-      "categories": [
-        "eess.SP",
-        "math.OC",
-        "math.ST",
-        "stat.TH"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2510.01763v2",
-      "arxiv_url": "http://arxiv.org/abs/2510.01763v2"
     }
   ]
 }
