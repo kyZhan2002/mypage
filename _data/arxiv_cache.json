@@ -1,5 +1,5 @@
 {
-  "timestamp": 1760577628,
+  "timestamp": 1760664009,
   "papers": [
     {
       "title": "Transfer Learning with Distance Covariance for Random Forest: Error\n  Bounds and an EHR Application",
@@ -157,22 +157,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2510.03464v1",
       "arxiv_url": "http://arxiv.org/abs/2510.03464v1"
-    },
-    {
-      "title": "Bayesian Transfer Learning for High-Dimensional Linear Regression via\n  Adaptive Shrinkage",
-      "authors": [
-        "Parsa Jamshidian",
-        "Donatello Telesca"
-      ],
-      "abstract": "We introduce BLAST, Bayesian Linear regression with Adaptive Shrinkage for\nTransfer, a Bayesian multi-source transfer learning framework for\nhigh-dimensional linear regression. The proposed analytical framework leverages\nglobal-local shrinkage priors together with Bayesian source selection to\nbalance information sharing and regularization. We show how Bayesian source\nselection allows for the extraction of the most useful data sources, while\ndiscounting biasing information that may lead to negative transfer. In this\nframework, both source selection and sparse regression are jointly accounted\nfor in prediction and inference via Bayesian model averaging. The structure of\nour model admits efficient posterior simulation via a Gibbs sampling algorithm\nallowing full posterior inference for the target regression coefficients,\nmaking BLAST both computationally practical and inferentially straightforward.\nOur method achieves more accurate posterior inference for the target than\nregularization approaches based on target data alone, while offering\ncompetitive predictive performance and superior uncertainty quantification\ncompared to current state-of-the-art transfer learning methods. We validate its\neffectiveness through extensive simulation studies and illustrate its\nanalytical properties when applied to a case study on the estimation of tumor\nmutational burden from gene expression, using data from The Cancer Genome Atlas\n(TCGA).",
-      "published": "October 03, 2025",
-      "categories": [
-        "stat.ME",
-        "stat.AP",
-        "stat.CO"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2510.03449v1",
-      "arxiv_url": "http://arxiv.org/abs/2510.03449v1"
     }
   ]
 }
