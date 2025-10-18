@@ -1,6 +1,40 @@
 {
-  "timestamp": 1760664009,
+  "timestamp": 1760750167,
   "papers": [
+    {
+      "title": "Evaluating Policy Effects under Network Interference without Network\n  Information: A Transfer Learning Approach",
+      "authors": [
+        "Tadao Hoshino"
+      ],
+      "abstract": "This paper develops a sensitivity analysis framework that transfers the\naverage total treatment effect (ATTE) from source data with a fully observed\nnetwork to target data whose network is completely unknown. The ATTE represents\nthe average social impact of a policy that assigns the treatment to every\nindividual in the dataset. We postulate a covariate-shift type assumption that\nboth source and target datasets share the same conditional mean outcome.\nHowever, because the target network is unobserved, this assumption alone is not\nsufficient to pin down the ATTE for the target data. To address this issue, we\nconsider a sensitivity analysis based on the uncertainty of the target\nnetwork's degree distribution, where the extent of uncertainty is measured by\nthe Wasserstein distance from a given reference degree distribution. We then\nconstruct bounds on the target ATTE using a linear programming-based estimator.\nThe limiting distribution of the bound estimator is derived via the functional\ndelta method, and we develop a wild bootstrap approach to approximate the\ndistribution. As an empirical illustration, we revisit the social network\nexperiment on farmers' weather insurance adoption in China by Cai et al.\n(2015).",
+      "published": "October 16, 2025",
+      "categories": [
+        "stat.ME",
+        "econ.EM",
+        "math.ST",
+        "stat.TH"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.14415v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.14415v1"
+    },
+    {
+      "title": "Policy Regularized Distributionally Robust Markov Decision Processes\n  with Linear Function Approximation",
+      "authors": [
+        "Jingwen Gu",
+        "Yiting He",
+        "Zhishuai Liu",
+        "Pan Xu"
+      ],
+      "abstract": "Decision-making under distribution shift is a central challenge in\nreinforcement learning (RL), where training and deployment environments differ.\nWe study this problem through the lens of robust Markov decision processes\n(RMDPs), which optimize performance against adversarial transition dynamics.\nOur focus is the online setting, where the agent has only limited interaction\nwith the environment, making sample efficiency and exploration especially\ncritical. Policy optimization, despite its success in standard RL, remains\ntheoretically and empirically underexplored in robust RL. To bridge this gap,\nwe propose \\textbf{D}istributionally \\textbf{R}obust \\textbf{R}egularized\n\\textbf{P}olicy \\textbf{O}ptimization algorithm (DR-RPO), a model-free online\npolicy optimization method that learns robust policies with sublinear regret.\nTo enable tractable optimization within the softmax policy class, DR-RPO\nincorporates reference-policy regularization, yielding RMDP variants that are\ndoubly constrained in both transitions and policies. To scale to large\nstate-action spaces, we adopt the $d$-rectangular linear MDP formulation and\ncombine linear function approximation with an upper confidence bonus for\noptimistic exploration. We provide theoretical guarantees showing that policy\noptimization can achieve polynomial suboptimality bounds and sample efficiency\nin robust RL, matching the performance of value-based approaches. Finally,\nempirical results across diverse domains corroborate our theory and demonstrate\nthe robustness of DR-RPO.",
+      "published": "October 16, 2025",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.14246v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.14246v1"
+    },
     {
       "title": "Transfer Learning with Distance Covariance for Random Forest: Error\n  Bounds and an EHR Application",
       "authors": [
@@ -138,25 +172,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2510.04579v1",
       "arxiv_url": "http://arxiv.org/abs/2510.04579v1"
-    },
-    {
-      "title": "Optimal Regularization Under Uncertainty: Distributional Robustness and\n  Convexity Constraints",
-      "authors": [
-        "Oscar Leong",
-        "Eliza O'Reilly",
-        "Yong Sheng Soh"
-      ],
-      "abstract": "Regularization is a central tool for addressing ill-posedness in inverse\nproblems and statistical estimation, with the choice of a suitable penalty\noften determining the reliability and interpretability of downstream solutions.\nWhile recent work has characterized optimal regularizers for well-specified\ndata distributions, practical deployments are often complicated by\ndistributional uncertainty and the need to enforce structural constraints such\nas convexity. In this paper, we introduce a framework for distributionally\nrobust optimal regularization, which identifies regularizers that remain\neffective under perturbations of the data distribution. Our approach leverages\nconvex duality to reformulate the underlying distributionally robust\noptimization problem, eliminating the inner maximization and yielding\nformulations that are amenable to numerical computation. We show how the\nresulting robust regularizers interpolate between memorization of the training\ndistribution and uniform priors, providing insights into their behavior as\nrobustness parameters vary. For example, we show how certain ambiguity sets,\nsuch as those based on the Wasserstein-1 distance, naturally induce regularity\nin the optimal regularizer by promoting regularizers with smaller Lipschitz\nconstants. We further investigate the setting where regularizers are required\nto be convex, formulating a convex program for their computation and\nillustrating their stability with respect to distributional shifts. Taken\ntogether, our results provide both theoretical and computational foundations\nfor designing regularizers that are reliable under model uncertainty and\nstructurally constrained for robust deployment.",
-      "published": "October 03, 2025",
-      "categories": [
-        "math.OC",
-        "math.MG",
-        "math.ST",
-        "stat.ML",
-        "stat.TH"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2510.03464v1",
-      "arxiv_url": "http://arxiv.org/abs/2510.03464v1"
     }
   ]
 }
