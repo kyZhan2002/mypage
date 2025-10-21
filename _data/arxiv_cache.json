@@ -1,6 +1,39 @@
 {
-  "timestamp": 1760923574,
+  "timestamp": 1761009746,
   "papers": [
+    {
+      "title": "Transfer Learning for Benign Overfitting in High-Dimensional Linear\n  Regression",
+      "authors": [
+        "Yeichan Kim",
+        "Ilmun Kim",
+        "Seyoung Park"
+      ],
+      "abstract": "Transfer learning is a key component of modern machine learning, enhancing\nthe performance of target tasks by leveraging diverse data sources.\nSimultaneously, overparameterized models such as the minimum-$\\ell_2$-norm\ninterpolator (MNI) in high-dimensional linear regression have garnered\nsignificant attention for their remarkable generalization capabilities, a\nproperty known as benign overfitting. Despite their individual importance, the\nintersection of transfer learning and MNI remains largely unexplored. Our\nresearch bridges this gap by proposing a novel two-step Transfer MNI approach\nand analyzing its trade-offs. We characterize its non-asymptotic excess risk\nand identify conditions under which it outperforms the target-only MNI. Our\nanalysis reveals free-lunch covariate shift regimes, where leveraging\nheterogeneous data yields the benefit of knowledge transfer at limited cost. To\noperationalize our findings, we develop a data-driven procedure to detect\ninformative sources and introduce an ensemble method incorporating multiple\ninformative Transfer MNIs. Finite-sample experiments demonstrate the robustness\nof our methods to model and data heterogeneity, confirming their advantage.",
+      "published": "October 17, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.ST",
+        "stat.TH"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.15337v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.15337v1"
+    },
+    {
+      "title": "Stress-Aware Learning under KL Drift via Trust-Decayed Mirror Descent",
+      "authors": [
+        "Gabriel Nixon Raj"
+      ],
+      "abstract": "We study sequential decision-making under distribution drift. We propose\nentropy-regularized trust-decay, which injects stress-aware exponential tilting\ninto both belief updates and mirror-descent decisions. On the simplex, a\nFenchel-dual equivalence shows that belief tilt and decision tilt coincide. We\nformalize robustness via fragility (worst-case excess risk in a KL ball),\nbelief bandwidth (radius sustaining a target excess), and a decision-space\nFragility Index (drift tolerated at $O(\\sqrt{T})$ regret). We prove\nhigh-probability sensitivity bounds and establish dynamic-regret guarantees of\n$\\tilde{O}(\\sqrt{T})$ under KL-drift path length $S_T = \\sum_{t\\ge2}\\sqrt{{\\rm\nKL}(D_t|D_{t-1})/2}$. In particular, trust-decay achieves $O(1)$ per-switch\nregret, while stress-free updates incur $\\Omega(1)$ tails. A parameter-free\nhedge adapts the tilt to unknown drift, whereas persistent over-tilting yields\nan $\\Omega(\\lambda^2 T)$ stationary penalty. We further obtain\ncalibrated-stress bounds and extensions to second-order updates, bandit\nfeedback, outliers, stress variation, distributed optimization, and plug-in\nKL-drift estimation. The framework unifies dynamic-regret analysis,\ndistributionally robust objectives, and KL-regularized control within a single\nstress-adaptive update.",
+      "published": "October 17, 2025",
+      "categories": [
+        "cs.LG",
+        "math.ST",
+        "stat.TH"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.15222v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.15222v1"
+    },
     {
       "title": "Evaluating Policy Effects under Network Interference without Network\n  Information: A Transfer Learning Approach",
       "authors": [
@@ -154,24 +187,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2510.05527v1",
       "arxiv_url": "http://arxiv.org/abs/2510.05527v1"
-    },
-    {
-      "title": "Busemann Functions in the Wasserstein Space: Existence, Closed-Forms,\n  and Applications to Slicing",
-      "authors": [
-        "Cl\u00e9ment Bonet",
-        "Elsa Cazelles",
-        "Lucas Drumetz",
-        "Nicolas Courty"
-      ],
-      "abstract": "The Busemann function has recently found much interest in a variety of\ngeometric machine learning problems, as it naturally defines projections onto\ngeodesic rays of Riemannian manifolds and generalizes the notion of\nhyperplanes. As several sources of data can be conveniently modeled as\nprobability distributions, it is natural to study this function in the\nWasserstein space, which carries a rich formal Riemannian structure induced by\nOptimal Transport metrics. In this work, we investigate the existence and\ncomputation of Busemann functions in Wasserstein space, which admits geodesic\nrays. We establish closed-form expressions in two important cases:\none-dimensional distributions and Gaussian measures. These results enable\nexplicit projection schemes for probability distributions on $\\mathbb{R}$,\nwhich in turn allow us to define novel Sliced-Wasserstein distances over\nGaussian mixtures and labeled datasets. We demonstrate the efficiency of those\noriginal schemes on synthetic datasets as well as transfer learning problems.",
-      "published": "October 06, 2025",
-      "categories": [
-        "cs.LG",
-        "math.MG",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2510.04579v1",
-      "arxiv_url": "http://arxiv.org/abs/2510.04579v1"
     }
   ]
 }
