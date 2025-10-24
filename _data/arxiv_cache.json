@@ -1,6 +1,24 @@
 {
-  "timestamp": 1761182511,
+  "timestamp": 1761268686,
   "papers": [
+    {
+      "title": "Policy Learning with Abstention",
+      "authors": [
+        "Ayush Sawarni",
+        "Jikai Jin",
+        "Justin Whitehouse",
+        "Vasilis Syrgkanis"
+      ],
+      "abstract": "Policy learning algorithms are widely used in areas such as personalized\nmedicine and advertising to develop individualized treatment regimes. However,\nmost methods force a decision even when predictions are uncertain, which is\nrisky in high-stakes settings. We study policy learning with abstention, where\na policy may defer to a safe default or an expert. When a policy abstains, it\nreceives a small additive reward on top of the value of a random guess. We\npropose a two-stage learner that first identifies a set of near-optimal\npolicies and then constructs an abstention rule from their disagreements. We\nestablish fast O(1/n)-type regret guarantees when propensities are known, and\nextend these guarantees to the unknown-propensity case via a doubly robust (DR)\nobjective. We further show that abstention is a versatile tool with direct\napplications to other core problems in policy learning: it yields improved\nguarantees under margin conditions without the common realizability assumption,\nconnects to distributionally robust policy learning by hedging against small\ndata shifts, and supports safe policy improvement by ensuring improvement over\na baseline policy with high probability.",
+      "published": "October 22, 2025",
+      "categories": [
+        "cs.LG",
+        "econ.EM",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.19672v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.19672v1"
+    },
     {
       "title": "Transfer Learning for Benign Overfitting in High-Dimensional Linear\n  Regression",
       "authors": [
@@ -67,6 +85,91 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2510.14246v1",
       "arxiv_url": "http://arxiv.org/abs/2510.14246v1"
+    },
+    {
+      "title": "Transfer Learning with Distance Covariance for Random Forest: Error\n  Bounds and an EHR Application",
+      "authors": [
+        "Chenze Li",
+        "Subhadeep Paul"
+      ],
+      "abstract": "Random forest is an important method for ML applications due to its broad\noutperformance over competing methods for structured tabular data. We propose a\nmethod for transfer learning in nonparametric regression using a centered\nrandom forest (CRF) with distance covariance-based feature weights, assuming\nthe unknown source and target regression functions are different for a few\nfeatures (sparsely different). Our method first obtains residuals from\npredicting the response in the target domain using a source domain-trained CRF.\nThen, we fit another CRF to the residuals, but with feature splitting\nprobabilities proportional to the sample distance covariance between the\nfeatures and the residuals in an independent sample. We derive an upper bound\non the mean square error rate of the procedure as a function of sample sizes\nand difference dimension, theoretically demonstrating transfer learning\nbenefits in random forests. In simulations, we show that the results obtained\nfor the CRFs also hold numerically for the standard random forest (SRF) method\nwith data-driven feature split selection. Beyond transfer learning, our results\nalso show the benefit of distance-covariance-based weights on the performance\nof RF in some situations. Our method shows significant gains in predicting the\nmortality of ICU patients in smaller-bed target hospitals using a large\nmulti-hospital dataset of electronic health records for 200,000 ICU patients.",
+      "published": "October 13, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.ST",
+        "stat.ME",
+        "stat.TH"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.10870v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.10870v1"
+    },
+    {
+      "title": "Quantifying Dataset Similarity to Guide Transfer Learning",
+      "authors": [
+        "Shudong Sun",
+        "Hao Helen Zhang"
+      ],
+      "abstract": "Transfer learning has become a cornerstone of modern machine learning, as it\ncan empower models by leveraging knowledge from related domains to improve\nlearning effectiveness. However, transferring from poorly aligned data can harm\nrather than help performance, making it crucial to determine whether the\ntransfer will be beneficial before implementation. This work aims to address\nthis challenge by proposing an innovative metric to measure dataset similarity\nand provide quantitative guidance on transferability. In the literature,\nexisting methods largely focus on feature distributions while overlooking label\ninformation and predictive relationships, potentially missing critical\ntransferability insights. In contrast, our proposed metric, the Cross-Learning\nScore (CLS), measures dataset similarity through bidirectional generalization\nperformance between domains. We provide a theoretical justification for CLS by\nestablishing its connection to the cosine similarity between the decision\nboundaries for the target and source datasets. Computationally, CLS is\nefficient and fast to compute as it bypasses the problem of expensive\ndistribution estimation for high-dimensional problems. We further introduce a\ngeneral framework that categorizes source datasets into positive, ambiguous, or\nnegative transfer zones based on their CLS relative to the baseline error,\nenabling informed decisions. Additionally, we extend this approach to\nencoder-head architectures in deep learning to better reflect modern transfer\npipelines. Extensive experiments on diverse synthetic and real-world tasks\ndemonstrate that CLS can reliably predict whether transfer will improve or\ndegrade performance, offering a principled tool for guiding data selection in\ntransfer learning.",
+      "published": "October 13, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.10866v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.10866v1"
+    },
+    {
+      "title": "Tight Robustness Certificates and Wasserstein Distributional Attacks for\n  Deep Neural Networks",
+      "authors": [
+        "Bach C. Le",
+        "Tung V. Dao",
+        "Binh T. Nguyen",
+        "Hong T. M. Chu"
+      ],
+      "abstract": "Wasserstein distributionally robust optimization (WDRO) provides a framework\nfor adversarial robustness, yet existing methods based on global Lipschitz\ncontinuity or strong duality often yield loose upper bounds or require\nprohibitive computation. In this work, we address these limitations by\nintroducing a primal approach and adopting a notion of exact Lipschitz\ncertificate to tighten this upper bound of WDRO. In addition, we propose a\nnovel Wasserstein distributional attack (WDA) that directly constructs a\ncandidate for the worst-case distribution. Compared to existing point-wise\nattack and its variants, our WDA offers greater flexibility in the number and\nlocation of attack points. In particular, by leveraging the piecewise-affine\nstructure of ReLU networks on their activation cells, our approach results in\nan exact tractable characterization of the corresponding WDRO problem.\nExtensive evaluations demonstrate that our method achieves competitive robust\naccuracy against state-of-the-art baselines while offering tighter certificates\nthan existing methods. Our code is available at\nhttps://github.com/OLab-Repo/WDA",
+      "published": "October 11, 2025",
+      "categories": [
+        "cs.LG",
+        "math.OC",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.10000v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.10000v1"
+    },
+    {
+      "title": "Distributionally robust approximation property of neural networks",
+      "authors": [
+        "Mihriban Ceylan",
+        "David J. Pr\u00f6mel"
+      ],
+      "abstract": "The universal approximation property uniformly with respect to weakly compact\nfamilies of measures is established for several classes of neural networks. To\nthat end, we prove that these neural networks are dense in Orlicz spaces,\nthereby extending classical universal approximation theorems even beyond the\ntraditional $L^p$-setting. The covered classes of neural networks include\nwidely used architectures like feedforward neural networks with non-polynomial\nactivation functions, deep narrow networks with ReLU activation functions and\nfunctional input neural networks.",
+      "published": "October 10, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.FA",
+        "math.PR"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.09177v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.09177v1"
+    },
+    {
+      "title": "Structured Output Regularization: a framework for few-shot transfer\n  learning",
+      "authors": [
+        "Nicolas Ewen",
+        "Jairo Diaz-Rodriguez",
+        "Kelly Ramsay"
+      ],
+      "abstract": "Traditional transfer learning typically reuses large pre-trained networks by\nfreezing some of their weights and adding task-specific layers. While this\napproach is computationally efficient, it limits the model's ability to adapt\nto domain-specific features and can still lead to overfitting with very limited\ndata. To address these limitations, we propose Structured Output Regularization\n(SOR), a simple yet effective framework that freezes the internal network\nstructures (e.g., convolutional filters) while using a combination of group\nlasso and $L_1$ penalties. This framework tailors the model to specific data\nwith minimal additional parameters and is easily applicable to various network\ncomponents, such as convolutional filters or various blocks in neural networks\nenabling broad applicability for transfer learning tasks. We evaluate SOR on\nthree few shot medical imaging classification tasks and we achieve competitive\nresults using DenseNet121, and EfficientNetB4 bases compared to established\nbenchmarks.",
+      "published": "October 09, 2025",
+      "categories": [
+        "cs.CV",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.08728v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.08728v1"
     }
   ]
 }
