@@ -1,6 +1,22 @@
 {
-  "timestamp": 1761268686,
+  "timestamp": 1761355156,
   "papers": [
+    {
+      "title": "What Does It Take to Build a Performant Selective Classifier?",
+      "authors": [
+        "Stephan Rabanser",
+        "Nicolas Papernot"
+      ],
+      "abstract": "Selective classifiers improve model reliability by abstaining on inputs the\nmodel deems uncertain. However, few practical approaches achieve the\ngold-standard performance of a perfect-ordering oracle that accepts examples\nexactly in order of correctness. Our work formalizes this shortfall as the\nselective-classification gap and present the first finite-sample decomposition\nof this gap to five distinct sources of looseness: Bayes noise, approximation\nerror, ranking error, statistical noise, and implementation- or shift-induced\nslack. Crucially, our analysis reveals that monotone post-hoc calibration --\noften believed to strengthen selective classifiers -- has limited impact on\nclosing this gap, since it rarely alters the model's underlying score ranking.\nBridging the gap therefore requires scoring mechanisms that can effectively\nreorder predictions rather than merely rescale them. We validate our\ndecomposition on synthetic two-moons data and on real-world vision and language\nbenchmarks, isolating each error component through controlled experiments. Our\nresults confirm that (i) Bayes noise and limited model capacity can account for\nsubstantial gaps, (ii) only richer, feature-aware calibrators meaningfully\nimprove score ordering, and (iii) data shift introduces a separate slack that\ndemands distributionally robust training. Together, our decomposition yields a\nquantitative error budget as well as actionable design guidelines that\npractitioners can use to build selective classifiers which approximate ideal\noracle behavior more closely.",
+      "published": "October 23, 2025",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.20242v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.20242v1"
+    },
     {
       "title": "Policy Learning with Abstention",
       "authors": [
@@ -153,23 +169,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2510.09177v1",
       "arxiv_url": "http://arxiv.org/abs/2510.09177v1"
-    },
-    {
-      "title": "Structured Output Regularization: a framework for few-shot transfer\n  learning",
-      "authors": [
-        "Nicolas Ewen",
-        "Jairo Diaz-Rodriguez",
-        "Kelly Ramsay"
-      ],
-      "abstract": "Traditional transfer learning typically reuses large pre-trained networks by\nfreezing some of their weights and adding task-specific layers. While this\napproach is computationally efficient, it limits the model's ability to adapt\nto domain-specific features and can still lead to overfitting with very limited\ndata. To address these limitations, we propose Structured Output Regularization\n(SOR), a simple yet effective framework that freezes the internal network\nstructures (e.g., convolutional filters) while using a combination of group\nlasso and $L_1$ penalties. This framework tailors the model to specific data\nwith minimal additional parameters and is easily applicable to various network\ncomponents, such as convolutional filters or various blocks in neural networks\nenabling broad applicability for transfer learning tasks. We evaluate SOR on\nthree few shot medical imaging classification tasks and we achieve competitive\nresults using DenseNet121, and EfficientNetB4 bases compared to established\nbenchmarks.",
-      "published": "October 09, 2025",
-      "categories": [
-        "cs.CV",
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2510.08728v1",
-      "arxiv_url": "http://arxiv.org/abs/2510.08728v1"
     }
   ]
 }
