@@ -1,5 +1,5 @@
 {
-  "timestamp": 1761442012,
+  "timestamp": 1761529057,
   "papers": [
     {
       "title": "What Does It Take to Build a Performant Selective Classifier?",
@@ -14,8 +14,8 @@
         "cs.AI",
         "stat.ML"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2510.20242v1",
-      "arxiv_url": "http://arxiv.org/abs/2510.20242v1"
+      "pdf_link": "http://arxiv.org/pdf/2510.20242v2",
+      "arxiv_url": "http://arxiv.org/abs/2510.20242v2"
     },
     {
       "title": "Policy Learning with Abstention",
