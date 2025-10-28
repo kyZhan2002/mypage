@@ -1,6 +1,24 @@
 {
-  "timestamp": 1761529057,
+  "timestamp": 1761614451,
   "papers": [
+    {
+      "title": "$\u03b1$-LoRA: Effective Fine-Tuning via Base Model Rescaling",
+      "authors": [
+        "Aymane El Firdoussi",
+        "El Mahdi Chayti",
+        "Mohamed El Amine Seddik",
+        "Martin Jaggi"
+      ],
+      "abstract": "Fine-tuning has proven to be highly effective in adapting pre-trained models\nto perform better on new desired tasks with minimal data samples. Among the\nmost widely used approaches are reparameterization methods, which update a\ntarget module by augmenting its frozen weight matrix with an additional\ntrainable weight matrix. The most prominent example is Low Rank Adaption\n(LoRA), which gained significant attention in recent years. In this paper, we\nintroduce a new class of reparameterization methods for transfer learning,\ndesigned to enhance the generalization ability of fine-tuned models. We\nestablish the effectiveness of our approach in a high-dimensional binary\nclassification setting using tools from Random Matrix Theory, and further\nvalidate our theoretical findings through more realistic experiments, such as\nfine-tuning LLMs.",
+      "published": "October 24, 2025",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.21345v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.21345v1"
+    },
     {
       "title": "What Does It Take to Build a Performant Selective Classifier?",
       "authors": [
@@ -132,8 +150,8 @@
         "stat.ML",
         "cs.LG"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2510.10866v1",
-      "arxiv_url": "http://arxiv.org/abs/2510.10866v1"
+      "pdf_link": "http://arxiv.org/pdf/2510.10866v2",
+      "arxiv_url": "http://arxiv.org/abs/2510.10866v2"
     },
     {
       "title": "Tight Robustness Certificates and Wasserstein Distributional Attacks for\n  Deep Neural Networks",
@@ -152,23 +170,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2510.10000v1",
       "arxiv_url": "http://arxiv.org/abs/2510.10000v1"
-    },
-    {
-      "title": "Distributionally robust approximation property of neural networks",
-      "authors": [
-        "Mihriban Ceylan",
-        "David J. Pr\u00f6mel"
-      ],
-      "abstract": "The universal approximation property uniformly with respect to weakly compact\nfamilies of measures is established for several classes of neural networks. To\nthat end, we prove that these neural networks are dense in Orlicz spaces,\nthereby extending classical universal approximation theorems even beyond the\ntraditional $L^p$-setting. The covered classes of neural networks include\nwidely used architectures like feedforward neural networks with non-polynomial\nactivation functions, deep narrow networks with ReLU activation functions and\nfunctional input neural networks.",
-      "published": "October 10, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "math.FA",
-        "math.PR"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2510.09177v1",
-      "arxiv_url": "http://arxiv.org/abs/2510.09177v1"
     }
   ]
 }
