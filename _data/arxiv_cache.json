@@ -1,6 +1,24 @@
 {
-  "timestamp": 1761701176,
+  "timestamp": 1761787542,
   "papers": [
+    {
+      "title": "Machine-Learning-Assisted Comparison of Regression Functions",
+      "authors": [
+        "Jian Yan",
+        "Zhuoxi Li",
+        "Yang Ning",
+        "Yong Chen"
+      ],
+      "abstract": "We revisit the classical problem of comparing regression functions, a\nfundamental question in statistical inference with broad relevance to modern\napplications such as data integration, transfer learning, and causal inference.\nExisting approaches typically rely on smoothing techniques and are thus\nhindered by the curse of dimensionality. We propose a generalized notion of\nkernel-based conditional mean dependence that provides a new characterization\nof the null hypothesis of equal regression functions. Building on this\nreformulation, we develop two novel tests that leverage modern machine learning\nmethods for flexible estimation. We establish the asymptotic properties of the\ntest statistics, which hold under both fixed- and high-dimensional regimes.\nUnlike existing methods that often require restrictive distributional\nassumptions, our framework only imposes mild moment conditions. The efficacy of\nthe proposed tests is demonstrated through extensive numerical studies.",
+      "published": "October 28, 2025",
+      "categories": [
+        "stat.ME",
+        "econ.EM",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.24714v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.24714v1"
+    },
     {
       "title": "$\u03b1$-LoRA: Effective Fine-Tuning via Base Model Rescaling",
       "authors": [
@@ -101,24 +119,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2510.14415v1",
       "arxiv_url": "http://arxiv.org/abs/2510.14415v1"
-    },
-    {
-      "title": "Policy Regularized Distributionally Robust Markov Decision Processes\n  with Linear Function Approximation",
-      "authors": [
-        "Jingwen Gu",
-        "Yiting He",
-        "Zhishuai Liu",
-        "Pan Xu"
-      ],
-      "abstract": "Decision-making under distribution shift is a central challenge in\nreinforcement learning (RL), where training and deployment environments differ.\nWe study this problem through the lens of robust Markov decision processes\n(RMDPs), which optimize performance against adversarial transition dynamics.\nOur focus is the online setting, where the agent has only limited interaction\nwith the environment, making sample efficiency and exploration especially\ncritical. Policy optimization, despite its success in standard RL, remains\ntheoretically and empirically underexplored in robust RL. To bridge this gap,\nwe propose \\textbf{D}istributionally \\textbf{R}obust \\textbf{R}egularized\n\\textbf{P}olicy \\textbf{O}ptimization algorithm (DR-RPO), a model-free online\npolicy optimization method that learns robust policies with sublinear regret.\nTo enable tractable optimization within the softmax policy class, DR-RPO\nincorporates reference-policy regularization, yielding RMDP variants that are\ndoubly constrained in both transitions and policies. To scale to large\nstate-action spaces, we adopt the $d$-rectangular linear MDP formulation and\ncombine linear function approximation with an upper confidence bonus for\noptimistic exploration. We provide theoretical guarantees showing that policy\noptimization can achieve polynomial suboptimality bounds and sample efficiency\nin robust RL, matching the performance of value-based approaches. Finally,\nempirical results across diverse domains corroborate our theory and demonstrate\nthe robustness of DR-RPO.",
-      "published": "October 16, 2025",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2510.14246v1",
-      "arxiv_url": "http://arxiv.org/abs/2510.14246v1"
     }
   ]
 }
