@@ -1,6 +1,21 @@
 {
-  "timestamp": 1761787542,
+  "timestamp": 1761873789,
   "papers": [
+    {
+      "title": "Improving time series estimation and prediction via transfer learning",
+      "authors": [
+        "Yuchang Lin",
+        "Qianqian Zhu",
+        "Guodong Li"
+      ],
+      "abstract": "There are many time series in the literature with high dimension yet limited\nsample sizes, such as macroeconomic variables, and it is almost impossible to\nobtain efficient estimation and accurate prediction by using the corresponding\ndatasets themselves. This paper fills the gap by introducing a novel\nrepresentation-based transfer learning framework for vector autoregressive\nmodels, and information from related source datasets with rich observations can\nbe leveraged to enhance estimation efficiency through representation learning.\nA two-stage regularized estimation procedure is proposed with well established\nnon-asymptotic properties, and algorithms with alternating updates are\nsuggested to search for the estimates. Our transfer learning framework can\nhandle time series with varying sample sizes and asynchronous starting and/or\nending time points, thereby offering remarkable flexibility in integrating\ninformation from diverse datasets. Simulation experiments are conducted to\nevaluate the finite-sample performance of the proposed methodology, and its\nusefulness is demonstrated by an empirical analysis on 20 macroeconomic\nvariables from Japan and another nine countries.",
+      "published": "October 29, 2025",
+      "categories": [
+        "stat.ME"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.25236v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.25236v1"
+    },
     {
       "title": "Machine-Learning-Assisted Comparison of Regression Functions",
       "authors": [
