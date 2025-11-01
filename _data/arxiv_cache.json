@@ -1,6 +1,22 @@
 {
-  "timestamp": 1761873789,
+  "timestamp": 1761960443,
   "papers": [
+    {
+      "title": "Gradient Flow Sampler-based Distributionally Robust Optimization",
+      "authors": [
+        "Zusen Xu",
+        "Jia-Jie Zhu"
+      ],
+      "abstract": "We propose a mathematically principled PDE gradient flow framework for\ndistributionally robust optimization (DRO). Exploiting the recent advances in\nthe intersection of Markov Chain Monte Carlo sampling and gradient flow theory,\nwe show that our theoretical framework can be implemented as practical\nalgorithms for sampling from worst-case distributions and, consequently, DRO.\nWhile numerous previous works have proposed various reformulation techniques\nand iterative algorithms, we contribute a sound gradient flow view of the\ndistributional optimization that can be used to construct new algorithms. As an\nexample of applications, we solve a class of Wasserstein and Sinkhorn DRO\nproblems using the recently-discovered Wasserstein Fisher-Rao and Stein\nvariational gradient flows. Notably, we also show some simple reductions of our\nframework recover exactly previously proposed popular DRO methods, and provide\nnew insights into their theoretical limit and optimization dynamics. Numerical\nstudies based on stochastic gradient descent provide empirical backing for our\ntheoretical findings.",
+      "published": "October 29, 2025",
+      "categories": [
+        "math.OC",
+        "math.AP",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2510.25956v1",
+      "arxiv_url": "http://arxiv.org/abs/2510.25956v1"
+    },
     {
       "title": "Improving time series estimation and prediction via transfer learning",
       "authors": [
@@ -103,37 +119,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2510.15337v1",
       "arxiv_url": "http://arxiv.org/abs/2510.15337v1"
-    },
-    {
-      "title": "Stress-Aware Learning under KL Drift via Trust-Decayed Mirror Descent",
-      "authors": [
-        "Gabriel Nixon Raj"
-      ],
-      "abstract": "We study sequential decision-making under distribution drift. We propose\nentropy-regularized trust-decay, which injects stress-aware exponential tilting\ninto both belief updates and mirror-descent decisions. On the simplex, a\nFenchel-dual equivalence shows that belief tilt and decision tilt coincide. We\nformalize robustness via fragility (worst-case excess risk in a KL ball),\nbelief bandwidth (radius sustaining a target excess), and a decision-space\nFragility Index (drift tolerated at $O(\\sqrt{T})$ regret). We prove\nhigh-probability sensitivity bounds and establish dynamic-regret guarantees of\n$\\tilde{O}(\\sqrt{T})$ under KL-drift path length $S_T = \\sum_{t\\ge2}\\sqrt{{\\rm\nKL}(D_t|D_{t-1})/2}$. In particular, trust-decay achieves $O(1)$ per-switch\nregret, while stress-free updates incur $\\Omega(1)$ tails. A parameter-free\nhedge adapts the tilt to unknown drift, whereas persistent over-tilting yields\nan $\\Omega(\\lambda^2 T)$ stationary penalty. We further obtain\ncalibrated-stress bounds and extensions to second-order updates, bandit\nfeedback, outliers, stress variation, distributed optimization, and plug-in\nKL-drift estimation. The framework unifies dynamic-regret analysis,\ndistributionally robust objectives, and KL-regularized control within a single\nstress-adaptive update.",
-      "published": "October 17, 2025",
-      "categories": [
-        "cs.LG",
-        "math.ST",
-        "stat.TH"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2510.15222v1",
-      "arxiv_url": "http://arxiv.org/abs/2510.15222v1"
-    },
-    {
-      "title": "Evaluating Policy Effects under Network Interference without Network\n  Information: A Transfer Learning Approach",
-      "authors": [
-        "Tadao Hoshino"
-      ],
-      "abstract": "This paper develops a sensitivity analysis framework that transfers the\naverage total treatment effect (ATTE) from source data with a fully observed\nnetwork to target data whose network is completely unknown. The ATTE represents\nthe average social impact of a policy that assigns the treatment to every\nindividual in the dataset. We postulate a covariate-shift type assumption that\nboth source and target datasets share the same conditional mean outcome.\nHowever, because the target network is unobserved, this assumption alone is not\nsufficient to pin down the ATTE for the target data. To address this issue, we\nconsider a sensitivity analysis based on the uncertainty of the target\nnetwork's degree distribution, where the extent of uncertainty is measured by\nthe Wasserstein distance from a given reference degree distribution. We then\nconstruct bounds on the target ATTE using a linear programming-based estimator.\nThe limiting distribution of the bound estimator is derived via the functional\ndelta method, and we develop a wild bootstrap approach to approximate the\ndistribution. As an empirical illustration, we revisit the social network\nexperiment on farmers' weather insurance adoption in China by Cai et al.\n(2015).",
-      "published": "October 16, 2025",
-      "categories": [
-        "stat.ME",
-        "econ.EM",
-        "math.ST",
-        "stat.TH"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2510.14415v1",
-      "arxiv_url": "http://arxiv.org/abs/2510.14415v1"
     }
   ]
 }
