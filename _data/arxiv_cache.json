@@ -1,5 +1,5 @@
 {
-  "timestamp": 1762133217,
+  "timestamp": 1762219434,
   "papers": [
     {
       "title": "Gradient Flow Sampler-based Distributionally Robust Optimization",
@@ -101,24 +101,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2510.19672v1",
       "arxiv_url": "http://arxiv.org/abs/2510.19672v1"
-    },
-    {
-      "title": "Transfer Learning for Benign Overfitting in High-Dimensional Linear\n  Regression",
-      "authors": [
-        "Yeichan Kim",
-        "Ilmun Kim",
-        "Seyoung Park"
-      ],
-      "abstract": "Transfer learning is a key component of modern machine learning, enhancing\nthe performance of target tasks by leveraging diverse data sources.\nSimultaneously, overparameterized models such as the minimum-$\\ell_2$-norm\ninterpolator (MNI) in high-dimensional linear regression have garnered\nsignificant attention for their remarkable generalization capabilities, a\nproperty known as benign overfitting. Despite their individual importance, the\nintersection of transfer learning and MNI remains largely unexplored. Our\nresearch bridges this gap by proposing a novel two-step Transfer MNI approach\nand analyzing its trade-offs. We characterize its non-asymptotic excess risk\nand identify conditions under which it outperforms the target-only MNI. Our\nanalysis reveals free-lunch covariate shift regimes, where leveraging\nheterogeneous data yields the benefit of knowledge transfer at limited cost. To\noperationalize our findings, we develop a data-driven procedure to detect\ninformative sources and introduce an ensemble method incorporating multiple\ninformative Transfer MNIs. Finite-sample experiments demonstrate the robustness\nof our methods to model and data heterogeneity, confirming their advantage.",
-      "published": "October 17, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "math.ST",
-        "stat.TH"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2510.15337v1",
-      "arxiv_url": "http://arxiv.org/abs/2510.15337v1"
     }
   ]
 }
