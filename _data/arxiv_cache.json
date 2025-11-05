@@ -1,5 +1,5 @@
 {
-  "timestamp": 1762219434,
+  "timestamp": 1762305909,
   "papers": [
     {
       "title": "Gradient Flow Sampler-based Distributionally Robust Optimization",
@@ -14,8 +14,8 @@
         "math.AP",
         "stat.ML"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2510.25956v1",
-      "arxiv_url": "http://arxiv.org/abs/2510.25956v1"
+      "pdf_link": "http://arxiv.org/pdf/2510.25956v2",
+      "arxiv_url": "http://arxiv.org/abs/2510.25956v2"
     },
     {
       "title": "Improving time series estimation and prediction via transfer learning",
