@@ -1,6 +1,63 @@
 {
-  "timestamp": 1762305909,
+  "timestamp": 1762392283,
   "papers": [
+    {
+      "title": "Distributionally Robust Synthetic Control: Ensuring Robustness Against\n  Highly Correlated Controls and Weight Shifts",
+      "authors": [
+        "Taehyeon Koo",
+        "Zijian Guo"
+      ],
+      "abstract": "The synthetic control method estimates the causal effect by comparing the\noutcomes of a treated unit to a weighted average of control units that closely\nmatch the pre-treatment outcomes of the treated unit. This method presumes that\nthe relationship between the potential outcomes of the treated and control\nunits remains consistent before and after treatment. However, the estimator may\nbecome unreliable when these relationships shift or when control units are\nhighly correlated. To address these challenges, we introduce the\nDistributionally Robust Synthetic Control (DRoSC) method by accommodating\npotential shifts in relationships and addressing high correlations among\ncontrol units. The DRoSC method targets a new causal estimand defined as the\noptimizer of a worst-case optimization problem that checks through all possible\nsynthetic weights that comply with the pre-treatment period. When the\nidentification conditions for the classical synthetic control method hold, the\nDRoSC method targets the same causal effect as the synthetic control. When\nthese conditions are violated, we show that this new causal estimand is a\nconservative proxy of the non-identifiable causal effect. We further show that\nthe limiting distribution of the DRoSC estimator is non-normal and propose a\nnovel inferential approach to characterize this non-normal limiting\ndistribution. We demonstrate its finite-sample performance through numerical\nstudies and an analysis of the economic impact of terrorism in the Basque\nCountry.",
+      "published": "November 04, 2025",
+      "categories": [
+        "stat.ME"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2511.02632v1",
+      "arxiv_url": "http://arxiv.org/abs/2511.02632v1"
+    },
+    {
+      "title": "Few-Shot Multimodal Medical Imaging: A Theoretical Framework",
+      "authors": [
+        "Md Talha Mohsin",
+        "Ismail Abdulrashid"
+      ],
+      "abstract": "Medical imaging relies heavily on large, labeled datasets. But,\nunfortunately, they are not always easily accessible in clinical settings.\nAdditionally, many practitioners often face various structural obstacles like\nlimited data availability, fragmented data systems, and unbalanced datasets.\nThese barriers often lead to the increased diagnostic uncertainty,\nunderrepresentation of certain conditions, reduced model robustness, and biased\ndiagnostic decisions. In response to these challenges, approaches such as\ntransfer learning, meta-learning, and multimodal fusion have made great\nstrides. However, they still need a solid theoretical justification for why\nthey succeed or fail in situations where data is scarce. To address this gap,\nwe propose a unified theoretical framework that characterizes learning and\ninference under low-resource medical imaging conditions. We first formalize the\nlearning objective under few-shot conditions and compute sample complexity\nconstraints to estimate the smallest quantity of data needed to achieve\nclinically reliable accuracy. Then based on ideas from PAC-learning and\nPAC-Bayesian theory, we explain how multimodal integration encourages\ngeneralization and quantifies uncertainty under sparse supervision. We further\npropose a formal metric for explanation stability, offering interpretability\nguarantees under low-data conditions. Taken together, the proposed framework\nestablishes a principled foundation for constructing dependable, data-efficient\ndiagnostic systems by jointly characterizing sample efficiency, uncertainty\nquantification, and interpretability in a unified theoretical setting.",
+      "published": "November 03, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.AI",
+        "cs.CV",
+        "cs.LG",
+        "eess.IV"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2511.01140v1",
+      "arxiv_url": "http://arxiv.org/abs/2511.01140v1"
+    },
+    {
+      "title": "Learning an Efficient Optimizer via Hybrid-Policy Sub-Trajectory Balance",
+      "authors": [
+        "Yunchuan Guan",
+        "Yu Liu",
+        "Ke Zhou",
+        "Hui Li",
+        "Sen Jia",
+        "Zhiqi Shen",
+        "Ziyang Wang",
+        "Xinglin Zhang",
+        "Tao Chen",
+        "Jenq-Neng Hwang",
+        "Lei Li"
+      ],
+      "abstract": "Recent advances in generative modeling enable neural networks to generate\nweights without relying on gradient-based optimization. However, current\nmethods are limited by issues of over-coupling and long-horizon. The former\ntightly binds weight generation with task-specific objectives, thereby limiting\nthe flexibility of the learned optimizer. The latter leads to inefficiency and\nlow accuracy during inference, caused by the lack of local constraints. In this\npaper, we propose Lo-Hp, a decoupled two-stage weight generation framework that\nenhances flexibility through learning various optimization policies. It adopts\na hybrid-policy sub-trajectory balance objective, which integrates on-policy\nand off-policy learning to capture local optimization policies. Theoretically,\nwe demonstrate that learning solely local optimization policies can address the\nlong-horizon issue while enhancing the generation of global optimal weights. In\naddition, we validate Lo-Hp's superior accuracy and inference efficiency in\ntasks that require frequent weight updates, such as transfer learning, few-shot\nlearning, domain generalization, and large language model adaptation.",
+      "published": "November 01, 2025",
+      "categories": [
+        "cs.LG",
+        "cs.CV",
+        "stat.ML"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2511.00543v1",
+      "arxiv_url": "http://arxiv.org/abs/2511.00543v1"
+    },
     {
       "title": "Gradient Flow Sampler-based Distributionally Robust Optimization",
       "authors": [
@@ -67,40 +124,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2510.21345v1",
       "arxiv_url": "http://arxiv.org/abs/2510.21345v1"
-    },
-    {
-      "title": "What Does It Take to Build a Performant Selective Classifier?",
-      "authors": [
-        "Stephan Rabanser",
-        "Nicolas Papernot"
-      ],
-      "abstract": "Selective classifiers improve model reliability by abstaining on inputs the\nmodel deems uncertain. However, few practical approaches achieve the\ngold-standard performance of a perfect-ordering oracle that accepts examples\nexactly in order of correctness. Our work formalizes this shortfall as the\nselective-classification gap and present the first finite-sample decomposition\nof this gap to five distinct sources of looseness: Bayes noise, approximation\nerror, ranking error, statistical noise, and implementation- or shift-induced\nslack. Crucially, our analysis reveals that monotone post-hoc calibration --\noften believed to strengthen selective classifiers -- has limited impact on\nclosing this gap, since it rarely alters the model's underlying score ranking.\nBridging the gap therefore requires scoring mechanisms that can effectively\nreorder predictions rather than merely rescale them. We validate our\ndecomposition on synthetic two-moons data and on real-world vision and language\nbenchmarks, isolating each error component through controlled experiments. Our\nresults confirm that (i) Bayes noise and limited model capacity can account for\nsubstantial gaps, (ii) only richer, feature-aware calibrators meaningfully\nimprove score ordering, and (iii) data shift introduces a separate slack that\ndemands distributionally robust training. Together, our decomposition yields a\nquantitative error budget as well as actionable design guidelines that\npractitioners can use to build selective classifiers which approximate ideal\noracle behavior more closely.",
-      "published": "October 23, 2025",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2510.20242v2",
-      "arxiv_url": "http://arxiv.org/abs/2510.20242v2"
-    },
-    {
-      "title": "Policy Learning with Abstention",
-      "authors": [
-        "Ayush Sawarni",
-        "Jikai Jin",
-        "Justin Whitehouse",
-        "Vasilis Syrgkanis"
-      ],
-      "abstract": "Policy learning algorithms are widely used in areas such as personalized\nmedicine and advertising to develop individualized treatment regimes. However,\nmost methods force a decision even when predictions are uncertain, which is\nrisky in high-stakes settings. We study policy learning with abstention, where\na policy may defer to a safe default or an expert. When a policy abstains, it\nreceives a small additive reward on top of the value of a random guess. We\npropose a two-stage learner that first identifies a set of near-optimal\npolicies and then constructs an abstention rule from their disagreements. We\nestablish fast O(1/n)-type regret guarantees when propensities are known, and\nextend these guarantees to the unknown-propensity case via a doubly robust (DR)\nobjective. We further show that abstention is a versatile tool with direct\napplications to other core problems in policy learning: it yields improved\nguarantees under margin conditions without the common realizability assumption,\nconnects to distributionally robust policy learning by hedging against small\ndata shifts, and supports safe policy improvement by ensuring improvement over\na baseline policy with high probability.",
-      "published": "October 22, 2025",
-      "categories": [
-        "cs.LG",
-        "econ.EM",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2510.19672v1",
-      "arxiv_url": "http://arxiv.org/abs/2510.19672v1"
     }
   ]
 }
