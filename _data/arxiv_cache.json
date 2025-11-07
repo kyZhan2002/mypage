@@ -1,5 +1,5 @@
 {
-  "timestamp": 1762392283,
+  "timestamp": 1762478660,
   "papers": [
     {
       "title": "Distributionally Robust Synthetic Control: Ensuring Robustness Against\n  Highly Correlated Controls and Weight Shifts",
@@ -10,7 +10,8 @@
       "abstract": "The synthetic control method estimates the causal effect by comparing the\noutcomes of a treated unit to a weighted average of control units that closely\nmatch the pre-treatment outcomes of the treated unit. This method presumes that\nthe relationship between the potential outcomes of the treated and control\nunits remains consistent before and after treatment. However, the estimator may\nbecome unreliable when these relationships shift or when control units are\nhighly correlated. To address these challenges, we introduce the\nDistributionally Robust Synthetic Control (DRoSC) method by accommodating\npotential shifts in relationships and addressing high correlations among\ncontrol units. The DRoSC method targets a new causal estimand defined as the\noptimizer of a worst-case optimization problem that checks through all possible\nsynthetic weights that comply with the pre-treatment period. When the\nidentification conditions for the classical synthetic control method hold, the\nDRoSC method targets the same causal effect as the synthetic control. When\nthese conditions are violated, we show that this new causal estimand is a\nconservative proxy of the non-identifiable causal effect. We further show that\nthe limiting distribution of the DRoSC estimator is non-normal and propose a\nnovel inferential approach to characterize this non-normal limiting\ndistribution. We demonstrate its finite-sample performance through numerical\nstudies and an analysis of the economic impact of terrorism in the Basque\nCountry.",
       "published": "November 04, 2025",
       "categories": [
-        "stat.ME"
+        "stat.ME",
+        "econ.EM"
       ],
       "pdf_link": "http://arxiv.org/pdf/2511.02632v1",
       "arxiv_url": "http://arxiv.org/abs/2511.02632v1"
@@ -106,24 +107,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2510.24714v1",
       "arxiv_url": "http://arxiv.org/abs/2510.24714v1"
-    },
-    {
-      "title": "$\u03b1$-LoRA: Effective Fine-Tuning via Base Model Rescaling",
-      "authors": [
-        "Aymane El Firdoussi",
-        "El Mahdi Chayti",
-        "Mohamed El Amine Seddik",
-        "Martin Jaggi"
-      ],
-      "abstract": "Fine-tuning has proven to be highly effective in adapting pre-trained models\nto perform better on new desired tasks with minimal data samples. Among the\nmost widely used approaches are reparameterization methods, which update a\ntarget module by augmenting its frozen weight matrix with an additional\ntrainable weight matrix. The most prominent example is Low Rank Adaption\n(LoRA), which gained significant attention in recent years. In this paper, we\nintroduce a new class of reparameterization methods for transfer learning,\ndesigned to enhance the generalization ability of fine-tuned models. We\nestablish the effectiveness of our approach in a high-dimensional binary\nclassification setting using tools from Random Matrix Theory, and further\nvalidate our theoretical findings through more realistic experiments, such as\nfine-tuning LLMs.",
-      "published": "October 24, 2025",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2510.21345v1",
-      "arxiv_url": "http://arxiv.org/abs/2510.21345v1"
     }
   ]
 }
