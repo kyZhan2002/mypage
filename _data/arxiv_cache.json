@@ -1,6 +1,20 @@
 {
-  "timestamp": 1762478660,
+  "timestamp": 1762564791,
   "papers": [
+    {
+      "title": "Where to Experiment? Site Selection Under Distribution Shift via Optimal\n  Transport and Wasserstein DRO",
+      "authors": [
+        "Adam Bouyamourn"
+      ],
+      "abstract": "How should researchers select experimental sites when the deployment\npopulation differs from observed data? I formulate the problem of experimental\nsite selection as an optimal transport problem, developing methods to minimize\ndownstream estimation error by choosing sites that minimize the Wasserstein\ndistance between population and sample covariate distributions. I develop new\ntheoretical upper bounds on PATE and CATE estimation errors, and show that\nthese different objectives lead to different site selection strategies. I\nextend this approach by using Wasserstein Distributionally Robust Optimization\nto develop a site selection procedure robust to adversarial perturbations of\ncovariate information: a specific model of distribution shift. I also propose a\nnovel data-driven procedure for selecting the uncertainty radius the\nWasserstein DRO problem, which allows the user to benchmark robustness levels\nagainst observed variation in their data. Simulation evidence, and a reanalysis\nof a randomized microcredit experiment in Morocco (Cr\\'epon et al.), show that\nthese methods outperform random and stratified sampling of sites when\ncovariates have prognostic R-squared > .5, and alternative optimization methods\ni) for moderate-to-large size problem instances ii) when covariates are\nmoderately informative about treatment effects, and iii) under induced\ndistribution shift.",
+      "published": "November 06, 2025",
+      "categories": [
+        "stat.ME",
+        "econ.EM"
+      ],
+      "pdf_link": "http://arxiv.org/pdf/2511.04658v1",
+      "arxiv_url": "http://arxiv.org/abs/2511.04658v1"
+    },
     {
       "title": "Distributionally Robust Synthetic Control: Ensuring Robustness Against\n  Highly Correlated Controls and Weight Shifts",
       "authors": [
