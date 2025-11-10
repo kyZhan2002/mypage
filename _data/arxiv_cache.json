@@ -1,5 +1,5 @@
 {
-  "timestamp": 1762651659,
+  "timestamp": 1762738046,
   "papers": [
     {
       "title": "Where to Experiment? Site Selection Under Distribution Shift via Optimal\n  Transport and Wasserstein DRO",
@@ -72,55 +72,6 @@
       ],
       "pdf_link": "http://arxiv.org/pdf/2511.00543v1",
       "arxiv_url": "http://arxiv.org/abs/2511.00543v1"
-    },
-    {
-      "title": "Gradient Flow Sampler-based Distributionally Robust Optimization",
-      "authors": [
-        "Zusen Xu",
-        "Jia-Jie Zhu"
-      ],
-      "abstract": "We propose a mathematically principled PDE gradient flow framework for\ndistributionally robust optimization (DRO). Exploiting the recent advances in\nthe intersection of Markov Chain Monte Carlo sampling and gradient flow theory,\nwe show that our theoretical framework can be implemented as practical\nalgorithms for sampling from worst-case distributions and, consequently, DRO.\nWhile numerous previous works have proposed various reformulation techniques\nand iterative algorithms, we contribute a sound gradient flow view of the\ndistributional optimization that can be used to construct new algorithms. As an\nexample of applications, we solve a class of Wasserstein and Sinkhorn DRO\nproblems using the recently-discovered Wasserstein Fisher-Rao and Stein\nvariational gradient flows. Notably, we also show some simple reductions of our\nframework recover exactly previously proposed popular DRO methods, and provide\nnew insights into their theoretical limit and optimization dynamics. Numerical\nstudies based on stochastic gradient descent provide empirical backing for our\ntheoretical findings.",
-      "published": "October 29, 2025",
-      "categories": [
-        "math.OC",
-        "math.AP",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2510.25956v2",
-      "arxiv_url": "http://arxiv.org/abs/2510.25956v2"
-    },
-    {
-      "title": "Improving time series estimation and prediction via transfer learning",
-      "authors": [
-        "Yuchang Lin",
-        "Qianqian Zhu",
-        "Guodong Li"
-      ],
-      "abstract": "There are many time series in the literature with high dimension yet limited\nsample sizes, such as macroeconomic variables, and it is almost impossible to\nobtain efficient estimation and accurate prediction by using the corresponding\ndatasets themselves. This paper fills the gap by introducing a novel\nrepresentation-based transfer learning framework for vector autoregressive\nmodels, and information from related source datasets with rich observations can\nbe leveraged to enhance estimation efficiency through representation learning.\nA two-stage regularized estimation procedure is proposed with well established\nnon-asymptotic properties, and algorithms with alternating updates are\nsuggested to search for the estimates. Our transfer learning framework can\nhandle time series with varying sample sizes and asynchronous starting and/or\nending time points, thereby offering remarkable flexibility in integrating\ninformation from diverse datasets. Simulation experiments are conducted to\nevaluate the finite-sample performance of the proposed methodology, and its\nusefulness is demonstrated by an empirical analysis on 20 macroeconomic\nvariables from Japan and another nine countries.",
-      "published": "October 29, 2025",
-      "categories": [
-        "stat.ME"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2510.25236v1",
-      "arxiv_url": "http://arxiv.org/abs/2510.25236v1"
-    },
-    {
-      "title": "Machine-Learning-Assisted Comparison of Regression Functions",
-      "authors": [
-        "Jian Yan",
-        "Zhuoxi Li",
-        "Yang Ning",
-        "Yong Chen"
-      ],
-      "abstract": "We revisit the classical problem of comparing regression functions, a\nfundamental question in statistical inference with broad relevance to modern\napplications such as data integration, transfer learning, and causal inference.\nExisting approaches typically rely on smoothing techniques and are thus\nhindered by the curse of dimensionality. We propose a generalized notion of\nkernel-based conditional mean dependence that provides a new characterization\nof the null hypothesis of equal regression functions. Building on this\nreformulation, we develop two novel tests that leverage modern machine learning\nmethods for flexible estimation. We establish the asymptotic properties of the\ntest statistics, which hold under both fixed- and high-dimensional regimes.\nUnlike existing methods that often require restrictive distributional\nassumptions, our framework only imposes mild moment conditions. The efficacy of\nthe proposed tests is demonstrated through extensive numerical studies.",
-      "published": "October 28, 2025",
-      "categories": [
-        "stat.ME",
-        "econ.EM",
-        "stat.ML"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2510.24714v1",
-      "arxiv_url": "http://arxiv.org/abs/2510.24714v1"
     }
   ]
 }
