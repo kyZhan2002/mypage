@@ -1,145 +1,306 @@
 {
-  "timestamp": 1762824306,
+  "timestamp": 1762997125,
   "papers": [
     {
-      "title": "Sample Complexity of Distributionally Robust Off-Dynamics Reinforcement\n  Learning with Online Interaction",
+      "title": "Distributionally Robust Transfer Learning",
       "authors": [
-        "Yiting He",
-        "Zhishuai Liu",
-        "Weixin Wang",
-        "Pan Xu"
+        "Xin Xiong",
+        "Zijian Guo",
+        "Tianxi Cai"
       ],
-      "abstract": "Off-dynamics reinforcement learning (RL), where training and deployment\ntransition dynamics are different, can be formulated as learning in a robust\nMarkov decision process (RMDP) where uncertainties in transition dynamics are\nimposed. Existing literature mostly assumes access to generative models\nallowing arbitrary state-action queries or pre-collected datasets with a good\nstate coverage of the deployment environment, bypassing the challenge of\nexploration. In this work, we study a more realistic and challenging setting\nwhere the agent is limited to online interaction with the training environment.\nTo capture the intrinsic difficulty of exploration in online RMDPs, we\nintroduce the supremal visitation ratio, a novel quantity that measures the\nmismatch between the training dynamics and the deployment dynamics. We show\nthat if this ratio is unbounded, online learning becomes exponentially hard. We\npropose the first computationally efficient algorithm that achieves sublinear\nregret in online RMDPs with $f$-divergence based transition uncertainties. We\nalso establish matching regret lower bounds, demonstrating that our algorithm\nachieves optimal dependence on both the supremal visitation ratio and the\nnumber of interaction episodes. Finally, we validate our theoretical results\nthrough comprehensive numerical experiments.",
-      "published": "November 07, 2025",
+      "abstract": "Many existing transfer learning methods rely on leveraging information from source data that closely resembles the target data. However, this approach often overlooks valuable knowledge that may be present in different yet potentially related auxiliary samples. When dealing with a limited amount of target data and a diverse range of source models, our paper introduces a novel approach, Distributionally Robust Optimization for Transfer Learning (TransDRO), that breaks free from strict similarity constraints. TransDRO is designed to optimize the most adversarial loss within an uncertainty set, defined as a collection of target populations generated as a convex combination of source distributions that guarantee excellent prediction performances for the target data. TransDRO effectively bridges the realms of transfer learning and distributional robustness prediction models. We establish the identifiability of TransDRO and its interpretation as a weighted average of source models closest to the baseline model. We also show that TransDRO achieves a faster convergence rate than the model fitted with the target data. Our comprehensive numerical studies and analysis of multi-institutional electronic health records data using TransDRO further substantiate the robustness and accuracy of TransDRO, highlighting its potential as a powerful tool in transfer learning applications.",
+      "published": "September 12, 2023",
       "categories": [
         "cs.LG",
-        "cs.AI",
-        "cs.RO",
-        "stat.ML"
+        "stat.ME"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2511.05396v1",
-      "arxiv_url": "http://arxiv.org/abs/2511.05396v1"
+      "pdf_link": "",
+      "arxiv_url": ""
     },
     {
-      "title": "Where to Experiment? Site Selection Under Distribution Shift via Optimal\n  Transport and Wasserstein DRO",
+      "title": "Distributionally Robust Domain Adaptation",
       "authors": [
-        "Adam Bouyamourn"
+        "Akram S. Awad",
+        "George K. Atia"
       ],
-      "abstract": "How should researchers select experimental sites when the deployment\npopulation differs from observed data? I formulate the problem of experimental\nsite selection as an optimal transport problem, developing methods to minimize\ndownstream estimation error by choosing sites that minimize the Wasserstein\ndistance between population and sample covariate distributions. I develop new\ntheoretical upper bounds on PATE and CATE estimation errors, and show that\nthese different objectives lead to different site selection strategies. I\nextend this approach by using Wasserstein Distributionally Robust Optimization\nto develop a site selection procedure robust to adversarial perturbations of\ncovariate information: a specific model of distribution shift. I also propose a\nnovel data-driven procedure for selecting the uncertainty radius the\nWasserstein DRO problem, which allows the user to benchmark robustness levels\nagainst observed variation in their data. Simulation evidence, and a reanalysis\nof a randomized microcredit experiment in Morocco (Cr\\'epon et al.), show that\nthese methods outperform random and stratified sampling of sites when\ncovariates have prognostic R-squared > .5, and alternative optimization methods\ni) for moderate-to-large size problem instances ii) when covariates are\nmoderately informative about treatment effects, and iii) under induced\ndistribution shift.",
-      "published": "November 06, 2025",
-      "categories": [
-        "stat.ME",
-        "econ.EM"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2511.04658v1",
-      "arxiv_url": "http://arxiv.org/abs/2511.04658v1"
-    },
-    {
-      "title": "Distributionally Robust Synthetic Control: Ensuring Robustness Against\n  Highly Correlated Controls and Weight Shifts",
-      "authors": [
-        "Taehyeon Koo",
-        "Zijian Guo"
-      ],
-      "abstract": "The synthetic control method estimates the causal effect by comparing the\noutcomes of a treated unit to a weighted average of control units that closely\nmatch the pre-treatment outcomes of the treated unit. This method presumes that\nthe relationship between the potential outcomes of the treated and control\nunits remains consistent before and after treatment. However, the estimator may\nbecome unreliable when these relationships shift or when control units are\nhighly correlated. To address these challenges, we introduce the\nDistributionally Robust Synthetic Control (DRoSC) method by accommodating\npotential shifts in relationships and addressing high correlations among\ncontrol units. The DRoSC method targets a new causal estimand defined as the\noptimizer of a worst-case optimization problem that checks through all possible\nsynthetic weights that comply with the pre-treatment period. When the\nidentification conditions for the classical synthetic control method hold, the\nDRoSC method targets the same causal effect as the synthetic control. When\nthese conditions are violated, we show that this new causal estimand is a\nconservative proxy of the non-identifiable causal effect. We further show that\nthe limiting distribution of the DRoSC estimator is non-normal and propose a\nnovel inferential approach to characterize this non-normal limiting\ndistribution. We demonstrate its finite-sample performance through numerical\nstudies and an analysis of the economic impact of terrorism in the Basque\nCountry.",
-      "published": "November 04, 2025",
-      "categories": [
-        "stat.ME",
-        "econ.EM"
-      ],
-      "pdf_link": "http://arxiv.org/pdf/2511.02632v1",
-      "arxiv_url": "http://arxiv.org/abs/2511.02632v1"
-    },
-    {
-      "title": "Few-Shot Multimodal Medical Imaging: A Theoretical Framework",
-      "authors": [
-        "Md Talha Mohsin",
-        "Ismail Abdulrashid"
-      ],
-      "abstract": "Medical imaging relies heavily on large, labeled datasets. But,\nunfortunately, they are not always easily accessible in clinical settings.\nAdditionally, many practitioners often face various structural obstacles like\nlimited data availability, fragmented data systems, and unbalanced datasets.\nThese barriers often lead to the increased diagnostic uncertainty,\nunderrepresentation of certain conditions, reduced model robustness, and biased\ndiagnostic decisions. In response to these challenges, approaches such as\ntransfer learning, meta-learning, and multimodal fusion have made great\nstrides. However, they still need a solid theoretical justification for why\nthey succeed or fail in situations where data is scarce. To address this gap,\nwe propose a unified theoretical framework that characterizes learning and\ninference under low-resource medical imaging conditions. We first formalize the\nlearning objective under few-shot conditions and compute sample complexity\nconstraints to estimate the smallest quantity of data needed to achieve\nclinically reliable accuracy. Then based on ideas from PAC-learning and\nPAC-Bayesian theory, we explain how multimodal integration encourages\ngeneralization and quantifies uncertainty under sparse supervision. We further\npropose a formal metric for explanation stability, offering interpretability\nguarantees under low-data conditions. Taken together, the proposed framework\nestablishes a principled foundation for constructing dependable, data-efficient\ndiagnostic systems by jointly characterizing sample efficiency, uncertainty\nquantification, and interpretability in a unified theoretical setting.",
-      "published": "November 03, 2025",
+      "abstract": "Domain Adaptation (DA) has recently received significant attention due to its potential to adapt a learning model across source and target domains with mismatched distributions. Since DA methods rely exclusively on the given source and target domain samples, they generally yield models that are vulnerable to noise and unable to adapt to unseen samples from the target domain, which calls for DA methods that guarantee the robustness and generalization of the learned models. In this paper, we propose DRDA, a distributionally robust domain adaptation method. DRDA leverages a distributionally robust optimization (DRO) framework to learn a robust decision function that minimizes the worst-case target domain risk and generalizes to any sample from the target domain by transferring knowledge from a given labeled source domain sample. We utilize the Maximum Mean Discrepancy (MMD) metric to construct an ambiguity set of distributions that provably contains the source and target domain distributions with high probability. Hence, the risk is shown to upper bound the out-of-sample target domain loss. Our experimental results demonstrate that our formulation outperforms existing robust learning approaches.",
+      "published": "October 30, 2022",
       "categories": [
         "stat.ML",
-        "cs.AI",
-        "cs.CV",
-        "cs.LG",
-        "eess.IV"
+        "cs.LG"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2511.01140v1",
-      "arxiv_url": "http://arxiv.org/abs/2511.01140v1"
+      "pdf_link": "",
+      "arxiv_url": ""
     },
     {
-      "title": "Learning an Efficient Optimizer via Hybrid-Policy Sub-Trajectory Balance",
+      "title": "Distributionally Robust Learning",
       "authors": [
-        "Yunchuan Guan",
-        "Yu Liu",
-        "Ke Zhou",
-        "Hui Li",
-        "Sen Jia",
-        "Zhiqi Shen",
-        "Ziyang Wang",
-        "Xinglin Zhang",
-        "Tao Chen",
-        "Jenq-Neng Hwang",
-        "Lei Li"
+        "Ruidi Chen",
+        "Ioannis Ch. Paschalidis"
       ],
-      "abstract": "Recent advances in generative modeling enable neural networks to generate\nweights without relying on gradient-based optimization. However, current\nmethods are limited by issues of over-coupling and long-horizon. The former\ntightly binds weight generation with task-specific objectives, thereby limiting\nthe flexibility of the learned optimizer. The latter leads to inefficiency and\nlow accuracy during inference, caused by the lack of local constraints. In this\npaper, we propose Lo-Hp, a decoupled two-stage weight generation framework that\nenhances flexibility through learning various optimization policies. It adopts\na hybrid-policy sub-trajectory balance objective, which integrates on-policy\nand off-policy learning to capture local optimization policies. Theoretically,\nwe demonstrate that learning solely local optimization policies can address the\nlong-horizon issue while enhancing the generation of global optimal weights. In\naddition, we validate Lo-Hp's superior accuracy and inference efficiency in\ntasks that require frequent weight updates, such as transfer learning, few-shot\nlearning, domain generalization, and large language model adaptation.",
-      "published": "November 01, 2025",
+      "abstract": "This monograph develops a comprehensive statistical learning framework that is robust to (distributional) perturbations in the data using Distributionally Robust Optimization (DRO) under the Wasserstein metric. Beginning with fundamental properties of the Wasserstein metric and the DRO formulation, we explore duality to arrive at tractable formulations and develop finite-sample, as well as asymptotic, performance guarantees. We consider a series of learning problems, including (i) distributionally robust linear regression; (ii) distributionally robust regression with group structure in the predictors; (iii) distributionally robust multi-output regression and multiclass classification, (iv) optimal decision making that combines distributionally robust regression with nearest-neighbor estimation; (v) distributionally robust semi-supervised learning, and (vi) distributionally robust reinforcement learning. A tractable DRO relaxation for each problem is being derived, establishing a connection between robustness and regularization, and obtaining bounds on the prediction and estimation errors of the solution. Beyond theory, we include numerical experiments and case studies using synthetic and real data. The real data experiments are all associated with various health informatics problems, an application area which provided the initial impetus for this work.",
+      "published": "August 20, 2021",
       "categories": [
-        "cs.LG",
-        "cs.CV",
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "",
+      "arxiv_url": ""
+    },
+    {
+      "title": "Confidence Regions in Wasserstein Distributionally Robust Estimation",
+      "authors": [
+        "Jose Blanchet",
+        "Karthyek Murthy",
+        "Nian Si"
+      ],
+      "abstract": "Wasserstein distributionally robust optimization estimators are obtained as solutions of min-max problems in which the statistician selects a parameter minimizing the worst-case loss among all probability models within a certain distance (in a Wasserstein sense) from the underlying empirical measure. While motivated by the need to identify optimal model parameters or decision choices that are robust to model misspecification, these distributionally robust estimators recover a wide range of regularized estimators, including square-root lasso and support vector machines, among others, as particular cases. This paper studies the asymptotic normality of these distributionally robust estimators as well as the properties of an optimal (in a suitable sense) confidence region induced by the Wasserstein distributionally robust optimization formulation. In addition, key properties of min-max distributionally robust optimization problems are also studied, for example, we show that distributionally robust estimators regularize the loss based on its derivative and we also derive general sufficient conditions which show the equivalence between the min-max distributionally robust optimization problem and the corresponding max-min formulation.",
+      "published": "June 04, 2019",
+      "categories": [
+        "math.ST",
+        "math.OC",
         "stat.ML"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2511.00543v1",
-      "arxiv_url": "http://arxiv.org/abs/2511.00543v1"
+      "pdf_link": "",
+      "arxiv_url": ""
     },
     {
-      "title": "Gradient Flow Sampler-based Distributionally Robust Optimization",
+      "title": "Distributionally Robust Bayesian Optimization",
       "authors": [
-        "Zusen Xu",
-        "Jia-Jie Zhu"
+        "Johannes Kirschner",
+        "Ilija Bogunovic",
+        "Stefanie Jegelka",
+        "Andreas Krause"
       ],
-      "abstract": "We propose a mathematically principled PDE gradient flow framework for\ndistributionally robust optimization (DRO). Exploiting the recent advances in\nthe intersection of Markov Chain Monte Carlo sampling and gradient flow theory,\nwe show that our theoretical framework can be implemented as practical\nalgorithms for sampling from worst-case distributions and, consequently, DRO.\nWhile numerous previous works have proposed various reformulation techniques\nand iterative algorithms, we contribute a sound gradient flow view of the\ndistributional optimization that can be used to construct new algorithms. As an\nexample of applications, we solve a class of Wasserstein and Sinkhorn DRO\nproblems using the recently-discovered Wasserstein Fisher-Rao and Stein\nvariational gradient flows. Notably, we also show some simple reductions of our\nframework recover exactly previously proposed popular DRO methods, and provide\nnew insights into their theoretical limit and optimization dynamics. Numerical\nstudies based on stochastic gradient descent provide empirical backing for our\ntheoretical findings.",
-      "published": "October 29, 2025",
+      "abstract": "Robustness to distributional shift is one of the key challenges of contemporary machine learning. Attaining such robustness is the goal of distributionally robust optimization, which seeks a solution to an optimization problem that is worst-case robust under a specified distributional shift of an uncontrolled covariate. In this paper, we study such a problem when the distributional shift is measured via the maximum mean discrepancy (MMD). For the setting of zeroth-order, noisy optimization, we present a novel distributionally robust Bayesian optimization algorithm (DRBO). Our algorithm provably obtains sub-linear robust regret in various settings that differ in how the uncertain covariate is observed. We demonstrate the robust performance of our method on both synthetic and real-world benchmarks.",
+      "published": "February 20, 2020",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "",
+      "arxiv_url": ""
+    },
+    {
+      "title": "Distributionally Robust Performative Prediction",
+      "authors": [
+        "Songkai Xue",
+        "Yuekai Sun"
+      ],
+      "abstract": "Performative prediction aims to model scenarios where predictive outcomes subsequently influence the very systems they target. The pursuit of a performative optimum (PO) -- minimizing performative risk -- is generally reliant on modeling of the distribution map, which characterizes how a deployed ML model alters the data distribution. Unfortunately, inevitable misspecification of the distribution map can lead to a poor approximation of the true PO. To address this issue, we introduce a novel framework of distributionally robust performative prediction and study a new solution concept termed as distributionally robust performative optimum (DRPO). We show provable guarantees for DRPO as a robust approximation to the true PO when the nominal distribution map is different from the actual one. Moreover, distributionally robust performative prediction can be reformulated as an augmented performative prediction problem, enabling efficient optimization. The experimental results demonstrate that DRPO offers potential advantages over traditional PO approach when the distribution map is misspecified at either micro- or macro-level.",
+      "published": "December 05, 2024",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "",
+      "arxiv_url": ""
+    },
+    {
+      "title": "Knowledge-Guided Wasserstein Distributionally Robust Optimization",
+      "authors": [
+        "Zitao Wang",
+        "Ziyuan Wang",
+        "Molei Liu",
+        "Nian Si"
+      ],
+      "abstract": "Transfer learning is a popular strategy to leverage external knowledge and improve statistical efficiency, particularly with a limited target sample. We propose a novel knowledge-guided Wasserstein Distributionally Robust Optimization (KG-WDRO) framework that adaptively incorporates multiple sources of external knowledge to overcome the conservativeness of vanilla WDRO, which often results in overly pessimistic shrinkage toward zero. Our method constructs smaller Wasserstein ambiguity sets by controlling the transportation along directions informed by the source knowledge. This strategy can alleviate perturbations on the predictive projection of the covariates and protect against information loss. Theoretically, we establish the equivalence between our WDRO formulation and the knowledge-guided shrinkage estimation based on collinear similarity, ensuring tractability and geometrizing the feasible set. This also reveals a novel and general interpretation for recent shrinkage-based transfer learning approaches from the perspective of distributional robustness. In addition, our framework can adjust for scaling differences in the regression models between the source and target and accommodates general types of regularization such as lasso and ridge. Extensive simulations demonstrate the superior performance and adaptivity of KG-WDRO in enhancing small-sample transfer learning.",
+      "published": "February 12, 2025",
+      "categories": [
+        "cs.LG",
+        "stat.ME",
+        "stat.ML"
+      ],
+      "pdf_link": "",
+      "arxiv_url": ""
+    },
+    {
+      "title": "Distributionally Robust Logistic Regression",
+      "authors": [
+        "Soroosh Shafieezadeh-Abadeh",
+        "Peyman Mohajerin Esfahani",
+        "Daniel Kuhn"
+      ],
+      "abstract": "This paper proposes a distributionally robust approach to logistic regression. We use the Wasserstein distance to construct a ball in the space of probability distributions centered at the uniform distribution on the training samples. If the radius of this ball is chosen judiciously, we can guarantee that it contains the unknown data-generating distribution with high confidence. We then formulate a distributionally robust logistic regression model that minimizes a worst-case expected logloss function, where the worst case is taken over all distributions in the Wasserstein ball. We prove that this optimization problem admits a tractable reformulation and encapsulates the classical as well as the popular regularized logistic regression problems as special cases. We further propose a distributionally robust approach based on Wasserstein balls to compute upper and lower confidence bounds on the misclassification probability of the resulting classifier. These bounds are given by the optimal values of two highly tractable linear programs. We validate our theoretical out-of-sample guarantees through simulated and empirical experiments.",
+      "published": "September 30, 2015",
       "categories": [
         "math.OC",
-        "math.AP",
         "stat.ML"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2510.25956v2",
-      "arxiv_url": "http://arxiv.org/abs/2510.25956v2"
+      "pdf_link": "",
+      "arxiv_url": ""
     },
     {
-      "title": "Improving time series estimation and prediction via transfer learning",
+      "title": "A Short and General Duality Proof for Wasserstein Distributionally Robust Optimization",
       "authors": [
-        "Yuchang Lin",
-        "Qianqian Zhu",
-        "Guodong Li"
+        "Luhao Zhang",
+        "Jincheng Yang",
+        "Rui Gao"
       ],
-      "abstract": "There are many time series in the literature with high dimension yet limited\nsample sizes, such as macroeconomic variables, and it is almost impossible to\nobtain efficient estimation and accurate prediction by using the corresponding\ndatasets themselves. This paper fills the gap by introducing a novel\nrepresentation-based transfer learning framework for vector autoregressive\nmodels, and information from related source datasets with rich observations can\nbe leveraged to enhance estimation efficiency through representation learning.\nA two-stage regularized estimation procedure is proposed with well established\nnon-asymptotic properties, and algorithms with alternating updates are\nsuggested to search for the estimates. Our transfer learning framework can\nhandle time series with varying sample sizes and asynchronous starting and/or\nending time points, thereby offering remarkable flexibility in integrating\ninformation from diverse datasets. Simulation experiments are conducted to\nevaluate the finite-sample performance of the proposed methodology, and its\nusefulness is demonstrated by an empirical analysis on 20 macroeconomic\nvariables from Japan and another nine countries.",
-      "published": "October 29, 2025",
+      "abstract": "We present a general duality result for Wasserstein distributionally robust optimization that holds for any Kantorovich transport cost, measurable loss function, and nominal probability distribution. Assuming an interchangeability principle inherent in existing duality results, our proof only uses one-dimensional convex analysis. Furthermore, we demonstrate that the interchangeability principle holds if and only if certain measurable projection and weak measurable selection conditions are satisfied. To illustrate the broader applicability of our approach, we provide a rigorous treatment of duality results in distributionally robust Markov decision processes and distributionally robust multistage stochastic programming. Additionally, we extend our analysis to other problems such as infinity-Wasserstein distributionally robust optimization, risk-averse optimization, and globalized distributionally robust counterpart.",
+      "published": "April 30, 2022",
+      "categories": [
+        "math.OC",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "",
+      "arxiv_url": ""
+    },
+    {
+      "title": "Distributionally Robust Optimization and Robust Statistics",
+      "authors": [
+        "Jose Blanchet",
+        "Jiajin Li",
+        "Sirui Lin",
+        "Xuhui Zhang"
+      ],
+      "abstract": "We review distributionally robust optimization (DRO), a principled approach for constructing statistical estimators that hedge against the impact of deviations in the expected loss between the training and deployment environments. Many well-known estimators in statistics and machine learning (e.g. AdaBoost, LASSO, ridge regression, dropout training, etc.) are distributionally robust in a precise sense. We hope that by discussing the DRO interpretation of well-known estimators, statisticians who may not be too familiar with DRO may find a way to access the DRO literature through the bridge between classical results and their DRO equivalent formulation. On the other hand, the topic of robustness in statistics has a rich tradition associated with removing the impact of contamination. Thus, another objective of this paper is to clarify the difference between DRO and classical statistical robustness. As we will see, these are two fundamentally different philosophies leading to completely different types of estimators. In DRO, the statistician hedges against an environment shift that occurs after the decision is made; thus DRO estimators tend to be pessimistic in an adversarial setting, leading to a min-max type formulation. In classical robust statistics, the statistician seeks to correct contamination that occurred before a decision is made; thus robust statistical estimators tend to be optimistic leading to a min-min type formulation.",
+      "published": "January 26, 2024",
       "categories": [
         "stat.ME"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2510.25236v1",
-      "arxiv_url": "http://arxiv.org/abs/2510.25236v1"
+      "pdf_link": "",
+      "arxiv_url": ""
     },
     {
-      "title": "Machine-Learning-Assisted Comparison of Regression Functions",
+      "title": "Wasserstein Distributionally Robust Kalman Filtering",
       "authors": [
-        "Jian Yan",
-        "Zhuoxi Li",
-        "Yang Ning",
-        "Yong Chen"
+        "Soroosh Shafieezadeh-Abadeh",
+        "Viet Anh Nguyen",
+        "Daniel Kuhn",
+        "Peyman Mohajerin Esfahani"
       ],
-      "abstract": "We revisit the classical problem of comparing regression functions, a\nfundamental question in statistical inference with broad relevance to modern\napplications such as data integration, transfer learning, and causal inference.\nExisting approaches typically rely on smoothing techniques and are thus\nhindered by the curse of dimensionality. We propose a generalized notion of\nkernel-based conditional mean dependence that provides a new characterization\nof the null hypothesis of equal regression functions. Building on this\nreformulation, we develop two novel tests that leverage modern machine learning\nmethods for flexible estimation. We establish the asymptotic properties of the\ntest statistics, which hold under both fixed- and high-dimensional regimes.\nUnlike existing methods that often require restrictive distributional\nassumptions, our framework only imposes mild moment conditions. The efficacy of\nthe proposed tests is demonstrated through extensive numerical studies.",
-      "published": "October 28, 2025",
+      "abstract": "We study a distributionally robust mean square error estimation problem over a nonconvex Wasserstein ambiguity set containing only normal distributions. We show that the optimal estimator and the least favorable distribution form a Nash equilibrium. Despite the non-convex nature of the ambiguity set, we prove that the estimation problem is equivalent to a tractable convex program. We further devise a Frank-Wolfe algorithm for this convex program whose direction-searching subproblem can be solved in a quasi-closed form. Using these ingredients, we introduce a distributionally robust Kalman filter that hedges against model risk.",
+      "published": "September 24, 2018",
       "categories": [
-        "stat.ME",
-        "econ.EM",
+        "math.OC",
+        "cs.LG",
         "stat.ML"
       ],
-      "pdf_link": "http://arxiv.org/pdf/2510.24714v1",
-      "arxiv_url": "http://arxiv.org/abs/2510.24714v1"
+      "pdf_link": "",
+      "arxiv_url": ""
+    },
+    {
+      "title": "Doubly Robust Data-Driven Distributionally Robust Optimization",
+      "authors": [
+        "Jose Blanchet",
+        "Yang Kang",
+        "Fan Zhang",
+        "Fei He",
+        "Zhangyi Hu"
+      ],
+      "abstract": "Data-driven Distributionally Robust Optimization (DD-DRO) via optimal transport has been shown to encompass a wide range of popular machine learning algorithms. The distributional uncertainty size is often shown to correspond to the regularization parameter. The type of regularization (e.g. the norm used to regularize) corresponds to the shape of the distributional uncertainty. We propose a data-driven robust optimization methodology to inform the transportation cost underlying the definition of the distributional uncertainty. We show empirically that this additional layer of robustification, which produces a method we called doubly robust data-driven distributionally robust optimization (DD-R-DRO), allows to enhance the generalization properties of regularized estimators while reducing testing error relative to state-of-the-art classifiers in a wide range of data sets.",
+      "published": "May 19, 2017",
+      "categories": [
+        "stat.ML"
+      ],
+      "pdf_link": "",
+      "arxiv_url": ""
+    },
+    {
+      "title": "Distributionally Robust Federated Averaging",
+      "authors": [
+        "Yuyang Deng",
+        "Mohammad Mahdi Kamani",
+        "Mehrdad Mahdavi"
+      ],
+      "abstract": "In this paper, we study communication efficient distributed algorithms for distributionally robust federated learning via periodic averaging with adaptive sampling. In contrast to standard empirical risk minimization, due to the minimax structure of the underlying optimization problem, a key difficulty arises from the fact that the global parameter that controls the mixture of local losses can only be updated infrequently on the global stage. To compensate for this, we propose a Distributionally Robust Federated Averaging (DRFA) algorithm that employs a novel snapshotting scheme to approximate the accumulation of history gradients of the mixing parameter. We analyze the convergence rate of DRFA in both convex-linear and nonconvex-linear settings. We also generalize the proposed idea to objectives with regularization on the mixture parameter and propose a proximal variant, dubbed as DRFA-Prox, with provable convergence rates. We also analyze an alternative optimization method for regularized cases in strongly-convex-strongly-concave and non-convex (under PL condition)-strongly-concave settings. To the best of our knowledge, this paper is the first to solve distributionally robust federated learning with reduced communication, and to analyze the efficiency of local descent methods on distributed minimax problems. We give corroborating experimental evidence for our theoretical results in federated learning settings.",
+      "published": "February 25, 2021",
+      "categories": [
+        "cs.LG",
+        "cs.DC",
+        "stat.ML"
+      ],
+      "pdf_link": "",
+      "arxiv_url": ""
+    },
+    {
+      "title": "Single-Trajectory Distributionally Robust Reinforcement Learning",
+      "authors": [
+        "Zhipeng Liang",
+        "Xiaoteng Ma",
+        "Jose Blanchet",
+        "Jiheng Zhang",
+        "Zhengyuan Zhou"
+      ],
+      "abstract": "To mitigate the limitation that the classical reinforcement learning (RL) framework heavily relies on identical training and test environments, Distributionally Robust RL (DRRL) has been proposed to enhance performance across a range of environments, possibly including unknown test environments. As a price for robustness gain, DRRL involves optimizing over a set of distributions, which is inherently more challenging than optimizing over a fixed distribution in the non-robust case. Existing DRRL algorithms are either model-based or fail to learn from a single sample trajectory. In this paper, we design a first fully model-free DRRL algorithm, called distributionally robust Q-learning with single trajectory (DRQ). We delicately design a multi-timescale framework to fully utilize each incrementally arriving sample and directly learn the optimal distributionally robust policy without modelling the environment, thus the algorithm can be trained along a single trajectory in a model-free fashion. Despite the algorithm's complexity, we provide asymptotic convergence guarantees by generalizing classical stochastic approximation tools. Comprehensive experimental results demonstrate the superior robustness and sample complexity of our proposed algorithm, compared to non-robust methods and other robust RL algorithms.",
+      "published": "January 27, 2023",
+      "categories": [
+        "stat.ML",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_link": "",
+      "arxiv_url": ""
+    },
+    {
+      "title": "Distributionally Robust End-to-End Portfolio Construction",
+      "authors": [
+        "Giorgio Costa",
+        "Garud N. Iyengar"
+      ],
+      "abstract": "We propose an end-to-end distributionally robust system for portfolio construction that integrates the asset return prediction model with a distributionally robust portfolio optimization model. We also show how to learn the risk-tolerance parameter and the degree of robustness directly from data. End-to-end systems have an advantage in that information can be communicated between the prediction and decision layers during training, allowing the parameters to be trained for the final task rather than solely for predictive performance. However, existing end-to-end systems are not able to quantify and correct for the impact of model risk on the decision layer. Our proposed distributionally robust end-to-end portfolio selection system explicitly accounts for the impact of model risk. The decision layer chooses portfolios by solving a minimax problem where the distribution of the asset returns is assumed to belong to an ambiguity set centered around a nominal distribution. Using convex duality, we recast the minimax problem in a form that allows for efficient training of the end-to-end system.",
+      "published": "June 10, 2022",
+      "categories": [
+        "q-fin.CP",
+        "cs.LG",
+        "math.OC",
+        "q-fin.PM",
+        "stat.ML"
+      ],
+      "pdf_link": "",
+      "arxiv_url": ""
+    },
+    {
+      "title": "Wasserstein Distributionally Robust Optimization with Wasserstein Barycenters",
+      "authors": [
+        "Tim Tsz-Kit Lau",
+        "Han Liu"
+      ],
+      "abstract": "In many applications in statistics and machine learning, the availability of data samples from multiple possibly heterogeneous sources has become increasingly prevalent. On the other hand, in distributionally robust optimization, we seek data-driven decisions which perform well under the most adverse distribution from a nominal distribution constructed from data samples within a certain discrepancy of probability distributions. However, it remains unclear how to achieve such distributional robustness in model learning and estimation when data samples from multiple sources are available. In this work, we propose constructing the nominal distribution in optimal transport-based distributionally robust optimization problems through the notion of Wasserstein barycenter as an aggregation of data samples from multiple sources. Under specific choices of the loss function, the proposed formulation admits a tractable reformulation as a finite convex program, with powerful finite-sample and asymptotic guarantees. As an illustrative example, we demonstrate with the problem of distributionally robust sparse inverse covariance matrix estimation for zero-mean Gaussian random vectors that our proposed scheme outperforms other widely used estimators in both the low- and high-dimensional regimes.",
+      "published": "March 23, 2022",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.OC"
+      ],
+      "pdf_link": "",
+      "arxiv_url": ""
+    },
+    {
+      "title": "Distributionally Robust Counterfactual Risk Minimization",
+      "authors": [
+        "Louis Faury",
+        "Ugo Tanielian",
+        "Flavian Vasile",
+        "Elena Smirnova",
+        "Elvis Dohmatob"
+      ],
+      "abstract": "This manuscript introduces the idea of using Distributionally Robust Optimization (DRO) for the Counterfactual Risk Minimization (CRM) problem. Tapping into a rich existing literature, we show that DRO is a principled tool for counterfactual decision making. We also show that well-established solutions to the CRM problem like sample variance penalization schemes are special instances of a more general DRO problem. In this unifying framework, a variety of distributionally robust counterfactual risk estimators can be constructed using various probability distances and divergences as uncertainty measures. We propose the use of Kullback-Leibler divergence as an alternative way to model uncertainty in CRM and derive a new robust counterfactual objective. In our experiments, we show that this approach outperforms the state-of-the-art on four benchmark datasets, validating the relevance of using other uncertainty measures in practical applications.",
+      "published": "June 14, 2019",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "",
+      "arxiv_url": ""
+    },
+    {
+      "title": "Distributionally Robust Optimization: A Review",
+      "authors": [
+        "Hamed Rahimian",
+        "Sanjay Mehrotra"
+      ],
+      "abstract": "The concepts of risk-aversion, chance-constrained optimization, and robust optimization have developed significantly over the last decade. Statistical learning community has also witnessed a rapid theoretical and applied growth by relying on these concepts. A modeling framework, called distributionally robust optimization (DRO), has recently received significant attention in both the operations research and statistical learning communities. This paper surveys main concepts and contributions to DRO, and its relationships with robust optimization, risk-aversion, chance-constrained optimization, and function regularization.",
+      "published": "August 13, 2019",
+      "categories": [
+        "math.OC",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "",
+      "arxiv_url": ""
     }
   ]
 }
