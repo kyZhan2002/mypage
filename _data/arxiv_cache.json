@@ -1,6 +1,22 @@
 {
-  "timestamp": 1763342726,
+  "timestamp": 1763429073,
   "papers": [
+    {
+      "title": "Heterogeneous Multisource Transfer Learning via Model Averaging for Positive-Unlabeled Data",
+      "authors": [
+        "Jialei Liu",
+        "Jun Liao",
+        "Kuangnan Fang"
+      ],
+      "abstract": "Positive-Unlabeled (PU) learning presents unique challenges due to the lack of explicitly labeled negative samples, particularly in high-stakes domains such as fraud detection and medical diagnosis. To address data scarcity and privacy constraints, we propose a novel transfer learning with model averaging framework that integrates information from heterogeneous data sources - including fully binary labeled, semi-supervised, and PU data sets - without direct data sharing. For each source domain type, a tailored logistic regression model is conducted, and knowledge is transferred to the PU target domain through model averaging. Optimal weights for combining source models are determined via a cross-validation criterion that minimizes the Kullback-Leibler divergence. We establish theoretical guarantees for weight optimality and convergence, covering both misspecified and correctly specified target models, with further extensions to high-dimensional settings using sparsity-penalized estimators. Extensive simulations and real-world credit risk data analyses demonstrate that our method outperforms other comparative methods in terms of predictive accuracy and robustness, especially under limited labeled data and heterogeneous environments.",
+      "published": "November 14, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2511.10919v1",
+      "arxiv_url": "https://arxiv.org/abs/2511.10919v1"
+    },
     {
       "title": "Reluctant Transfer Learning in Penalized Regressions for Individualized Treatment Rules under Effect Heterogeneity",
       "authors": [
@@ -29,21 +45,6 @@
       ],
       "pdf_link": "https://arxiv.org/pdf/2511.08401v1",
       "arxiv_url": "https://arxiv.org/abs/2511.08401v1"
-    },
-    {
-      "title": "Distributionally Robust Online Markov Game with Linear Function Approximation",
-      "authors": [
-        "Zewu Zheng",
-        "Yuanyuan Lin"
-      ],
-      "abstract": "The sim-to-real gap, where agents trained in a simulator face significant performance degradation during testing, is a fundamental challenge in reinforcement learning. Extansive works adopt the framework of distributionally robust RL, to learn a policy that acts robustly under worst case environment shift. Within this framework, our objective is to devise algorithms that are sample efficient with interactive data collection and large state spaces. By assuming d-rectangularity of environment dynamic shift, we identify a fundamental hardness result for learning in online Markov game, and address it by adopting minimum value assumption. Then, a novel least square value iteration type algorithm, DR-CCE-LSI, with exploration bonus devised specifically for multiple agents, is proposed to find an \\episilon-approximate robust Coarse Correlated Equilibrium(CCE). To obtain sample efficient learning, we find that: when the feature mapping function satisfies certain properties, our algorithm, DR-CCE-LSI, is able to achieve \u03b5-approximate CCE with a regret bound of O{dHmin{H,1/min{\u03c3_i}}\\sqrt{K}}, where K is the number of interacting episodes, H is the horizon length, d is the feature dimension, and \\simga_i represents the uncertainty level of player i. Our work introduces the first sample-efficient algorithm for this setting, matches the best result so far in single agent setting, and achieves minimax optimalsample complexity in terms of the feature dimension d. Meanwhile, we also conduct simulation study to validate the efficacy of our algorithm in learning a robust equilibrium.",
-      "published": "November 11, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2511.07831v1",
-      "arxiv_url": "https://arxiv.org/abs/2511.07831v1"
     }
   ]
 }
