@@ -1,6 +1,20 @@
 {
-  "timestamp": 1763429073,
+  "timestamp": 1763515450,
   "papers": [
+    {
+      "title": "Transfer learning for high-dimensional Factor-augmented sparse model",
+      "authors": [
+        "Bo Fu",
+        "Dandan Jiang"
+      ],
+      "abstract": "In this paper, we study transfer learning for high-dimensional factor-augmented sparse linear models, motivated by applications in economics and finance where strongly correlated predictors and latent factor structures pose major challenges for reliable estimation. Our framework simultaneously mitigates the impact of high correlation and removes the additional contributions of latent factors, thereby reducing potential model misspecification in conventional linear modeling. In such settings, the target dataset is often limited, but multiple heterogeneous auxiliary sources may provide additional information. We develop transfer learning procedures that effectively leverage these auxiliary datasets to improve estimation accuracy, and establish non-asymptotic $\\ell_1$- and $\\ell_2$-error bounds for the proposed estimators. To prevent negative transfer, we introduce a data-driven source detection algorithm capable of identifying informative auxiliary datasets and prove its consistency. In addition, we provide a hypothesis testing framework for assessing the adequacy of the factor model, together with a procedure for constructing simultaneous confidence intervals for the regression coefficients of interest. Numerical studies demonstrate that our methods achieve substantial gains in estimation accuracy and remain robust under heterogeneity across datasets. Overall, our framework offers a theoretical foundation and a practically scalable solution for incorporating heterogeneous auxiliary information in settings with highly correlated features and latent factor structures.",
+      "published": "November 16, 2025",
+      "categories": [
+        "stat.ME"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2511.12435v1",
+      "arxiv_url": "https://arxiv.org/abs/2511.12435v1"
+    },
     {
       "title": "Heterogeneous Multisource Transfer Learning via Model Averaging for Positive-Unlabeled Data",
       "authors": [
@@ -16,35 +30,6 @@
       ],
       "pdf_link": "https://arxiv.org/pdf/2511.10919v1",
       "arxiv_url": "https://arxiv.org/abs/2511.10919v1"
-    },
-    {
-      "title": "Reluctant Transfer Learning in Penalized Regressions for Individualized Treatment Rules under Effect Heterogeneity",
-      "authors": [
-        "Eun Jeong Oh",
-        "Min Qian"
-      ],
-      "abstract": "Estimating individualized treatment rules (ITRs) is fundamental to precision medicine, where the goal is to tailor treatment decisions to individual patient characteristics. While numerous methods have been developed for ITR estimation, there is limited research on model updating that accounts for shifted treatment-covariate relationships in the ITR setting. In real-world practice, models trained on source data must be updated for new (target) datasets that exhibit shifts in treatment effects. To address this challenge, we propose a Reluctant Transfer Learning (RTL) framework that enables efficient model adaptation by selectively transferring essential model components (e.g., regression coefficients) from source to target data, without requiring access to individual-level source data. Leveraging the principle of reluctant modeling, the RTL approach incorporates model adjustments only when they improve performance on the target dataset, thereby controlling complexity and enhancing generalizability. Our method supports multi-armed treatment settings, performs variable selection for interpretability, and provides theoretical guarantees for the value convergence. Through simulation studies and an application to a real data example from the Best Apnea Interventions for Research (BestAIR) trial, we demonstrate that RTL outperforms existing alternatives. The proposed framework offers an efficient, practically feasible approach to adaptive treatment decision-making under evolving treatment effect conditions.",
-      "published": "November 11, 2025",
-      "categories": [
-        "stat.ME"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2511.08559v1",
-      "arxiv_url": "https://arxiv.org/abs/2511.08559v1"
-    },
-    {
-      "title": "Source-Optimal Training is Transfer-Suboptimal",
-      "authors": [
-        "C. Evans Hedges"
-      ],
-      "abstract": "We prove a fundamental misalignment in transfer learning: the source regularization that minimizes source risk almost never coincides with the regularization maximizing transfer benefit. Through sharp phase boundaries for L2-SP ridge regression, we characterize the transfer-optimal source penalty $\u03c4_0^*$ and show it diverges predictably from task-optimal values, requiring stronger regularization in high-SNR regimes and weaker regularization in low-SNR regimes. Additionally, in isotropic settings the decision to transfer is remarkably independent of target sample size and noise, depending only on task alignment and source characteristics. CIFAR-10 and MNIST experiments confirm this counterintuitive pattern persists in non-linear networks.",
-      "published": "November 11, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "math.ST"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2511.08401v1",
-      "arxiv_url": "https://arxiv.org/abs/2511.08401v1"
     }
   ]
 }
