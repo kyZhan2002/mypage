@@ -1,8 +1,39 @@
 {
-  "timestamp": 1763515450,
+  "timestamp": 1763601769,
   "papers": [
     {
-      "title": "Transfer learning for high-dimensional Factor-augmented sparse model",
+      "title": "SCOPE: Spectral Concentration by Distributionally Robust Joint Covariance-Precision Estimation",
+      "authors": [
+        "Renjie Chen",
+        "Viet Anh Nguyen",
+        "Huifu Xu"
+      ],
+      "abstract": "We propose a distributionally robust formulation for simultaneously estimating the covariance matrix and the precision matrix of a random vector.The proposed model minimizes the worst-case weighted sum of the Frobenius loss of the covariance estimator and Stein's loss of the precision matrix estimator against all distributions from an ambiguity set centered at the nominal distribution. The radius of the ambiguity set is measured via convex spectral divergence. We demonstrate that the proposed distributionally robust estimation model can be reduced to a convex optimization problem, thereby yielding quasi-analytical estimators. The joint estimators are shown to be nonlinear shrinkage estimators. The eigenvalues of the estimators are shrunk nonlinearly towards a positive scalar, where the scalar is determined by the weight coefficient of the loss terms. By tuning the coefficient carefully, the shrinkage corrects the spectral bias of the empirical covariance/precision matrix estimator. By this property, we call the proposed joint estimator the Spectral concentrated COvariance and Precision matrix Estimator (SCOPE). We demonstrate that the shrinkage effect improves the condition number of the estimator. We provide a parameter-tuning scheme that adjusts the shrinkage target and intensity that is asymptotically optimal. Numerical experiments on synthetic and real data show that our shrinkage estimators perform competitively against state-of-the-art estimators in practical applications.",
+      "published": "November 18, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.OC"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2511.14146v1",
+      "arxiv_url": "https://arxiv.org/abs/2511.14146v1"
+    },
+    {
+      "title": "SmallML: Bayesian Transfer Learning for Small-Data Predictive Analytics",
+      "authors": [
+        "Semen Leontev"
+      ],
+      "abstract": "Small and medium-sized enterprises (SMEs) represent 99.9% of U.S. businesses yet remain systematically excluded from AI due to a mismatch between their operational scale and modern machine learning's data requirements. This paper introduces SmallML, a Bayesian transfer learning framework achieving enterprise-level prediction accuracy with datasets as small as 50-200 observations.\n  We develop a three-layer architecture integrating transfer learning, hierarchical Bayesian modeling, and conformal prediction. Layer 1 extracts informative priors from 22,673 public records using a SHAP-based procedure transferring knowledge from gradient boosting to logistic regression. Layer 2 implements hierarchical pooling across J=5-50 SMEs with adaptive shrinkage, balancing population patterns with entity-specific characteristics. Layer 3 provides conformal sets with finite-sample coverage guarantees P(y in C(x)) >= 1-alpha for distribution-free uncertainty quantification.\n  Validation on customer churn data demonstrates 96.7% +/- 4.2% AUC with 100 observations per business -- a +24.2 point improvement over independent logistic regression (72.5% +/- 8.1%), with p < 0.000001. Conformal prediction achieves 92% empirical coverage at 90% target. Training completes in 33 minutes on standard CPU hardware. By enabling enterprise-grade predictions for 33 million U.S. SMEs previously excluded from machine learning, SmallML addresses a critical gap in AI democratization.\n  Keywords: Bayesian transfer learning, hierarchical models, conformal prediction, small-data analytics, SME machine learning",
+      "published": "November 18, 2025",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2511.14049v1",
+      "arxiv_url": "https://arxiv.org/abs/2511.14049v1"
+    },
+    {
+      "title": "Transfer learning for high-dimensional Factor-augmented sparse linear model",
       "authors": [
         "Bo Fu",
         "Dandan Jiang"
@@ -12,24 +43,8 @@
       "categories": [
         "stat.ME"
       ],
-      "pdf_link": "https://arxiv.org/pdf/2511.12435v1",
-      "arxiv_url": "https://arxiv.org/abs/2511.12435v1"
-    },
-    {
-      "title": "Heterogeneous Multisource Transfer Learning via Model Averaging for Positive-Unlabeled Data",
-      "authors": [
-        "Jialei Liu",
-        "Jun Liao",
-        "Kuangnan Fang"
-      ],
-      "abstract": "Positive-Unlabeled (PU) learning presents unique challenges due to the lack of explicitly labeled negative samples, particularly in high-stakes domains such as fraud detection and medical diagnosis. To address data scarcity and privacy constraints, we propose a novel transfer learning with model averaging framework that integrates information from heterogeneous data sources - including fully binary labeled, semi-supervised, and PU data sets - without direct data sharing. For each source domain type, a tailored logistic regression model is conducted, and knowledge is transferred to the PU target domain through model averaging. Optimal weights for combining source models are determined via a cross-validation criterion that minimizes the Kullback-Leibler divergence. We establish theoretical guarantees for weight optimality and convergence, covering both misspecified and correctly specified target models, with further extensions to high-dimensional settings using sparsity-penalized estimators. Extensive simulations and real-world credit risk data analyses demonstrate that our method outperforms other comparative methods in terms of predictive accuracy and robustness, especially under limited labeled data and heterogeneous environments.",
-      "published": "November 14, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2511.10919v1",
-      "arxiv_url": "https://arxiv.org/abs/2511.10919v1"
+      "pdf_link": "https://arxiv.org/pdf/2511.12435v2",
+      "arxiv_url": "https://arxiv.org/abs/2511.12435v2"
     }
   ]
 }
