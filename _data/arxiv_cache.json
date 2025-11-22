@@ -1,6 +1,22 @@
 {
-  "timestamp": 1763688229,
+  "timestamp": 1763774466,
   "papers": [
+    {
+      "title": "Scenario-based Regularization: A Tractable Framework for Distributionally Robust Stochastic Optimization",
+      "authors": [
+        "Diego Fonseca",
+        "Mauricio Junca"
+      ],
+      "abstract": "We propose a flexible scenario-based regularized Sample Average Approximation (SBR-SAA) framework for stochastic optimization. This work is motivated by challenges in standard Wasserstein Distributionally Robust Optimization (WDRO), where out-of-sample performance, particularly tail risk, is sensitive to the choice of the p-norm, and formulations can be computationally intractable. Our method is inspired by the asymptotic expansion of the WDRO objective and introduces a regularizer that penalizes the (sub)gradient norm of the objective at a selected set of scenarios. This framework serves a dual purpose: (i) it provides a computationally tractable alternative to WDRO by using a representative subset of the data, and (ii) it can provide targeted robustness by incorporating user-defined adverse scenarios. We establish the theoretical properties of this framework by proving its equivalence to a decision-dependent WDRO problem, from which we derive finite sample guarantees and asymptotic consistency. We demonstrate the method's efficacy in two applications: (1) a multi-product newsvendor problem, where SBR-SAA serves as a tractable alternative to NP-hard WDRO, and (2) a mean-risk portfolio optimization problem, where it successfully uses historical crisis data to improve out-of-sample performance.",
+      "published": "November 20, 2025",
+      "categories": [
+        "math.OC",
+        "math.PR",
+        "stat.CO"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2511.16500v1",
+      "arxiv_url": "https://arxiv.org/abs/2511.16500v1"
+    },
     {
       "title": "Variance-reduced extreme value index estimators using control variates in a semi-supervised setting",
       "authors": [
@@ -60,20 +76,6 @@
       ],
       "pdf_link": "https://arxiv.org/pdf/2511.14049v1",
       "arxiv_url": "https://arxiv.org/abs/2511.14049v1"
-    },
-    {
-      "title": "Transfer learning for high-dimensional Factor-augmented sparse linear model",
-      "authors": [
-        "Bo Fu",
-        "Dandan Jiang"
-      ],
-      "abstract": "In this paper, we study transfer learning for high-dimensional factor-augmented sparse linear models, motivated by applications in economics and finance where strongly correlated predictors and latent factor structures pose major challenges for reliable estimation. Our framework simultaneously mitigates the impact of high correlation and removes the additional contributions of latent factors, thereby reducing potential model misspecification in conventional linear modeling. In such settings, the target dataset is often limited, but multiple heterogeneous auxiliary sources may provide additional information. We develop transfer learning procedures that effectively leverage these auxiliary datasets to improve estimation accuracy, and establish non-asymptotic $\\ell_1$- and $\\ell_2$-error bounds for the proposed estimators. To prevent negative transfer, we introduce a data-driven source detection algorithm capable of identifying informative auxiliary datasets and prove its consistency. In addition, we provide a hypothesis testing framework for assessing the adequacy of the factor model, together with a procedure for constructing simultaneous confidence intervals for the regression coefficients of interest. Numerical studies demonstrate that our methods achieve substantial gains in estimation accuracy and remain robust under heterogeneity across datasets. Overall, our framework offers a theoretical foundation and a practically scalable solution for incorporating heterogeneous auxiliary information in settings with highly correlated features and latent factor structures.",
-      "published": "November 16, 2025",
-      "categories": [
-        "stat.ME"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2511.12435v2",
-      "arxiv_url": "https://arxiv.org/abs/2511.12435v2"
     }
   ]
 }
