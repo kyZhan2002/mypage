@@ -1,5 +1,5 @@
 {
-  "timestamp": 1764033897,
+  "timestamp": 1764120289,
   "papers": [
     {
       "title": "Scenario-based Regularization: A Tractable Framework for Distributionally Robust Stochastic Optimization",
@@ -16,66 +16,6 @@
       ],
       "pdf_link": "https://arxiv.org/pdf/2511.16500v1",
       "arxiv_url": "https://arxiv.org/abs/2511.16500v1"
-    },
-    {
-      "title": "Variance-reduced extreme value index estimators using control variates in a semi-supervised setting",
-      "authors": [
-        "Louison Bocquet-Nouaille",
-        "J\u00e9r\u00f4me Morio",
-        "Benjamin Bobbia"
-      ],
-      "abstract": "The estimation of the Extreme Value Index (EVI) is fundamental in extreme value analysis but suffers from high variance due to reliance on only a few extreme observations. We propose a control variates based transfer learning approach in a semi-supervised framework, where a small set of coupled target and source observations is combined with abundant unpaired source data. By expressing the Hill estimator of the target EVI as a ratio of means, we apply approximate control variates to both numerator and denominator, with jointly optimized coefficients that guarantee variance reduction without introducing bias. We show theoretically and through simulations that the asymptotic relative variance reduction of the transferred Hill estimator is proportional to the tail dependence between the target and source variables and independent of their EVI values. Thus, substantial variance reduction can be achieved even without similarity in tail heaviness of the target and source distributions. The proposed approach can be extended to other EVI estimators expressed with ratio of means, as demonstrated on the moment estimator. The practical value of the proposed method is illustrated on multi-fidelity water surge and ice accretion datasets.",
-      "published": "November 19, 2025",
-      "categories": [
-        "stat.ME",
-        "math.ST"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2511.15561v1",
-      "arxiv_url": "https://arxiv.org/abs/2511.15561v1"
-    },
-    {
-      "title": "Testing relevant difference in high-dimensional linear regression with applications to detect transferability",
-      "authors": [
-        "Xu Liu"
-      ],
-      "abstract": "Most of researchers on testing a significance of coefficient $\\ubeta$ in high-dimensional linear regression models consider the classical hypothesis testing problem $H_0^{c}: \\ubeta=\\uzero \\mbox{ versus } H_1^{c}: \\ubeta \\neq \\uzero$. We take a different perspective and study the testing problem with the null hypothesis of no relevant difference between $\\ubeta$ and $\\uzero$, that is, $H_0: \\|\\ubeta\\|\\leq \u03b4_0 \\mbox{ versus } H_1: \\|\\ubeta\\|> \u03b4_0$, where $\u03b4_0$ is a prespecified small constant. This testing problem is motivated by the urgent requirement to detect the transferability of source data in the transfer learning framework. We propose a novel test procedure incorporating the estimation of the largest eigenvalue of a high-dimensional covariance matrix with the assistance of the random matrix theory. In the more challenging setting in the presence of high-dimensional nuisance parameters, we establish the asymptotic normality for the proposed test statistics under both the null and alternative hypotheses. By applying the proposed test approaches to detect the transferability of source data, the unified transfer learning models simultaneously achieve lower estimation and prediction errors with comparison to existing methods. We study the finite-sample properties of the new test by means of simulation studies and illustrate its performance by analyzing the GTEx data.",
-      "published": "November 19, 2025",
-      "categories": [
-        "stat.ME"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2511.15236v1",
-      "arxiv_url": "https://arxiv.org/abs/2511.15236v1"
-    },
-    {
-      "title": "SCOPE: Spectral Concentration by Distributionally Robust Joint Covariance-Precision Estimation",
-      "authors": [
-        "Renjie Chen",
-        "Viet Anh Nguyen",
-        "Huifu Xu"
-      ],
-      "abstract": "We propose a distributionally robust formulation for simultaneously estimating the covariance matrix and the precision matrix of a random vector.The proposed model minimizes the worst-case weighted sum of the Frobenius loss of the covariance estimator and Stein's loss of the precision matrix estimator against all distributions from an ambiguity set centered at the nominal distribution. The radius of the ambiguity set is measured via convex spectral divergence. We demonstrate that the proposed distributionally robust estimation model can be reduced to a convex optimization problem, thereby yielding quasi-analytical estimators. The joint estimators are shown to be nonlinear shrinkage estimators. The eigenvalues of the estimators are shrunk nonlinearly towards a positive scalar, where the scalar is determined by the weight coefficient of the loss terms. By tuning the coefficient carefully, the shrinkage corrects the spectral bias of the empirical covariance/precision matrix estimator. By this property, we call the proposed joint estimator the Spectral concentrated COvariance and Precision matrix Estimator (SCOPE). We demonstrate that the shrinkage effect improves the condition number of the estimator. We provide a parameter-tuning scheme that adjusts the shrinkage target and intensity that is asymptotically optimal. Numerical experiments on synthetic and real data show that our shrinkage estimators perform competitively against state-of-the-art estimators in practical applications.",
-      "published": "November 18, 2025",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "math.OC"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2511.14146v1",
-      "arxiv_url": "https://arxiv.org/abs/2511.14146v1"
-    },
-    {
-      "title": "SmallML: Bayesian Transfer Learning for Small-Data Predictive Analytics",
-      "authors": [
-        "Semen Leontev"
-      ],
-      "abstract": "Small and medium-sized enterprises (SMEs) represent 99.9% of U.S. businesses yet remain systematically excluded from AI due to a mismatch between their operational scale and modern machine learning's data requirements. This paper introduces SmallML, a Bayesian transfer learning framework achieving enterprise-level prediction accuracy with datasets as small as 50-200 observations.\n  We develop a three-layer architecture integrating transfer learning, hierarchical Bayesian modeling, and conformal prediction. Layer 1 extracts informative priors from 22,673 public records using a SHAP-based procedure transferring knowledge from gradient boosting to logistic regression. Layer 2 implements hierarchical pooling across J=5-50 SMEs with adaptive shrinkage, balancing population patterns with entity-specific characteristics. Layer 3 provides conformal sets with finite-sample coverage guarantees P(y in C(x)) >= 1-alpha for distribution-free uncertainty quantification.\n  Validation on customer churn data demonstrates 96.7% +/- 4.2% AUC with 100 observations per business -- a +24.2 point improvement over independent logistic regression (72.5% +/- 8.1%), with p < 0.000001. Conformal prediction achieves 92% empirical coverage at 90% target. Training completes in 33 minutes on standard CPU hardware. By enabling enterprise-grade predictions for 33 million U.S. SMEs previously excluded from machine learning, SmallML addresses a critical gap in AI democratization.\n  Keywords: Bayesian transfer learning, hierarchical models, conformal prediction, small-data analytics, SME machine learning",
-      "published": "November 18, 2025",
-      "categories": [
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2511.14049v1",
-      "arxiv_url": "https://arxiv.org/abs/2511.14049v1"
     }
   ]
 }
