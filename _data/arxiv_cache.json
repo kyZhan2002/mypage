@@ -1,21 +1,36 @@
 {
-  "timestamp": 1764120289,
+  "timestamp": 1764292986,
   "papers": [
     {
-      "title": "Scenario-based Regularization: A Tractable Framework for Distributionally Robust Stochastic Optimization",
+      "title": "Portfolio Optimization via Transfer Learning",
       "authors": [
-        "Diego Fonseca",
-        "Mauricio Junca"
+        "Kexin Wang",
+        "Xiaomeng Zhang",
+        "Xinyu Zhang"
       ],
-      "abstract": "We propose a flexible scenario-based regularized Sample Average Approximation (SBR-SAA) framework for stochastic optimization. This work is motivated by challenges in standard Wasserstein Distributionally Robust Optimization (WDRO), where out-of-sample performance, particularly tail risk, is sensitive to the choice of the p-norm, and formulations can be computationally intractable. Our method is inspired by the asymptotic expansion of the WDRO objective and introduces a regularizer that penalizes the (sub)gradient norm of the objective at a selected set of scenarios. This framework serves a dual purpose: (i) it provides a computationally tractable alternative to WDRO by using a representative subset of the data, and (ii) it can provide targeted robustness by incorporating user-defined adverse scenarios. We establish the theoretical properties of this framework by proving its equivalence to a decision-dependent WDRO problem, from which we derive finite sample guarantees and asymptotic consistency. We demonstrate the method's efficacy in two applications: (1) a multi-product newsvendor problem, where SBR-SAA serves as a tractable alternative to NP-hard WDRO, and (2) a mean-risk portfolio optimization problem, where it successfully uses historical crisis data to improve out-of-sample performance.",
-      "published": "November 20, 2025",
+      "abstract": "Recognizing that asset markets generally exhibit shared informational characteristics, we develop a portfolio strategy based on transfer learning that leverages cross-market information to enhance the investment performance in the market of interest by forward validation. Our strategy asymptotically identifies and utilizes the informative datasets, selectively incorporating valid information while discarding the misleading information. This enables our strategy to achieve the maximum Sharpe ratio asymptotically. The promising performance is demonstrated by numerical studies and case studies of two portfolios: one consisting of stocks dual-listed in A-shares and H-shares, and another comprising equities from various industries of the United States.",
+      "published": "November 26, 2025",
       "categories": [
-        "math.OC",
-        "math.PR",
-        "stat.CO"
+        "q-fin.PM",
+        "stat.AP"
       ],
-      "pdf_link": "https://arxiv.org/pdf/2511.16500v1",
-      "arxiv_url": "https://arxiv.org/abs/2511.16500v1"
+      "pdf_link": "https://arxiv.org/pdf/2511.21221v1",
+      "arxiv_url": "https://arxiv.org/abs/2511.21221v1"
+    },
+    {
+      "title": "Pretraining Transformer-Based Models on Diffusion-Generated Synthetic Graphs for Alzheimer's Disease Prediction",
+      "authors": [
+        "Abolfazl Moslemi",
+        "Hossein Peyvandi"
+      ],
+      "abstract": "Early and accurate detection of Alzheimer's disease (AD) is crucial for enabling timely intervention and improving outcomes. However, developing reliable machine learning (ML) models for AD diagnosis is challenging due to limited labeled data, multi-site heterogeneity, and class imbalance. We propose a Transformer-based diagnostic framework that combines diffusion-based synthetic data generation with graph representation learning and transfer learning. A class-conditional denoising diffusion probabilistic model (DDPM) is trained on the real-world NACC dataset to generate a large synthetic cohort that mirrors multimodal clinical and neuroimaging feature distributions while balancing diagnostic classes. Modality-specific Graph Transformer encoders are first pretrained on this synthetic data to learn robust, class-discriminative representations and are then frozen while a neural classifier is trained on embeddings from the original NACC data. We quantify distributional alignment between real and synthetic cohorts using metrics such as Maximum Mean Discrepancy (MMD), Frechet distance, and energy distance, and complement discrimination metrics with calibration and fixed-specificity sensitivity analyses. Empirically, our framework outperforms standard baselines, including early and late fusion deep neural networks and the multimodal graph-based model MaGNet, yielding higher AUC, accuracy, sensitivity, and specificity under subject-wise cross-validation on NACC. These results show that diffusion-based synthetic pretraining with Graph Transformers can improve generalization in low-sample, imbalanced clinical prediction settings.",
+      "published": "November 24, 2025",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2511.20704v1",
+      "arxiv_url": "https://arxiv.org/abs/2511.20704v1"
     }
   ]
 }
