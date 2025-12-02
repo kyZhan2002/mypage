@@ -1,5 +1,5 @@
 {
-  "timestamp": 1764553804,
+  "timestamp": 1764638792,
   "papers": [
     {
       "title": "Portfolio Optimization via Transfer Learning",
@@ -16,21 +16,6 @@
       ],
       "pdf_link": "https://arxiv.org/pdf/2511.21221v1",
       "arxiv_url": "https://arxiv.org/abs/2511.21221v1"
-    },
-    {
-      "title": "Pretraining Transformer-Based Models on Diffusion-Generated Synthetic Graphs for Alzheimer's Disease Prediction",
-      "authors": [
-        "Abolfazl Moslemi",
-        "Hossein Peyvandi"
-      ],
-      "abstract": "Early and accurate detection of Alzheimer's disease (AD) is crucial for enabling timely intervention and improving outcomes. However, developing reliable machine learning (ML) models for AD diagnosis is challenging due to limited labeled data, multi-site heterogeneity, and class imbalance. We propose a Transformer-based diagnostic framework that combines diffusion-based synthetic data generation with graph representation learning and transfer learning. A class-conditional denoising diffusion probabilistic model (DDPM) is trained on the real-world NACC dataset to generate a large synthetic cohort that mirrors multimodal clinical and neuroimaging feature distributions while balancing diagnostic classes. Modality-specific Graph Transformer encoders are first pretrained on this synthetic data to learn robust, class-discriminative representations and are then frozen while a neural classifier is trained on embeddings from the original NACC data. We quantify distributional alignment between real and synthetic cohorts using metrics such as Maximum Mean Discrepancy (MMD), Frechet distance, and energy distance, and complement discrimination metrics with calibration and fixed-specificity sensitivity analyses. Empirically, our framework outperforms standard baselines, including early and late fusion deep neural networks and the multimodal graph-based model MaGNet, yielding higher AUC, accuracy, sensitivity, and specificity under subject-wise cross-validation on NACC. These results show that diffusion-based synthetic pretraining with Graph Transformers can improve generalization in low-sample, imbalanced clinical prediction settings.",
-      "published": "November 24, 2025",
-      "categories": [
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2511.20704v1",
-      "arxiv_url": "https://arxiv.org/abs/2511.20704v1"
     }
   ]
 }
