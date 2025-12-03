@@ -1,21 +1,22 @@
 {
-  "timestamp": 1764638792,
+  "timestamp": 1764725198,
   "papers": [
     {
-      "title": "Portfolio Optimization via Transfer Learning",
+      "title": "Self-Supervised Dynamical System Representations for Physiological Time-Series",
       "authors": [
-        "Kexin Wang",
-        "Xiaomeng Zhang",
-        "Xinyu Zhang"
+        "Yenho Chen",
+        "Maxwell A. Xu",
+        "James M. Rehg",
+        "Christopher J. Rozell"
       ],
-      "abstract": "Recognizing that asset markets generally exhibit shared informational characteristics, we develop a portfolio strategy based on transfer learning that leverages cross-market information to enhance the investment performance in the market of interest by forward validation. Our strategy asymptotically identifies and utilizes the informative datasets, selectively incorporating valid information while discarding the misleading information. This enables our strategy to achieve the maximum Sharpe ratio asymptotically. The promising performance is demonstrated by numerical studies and case studies of two portfolios: one consisting of stocks dual-listed in A-shares and H-shares, and another comprising equities from various industries of the United States.",
-      "published": "November 26, 2025",
+      "abstract": "The effectiveness of self-supervised learning (SSL) for physiological time series depends on the ability of a pretraining objective to preserve information about the underlying physiological state while filtering out unrelated noise. However, existing strategies are limited due to reliance on heuristic principles or poorly constrained generative tasks. To address this limitation, we propose a pretraining framework that exploits the information structure of a dynamical systems generative model across multiple time-series. This framework reveals our key insight that class identity can be efficiently captured by extracting information about the generative variables related to the system parameters shared across similar time series samples, while noise unique to individual samples should be discarded. Building on this insight, we propose PULSE, a cross-reconstruction-based pretraining objective for physiological time series datasets that explicitly extracts system information while discarding non-transferrable sample-specific ones. We establish theory that provides sufficient conditions for the system information to be recovered, and empirically validate it using a synthetic dynamical systems experiment. Furthermore, we apply our method to diverse real-world datasets, demonstrating that PULSE learns representations that can broadly distinguish semantic classes, increase label efficiency, and improve transfer learning.",
+      "published": "November 28, 2025",
       "categories": [
-        "q-fin.PM",
-        "stat.AP"
+        "cs.LG",
+        "stat.ML"
       ],
-      "pdf_link": "https://arxiv.org/pdf/2511.21221v1",
-      "arxiv_url": "https://arxiv.org/abs/2511.21221v1"
+      "pdf_link": "https://arxiv.org/pdf/2512.00239v1",
+      "arxiv_url": "https://arxiv.org/abs/2512.00239v1"
     }
   ]
 }
