@@ -1,6 +1,26 @@
 {
-  "timestamp": 1764811648,
+  "timestamp": 1765243628,
   "papers": [
+    {
+      "title": "Spatiotemporal Satellite Image Downscaling with Transfer Encoders and Autoregressive Generative Models",
+      "authors": [
+        "Yang Xiang",
+        "Jingwen Zhong",
+        "Yige Yan",
+        "Petros Koutrakis",
+        "Eric Garshick",
+        "Meredith Franklin"
+      ],
+      "abstract": "We present a transfer-learning generative downscaling framework to reconstruct fine resolution satellite images from coarse scale inputs. Our approach combines a lightweight U-Net transfer encoder with a diffusion-based generative model. The simpler U-Net is first pretrained on a long time series of coarse resolution data to learn spatiotemporal representations; its encoder is then frozen and transferred to a larger downscaling model as physically meaningful latent features. Our application uses NASA's MERRA-2 reanalysis as the low resolution source domain (50 km) and the GEOS-5 Nature Run (G5NR) as the high resolution target (7 km). Our study area included a large area in Asia, which was made computationally tractable by splitting into two subregions and four seasons. We conducted domain similarity analysis using Wasserstein distances confirmed minimal distributional shift between MERRA-2 and G5NR, validating the safety of parameter frozen transfer. Across seasonal regional splits, our model achieved excellent performance (R2 = 0.65 to 0.94), outperforming comparison models including deterministic U-Nets, variational autoencoders, and prior transfer learning baselines. Out of data evaluations using semivariograms, ACF/PACF, and lag-based RMSE/R2 demonstrated that the predicted downscaled images preserved physically consistent spatial variability and temporal autocorrelation, enabling stable autoregressive reconstruction beyond the G5NR record. These results show that transfer enhanced diffusion models provide a robust and physically coherent solution for downscaling a long time series of coarse resolution images with limited training periods. This advancement has significant implications for improving environmental exposure assessment and long term environmental monitoring.",
+      "published": "December 01, 2025",
+      "categories": [
+        "cs.CV",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2512.05139v1",
+      "arxiv_url": "https://arxiv.org/abs/2512.05139v1"
+    },
     {
       "title": "Self-Supervised Dynamical System Representations for Physiological Time-Series",
       "authors": [
@@ -17,6 +37,37 @@
       ],
       "pdf_link": "https://arxiv.org/pdf/2512.00239v1",
       "arxiv_url": "https://arxiv.org/abs/2512.00239v1"
+    },
+    {
+      "title": "Portfolio Optimization via Transfer Learning",
+      "authors": [
+        "Kexin Wang",
+        "Xiaomeng Zhang",
+        "Xinyu Zhang"
+      ],
+      "abstract": "Recognizing that asset markets generally exhibit shared informational characteristics, we develop a portfolio strategy based on transfer learning that leverages cross-market information to enhance the investment performance in the market of interest by forward validation. Our strategy asymptotically identifies and utilizes the informative datasets, selectively incorporating valid information while discarding the misleading information. This enables our strategy to achieve the maximum Sharpe ratio asymptotically. The promising performance is demonstrated by numerical studies and case studies of two portfolios: one consisting of stocks dual-listed in A-shares and H-shares, and another comprising equities from various industries of the United States.",
+      "published": "November 26, 2025",
+      "categories": [
+        "q-fin.PM",
+        "stat.AP"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2511.21221v1",
+      "arxiv_url": "https://arxiv.org/abs/2511.21221v1"
+    },
+    {
+      "title": "Pretraining Transformer-Based Models on Diffusion-Generated Synthetic Graphs for Alzheimer's Disease Prediction",
+      "authors": [
+        "Abolfazl Moslemi",
+        "Hossein Peyvandi"
+      ],
+      "abstract": "Early and accurate detection of Alzheimer's disease (AD) is crucial for enabling timely intervention and improving outcomes. However, developing reliable machine learning (ML) models for AD diagnosis is challenging due to limited labeled data, multi-site heterogeneity, and class imbalance. We propose a Transformer-based diagnostic framework that combines diffusion-based synthetic data generation with graph representation learning and transfer learning. A class-conditional denoising diffusion probabilistic model (DDPM) is trained on the real-world NACC dataset to generate a large synthetic cohort that mirrors multimodal clinical and neuroimaging feature distributions while balancing diagnostic classes. Modality-specific Graph Transformer encoders are first pretrained on this synthetic data to learn robust, class-discriminative representations and are then frozen while a neural classifier is trained on embeddings from the original NACC data. We quantify distributional alignment between real and synthetic cohorts using metrics such as Maximum Mean Discrepancy (MMD), Frechet distance, and energy distance, and complement discrimination metrics with calibration and fixed-specificity sensitivity analyses. Empirically, our framework outperforms standard baselines, including early and late fusion deep neural networks and the multimodal graph-based model MaGNet, yielding higher AUC, accuracy, sensitivity, and specificity under subject-wise cross-validation on NACC. These results show that diffusion-based synthetic pretraining with Graph Transformers can improve generalization in low-sample, imbalanced clinical prediction settings.",
+      "published": "November 24, 2025",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2511.20704v1",
+      "arxiv_url": "https://arxiv.org/abs/2511.20704v1"
     }
   ]
 }
