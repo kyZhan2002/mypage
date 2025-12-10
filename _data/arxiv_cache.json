@@ -1,6 +1,22 @@
 {
-  "timestamp": 1765243628,
+  "timestamp": 1765330703,
   "papers": [
+    {
+      "title": "Diagnosis-based mortality prediction for intensive care unit patients via transfer learning",
+      "authors": [
+        "Mengqi Xu",
+        "Subha Maity",
+        "Joel Dubin"
+      ],
+      "abstract": "In the intensive care unit, the underlying causes of critical illness vary substantially across diagnoses, yet prediction models accounting for diagnostic heterogeneity have not been systematically studied. To address the gap, we evaluate transfer learning approaches for diagnosis-specific mortality prediction and apply both GLM- and XGBoost-based models to the eICU Collaborative Research Database. Our results demonstrate that transfer learning consistently outperforms models trained only on diagnosis-specific data and those using a well-known ICU severity-of-illness score, i.e., APACHE IVa, alone, while also achieving better calibration than models trained on the pooled data. Our findings also suggest that the Youden cutoff is a more appropriate decision threshold than the conventional 0.5 for binary outcomes, and that transfer learning maintains consistently high predictive performance across various cutoff criteria.",
+      "published": "December 06, 2025",
+      "categories": [
+        "cs.LG",
+        "stat.AP"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2512.06511v1",
+      "arxiv_url": "https://arxiv.org/abs/2512.06511v1"
+    },
     {
       "title": "Spatiotemporal Satellite Image Downscaling with Transfer Encoders and Autoregressive Generative Models",
       "authors": [
