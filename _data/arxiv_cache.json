@@ -1,6 +1,24 @@
 {
-  "timestamp": 1765330703,
+  "timestamp": 1765417122,
   "papers": [
+    {
+      "title": "Worst-case generation via minimax optimization in Wasserstein space",
+      "authors": [
+        "Xiuyuan Cheng",
+        "Yao Xie",
+        "Linglingzhi Zhu",
+        "Yunqin Zhu"
+      ],
+      "abstract": "Worst-case generation plays a critical role in evaluating robustness and stress-testing systems under distribution shifts, in applications ranging from machine learning models to power grids and medical prediction systems. We develop a generative modeling framework for worst-case generation for a pre-specified risk, based on min-max optimization over continuous probability distributions, namely the Wasserstein space. Unlike traditional discrete distributionally robust optimization approaches, which often suffer from scalability issues, limited generalization, and costly worst-case inference, our framework exploits the Brenier theorem to characterize the least favorable (worst-case) distribution as the pushforward of a transport map from a continuous reference measure, enabling a continuous and expressive notion of risk-induced generation beyond classical discrete DRO formulations. Based on the min-max formulation, we propose a Gradient Descent Ascent (GDA)-type scheme that updates the decision model and the transport map in a single loop, establishing global convergence guarantees under mild regularity assumptions and possibly without convexity-concavity. We also propose to parameterize the transport map using a neural network that can be trained simultaneously with the GDA iterations by matching the transported training samples, thereby achieving a simulation-free approach. The efficiency of the proposed method as a risk-induced worst-case generator is validated by numerical experiments on synthetic and image data.",
+      "published": "December 09, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.OC"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2512.08176v1",
+      "arxiv_url": "https://arxiv.org/abs/2512.08176v1"
+    },
     {
       "title": "Diagnosis-based mortality prediction for intensive care unit patients via transfer learning",
       "authors": [
@@ -69,21 +87,6 @@
       ],
       "pdf_link": "https://arxiv.org/pdf/2511.21221v1",
       "arxiv_url": "https://arxiv.org/abs/2511.21221v1"
-    },
-    {
-      "title": "Pretraining Transformer-Based Models on Diffusion-Generated Synthetic Graphs for Alzheimer's Disease Prediction",
-      "authors": [
-        "Abolfazl Moslemi",
-        "Hossein Peyvandi"
-      ],
-      "abstract": "Early and accurate detection of Alzheimer's disease (AD) is crucial for enabling timely intervention and improving outcomes. However, developing reliable machine learning (ML) models for AD diagnosis is challenging due to limited labeled data, multi-site heterogeneity, and class imbalance. We propose a Transformer-based diagnostic framework that combines diffusion-based synthetic data generation with graph representation learning and transfer learning. A class-conditional denoising diffusion probabilistic model (DDPM) is trained on the real-world NACC dataset to generate a large synthetic cohort that mirrors multimodal clinical and neuroimaging feature distributions while balancing diagnostic classes. Modality-specific Graph Transformer encoders are first pretrained on this synthetic data to learn robust, class-discriminative representations and are then frozen while a neural classifier is trained on embeddings from the original NACC data. We quantify distributional alignment between real and synthetic cohorts using metrics such as Maximum Mean Discrepancy (MMD), Frechet distance, and energy distance, and complement discrimination metrics with calibration and fixed-specificity sensitivity analyses. Empirically, our framework outperforms standard baselines, including early and late fusion deep neural networks and the multimodal graph-based model MaGNet, yielding higher AUC, accuracy, sensitivity, and specificity under subject-wise cross-validation on NACC. These results show that diffusion-based synthetic pretraining with Graph Transformers can improve generalization in low-sample, imbalanced clinical prediction settings.",
-      "published": "November 24, 2025",
-      "categories": [
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2511.20704v1",
-      "arxiv_url": "https://arxiv.org/abs/2511.20704v1"
     }
   ]
 }
