@@ -1,5 +1,5 @@
 {
-  "timestamp": 1765503496,
+  "timestamp": 1765589075,
   "papers": [
     {
       "title": "Worst-case generation via minimax optimization in Wasserstein space",
@@ -71,22 +71,6 @@
       ],
       "pdf_link": "https://arxiv.org/pdf/2512.00239v1",
       "arxiv_url": "https://arxiv.org/abs/2512.00239v1"
-    },
-    {
-      "title": "Portfolio Optimization via Transfer Learning",
-      "authors": [
-        "Kexin Wang",
-        "Xiaomeng Zhang",
-        "Xinyu Zhang"
-      ],
-      "abstract": "Recognizing that asset markets generally exhibit shared informational characteristics, we develop a portfolio strategy based on transfer learning that leverages cross-market information to enhance the investment performance in the market of interest by forward validation. Our strategy asymptotically identifies and utilizes the informative datasets, selectively incorporating valid information while discarding the misleading information. This enables our strategy to achieve the maximum Sharpe ratio asymptotically. The promising performance is demonstrated by numerical studies and case studies of two portfolios: one consisting of stocks dual-listed in A-shares and H-shares, and another comprising equities from various industries of the United States.",
-      "published": "November 26, 2025",
-      "categories": [
-        "q-fin.PM",
-        "stat.AP"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2511.21221v1",
-      "arxiv_url": "https://arxiv.org/abs/2511.21221v1"
     }
   ]
 }
