@@ -1,6 +1,57 @@
 {
-  "timestamp": 1765849159,
+  "timestamp": 1765934738,
   "papers": [
+    {
+      "title": "Multi-fidelity aerodynamic data fusion by autoencoder transfer learning",
+      "authors": [
+        "Javier Nieto-Centenero",
+        "Esther Andr\u00e9s",
+        "Rodrigo Castellanos"
+      ],
+      "abstract": "Accurate aerodynamic prediction often relies on high-fidelity simulations; however, their prohibitive computational costs severely limit their applicability in data-driven modeling. This limitation motivates the development of multi-fidelity strategies that leverage inexpensive low-fidelity information without compromising accuracy. Addressing this challenge, this work presents a multi-fidelity deep learning framework that combines autoencoder-based transfer learning with a newly developed Multi-Split Conformal Prediction (MSCP) strategy to achieve uncertainty-aware aerodynamic data fusion under extreme data scarcity. The methodology leverages abundant Low-Fidelity (LF) data to learn a compact latent physics representation, which acts as a frozen knowledge base for a decoder that is subsequently fine-tuned using scarce HF samples. Tested on surface-pressure distributions for NACA airfoils (2D) and a transonic wing (3D) databases, the model successfully corrects LF deviations and achieves high-accuracy pressure predictions using minimal HF training data. Furthermore, the MSCP framework produces robust, actionable uncertainty bands with pointwise coverage exceeding 95%. By combining extreme data efficiency with uncertainty quantification, this work offers a scalable and reliable solution for aerodynamic regression in data-scarce environments.",
+      "published": "December 15, 2025",
+      "categories": [
+        "cs.LG",
+        "physics.flu-dyn",
+        "stat.ML"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2512.13069v1",
+      "arxiv_url": "https://arxiv.org/abs/2512.13069v1"
+    },
+    {
+      "title": "TRACER: Transfer Learning based Real-time Adaptation for Clinical Evolving Risk",
+      "authors": [
+        "Mengying Yan",
+        "Ziye Tian",
+        "Siqi Li",
+        "Nan Liu",
+        "Benjamin A. Goldstein",
+        "Molei Liu",
+        "Chuan Hong"
+      ],
+      "abstract": "Clinical decision support tools built on electronic health records often experience performance drift due to temporal population shifts, particularly when changes in the clinical environment initially affect only a subset of patients, resulting in a transition to mixed populations. Such case-mix changes commonly arise following system-level operational updates or the emergence of new diseases, such as COVID-19. We propose TRACER (Transfer Learning-based Real-time Adaptation for Clinical Evolving Risk), a framework that identifies encounter-level transition membership and adapts predictive models using transfer learning without full retraining. In simulation studies, TRACER outperformed static models trained on historical or contemporary data. In a real-world application predicting hospital admission following emergency department visits across the COVID-19 transition, TRACER improved both discrimination and calibration. TRACER provides a scalable approach for maintaining robust predictive performance under evolving and heterogeneous clinical conditions.",
+      "published": "December 14, 2025",
+      "categories": [
+        "cs.LG",
+        "stat.ME"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2512.12795v1",
+      "arxiv_url": "https://arxiv.org/abs/2512.12795v1"
+    },
+    {
+      "title": "Iterative Sampling Methods for Sinkhorn Distributionally Robust Optimization",
+      "authors": [
+        "Jie Wang"
+      ],
+      "abstract": "Distributionally robust optimization (DRO) has emerged as a powerful paradigm for reliable decision-making under uncertainty. This paper focuses on DRO with ambiguity sets defined via the Sinkhorn discrepancy: an entropy-regularized Wasserstein distance, referred to as Sinkhorn DRO. Existing work primarily addresses Sinkhorn DRO from a dual perspective, leveraging its formulation as a conditional stochastic optimization problem, for which many stochastic gradient methods are applicable. However, the theoretical analyses of such methods often rely on the boundedness of the loss function, and it is indirect to obtain the worst-case distribution associated with Sinkhorn DRO. In contrast, we study Sinkhorn DRO from the primal perspective, by reformulating it as a bilevel program with several infinite-dimensional lower-level subproblems over probability space. This formulation enables us to simultaneously obtain the optimal robust decision and the worst-case distribution, which is valuable in practical settings, such as generating stress-test scenarios or designing robust learning algorithms. We propose both double-loop and single-loop sampling-based algorithms with theoretical guarantees to solve this bilevel program. Finally, we demonstrate the effectiveness of our approach through a numerical study on adversarial classification.",
+      "published": "December 14, 2025",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2512.12550v1",
+      "arxiv_url": "https://arxiv.org/abs/2512.12550v1"
+    },
     {
       "title": "Worst-case generation via minimax optimization in Wasserstein space",
       "authors": [
@@ -34,26 +85,6 @@
       ],
       "pdf_link": "https://arxiv.org/pdf/2512.06511v1",
       "arxiv_url": "https://arxiv.org/abs/2512.06511v1"
-    },
-    {
-      "title": "Spatiotemporal Satellite Image Downscaling with Transfer Encoders and Autoregressive Generative Models",
-      "authors": [
-        "Yang Xiang",
-        "Jingwen Zhong",
-        "Yige Yan",
-        "Petros Koutrakis",
-        "Eric Garshick",
-        "Meredith Franklin"
-      ],
-      "abstract": "We present a transfer-learning generative downscaling framework to reconstruct fine resolution satellite images from coarse scale inputs. Our approach combines a lightweight U-Net transfer encoder with a diffusion-based generative model. The simpler U-Net is first pretrained on a long time series of coarse resolution data to learn spatiotemporal representations; its encoder is then frozen and transferred to a larger downscaling model as physically meaningful latent features. Our application uses NASA's MERRA-2 reanalysis as the low resolution source domain (50 km) and the GEOS-5 Nature Run (G5NR) as the high resolution target (7 km). Our study area included a large area in Asia, which was made computationally tractable by splitting into two subregions and four seasons. We conducted domain similarity analysis using Wasserstein distances confirmed minimal distributional shift between MERRA-2 and G5NR, validating the safety of parameter frozen transfer. Across seasonal regional splits, our model achieved excellent performance (R2 = 0.65 to 0.94), outperforming comparison models including deterministic U-Nets, variational autoencoders, and prior transfer learning baselines. Out of data evaluations using semivariograms, ACF/PACF, and lag-based RMSE/R2 demonstrated that the predicted downscaled images preserved physically consistent spatial variability and temporal autocorrelation, enabling stable autoregressive reconstruction beyond the G5NR record. These results show that transfer enhanced diffusion models provide a robust and physically coherent solution for downscaling a long time series of coarse resolution images with limited training periods. This advancement has significant implications for improving environmental exposure assessment and long term environmental monitoring.",
-      "published": "December 01, 2025",
-      "categories": [
-        "cs.CV",
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2512.05139v1",
-      "arxiv_url": "https://arxiv.org/abs/2512.05139v1"
     }
   ]
 }
