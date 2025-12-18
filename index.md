@@ -15,7 +15,7 @@ title: "Keyao's Blog"
 <div class="container home-container">
   <div class="hero-section">
     <h1 class="hero-title">{{ page.title }}</h1>
-    <p class="hero-subtitle">Exploring Data Science & Computer Science</p>
+    <p class="hero-subtitle">Exploring the world of statistics and machine learning</p>
   </div>
 
   <div class="about-card card">
