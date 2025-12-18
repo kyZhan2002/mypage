@@ -24,12 +24,12 @@ title: Blog Posts
       </button>
     </div>
     <div class="blog-count">
-      <span id="postCount">{{ site.pages | where_exp: "page", "page.path contains 'blog'" | where_exp: "page", "page.name != 'index.html'" | size }}</span> posts
+      <span id="postCount">{% assign blog_count = site.pages | where_exp: "page", "page.path contains 'blog/'" | where_exp: "page", "page.path contains '.md'" | where_exp: "page", "page.date != nil" | where_exp: "page", "page.name != 'index.html'" | size %}{{ blog_count }}</span> posts
     </div>
   </div>
 
   <div class="posts-grid" id="postsContainer">
-    {% assign blog_files = site.pages | where_exp: "page", "page.path contains 'blog'" | where_exp: "page", "page.name != 'index.html'" | sort: "date" | reverse %}
+    {% assign blog_files = site.pages | where_exp: "page", "page.path contains 'blog/'" | where_exp: "page", "page.path contains '.md'" | where_exp: "page", "page.date != nil" | where_exp: "page", "page.name != 'index.html'" | sort: "date" | reverse %}
     {% for post in blog_files %}
     <article class="card post-card" data-title="{{ post.title | downcase }}" data-content="{{ post.content | strip_html | downcase }}" data-categories="{% for category in post.categories %}{{ category | downcase }} {% endfor %}" data-date="{{ post.date }}">
       <h2><a href="{{ site.baseurl }}{{ post.permalink }}">{{ post.title }}</a></h2>

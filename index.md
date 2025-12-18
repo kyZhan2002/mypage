@@ -29,7 +29,7 @@ title: "Keyao's Blog"
         <div class="icon">📝</div>
         <h3>Latest Blog Posts</h3>
       </div>
-      {% assign blog_files = site.pages | where_exp: "page", "page.path contains 'blog'" | where_exp: "page", "page.name != 'index.html'" | sort: "date" | reverse %}
+      {% assign blog_files = site.pages | where_exp: "page", "page.path contains 'blog/'" | where_exp: "page", "page.path contains '.md'" | where_exp: "page", "page.date != nil" | sort: "date" | reverse %}
       {% if blog_files.size > 0 %}
       <ul class="home-list">
         {% for post in blog_files limit:2 %}
