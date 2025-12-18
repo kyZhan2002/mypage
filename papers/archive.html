@@ -41,7 +41,12 @@ title: Archived Papers
           <p class="published-date">
             <strong>Published:</strong> {{ paper.published }}
           </p>
-          <p class="abstract">{{ paper.abstract }}</p>
+          <div class="abstract-container">
+            <p class="abstract collapsed">{{ paper.abstract }}</p>
+            <button class="expand-btn" onclick="toggleAbstract(this)">
+              <i class="fas fa-chevron-down"></i> Show more
+            </button>
+          </div>
           <div class="paper-links">
             <a href="{{ paper.pdf_link }}" class="button" target="_blank">
               <i class="fas fa-file-pdf"></i> PDF
@@ -102,6 +107,22 @@ function clearSearch() {
   document.getElementById('search-input').value = '';
   filterPapers();
   document.getElementById('search-input').focus();
+}
+
+function toggleAbstract(button) {
+  const abstractContainer = button.parentElement;
+  const abstract = abstractContainer.querySelector('.abstract');
+  const icon = button.querySelector('i');
+  
+  if (abstract.classList.contains('collapsed')) {
+    abstract.classList.remove('collapsed');
+    abstract.classList.add('expanded');
+    button.innerHTML = '<i class="fas fa-chevron-up"></i> Show less';
+  } else {
+    abstract.classList.remove('expanded');
+    abstract.classList.add('collapsed');
+    button.innerHTML = '<i class="fas fa-chevron-down"></i> Show more';
+  }
 }
 
 // Initialize results count on page load
@@ -167,6 +188,50 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .paper-card[style*="display: none"] {
   display: none !important;
+}
+
+.abstract-container {
+  position: relative;
+}
+
+.abstract {
+  margin: 10px 0;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.abstract.collapsed {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.abstract.expanded {
+  display: block;
+}
+
+.expand-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  padding: 5px 0;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s;
+}
+
+.expand-btn:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.expand-btn i {
+  font-size: 12px;
 }
 </style>
 

@@ -9,14 +9,10 @@ title: Latest arXiv Papers
     <p>Recent papers from arXiv on Transfer Learning and Distributionally Robust Optimization</p>
     <p>Papers are fetched daily and displayed for one month. After 30 days, papers are moved to the <a href="{{ site.baseurl }}/papers/archive">archive</a>.</p>
     <div class="header-actions">
-      <button id="refresh-papers-btn" class="refresh-button" onclick="refreshPapers()">
-        <i class="fas fa-sync-alt"></i> Refresh Papers Now
-      </button>
       <a href="{{ site.baseurl }}/papers/archive" class="button archive-button">
         <i class="fas fa-archive"></i> View Archive
       </a>
     </div>
-    <div id="refresh-status" class="refresh-status"></div>
   </div>
 
   <div class="papers-list">
@@ -33,7 +29,12 @@ title: Latest arXiv Papers
           <p class="published-date">
             <strong>Published:</strong> {{ paper.published }}
           </p>
-          <p class="abstract">{{ paper.abstract }}</p>
+          <div class="abstract-container">
+            <p class="abstract collapsed">{{ paper.abstract }}</p>
+            <button class="expand-btn" onclick="toggleAbstract(this)">
+              <i class="fas fa-chevron-down"></i> Show more
+            </button>
+          </div>
           <div class="paper-links">
             <a href="{{ paper.pdf_link }}" class="button" target="_blank">
               <i class="fas fa-file-pdf"></i> PDF
@@ -54,71 +55,24 @@ title: Latest arXiv Papers
 </div>
 
 <script>
-function refreshPapers() {
-  const btn = document.getElementById('refresh-papers-btn');
-  const status = document.getElementById('refresh-status');
+function toggleAbstract(button) {
+  const abstractContainer = button.parentElement;
+  const abstract = abstractContainer.querySelector('.abstract');
+  const icon = button.querySelector('i');
   
-  // Disable button and show loading state
-  btn.disabled = true;
-  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Refreshing...';
-  status.innerHTML = '<p style="color: #007bff;">Triggering paper refresh... This may take a few minutes.</p>';
-  
-  // Get repository info from GitHub username (assuming repo name is 'mypage')
-  const repoOwner = '{{ site.social.github }}' || 'kyZhan2002';
-  const repoName = 'mypage'; // Update this if your repo has a different name
-  const workflowId = 'update-papers.yml';
-  
-  // Open GitHub Actions page in new tab for manual trigger
-  const actionsUrl = `https://github.com/${repoOwner}/${repoName}/actions/workflows/${workflowId}`;
-  window.open(actionsUrl, '_blank');
-  
-  status.innerHTML = `
-    <p style="color: #28a745;">
-      <i class="fas fa-check-circle"></i> 
-      Opened GitHub Actions page. Click "Run workflow" to manually refresh papers.
-    </p>
-    <p style="color: #6c757d; font-size: 0.9em;">
-      The workflow will fetch new papers and update the site. Check back in a few minutes!
-    </p>
-  `;
-  
-  // Re-enable button after a delay
-  setTimeout(() => {
-    btn.disabled = false;
-    btn.innerHTML = '<i class="fas fa-sync-alt"></i> Refresh Papers Now';
-  }, 3000);
+  if (abstract.classList.contains('collapsed')) {
+    abstract.classList.remove('collapsed');
+    abstract.classList.add('expanded');
+    button.innerHTML = '<i class="fas fa-chevron-up"></i> Show less';
+  } else {
+    abstract.classList.remove('expanded');
+    abstract.classList.add('collapsed');
+    button.innerHTML = '<i class="fas fa-chevron-down"></i> Show more';
+  }
 }
 </script>
 
 <style>
-.refresh-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 10px;
-  transition: background-color 0.3s;
-}
-
-.refresh-button:hover:not(:disabled) {
-  background-color: #0056b3;
-}
-
-.refresh-button:disabled {
-  background-color: #6c757d;
-  cursor: not-allowed;
-}
-
-.refresh-status {
-  margin-top: 15px;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: #f8f9fa;
-}
-
 .header-actions {
   display: flex;
   gap: 10px;
@@ -140,5 +94,49 @@ function refreshPapers() {
   background-color: #5a6268;
   color: white;
   text-decoration: none;
+}
+
+.abstract-container {
+  position: relative;
+}
+
+.abstract {
+  margin: 10px 0;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.abstract.collapsed {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.abstract.expanded {
+  display: block;
+}
+
+.expand-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  padding: 5px 0;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s;
+}
+
+.expand-btn:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.expand-btn i {
+  font-size: 12px;
 }
 </style>

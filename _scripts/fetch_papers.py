@@ -114,7 +114,7 @@ def fetch_arxiv_papers():
                                    for author in entry.findall('atom:author', namespaces)]
                     
                     # Check if paper matches keywords OR is by one of our tracked authors
-                    keywords = ['transfer learning', 'distributionally robust']
+                    keywords = ['distributionally robust']
                     matches_keywords = any(kw.lower() in title.lower() or 
                                          kw.lower() in abstract.lower() 
                                          for kw in keywords)
