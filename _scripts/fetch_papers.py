@@ -21,7 +21,12 @@ RETRY_DELAY = 5  # seconds
 AUTHOR_LIST = [
     # Add your authors here, one per line
     # Example: "Keyao Zhan",
-    "Tianxi Cai"
+    "Tianxi Cai",
+    "Junwei Lu",
+    "Molei Liu",
+    "Weijie Su",
+    "Kewei Wang",
+    "Rui Duan"
 ]
 
 def build_search_query():
