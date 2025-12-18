@@ -7,15 +7,34 @@ title: Blog Posts
   <div class="header">
     <h1>📚 Blog Posts</h1>
     <p>My thoughts and experiences during my learning journey</p>
+    <p>Feel free to contact me if you have any questions or suggestions.</p>
   </div>
 
-  <div class="posts-grid">
-    {% assign blog_files = site.pages | where_exp: "page", "page.path contains 'blog'" | where_exp: "page", "page.name != 'index.html'" %}
+  <div class="blog-controls">
+    <div class="search-box">
+      <i class="fas fa-search search-icon"></i>
+      <input 
+        type="text" 
+        id="blogSearch" 
+        placeholder="Search posts by title, content, or category..." 
+        class="search-input"
+      />
+      <button id="clearSearch" class="clear-search" style="display: none;">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="blog-count">
+      <span id="postCount">{{ site.pages | where_exp: "page", "page.path contains 'blog'" | where_exp: "page", "page.name != 'index.html'" | size }}</span> posts
+    </div>
+  </div>
+
+  <div class="posts-grid" id="postsContainer">
+    {% assign blog_files = site.pages | where_exp: "page", "page.path contains 'blog'" | where_exp: "page", "page.name != 'index.html'" | sort: "date" | reverse %}
     {% for post in blog_files %}
-    <article class="card post-card">
+    <article class="card post-card" data-title="{{ post.title | downcase }}" data-content="{{ post.content | strip_html | downcase }}" data-categories="{% for category in post.categories %}{{ category | downcase }} {% endfor %}" data-date="{{ post.date }}">
       <h2><a href="{{ site.baseurl }}{{ post.permalink }}">{{ post.title }}</a></h2>
       <div class="post-meta">
-        <time>{{ post.date | date: "%B %d, %Y" }}</time>
+        <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %d, %Y" }}</time>
         {% if post.categories %}
         <span class="categories">
           {% for category in post.categories %}
@@ -24,9 +43,82 @@ title: Blog Posts
         </span>
         {% endif %}
       </div>
-      <p>{{ post.content | strip_html | truncatewords: 50 }}</p>
+      <p class="post-excerpt">{{ post.content | strip_html | truncatewords: 50 }}</p>
       <a href="{{ site.baseurl }}{{ post.permalink }}" class="read-more">Read more →</a>
     </article>
     {% endfor %}
   </div>
+
+  <div id="noResults" class="no-results" style="display: none;">
+    <i class="fas fa-search" style="font-size: 3rem; color: #ccc; margin-bottom: 1rem;"></i>
+    <p>No posts found matching your search.</p>
+    <button onclick="clearSearch()" class="button">Clear Search</button>
+  </div>
 </div>
+
+<script>
+  const searchInput = document.getElementById('blogSearch');
+  const clearButton = document.getElementById('clearSearch');
+  const postsContainer = document.getElementById('postsContainer');
+  const noResults = document.getElementById('noResults');
+  const postCount = document.getElementById('postCount');
+  const allPosts = Array.from(document.querySelectorAll('.post-card'));
+  const totalPosts = allPosts.length;
+
+  function performSearch() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    
+    if (searchTerm === '') {
+      clearButton.style.display = 'none';
+      allPosts.forEach(post => post.style.display = 'block');
+      noResults.style.display = 'none';
+      postsContainer.style.display = 'grid';
+      postCount.textContent = totalPosts;
+      return;
+    }
+    
+    clearButton.style.display = 'flex';
+    let visibleCount = 0;
+    
+    allPosts.forEach(post => {
+      const title = post.getAttribute('data-title');
+      const content = post.getAttribute('data-content');
+      const categories = post.getAttribute('data-categories');
+      
+      const searchableText = `${title} ${content} ${categories}`;
+      
+      if (searchableText.includes(searchTerm)) {
+        post.style.display = 'block';
+        visibleCount++;
+      } else {
+        post.style.display = 'none';
+      }
+    });
+    
+    if (visibleCount === 0) {
+      postsContainer.style.display = 'none';
+      noResults.style.display = 'flex';
+    } else {
+      postsContainer.style.display = 'grid';
+      noResults.style.display = 'none';
+    }
+    
+    postCount.textContent = visibleCount;
+  }
+
+  function clearSearch() {
+    searchInput.value = '';
+    performSearch();
+    searchInput.focus();
+  }
+
+  searchInput.addEventListener('input', performSearch);
+  clearButton.addEventListener('click', clearSearch);
+  
+  // Allow Enter key to trigger search
+  searchInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      performSearch();
+    }
+  });
+</script>

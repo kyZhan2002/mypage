@@ -76,8 +76,6 @@ title: "Keyao's Blog"
       </div>
       <ul class="skills-list">
         <li><span class="skill-tag">Statistics</span></li>
-        <li><span class="skill-tag">Data Analysis</span></li>
-        <li><span class="skill-tag">Algorithms & Data Structures</span></li>
         <li><span class="skill-tag">Machine Learning</span></li>
         <li><span class="skill-tag">Python & R</span></li>
       </ul>
