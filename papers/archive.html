@@ -1,0 +1,172 @@
+---
+layout: default
+title: Archived Papers
+---
+
+<div class="container">
+  <div class="header">
+    <h1>Archived Research Papers</h1>
+    <p>Papers older than 30 days are archived here for reference</p>
+    <a href="{{ site.baseurl }}/papers/" class="button" style="display: inline-block; margin-top: 10px;">
+      <i class="fas fa-arrow-left"></i> Back to Latest Papers
+    </a>
+  </div>
+
+  <div class="search-container">
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" id="search-input" placeholder="Search by title, author, or abstract..." onkeyup="filterPapers()">
+      <button id="clear-search" onclick="clearSearch()" style="display: none;">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="search-stats">
+      <span id="results-count">0</span> papers found
+    </div>
+  </div>
+
+  <div class="papers-list" id="papers-list">
+    {% if site.data.arxiv_archive.papers and site.data.arxiv_archive.papers.size > 0 %}
+      {% for paper in site.data.arxiv_archive.papers %}
+        <div class="card paper-card" data-title="{{ paper.title | downcase }}" 
+             data-authors="{{ paper.authors | join: ', ' | downcase }}" 
+             data-abstract="{{ paper.abstract | downcase }}">
+          <h3>{{ paper.title }}</h3>
+          <p class="authors">
+            <strong>Authors:</strong> {{ paper.authors | join: ", " }}
+          </p>
+          <p class="categories">
+            <strong>Categories:</strong> {{ paper.categories | join: ", " }}
+          </p>
+          <p class="published-date">
+            <strong>Published:</strong> {{ paper.published }}
+          </p>
+          <p class="abstract">{{ paper.abstract }}</p>
+          <div class="paper-links">
+            <a href="{{ paper.pdf_link }}" class="button" target="_blank">
+              <i class="fas fa-file-pdf"></i> PDF
+            </a>
+            <a href="{{ paper.arxiv_url }}" class="button" target="_blank">
+              <i class="fas fa-external-link-alt"></i> arXiv
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="card">
+        <p>No archived papers yet. Papers are automatically archived after 30 days.</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+function filterPapers() {
+  const searchInput = document.getElementById('search-input');
+  const searchTerm = searchInput.value.toLowerCase().trim();
+  const papers = document.querySelectorAll('.paper-card');
+  const clearButton = document.getElementById('clear-search');
+  const resultsCount = document.getElementById('results-count');
+  
+  let visibleCount = 0;
+  
+  papers.forEach(paper => {
+    const title = paper.getAttribute('data-title') || '';
+    const authors = paper.getAttribute('data-authors') || '';
+    const abstract = paper.getAttribute('data-abstract') || '';
+    
+    const matches = title.includes(searchTerm) || 
+                   authors.includes(searchTerm) || 
+                   abstract.includes(searchTerm);
+    
+    if (matches || searchTerm === '') {
+      paper.style.display = 'block';
+      visibleCount++;
+    } else {
+      paper.style.display = 'none';
+    }
+  });
+  
+  // Update results count
+  resultsCount.textContent = searchTerm === '' ? papers.length : visibleCount;
+  
+  // Show/hide clear button
+  if (searchTerm !== '') {
+    clearButton.style.display = 'inline-block';
+  } else {
+    clearButton.style.display = 'none';
+  }
+}
+
+function clearSearch() {
+  document.getElementById('search-input').value = '';
+  filterPapers();
+  document.getElementById('search-input').focus();
+}
+
+// Initialize results count on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const papers = document.querySelectorAll('.paper-card');
+  document.getElementById('results-count').textContent = papers.length;
+});
+</script>
+
+<style>
+.search-container {
+  margin: 30px 0;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 25px;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.search-box i {
+  color: #6c757d;
+  margin-right: 10px;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.search-box button {
+  background: none;
+  border: none;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+
+.search-box button:hover {
+  color: #dc3545;
+}
+
+.search-stats {
+  margin-top: 15px;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.paper-card {
+  transition: opacity 0.3s ease;
+}
+
+.paper-card[style*="display: none"] {
+  display: none !important;
+}
+</style>
+
