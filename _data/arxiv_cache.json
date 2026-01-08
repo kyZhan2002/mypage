@@ -1,6 +1,25 @@
 {
-  "last_fetch_timestamp": 1767750080,
+  "last_fetch_timestamp": 1767836525,
   "papers": [
+    {
+      "arxiv_id": "2601.02998",
+      "title": "Multi-Distribution Robust Conformal Prediction",
+      "authors": [
+        "Yuqi Yang",
+        "Ying Jin"
+      ],
+      "abstract": "In many fairness and distribution robustness problems, one has access to labeled data from multiple source distributions yet the test data may come from an arbitrary member or a mixture of them. We study the problem of constructing a conformal prediction set that is uniformly valid across multiple, heterogeneous distributions, in the sense that no matter which distribution the test point is from, the coverage of the prediction set is guaranteed to exceed a pre-specified level. We first propose a max-p aggregation scheme that delivers finite-sample, multi-distribution coverage given any conformity scores associated with each distribution. Upon studying several efficiency optimization programs subject to uniform coverage, we prove the optimality and tightness of our aggregation scheme, and propose a general algorithm to learn conformity scores that lead to efficient prediction sets after the aggregation under standard conditions. We discuss how our framework relates to group-wise distributionally robust optimization, sub-population shift, fairness, and multi-source learning. In synthetic and real-data experiments, our method delivers valid worst-case coverage across multiple distributions while greatly reducing the set size compared with naively applying max-p aggregation to single-source conformity scores, and can be comparable in size to single-source prediction sets with popular, standard conformity scores.",
+      "published": "January 06, 2026",
+      "published_raw": "2026-01-06T13:22:13Z",
+      "categories": [
+        "cs.LG",
+        "stat.ME",
+        "stat.ML"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2601.02998v1",
+      "arxiv_url": "https://arxiv.org/abs/2601.02998v1",
+      "added_timestamp": 1767836525
+    },
     {
       "arxiv_id": "2601.01642",
       "title": "Wasserstein Distributionally Robust Rare-Event Simulation",
