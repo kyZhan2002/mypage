@@ -1,6 +1,22 @@
 {
-  "last_fetch_timestamp": 1768268311,
+  "last_fetch_timestamp": 1768355145,
   "papers": [
+    {
+      "arxiv_id": "2601.06807",
+      "title": "Adversarially Perturbed Precision Matrix Estimation",
+      "authors": [
+        "Yiling Xie"
+      ],
+      "abstract": "Precision matrix estimation is a fundamental topic in multivariate statistics and modern machine learning. This paper proposes an adversarially perturbed precision matrix estimation framework, motivated by recent developments in adversarial training. The proposed framework is versatile for the precision matrix problem since, by adapting to different perturbation geometries, the proposed framework can not only recover the existing distributionally robust method but also inspire a novel moment-adaptive approach to precision matrix estimation, proven capable of sparsity recovery and adversarial robustness. Notably, the proposed perturbed precision matrix framework is proven to be asymptotically equivalent to regularized precision matrix estimation, and the asymptotic normality can be established accordingly. The resulting asymptotic distribution highlights the asymptotic bias introduced by perturbation and identifies conditions under which the perturbed estimation can be unbiased in the asymptotic sense. Numerical experiments on both synthetic and real data demonstrate the desirable performance of the proposed adversarially perturbed approach in practice.",
+      "published": "January 11, 2026",
+      "published_raw": "2026-01-11T08:40:56Z",
+      "categories": [
+        "stat.ME"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2601.06807v1",
+      "arxiv_url": "https://arxiv.org/abs/2601.06807v1",
+      "added_timestamp": 1768355145
+    },
     {
       "arxiv_id": "2601.05975",
       "title": "DeePM: Regime-Robust Deep Learning for Systematic Macro Portfolio Management",
