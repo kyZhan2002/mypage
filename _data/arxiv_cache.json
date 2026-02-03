@@ -1,6 +1,27 @@
 {
-  "last_fetch_timestamp": 1769997918,
+  "last_fetch_timestamp": 1770084228,
   "papers": [
+    {
+      "arxiv_id": "2602.00844",
+      "title": "Multivariate Time Series Data Imputation via Distributionally Robust Regularization",
+      "authors": [
+        "Che-Yi Liao",
+        "Zheng Dong",
+        "Gian-Gabriel Garcia",
+        "Kamran Paynabar"
+      ],
+      "abstract": "Multivariate time series (MTS) imputation is often compromised by mismatch between observed and true data distributions -- a bias exacerbated by non-stationarity and systematic missingness. Standard methods that minimize reconstruction error or encourage distributional alignment risk overfitting these biased observations. We propose the Distributionally Robust Regularized Imputer Objective (DRIO), which jointly minimizes reconstruction error and the divergence between the imputer and a worst-case distribution within a Wasserstein ambiguity set. We derive a tractable dual formulation that reduces infinite-dimensional optimization over measures to adversarial search over sample trajectories, and propose an adversarial learning algorithm compatible with flexible deep learning backbones. Comprehensive experiments on diverse real-world datasets show DRIO consistently improves imputation under both missing-completely-at-random and missing-not-at-random settings, reaching Pareto-optimal trade-offs between reconstruction accuracy and distributional alignment.",
+      "published": "January 31, 2026",
+      "published_raw": "2026-01-31T18:15:03Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "stat.AP"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2602.00844v1",
+      "arxiv_url": "https://arxiv.org/abs/2602.00844v1",
+      "added_timestamp": 1770084228
+    },
     {
       "arxiv_id": "2601.21324",
       "title": "Bulk-Calibrated Credal Ambiguity Sets: Fast, Tractable Decision Making under Out-of-Sample Contamination",
