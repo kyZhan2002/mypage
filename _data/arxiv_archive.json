@@ -1,6 +1,27 @@
 {
-  "last_updated": 1768787225,
+  "last_updated": 1770343180,
   "papers": [
+    {
+      "arxiv_id": "2601.01642",
+      "title": "Wasserstein Distributionally Robust Rare-Event Simulation",
+      "authors": [
+        "Dohyun Ahn",
+        "Huiyi Chen",
+        "Lewen Zheng"
+      ],
+      "abstract": "Standard rare-event simulation techniques require exact distributional specifications, which limits their effectiveness in the presence of distributional uncertainty. To address this, we develop a novel framework for estimating rare-event probabilities subject to such distributional model risk. Specifically, we focus on computing worst-case rare-event probabilities, defined as a distributionally robust bound against a Wasserstein ambiguity set centered at a specific nominal distribution. By exploiting a dual characterization of this bound, we propose Distributionally Robust Importance Sampling (DRIS), a computationally tractable methodology designed to substantially reduce the variance associated with estimating the dual components. The proposed method is simple to implement and requires low sampling costs. Most importantly, it achieves vanishing relative error, the strongest efficiency guarantee that is notoriously difficult to establish in rare-event simulation. Our numerical studies confirm the superior performance of DRIS against existing benchmarks.",
+      "published": "January 04, 2026",
+      "published_raw": "2026-01-04T19:15:22Z",
+      "categories": [
+        "stat.ME",
+        "q-fin.CP",
+        "stat.CO"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2601.01642v1",
+      "arxiv_url": "https://arxiv.org/abs/2601.01642v1",
+      "added_timestamp": 1767750080,
+      "archived_timestamp": 1770343180
+    },
     {
       "arxiv_id": "2512.16748",
       "title": "Shift-Aware Gaussian-Supremum Validation for Wasserstein-DRO CVaR Portfolios",
