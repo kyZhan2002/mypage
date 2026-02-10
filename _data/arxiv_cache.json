@@ -1,5 +1,5 @@
 {
-  "last_fetch_timestamp": 1770602854,
+  "last_fetch_timestamp": 1770690225,
   "papers": [
     {
       "arxiv_id": "2602.01825",
@@ -139,25 +139,6 @@
       "pdf_link": "https://arxiv.org/pdf/2601.05975v1",
       "arxiv_url": "https://arxiv.org/abs/2601.05975v1",
       "added_timestamp": 1768268311
-    },
-    {
-      "arxiv_id": "2601.04608",
-      "title": "Forecasting the U.S. Treasury Yield Curve: A Distributionally Robust Machine Learning Approach",
-      "authors": [
-        "Jinjun Liu",
-        "Ming-Yen Cheng"
-      ],
-      "abstract": "We study U.S. Treasury yield curve forecasting under distributional uncertainty and recast forecasting as an operations research and managerial decision problem. Rather than minimizing average forecast error, the forecaster selects a decision rule that minimizes worst case expected loss over an ambiguity set of forecast error distributions. To this end, we propose a distributionally robust ensemble forecasting framework that integrates parametric factor models with high dimensional nonparametric machine learning models through adaptive forecast combinations. The framework consists of three machine learning components. First, a rolling window Factor Augmented Dynamic Nelson Siegel model captures level, slope, and curvature dynamics using principal components extracted from economic indicators. Second, Random Forest models capture nonlinear interactions among macro financial drivers and lagged Treasury yields. Third, distributionally robust forecast combination schemes aggregate heterogeneous forecasts under moment uncertainty, penalizing downside tail risk via expected shortfall and stabilizing second moment estimation through ridge regularized covariance matrices. The severity of the worst case criterion is adjustable, allowing the forecaster to regulate the trade off between robustness and statistical efficiency. Using monthly data, we evaluate out of sample forecasts across maturities and horizons from one to twelve months ahead. Adaptive combinations deliver superior performance at short horizons, while Random Forest forecasts dominate at longer horizons. Extensions to global sovereign bond yields confirm the stability and generalizability of the proposed framework.",
-      "published": "January 08, 2026",
-      "published_raw": "2026-01-08T05:26:43Z",
-      "categories": [
-        "q-fin.MF",
-        "q-fin.CP",
-        "stat.ML"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2601.04608v1",
-      "arxiv_url": "https://arxiv.org/abs/2601.04608v1",
-      "added_timestamp": 1768096201
     }
   ]
 }
