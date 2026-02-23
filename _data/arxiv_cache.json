@@ -1,6 +1,23 @@
 {
-  "last_fetch_timestamp": 1771725864,
+  "last_fetch_timestamp": 1771812315,
   "papers": [
+    {
+      "arxiv_id": "2602.17743",
+      "title": "Provable Adversarial Robustness in In-Context Learning",
+      "authors": [
+        "Di Zhang"
+      ],
+      "abstract": "Large language models adapt to new tasks through in-context learning (ICL) without parameter updates. Current theoretical explanations for this capability assume test tasks are drawn from a distribution similar to that seen during pretraining. This assumption overlooks adversarial distribution shifts that threaten real-world reliability. To address this gap, we introduce a distributionally robust meta-learning framework that provides worst-case performance guarantees for ICL under Wasserstein-based distribution shifts. Focusing on linear self-attention Transformers, we derive a non-asymptotic bound linking adversarial perturbation strength ($\u03c1$), model capacity ($m$), and the number of in-context examples ($N$). The analysis reveals that model robustness scales with the square root of its capacity ($\u03c1_{\\text{max}} \\propto \\sqrt{m}$), while adversarial settings impose a sample complexity penalty proportional to the square of the perturbation magnitude ($N_\u03c1- N_0 \\propto \u03c1^2$). Experiments on synthetic tasks confirm these scaling laws. These findings advance the theoretical understanding of ICL's limits under adversarial conditions and suggest that model capacity serves as a fundamental resource for distributional robustness.",
+      "published": "February 19, 2026",
+      "published_raw": "2026-02-19T12:37:00Z",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2602.17743v1",
+      "arxiv_url": "https://arxiv.org/abs/2602.17743v1",
+      "added_timestamp": 1771812315
+    },
     {
       "arxiv_id": "2602.08470",
       "title": "Learning Credal Ensembles via Distributionally Robust Optimization",
