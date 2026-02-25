@@ -1,6 +1,44 @@
 {
-  "last_fetch_timestamp": 1771898504,
+  "last_fetch_timestamp": 1771985055,
   "papers": [
+    {
+      "arxiv_id": "2602.20503",
+      "title": "Error-Controlled Borrowing from External Data Using Wasserstein Ambiguity Sets",
+      "authors": [
+        "Yui Kimura",
+        "Shu Tamano"
+      ],
+      "abstract": "Incorporating external data can improve the efficiency of clinical trials, but distributional mismatches between current and external populations threaten the validity of inference. While numerous dynamic borrowing methods exist, the calibration of their borrowing parameters relies mainly on ad hoc, simulation-based tuning. To overcome this, we propose BOND (Borrowing under Optimal Nonparametric Distributional robustness), a framework that formalizes data noncommensurability through Wasserstein ambiguity sets centered at the current-trial distribution. By deriving sharp, closed-form bounds on the worst-case mean drift for both continuous and binary outcomes, we construct a distributionally robust, bias-corrected Wald statistic that ensures asymptotic type I error control uniformly over the ambiguity set. Importantly, BOND determines the optimal borrowing strength by maximizing a worst-case power proxy, converting heuristic parameter tuning into a transparent, analytically tractable optimization problem. Furthermore, we demonstrate that many prominent borrowing methods can be reparameterized via an effective borrowing weight, rendering our calibration framework broadly applicable. Simulation studies and a real-world clinical trial application confirm that BOND preserves the nominal size under unmeasured heterogeneity while achieving efficiency gains over standard borrowing methods.",
+      "published": "February 24, 2026",
+      "published_raw": "2026-02-24T03:04:43Z",
+      "categories": [
+        "stat.ME",
+        "stat.AP"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2602.20503v1",
+      "arxiv_url": "https://arxiv.org/abs/2602.20503v1",
+      "added_timestamp": 1771985055
+    },
+    {
+      "arxiv_id": "2602.20403",
+      "title": "Wasserstein Distributionally Robust Online Learning",
+      "authors": [
+        "Guixian Chen",
+        "Salar Fattahi",
+        "Soroosh Shafiee"
+      ],
+      "abstract": "We study distributionally robust online learning, where a risk-averse learner updates decisions sequentially to guard against worst-case distributions drawn from a Wasserstein ambiguity set centered at past observations. While this paradigm is well understood in the offline setting through Wasserstein Distributionally Robust Optimization (DRO), its online extension poses significant challenges in both convergence and computation. In this paper, we address these challenges. First, we formulate the problem as an online saddle-point stochastic game between a decision maker and an adversary selecting worst-case distributions, and propose a general framework that converges to a robust Nash equilibrium coinciding with the solution of the corresponding offline Wasserstein DRO problem. Second, we address the main computational bottleneck, which is the repeated solution of worst-case expectation problems. For the important class of piecewise concave loss functions, we propose a tailored algorithm that exploits problem geometry to achieve substantial speedups over state-of-the-art solvers such as Gurobi. The key insight is a novel connection between the worst-case expectation problem, an inherently infinite-dimensional optimization problem, and a classical and tractable budget allocation problem, which is of independent interest.",
+      "published": "February 23, 2026",
+      "published_raw": "2026-02-23T22:55:07Z",
+      "categories": [
+        "cs.LG",
+        "math.OC",
+        "stat.ML"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2602.20403v1",
+      "arxiv_url": "https://arxiv.org/abs/2602.20403v1",
+      "added_timestamp": 1771985055
+    },
     {
       "arxiv_id": "2602.17743",
       "title": "Provable Adversarial Robustness in In-Context Learning",
