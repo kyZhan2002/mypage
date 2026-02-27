@@ -1,6 +1,25 @@
 {
-  "last_fetch_timestamp": 1772071188,
+  "last_fetch_timestamp": 1772157540,
   "papers": [
+    {
+      "arxiv_id": "2602.21376",
+      "title": "Fenchel-Young Estimators of Perturbed Utility Models",
+      "authors": [
+        "Xi Lin",
+        "Yafeng Yin",
+        "Tianming Liu"
+      ],
+      "abstract": "The Perturbed Utility Model framework offers a powerful generalization of discrete choice analysis, unifying models like Multinomial Logit and Sparsemax through convex optimization. However, standard Maximum Likelihood Estimation (MLE) faces severe theoretical and numerical challenges when applied to this broader class, particularly regarding non-convexity and instability in sparse regimes. To resolve these issues, this paper introduces a unified estimation framework based on the Fenchel-Young loss. By leveraging the intrinsic convex conjugate structure of PUMs, we demonstrate that the Fenchel-Young estimator guarantees global convexity and bounded gradients, providing a mathematically natural alternative to MLE. Addressing the critical challenge of data scarcity, we further extend this framework via Wasserstein Distributionally Robust Optimization. We first derive an exact finite-dimensional reformulation of the infinite-dimensional primal problem, establishing its theoretical convexity. However, recognizing that the resulting worst-case constraints involve computationally intractable inner maximizations, we subsequently construct a tractable safe approximation by exploiting the global Lipschitz continuity of the Fenchel-Young loss. Through this tractable formulation, we uncover a rigorous geometric unification: two canonical regularization techniques, standard L2-regularization and the margin-enforcing Hinge loss, emerge mathematically as specific limiting cases of our distributionally robust estimator. Extensive experiments on synthetic data and the Swissmetro benchmark validate that the proposed framework significantly outperforms traditional methods, recovering stable preferences even under severe data limitations.",
+      "published": "February 24, 2026",
+      "published_raw": "2026-02-24T21:14:46Z",
+      "categories": [
+        "math.OC",
+        "stat.ME"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2602.21376v1",
+      "arxiv_url": "https://arxiv.org/abs/2602.21376v1",
+      "added_timestamp": 1772157540
+    },
     {
       "arxiv_id": "2602.20503",
       "title": "Error-Controlled Borrowing from External Data Using Wasserstein Ambiguity Sets",
