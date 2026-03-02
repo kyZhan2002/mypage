@@ -1,6 +1,27 @@
 {
-  "last_updated": 1771466680,
+  "last_updated": 1772416931,
   "papers": [
+    {
+      "arxiv_id": "2601.21324",
+      "title": "Bulk-Calibrated Credal Ambiguity Sets: Fast, Tractable Decision Making under Out-of-Sample Contamination",
+      "authors": [
+        "Mengqi Chen",
+        "Thomas B. Berrett",
+        "Theodoros Damoulas",
+        "Michele Caprio"
+      ],
+      "abstract": "Distributionally robust optimisation (DRO) minimises the worst-case expected loss over an ambiguity set that can capture distributional shifts in out-of-sample environments. While Huber (linear-vacuous) contamination is a classical minimal-assumption model for an $\\varepsilon$-fraction of arbitrary perturbations, including it in an ambiguity set can make the worst-case risk infinite and the DRO objective vacuous unless one imposes strong boundedness or support assumptions. We address these challenges by introducing bulk-calibrated credal ambiguity sets: we learn a high-mass bulk set from data while considering contamination inside the bulk and bounding the remaining tail contribution separately. This leads to a closed-form, finite $\\mathrm{mean}+\\sup$ robust objective and tractable linear or second-order cone programs for common losses and bulk geometries. Through this framework, we highlight and exploit the equivalence between the imprecise probability (IP) notion of upper expectation and the worst-case risk, demonstrating how IP credal sets translate into DRO objectives with interpretable tolerance levels. Experiments on heavy-tailed inventory control, geographically shifted house-price regression, and demographically shifted text classification show competitive robustness-accuracy trade-offs and efficient optimisation times, using Bayesian, frequentist, or empirical reference distributions.",
+      "published": "January 29, 2026",
+      "published_raw": "2026-01-29T06:37:36Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2601.21324v1",
+      "arxiv_url": "https://arxiv.org/abs/2601.21324v1",
+      "added_timestamp": 1769824413,
+      "archived_timestamp": 1772416931
+    },
     {
       "arxiv_id": "2601.11016",
       "title": "Contextual Distributionally Robust Optimization with Causal and Continuous Structure: An Interpretable and Tractable Approach",
