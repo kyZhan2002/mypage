@@ -1,6 +1,27 @@
 {
-  "last_fetch_timestamp": 1773712957,
+  "last_fetch_timestamp": 1773799593,
   "papers": [
+    {
+      "arxiv_id": "2603.16062",
+      "title": "Safe Distributionally Robust Feature Selection under Covariate Shift",
+      "authors": [
+        "Hiroyuki Hanada",
+        "Satoshi Akahane",
+        "Noriaki Hashimoto",
+        "Shion Takeno",
+        "Ichiro Takeuchi"
+      ],
+      "abstract": "In practical machine learning, the environments encountered during the model development and deployment phases often differ, especially when a model is used by many users in diverse settings. Learning models that maintain reliable performance across plausible deployment environments is known as distributionally robust (DR) learning. In this work, we study the problem of distributionally robust feature selection (DRFS), with a particular focus on sparse sensing applications motivated by industrial needs. In practical multi-sensor systems, a shared subset of sensors is typically selected prior to deployment based on performance evaluations using many available sensors. At deployment, individual users may further adapt or fine-tune models to their specific environments. When deployment environments differ from those anticipated during development, this strategy can result in systems lacking sensors required for optimal performance. To address this issue, we propose safe-DRFS, a novel approach that extends safe screening from conventional sparse modeling settings to a DR setting under covariate shift. Our method identifies a feature subset that encompasses all subsets that may become optimal across a specified range of input distribution shifts, with finite-sample theoretical guarantees of no false feature elimination.",
+      "published": "March 17, 2026",
+      "published_raw": "2026-03-17T02:11:37Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2603.16062v1",
+      "arxiv_url": "https://arxiv.org/abs/2603.16062v1",
+      "added_timestamp": 1773799593
+    },
     {
       "arxiv_id": "2603.07921",
       "title": "Robust Transfer Learning with Side Information",
