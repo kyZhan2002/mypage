@@ -1,6 +1,27 @@
 {
-  "last_fetch_timestamp": 1774317656,
+  "last_fetch_timestamp": 1774404381,
   "papers": [
+    {
+      "arxiv_id": "2603.22845",
+      "title": "DROP: Distributionally Robust Optimization for Multi-task Learning in Graphical Models",
+      "authors": [
+        "Canruo Shen",
+        "Xintong Ji",
+        "Qiong Li",
+        "Wenzhi Yang",
+        "Xiaoping Shi"
+      ],
+      "abstract": "Gaussian Graphical Models (GGMs) are widely used to infer conditional dependence structures in high-dimensional data. However, standard precision matrix estimators are highly sensitive to data contamination, such as extreme outliers and heavy-tailed noise. In this paper, we propose DROP (Distributionally Robust Optimization), a robust estimation method formulated within a multi-task nodewise regression framework. The proposed estimator enforces structural sparsity while resisting the influence of corrupted observations. Theoretically, we establish error bounds for the DROP estimator under general contamination. Through extensive high-dimensional simulations, we demonstrate that DROP consistently controls the rate of false positive edges and outperforms conventional non-robust estimators when data deviate from standard Gaussian assumptions. Furthermore, in a functional MRI (fMRI) application, DROP maintains a stable graph structure and preserves network modularity even when subjected to severe data perturbations, whereas competing methods yield excessively dense networks. To facilitate reproducible research, the DROP R package will be made publicly available on GitHub.",
+      "published": "March 24, 2026",
+      "published_raw": "2026-03-24T06:33:55Z",
+      "categories": [
+        "stat.AP",
+        "stat.ME"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2603.22845v1",
+      "arxiv_url": "https://arxiv.org/abs/2603.22845v1",
+      "added_timestamp": 1774404381
+    },
     {
       "arxiv_id": "2603.16062",
       "title": "Safe Distributionally Robust Feature Selection under Covariate Shift",
@@ -117,23 +138,6 @@
       "pdf_link": "https://arxiv.org/pdf/2602.20403v1",
       "arxiv_url": "https://arxiv.org/abs/2602.20403v1",
       "added_timestamp": 1771985055
-    },
-    {
-      "arxiv_id": "2602.17743",
-      "title": "Provable Adversarial Robustness in In-Context Learning",
-      "authors": [
-        "Di Zhang"
-      ],
-      "abstract": "Large language models adapt to new tasks through in-context learning (ICL) without parameter updates. Current theoretical explanations for this capability assume test tasks are drawn from a distribution similar to that seen during pretraining. This assumption overlooks adversarial distribution shifts that threaten real-world reliability. To address this gap, we introduce a distributionally robust meta-learning framework that provides worst-case performance guarantees for ICL under Wasserstein-based distribution shifts. Focusing on linear self-attention Transformers, we derive a non-asymptotic bound linking adversarial perturbation strength ($\u03c1$), model capacity ($m$), and the number of in-context examples ($N$). The analysis reveals that model robustness scales with the square root of its capacity ($\u03c1_{\\text{max}} \\propto \\sqrt{m}$), while adversarial settings impose a sample complexity penalty proportional to the square of the perturbation magnitude ($N_\u03c1- N_0 \\propto \u03c1^2$). Experiments on synthetic tasks confirm these scaling laws. These findings advance the theoretical understanding of ICL's limits under adversarial conditions and suggest that model capacity serves as a fundamental resource for distributional robustness.",
-      "published": "February 19, 2026",
-      "published_raw": "2026-02-19T12:37:00Z",
-      "categories": [
-        "cs.LG",
-        "stat.ML"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2602.17743v1",
-      "arxiv_url": "https://arxiv.org/abs/2602.17743v1",
-      "added_timestamp": 1771812315
     }
   ]
 }
