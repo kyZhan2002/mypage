@@ -1,6 +1,26 @@
 {
-  "last_updated": 1774923700,
+  "last_updated": 1775615018,
   "papers": [
+    {
+      "arxiv_id": "2603.05568",
+      "title": "Learning Optimal Distributionally Robust Individualized Treatment Rules Integrating Multi-Source Data",
+      "authors": [
+        "Wenhai Cui",
+        "Wen Su",
+        "Xingqiu Zhao"
+      ],
+      "abstract": "Integrative analysis of multiple datasets for estimating optimal individualized treatment rules (ITRs) can enhance decision efficiency. A central challenge is posterior shift, wherein the conditional distribution of potential outcomes given covariates differs between source and target populations. We propose a prior information-based distributionally robust ITR (PDRO-ITR) that maximizes the worst-case policy value over a covariate-dependent distributional uncertainty set, ensuring robust performance under posterior shift. The uncertainty set is constructed as an individualized combination of source distributions, with weights combining prior source-membership probabilities and deviation terms constrained to the probability simplex to accommodate posterior shift. We derive a closed-form solution for the PDRO-ITR and develop an adaptive procedure to tune the uncertainty level. We establish risk bounds for the PDRO-ITR estimator, which guarantees robust performance under the worst case. Extensive simulations and two real-data applications demonstrate that the proposed method achieves superior performance compared to existing approaches.",
+      "published": "March 05, 2026",
+      "published_raw": "2026-03-05T14:33:52Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2603.05568v1",
+      "arxiv_url": "https://arxiv.org/abs/2603.05568v1",
+      "added_timestamp": 1773021828,
+      "archived_timestamp": 1775615018
+    },
     {
       "arxiv_id": "2602.21376",
       "title": "Fenchel-Young Estimators of Perturbed Utility Models",

@@ -1,6 +1,27 @@
 {
-  "last_fetch_timestamp": 1775528556,
+  "last_fetch_timestamp": 1775615018,
   "papers": [
+    {
+      "arxiv_id": "2604.05285",
+      "title": "Robust Learning of Heterogeneous Dynamic Systems",
+      "authors": [
+        "Shuoxun Xu",
+        "Zijian Guo",
+        "Brooke R. Staveland",
+        "Robert T. Knight",
+        "Lexin Li"
+      ],
+      "abstract": "Ordinary differential equations (ODEs) provide a powerful framework for modeling dynamic systems arising in a wide range of scientific domains. However, most existing ODE methods focus on a single system, and do not adequately address the problem of learning shared patterns from multiple heterogeneous dynamic systems. In this article, we propose a novel distributionally robust learning approach for modeling heterogeneous ODE systems. Specifically, we construct a robust dynamic system by maximizing a worst-case reward over an uncertainty class formed by convex combinations of the derivatives of trajectories. We show the resulting estimator admits an explicit weighted average representation, where the weights are obtained from a quadratic optimization that balances information across multiple data sources. We further develop a bi-level stabilization procedure to address potential instability in estimation. We establish rigorous theoretical guarantees for the proposed method, including consistency of the stabilized weights, error bound for robust trajectory estimation, and asymptotical validity of pointwise confidence interval. We demonstrate that the proposed method considerably improves the generalization performance compared to the alternative solutions through both extensive simulations and the analysis of an intracranial electroencephalogram data.",
+      "published": "April 07, 2026",
+      "published_raw": "2026-04-07T00:40:55Z",
+      "categories": [
+        "stat.ME",
+        "cs.LG"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2604.05285v1",
+      "arxiv_url": "https://arxiv.org/abs/2604.05285v1",
+      "added_timestamp": 1775615018
+    },
     {
       "arxiv_id": "2603.27871",
       "title": "Statistical Guarantees for Distributionally Robust Optimization with Optimal Transport and OT-Regularized Divergences",
@@ -80,25 +101,6 @@
       "pdf_link": "https://arxiv.org/pdf/2603.07921v1",
       "arxiv_url": "https://arxiv.org/abs/2603.07921v1",
       "added_timestamp": 1773194156
-    },
-    {
-      "arxiv_id": "2603.05568",
-      "title": "Learning Optimal Distributionally Robust Individualized Treatment Rules Integrating Multi-Source Data",
-      "authors": [
-        "Wenhai Cui",
-        "Wen Su",
-        "Xingqiu Zhao"
-      ],
-      "abstract": "Integrative analysis of multiple datasets for estimating optimal individualized treatment rules (ITRs) can enhance decision efficiency. A central challenge is posterior shift, wherein the conditional distribution of potential outcomes given covariates differs between source and target populations. We propose a prior information-based distributionally robust ITR (PDRO-ITR) that maximizes the worst-case policy value over a covariate-dependent distributional uncertainty set, ensuring robust performance under posterior shift. The uncertainty set is constructed as an individualized combination of source distributions, with weights combining prior source-membership probabilities and deviation terms constrained to the probability simplex to accommodate posterior shift. We derive a closed-form solution for the PDRO-ITR and develop an adaptive procedure to tune the uncertainty level. We establish risk bounds for the PDRO-ITR estimator, which guarantees robust performance under the worst case. Extensive simulations and two real-data applications demonstrate that the proposed method achieves superior performance compared to existing approaches.",
-      "published": "March 05, 2026",
-      "published_raw": "2026-03-05T14:33:52Z",
-      "categories": [
-        "stat.ML",
-        "cs.LG"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2603.05568v1",
-      "arxiv_url": "https://arxiv.org/abs/2603.05568v1",
-      "added_timestamp": 1773021828
     }
   ]
 }
