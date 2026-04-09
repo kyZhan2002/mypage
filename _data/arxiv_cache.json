@@ -1,6 +1,26 @@
 {
-  "last_fetch_timestamp": 1775615018,
+  "last_fetch_timestamp": 1775700678,
   "papers": [
+    {
+      "arxiv_id": "2604.06548",
+      "title": "A Rolling-Horizon Stochastic Optimization Framework for NBA Franchise Management with Distributionally Robust Risk Constraints",
+      "authors": [
+        "Siming Zhang",
+        "Zhehui Shen",
+        "Shijie Chen",
+        "Jian Zhou"
+      ],
+      "abstract": "NBA franchise management is not a sequence of independent tasks, but a single dynamic control problem in which roster construction, cash-flow discipline, media strategy, external market shocks, and player-health uncertainty interact over time. Using the New York Knicks as a case study, this paper develops a unified decision architecture for franchise management under competitive, financial, and regulatory constraints. The core layer is formulated as a rolling-horizon stochastic mixed-integer program augmented with distributionally robust optimization and conditional value-at-risk constraints, so that long-run franchise value can be optimized while downside exposure remains explicitly controlled. On top of this core layer, we construct coordinated modules for transaction execution, league-expansion shock transmission, media-rights regime transition, and injury-triggered re-optimization. This integrated design reframes multiple managerial mechanisms inside one research problem: how should an NBA franchise allocate resources and update decisions when performance objectives and commercial objectives are jointly determined under uncertainty? The manuscript is organized around problem formulation, model architecture, empirical validation, robustness analysis, and managerial interpretation.",
+      "published": "April 08, 2026",
+      "published_raw": "2026-04-08T00:56:14Z",
+      "categories": [
+        "cs.CE",
+        "stat.AP"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2604.06548v1",
+      "arxiv_url": "https://arxiv.org/abs/2604.06548v1",
+      "added_timestamp": 1775700678
+    },
     {
       "arxiv_id": "2604.05285",
       "title": "Robust Learning of Heterogeneous Dynamic Systems",
