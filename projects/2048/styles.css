@@ -1,0 +1,200 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f1e8;
+  --panel: #fffdfa;
+  --line: #d7cfbf;
+  --text: #241f16;
+  --muted: #6a6255;
+  --cell: #ece6d7;
+  --button: #efe7d9;
+  --accent: #8f6a4b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app-shell {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.panel {
+  width: min(100%, 560px);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(36, 31, 22, 0.08);
+}
+
+.panel-header,
+.status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.eyebrow,
+.scoreboard span,
+.hint,
+.size-picker span {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+h1 {
+  margin: 4px 0 0;
+  font-size: 2rem;
+}
+
+.scoreboard {
+  display: flex;
+  gap: 16px;
+  text-align: right;
+}
+
+.scoreboard strong {
+  display: block;
+  font-size: 1.5rem;
+}
+
+.status-row {
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+
+#status {
+  margin: 0;
+  min-height: 1.5em;
+}
+
+.actions,
+.controls {
+  display: flex;
+  gap: 8px;
+}
+
+.size-picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 4px;
+}
+
+select,
+button {
+  border: 1px solid var(--line);
+  background: var(--button);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover,
+select:hover {
+  background: #e6dece;
+}
+
+.board {
+  display: grid;
+  gap: 8px;
+  aspect-ratio: 1;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #f0eadc;
+}
+
+.cell {
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--cell);
+  min-height: 70px;
+  font-size: clamp(1rem, 4vw, 1.8rem);
+  font-weight: 700;
+  transition: transform 120ms ease, background 120ms ease;
+}
+
+.cell.empty {
+  color: transparent;
+}
+
+.cell.tile-2 { background: #eee4da; }
+.cell.tile-4 { background: #ede0c8; }
+.cell.tile-8 { background: #f2b179; color: #fffaf2; }
+.cell.tile-16 { background: #f59563; color: #fffaf2; }
+.cell.tile-32 { background: #f67c5f; color: #fffaf2; }
+.cell.tile-64 { background: #f65e3b; color: #fffaf2; }
+.cell.tile-128 { background: #edcf72; }
+.cell.tile-256 { background: #edcc61; }
+.cell.tile-512 { background: #edc850; }
+.cell.tile-1024 { background: #edc53f; }
+.cell.tile-2048,
+.cell.tile-super { background: var(--accent); color: #fffaf2; }
+
+.controls {
+  margin-top: 16px;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(64px, 80px));
+  grid-template-areas:
+    ". up ."
+    "left down right";
+}
+
+.control.up { grid-area: up; }
+.control.left { grid-area: left; }
+.control.down { grid-area: down; }
+.control.right { grid-area: right; }
+
+@media (max-width: 560px) {
+  .panel {
+    padding: 16px;
+  }
+
+  .panel-header,
+  .status-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .scoreboard,
+  .actions {
+    width: 100%;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+  }
+
+  .actions button,
+  .size-picker,
+  .size-picker select {
+    width: 100%;
+  }
+
+  .size-picker {
+    padding: 0;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

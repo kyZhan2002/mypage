@@ -1,6 +1,6 @@
 ---
-title: Snake Game
-permalink: /projects/snake/
+title: 2048 Game
+permalink: /projects/2048/
 ---
 
 <!doctype html>
@@ -8,7 +8,7 @@ permalink: /projects/snake/
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Snake</title>
+    <title>2048</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -16,29 +16,38 @@ permalink: /projects/snake/
       <section class="panel">
         <header class="panel-header">
           <div>
-            <p class="eyebrow">Classic Arcade</p>
-            <h1>Snake</h1>
+            <p class="eyebrow">Classic Puzzle</p>
+            <h1>2048</h1>
           </div>
           <div class="scoreboard">
-            <span>Score</span>
-            <strong id="score">0</strong>
+            <div>
+              <span>Score</span>
+              <strong id="score">0</strong>
+            </div>
+            <div>
+              <span>Best</span>
+              <strong id="best-score">0</strong>
+            </div>
           </div>
         </header>
 
         <div class="status-row">
-          <p id="status">Press Start or use an arrow key to begin.</p>
+          <p id="status">Choose a board size and press Start Game.</p>
           <div class="actions">
-            <button id="pause-button" type="button">Pause</button>
+            <label class="size-picker" for="board-size">
+              <span>Board</span>
+              <select id="board-size">
+                <option value="3">3 x 3</option>
+                <option value="4" selected>4 x 4</option>
+                <option value="5">5 x 5</option>
+              </select>
+            </label>
+            <button id="start-button" type="button">Start Game</button>
             <button id="restart-button" type="button">Restart</button>
           </div>
         </div>
 
-        <div
-          id="board"
-          class="board"
-          role="grid"
-          aria-label="Snake game board"
-        ></div>
+        <div id="board" class="board" aria-label="2048 game board"></div>
 
         <section class="controls" aria-label="Touch controls">
           <button class="control up" type="button" data-direction="up">Up</button>
@@ -47,7 +56,7 @@ permalink: /projects/snake/
           <button class="control right" type="button" data-direction="right">Right</button>
         </section>
 
-        <p class="hint">Use arrow keys or WASD. Pause, restart, and boundary collisions are supported.</p>
+        <p class="hint">Use arrow keys or WASD to slide tiles. Merge matching numbers to reach 2048.</p>
       </section>
     </main>
 
