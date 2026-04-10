@@ -651,6 +651,8 @@ function purchaseLife() {
     state.balls = [createBall()];
     state.powerUps = [];
     state.lightningBalls = [];
+    state.floatingTexts = [];
+    state.doubleHitLevel = 1;
     state.doubleHitTimer = 0;
     state.safetyNetTimer = 0;
     statusElement.textContent = "Extra life purchased. Press Start to relaunch.";
@@ -699,19 +701,22 @@ function populateLevelSelect() {
   levelSelect.value = String(state.levelIndex);
 }
 
-function isBossLevel(levelIndex = state.levelIndex) {
-  if (state.mode === "daily") {
+function isBossLevel(levelIndex = null) {
+  if (levelIndex === null && state.mode === "daily") {
     return false;
   }
-  return Boolean(LEVELS[levelIndex]?.boss);
+  const targetLevel = levelIndex ?? state.levelIndex;
+  return Boolean(LEVELS[targetLevel]?.boss);
 }
 
-function getBossConfig(levelIndex = state.levelIndex) {
+function getBossConfig(levelIndex = null) {
   if (!isBossLevel(levelIndex)) {
     return null;
   }
 
-  if (levelIndex === 9) {
+  const targetLevel = levelIndex ?? state.levelIndex;
+
+  if (targetLevel === 9) {
     return {
       id: "warden-core",
       coreCells: new Set(["4,4", "4,5"]),
@@ -719,7 +724,7 @@ function getBossConfig(levelIndex = state.levelIndex) {
     };
   }
 
-  if (levelIndex === 19) {
+  if (targetLevel === 19) {
     return {
       id: "crimson-sovereign",
       coreCells: new Set(["4,4", "4,5"]),
@@ -1502,7 +1507,7 @@ function syncScoreboard() {
   currencyElement.textContent = String(state.currency);
   bestScoreElement.textContent = String(getBestScore());
   livesElement.textContent = String(state.lives);
-  levelElement.textContent = `${state.levelIndex + 1}`;
+  levelElement.textContent = state.mode === "daily" ? `D${state.dailyStage + 1}` : `${state.levelIndex + 1}`;
   powerElement.textContent = currentPowerLabel();
 }
 

@@ -49,16 +49,21 @@ body {
   display: grid;
   place-items: center;
   min-height: calc(100vh - 64px);
-  padding: 18px;
+  padding: 12px;
 }
 
 .panel {
-  width: min(100%, 680px);
+  width: min(100%, 1120px);
+  max-height: calc(100vh - 88px);
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 16px;
-  padding: 15px;
+  padding: 14px;
   box-shadow: 0 10px 30px rgba(36, 31, 22, 0.08);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 12px;
+  overflow: hidden;
 }
 
 .panel-header,
@@ -85,39 +90,49 @@ h1 {
   font-size: 1.5rem;
 }
 
+.title-block {
+  min-width: 0;
+}
+
 .scoreboard {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   text-align: right;
   flex-wrap: wrap;
   justify-content: flex-end;
   align-items: flex-start;
 }
 
+.scoreboard > div {
+  min-width: 54px;
+}
+
 .scoreboard strong {
   display: block;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   white-space: nowrap;
 }
 
 .status-row {
-  margin: 12px 0;
-  flex-wrap: wrap;
+  gap: 10px;
 }
 
 #status {
   margin: 0;
-  min-height: 1.5em;
+  min-height: 2.4em;
+  flex: 1;
 }
 
 #daily-status {
-  margin: -4px 0 12px;
+  margin: 0;
 }
 
 .actions {
   display: flex;
   gap: 6px;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .level-picker {
@@ -146,30 +161,74 @@ select:hover {
   background: #e6dece;
 }
 
+.panel-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(240px, 1fr);
+  gap: 14px;
+  min-height: 0;
+}
+
+.game-column {
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  gap: 10px;
+  min-height: 0;
+}
+
+.side-column {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 10px;
+  min-height: 0;
+}
+
 .game-canvas {
   display: block;
   width: 100%;
   height: auto;
+  max-height: 100%;
   border: 1px solid var(--line);
   border-radius: 14px;
   background: linear-gradient(180deg, #fbf7ee, #efe5d3);
   box-shadow: inset 0 0 0 1px rgba(215, 207, 191, 0.35);
 }
 
+.wallet-card,
 .shop {
-  margin-top: 12px;
-  padding: 12px;
+  padding: 11px;
   border: 1px solid var(--line);
   border-radius: 14px;
   background: #faf6ee;
 }
 
+.wallet-card {
+  display: grid;
+  gap: 4px;
+}
+
+.wallet-label {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.wallet-card strong {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.wallet-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
 .shop-header {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
+  gap: 8px;
   align-items: flex-start;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .shop-header h2 {
@@ -179,15 +238,15 @@ select:hover {
 
 .shop-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
+  grid-template-columns: 1fr;
+  gap: 7px;
 }
 
 .shop-item {
   display: grid;
-  gap: 4px;
+  gap: 3px;
   text-align: left;
-  padding: 10px;
+  padding: 9px;
 }
 
 .shop-item:disabled {
@@ -200,6 +259,20 @@ select:hover {
   font-weight: 700;
 }
 
+.shop-cost {
+  font-size: 0.95rem;
+}
+
+.shop-detail {
+  font-size: 0.8rem;
+  line-height: 1.25;
+}
+
+.footer-hint {
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
 @media (max-width: 560px) {
   .game-nav {
     flex-wrap: wrap;
@@ -208,12 +281,18 @@ select:hover {
 
   .panel {
     padding: 12px;
+    max-height: none;
+    overflow: visible;
   }
 
   .panel-header,
   .status-row {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .panel-grid {
+    grid-template-columns: 1fr;
   }
 
   .scoreboard,
@@ -223,14 +302,6 @@ select:hover {
 
   .actions {
     flex-wrap: wrap;
-  }
-
-  .shop-header {
-    flex-direction: column;
-  }
-
-  .shop-grid {
-    grid-template-columns: 1fr;
   }
 
   .actions button,

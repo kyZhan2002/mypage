@@ -24,7 +24,7 @@ permalink: /projects/breakout/
     <main class="app-shell">
       <section class="panel">
         <header class="panel-header">
-          <div>
+          <div class="title-block">
             <p class="eyebrow">Classic Arcade</p>
             <h1>Breakout</h1>
           </div>
@@ -32,10 +32,6 @@ permalink: /projects/breakout/
             <div>
               <span>Score</span>
               <strong id="score">0</strong>
-            </div>
-            <div>
-              <span>Coins</span>
-              <strong id="currency-score">0</strong>
             </div>
             <div>
               <span>Best</span>
@@ -56,65 +52,76 @@ permalink: /projects/breakout/
           </div>
         </header>
 
-        <div class="status-row">
-          <p id="status">Press Start to launch the ball. Space pauses the game. Arrow keys or mouse move the paddle.</p>
-          <div class="actions">
-            <label class="level-picker" for="level-select">
-              <span>Level</span>
-              <select id="level-select"></select>
-            </label>
-            <button id="daily-button" type="button">Daily</button>
-            <button id="start-button" type="button">Start</button>
-            <button id="restart-button" type="button">Restart</button>
-          </div>
+        <div class="panel-grid">
+          <section class="game-column">
+            <div class="status-row">
+              <p id="status">Press Start to launch the ball. Space pauses the game. Arrow keys or mouse move the paddle.</p>
+              <div class="actions">
+                <label class="level-picker" for="level-select">
+                  <span>Level</span>
+                  <select id="level-select"></select>
+                </label>
+                <button id="daily-button" type="button">Daily</button>
+                <button id="start-button" type="button">Start</button>
+                <button id="restart-button" type="button">Restart</button>
+              </div>
+            </div>
+
+            <p class="hint" id="daily-status">Daily Challenge: not started.</p>
+
+            <canvas
+              id="game-canvas"
+              class="game-canvas"
+              width="680"
+              height="420"
+              role="img"
+              aria-label="Breakout game board"
+            ></canvas>
+
+            <p class="hint footer-hint">Space pauses the game. Daily mode generates two seeded layouts per day, with a 1000 coin bonus for clearing both.</p>
+          </section>
+
+          <aside class="side-column">
+            <section class="wallet-card" aria-label="Coin wallet">
+              <span class="wallet-label">Coins</span>
+              <strong id="currency-score">0</strong>
+              <p class="wallet-note">Coins stay after shopping. Score and coins rise together, but only coins are spent.</p>
+            </section>
+
+            <section class="shop" aria-label="Breakout shop">
+              <div class="shop-header">
+                <h2>Shop</h2>
+              </div>
+              <div class="shop-grid">
+                <button class="shop-item" id="buy-paddle" type="button">
+                  <span class="shop-name">Longer Paddle</span>
+                  <span class="shop-cost">3000</span>
+                  <span class="shop-detail" id="shop-paddle-detail">+10% permanent length</span>
+                </button>
+                <button class="shop-item" id="buy-power" type="button">
+                  <span class="shop-name">Ball Power</span>
+                  <span class="shop-cost">5000</span>
+                  <span class="shop-detail" id="shop-power-detail">+1 permanent damage</span>
+                </button>
+                <button class="shop-item" id="buy-life" type="button">
+                  <span class="shop-name">Extra Life</span>
+                  <span class="shop-cost">5000</span>
+                  <span class="shop-detail" id="shop-life-detail">Add one life immediately</span>
+                </button>
+                <button class="shop-item" id="buy-multiball" type="button">
+                  <span class="shop-name">Extra Ball</span>
+                  <span class="shop-cost">2000</span>
+                  <span class="shop-detail" id="shop-multiball-detail">Add one launched ball immediately</span>
+                </button>
+                <button class="shop-item" id="buy-luck" type="button">
+                  <span class="shop-name">Better Drops</span>
+                  <span class="shop-cost">5000</span>
+                  <span class="shop-detail" id="shop-luck-detail">All drop rates +0.003</span>
+                </button>
+              </div>
+            </section>
+          </aside>
         </div>
-
-        <p class="hint" id="daily-status">Daily Challenge: not started.</p>
-
-        <canvas
-          id="game-canvas"
-          class="game-canvas"
-          width="560"
-          height="460"
-          role="img"
-          aria-label="Breakout game board"
-        ></canvas>
-
-        <section class="shop" aria-label="Breakout shop">
-          <div class="shop-header">
-            <h2>Shop</h2>
-            <p>Coins stay after shopping. Score and coins increase together, but only coins are spent.</p>
-          </div>
-          <div class="shop-grid">
-            <button class="shop-item" id="buy-paddle" type="button">
-              <span class="shop-name">Longer Paddle</span>
-              <span class="shop-cost">3000</span>
-              <span class="shop-detail" id="shop-paddle-detail">+10% permanent length</span>
-            </button>
-            <button class="shop-item" id="buy-power" type="button">
-              <span class="shop-name">Ball Power</span>
-              <span class="shop-cost">5000</span>
-              <span class="shop-detail" id="shop-power-detail">+1 permanent damage</span>
-            </button>
-            <button class="shop-item" id="buy-life" type="button">
-              <span class="shop-name">Extra Life</span>
-              <span class="shop-cost">5000</span>
-              <span class="shop-detail" id="shop-life-detail">Add one life immediately</span>
-            </button>
-            <button class="shop-item" id="buy-multiball" type="button">
-              <span class="shop-name">Extra Ball</span>
-              <span class="shop-cost">2000</span>
-              <span class="shop-detail" id="shop-multiball-detail">Add one launched ball immediately</span>
-            </button>
-            <button class="shop-item" id="buy-luck" type="button">
-              <span class="shop-name">Better Drops</span>
-              <span class="shop-cost">5000</span>
-              <span class="shop-detail" id="shop-luck-detail">All drop rates +0.003</span>
-            </button>
-          </div>
-        </section>
-
-        <p class="hint">Space pauses the game. Daily mode generates two seeded layouts per day, with a 1000 coin bonus for clearing both.</p>
       </section>
     </main>
 
