@@ -55,13 +55,7 @@ permalink: /projects/breakout/
 
         <div class="panel-grid">
           <section class="game-column">
-            <div class="meta-strip">
-              <p class="hint control-hint">Controls: Arrow keys or mouse to move. Space pauses.</p>
-              <p class="hint" id="daily-status">Daily Challenge: not started.</p>
-            </div>
-
             <div class="topbar">
-              <p id="status" class="status-pill">Press Start to launch the ball. Space pauses the game. Arrow keys or mouse move the paddle.</p>
               <div class="actions">
                 <label class="level-picker" for="level-select">
                   <span>Level</span>
@@ -82,12 +76,23 @@ permalink: /projects/breakout/
               aria-label="Breakout game board"
             ></canvas>
 
-            <div class="footer-note">
-              <p class="hint footer-hint">Daily mode generates two seeded layouts per day, with a 1000 coin bonus for clearing both.</p>
-            </div>
+            <section class="danger-zone danger-zone-inline" aria-label="Reset profile">
+              <p class="danger-copy">Scroll down to reset the loaded username's progress if you really want a fresh start.</p>
+              <button id="reset-button" type="button">Reset Current Profile</button>
+            </section>
           </section>
 
           <aside class="side-column">
+            <section class="info-card" aria-label="Game status">
+              <span class="wallet-label">Game Info</span>
+              <p id="status" class="status-pill">Press Start to launch the ball. Space pauses the game. Arrow keys or mouse move the paddle.</p>
+              <div class="meta-strip">
+                <p class="hint control-hint">Controls: Arrow keys or mouse to move. Space pauses.</p>
+                <p class="hint" id="daily-status">Daily Challenge: not started.</p>
+                <p class="hint footer-hint">Daily mode generates two seeded layouts per day, with a 1000 coin bonus for clearing both.</p>
+              </div>
+            </section>
+
             <section class="wallet-card" aria-label="Coin wallet">
               <span class="wallet-label">Wallet</span>
               <strong id="currency-score">0</strong>
@@ -98,45 +103,41 @@ permalink: /projects/breakout/
               </div>
             </section>
 
-            <details class="shop" open>
+            <details class="shop-card" open>
               <summary class="shop-summary">
                 <span>Shop</span>
                 <span class="shop-summary-note">Expand or fold</span>
               </summary>
-              <div class="shop-grid">
-                <button class="shop-item" id="buy-paddle" type="button">
-                  <span class="shop-name">Longer Paddle</span>
-                  <span class="shop-cost">3000</span>
-                  <span class="shop-detail" id="shop-paddle-detail">+10% permanent length</span>
-                </button>
-                <button class="shop-item" id="buy-power" type="button">
-                  <span class="shop-name">Ball Power</span>
-                  <span class="shop-cost">5000</span>
-                  <span class="shop-detail" id="shop-power-detail">+1 permanent damage</span>
-                </button>
-                <button class="shop-item" id="buy-life" type="button">
-                  <span class="shop-name">Extra Life</span>
-                  <span class="shop-cost">5000</span>
-                  <span class="shop-detail" id="shop-life-detail">Add one life immediately</span>
-                </button>
-                <button class="shop-item" id="buy-multiball" type="button">
-                  <span class="shop-name">Extra Ball</span>
-                  <span class="shop-cost">2000</span>
-                  <span class="shop-detail" id="shop-multiball-detail">Add one launched ball immediately</span>
-                </button>
-                <button class="shop-item" id="buy-luck" type="button">
-                  <span class="shop-name">Better Drops</span>
-                  <span class="shop-cost">5000</span>
-                  <span class="shop-detail" id="shop-luck-detail">All drop rates +0.003</span>
-                </button>
+              <div class="shop-card-body">
+                <div class="shop-grid">
+                  <button class="shop-item" id="buy-paddle" type="button">
+                    <span class="shop-name">Longer Paddle</span>
+                    <span class="shop-cost">3000</span>
+                    <span class="shop-detail" id="shop-paddle-detail">+10% permanent length</span>
+                  </button>
+                  <button class="shop-item" id="buy-power" type="button">
+                    <span class="shop-name">Ball Power</span>
+                    <span class="shop-cost">5000</span>
+                    <span class="shop-detail" id="shop-power-detail">+1 permanent damage</span>
+                  </button>
+                  <button class="shop-item" id="buy-life" type="button">
+                    <span class="shop-name">Extra Life</span>
+                    <span class="shop-cost">5000</span>
+                    <span class="shop-detail" id="shop-life-detail">Add one life immediately</span>
+                  </button>
+                  <button class="shop-item" id="buy-multiball" type="button">
+                    <span class="shop-name">Extra Ball</span>
+                    <span class="shop-cost">2000</span>
+                    <span class="shop-detail" id="shop-multiball-detail">Add one launched ball immediately</span>
+                  </button>
+                  <button class="shop-item" id="buy-luck" type="button">
+                    <span class="shop-name">Better Drops</span>
+                    <span class="shop-cost">5000</span>
+                    <span class="shop-detail" id="shop-luck-detail">All drop rates +0.003</span>
+                  </button>
+                </div>
               </div>
             </details>
-
-            <section class="danger-zone" aria-label="Reset profile">
-              <p class="danger-title">Danger Zone</p>
-              <p class="danger-copy">Reset clears the loaded username's progress. Use this only if you really want a fresh start.</p>
-              <button id="reset-button" type="button">Reset Current Profile</button>
-            </section>
           </aside>
         </div>
       </section>
