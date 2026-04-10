@@ -1,11 +1,17 @@
 :root {
   color-scheme: light;
-  --bg: #f5f1e8;
-  --panel: #fffdfa;
+  --bg: #f2ecdf;
+  --panel: #fffdf8;
+  --card: #f7f0e3;
   --line: #d7cfbf;
+  --line-strong: #c8bba3;
   --text: #241f16;
   --muted: #6a6255;
+  --accent: #b46d3c;
+  --accent-soft: #ead9bf;
   --button: #efe7d9;
+  --button-hover: #e7dcc8;
+  --shadow: 0 18px 40px rgba(36, 31, 22, 0.08);
 }
 
 * {
@@ -16,7 +22,9 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: "Avenir Next", "Segoe UI", sans-serif;
-  background: var(--bg);
+  background:
+    radial-gradient(circle at top, rgba(180, 109, 60, 0.08), transparent 28%),
+    linear-gradient(180deg, #f5f0e7 0%, var(--bg) 100%);
   color: var(--text);
 }
 
@@ -49,25 +57,22 @@ body {
   display: grid;
   place-items: center;
   min-height: calc(100vh - 64px);
-  padding: 12px;
+  padding: 18px 12px 28px;
 }
 
 .panel {
   width: min(100%, 880px);
-  max-height: calc(100vh - 88px);
   background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 14px;
-  box-shadow: 0 10px 30px rgba(36, 31, 22, 0.08);
+  border: 1px solid var(--line-strong);
+  border-radius: 24px;
+  padding: 18px;
+  box-shadow: var(--shadow);
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
-  gap: 10px;
-  overflow: hidden;
+  gap: 16px;
 }
 
 .panel-header,
-.status-row {
+.topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -78,7 +83,6 @@ body {
 .scoreboard span,
 .hint,
 .level-picker span,
-.shop-header p,
 .shop-detail {
   margin: 0;
   color: var(--muted);
@@ -87,44 +91,61 @@ body {
 
 h1 {
   margin: 4px 0 0;
-  font-size: 1.5rem;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
 }
 
 .title-block {
   min-width: 0;
 }
 
+.title-subtitle {
+  margin: 8px 0 0;
+  max-width: 36rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
 .scoreboard {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(58px, 1fr));
   gap: 10px;
   text-align: right;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: flex-start;
 }
 
 .scoreboard > div {
-  min-width: 54px;
+  min-width: 0;
+  padding: 10px 10px 8px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fffaf0, #f6eddc);
 }
 
 .scoreboard strong {
   display: block;
-  font-size: 1.05rem;
+  margin-top: 2px;
+  font-size: 1.2rem;
   white-space: nowrap;
-}
-
-.status-row {
-  gap: 10px;
 }
 
 #status {
   margin: 0;
-  min-height: 2.4em;
   flex: 1;
 }
 
 #daily-status {
   margin: 0;
+  padding: 0;
 }
 
 .actions {
@@ -133,6 +154,20 @@ h1 {
   align-items: center;
   flex-wrap: wrap;
   justify-content: flex-end;
+}
+
+.topbar {
+  align-items: stretch;
+}
+
+.status-pill {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: linear-gradient(180deg, #fffaf0, #f7efdf);
+  color: var(--text);
+  line-height: 1.35;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .level-picker {
@@ -147,118 +182,152 @@ button {
   border: 1px solid var(--line);
   background: var(--button);
   color: var(--text);
-  border-radius: 10px;
-  padding: 7px 10px;
+  border-radius: 12px;
+  padding: 8px 11px;
   font: inherit;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
 button {
   cursor: pointer;
+  font-weight: 600;
 }
 
 button:hover,
 select:hover {
-  background: #e6dece;
+  background: var(--button-hover);
 }
 
 .panel-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.9fr) minmax(210px, 1fr);
-  gap: 12px;
-  min-height: 0;
+  grid-template-columns: minmax(0, 1.75fr) minmax(260px, 0.95fr);
+  gap: 16px;
+  align-items: start;
 }
 
 .game-column {
   display: grid;
-  grid-template-rows: auto auto minmax(0, 1fr) auto;
-  gap: 8px;
-  min-height: 0;
+  gap: 10px;
 }
 
 .side-column {
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
-  gap: 8px;
-  min-height: 0;
+  gap: 12px;
   align-content: start;
+  position: sticky;
+  top: 78px;
 }
 
 .game-canvas {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 100%;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: linear-gradient(180deg, #fbf7ee, #efe5d3);
-  box-shadow: inset 0 0 0 1px rgba(215, 207, 191, 0.35);
+  border: 1px solid var(--line-strong);
+  border-radius: 18px;
+  background: linear-gradient(180deg, #fcf8ef, #efe3cd);
+  box-shadow:
+    inset 0 0 0 1px rgba(215, 207, 191, 0.35),
+    0 10px 24px rgba(36, 31, 22, 0.05);
 }
 
 .wallet-card,
 .shop {
-  padding: 9px;
+  padding: 12px;
   border: 1px solid var(--line);
-  border-radius: 14px;
-  background: #faf6ee;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #fffaf0, var(--card));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
 .wallet-card {
   display: grid;
-  gap: 3px;
+  gap: 4px;
 }
 
 .wallet-label {
-  color: var(--muted);
-  font-size: 0.85rem;
+  color: var(--accent);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .wallet-card strong {
-  font-size: 1.45rem;
-  line-height: 1;
+  font-size: 2rem;
+  line-height: 0.95;
 }
 
 .wallet-note {
   margin: 0;
   color: var(--muted);
-  font-size: 0.76rem;
-  line-height: 1.25;
+  font-size: 0.8rem;
+  line-height: 1.35;
 }
 
 .wallet-actions {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 6px;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .wallet-actions button {
   padding: 6px 8px;
 }
 
-.shop-header {
+.meta-strip {
+  display: grid;
+  gap: 6px;
+  padding: 0 2px;
+}
+
+.control-hint {
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+.shop-summary {
   display: flex;
   justify-content: space-between;
   gap: 8px;
-  align-items: flex-start;
-  margin-bottom: 6px;
+  align-items: center;
+  margin: 0;
+  list-style: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
-.shop-header h2 {
-  margin: 0;
-  font-size: 1rem;
+.shop-summary::-webkit-details-marker {
+  display: none;
+}
+
+.shop-summary-note {
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 500;
+}
+
+.shop[open] .shop-summary {
+  margin-bottom: 8px;
 }
 
 .shop-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 6px;
+  gap: 8px;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 3px;
 }
 
 .shop-item {
   display: grid;
-  gap: 2px;
+  gap: 3px;
   text-align: left;
-  padding: 7px 8px;
+  padding: 10px 10px 9px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(234, 221, 198, 0.45));
 }
 
 .shop-item:disabled {
@@ -272,17 +341,56 @@ select:hover {
 }
 
 .shop-cost {
-  font-size: 0.9rem;
+  color: var(--accent);
+  font-size: 0.95rem;
 }
 
 .shop-detail {
-  font-size: 0.75rem;
-  line-height: 1.2;
+  font-size: 0.78rem;
+  line-height: 1.28;
+}
+
+.footer-note {
+  padding: 2px 2px 0;
 }
 
 .footer-hint {
-  font-size: 0.76rem;
-  line-height: 1.25;
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.danger-zone {
+  display: grid;
+  gap: 7px;
+  padding: 12px;
+  border: 1px solid #ddc8be;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #fbf2ef, #f3e5e0);
+}
+
+.danger-title {
+  margin: 0;
+  color: #aa5b49;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+
+.danger-copy {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.32;
+}
+
+#reset-button {
+  background: #f4e9e4;
+  border-color: #d8c2b7;
+}
+
+#reset-button:hover {
+  background: #eddcd4;
 }
 
 @media (max-width: 560px) {
@@ -293,18 +401,20 @@ select:hover {
 
   .panel {
     padding: 12px;
-    max-height: none;
-    overflow: visible;
   }
 
   .panel-header,
-  .status-row {
+  .topbar {
     align-items: flex-start;
     flex-direction: column;
   }
 
   .panel-grid {
     grid-template-columns: 1fr;
+  }
+
+  .side-column {
+    position: static;
   }
 
   .scoreboard,

@@ -27,6 +27,7 @@ permalink: /projects/breakout/
           <div class="title-block">
             <p class="eyebrow">Classic Arcade</p>
             <h1>Breakout</h1>
+            <p class="title-subtitle">Arcade survival with bosses, daily seeds, upgrades, and local save slots.</p>
           </div>
           <div class="scoreboard">
             <div>
@@ -54,8 +55,13 @@ permalink: /projects/breakout/
 
         <div class="panel-grid">
           <section class="game-column">
-            <div class="status-row">
-              <p id="status">Press Start to launch the ball. Space pauses the game. Arrow keys or mouse move the paddle.</p>
+            <div class="meta-strip">
+              <p class="hint control-hint">Controls: Arrow keys or mouse to move. Space pauses.</p>
+              <p class="hint" id="daily-status">Daily Challenge: not started.</p>
+            </div>
+
+            <div class="topbar">
+              <p id="status" class="status-pill">Press Start to launch the ball. Space pauses the game. Arrow keys or mouse move the paddle.</p>
               <div class="actions">
                 <label class="level-picker" for="level-select">
                   <span>Level</span>
@@ -67,8 +73,6 @@ permalink: /projects/breakout/
               </div>
             </div>
 
-            <p class="hint" id="daily-status">Daily Challenge: not started.</p>
-
             <canvas
               id="game-canvas"
               class="game-canvas"
@@ -78,25 +82,27 @@ permalink: /projects/breakout/
               aria-label="Breakout game board"
             ></canvas>
 
-            <p class="hint footer-hint">Space pauses the game. Daily mode generates two seeded layouts per day, with a 1000 coin bonus for clearing both.</p>
+            <div class="footer-note">
+              <p class="hint footer-hint">Daily mode generates two seeded layouts per day, with a 1000 coin bonus for clearing both.</p>
+            </div>
           </section>
 
           <aside class="side-column">
             <section class="wallet-card" aria-label="Coin wallet">
-              <span class="wallet-label">Coins</span>
+              <span class="wallet-label">Wallet</span>
               <strong id="currency-score">0</strong>
               <p class="wallet-note">Coins stay after shopping. Score and coins rise together, but only coins are spent.</p>
               <div class="wallet-actions">
                 <button id="save-button" type="button">Save</button>
                 <button id="load-button" type="button">Load</button>
-                <button id="reset-button" type="button">Reset</button>
               </div>
             </section>
 
-            <section class="shop" aria-label="Breakout shop">
-              <div class="shop-header">
-                <h2>Shop</h2>
-              </div>
+            <details class="shop" open>
+              <summary class="shop-summary">
+                <span>Shop</span>
+                <span class="shop-summary-note">Expand or fold</span>
+              </summary>
               <div class="shop-grid">
                 <button class="shop-item" id="buy-paddle" type="button">
                   <span class="shop-name">Longer Paddle</span>
@@ -124,6 +130,12 @@ permalink: /projects/breakout/
                   <span class="shop-detail" id="shop-luck-detail">All drop rates +0.003</span>
                 </button>
               </div>
+            </details>
+
+            <section class="danger-zone" aria-label="Reset profile">
+              <p class="danger-title">Danger Zone</p>
+              <p class="danger-copy">Reset clears the loaded username's progress. Use this only if you really want a fresh start.</p>
+              <button id="reset-button" type="button">Reset Current Profile</button>
             </section>
           </aside>
         </div>
