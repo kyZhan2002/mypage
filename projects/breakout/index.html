@@ -34,6 +34,14 @@ permalink: /projects/breakout/
               <strong id="score">0</strong>
             </div>
             <div>
+              <span>Coins</span>
+              <strong id="currency-score">0</strong>
+            </div>
+            <div>
+              <span>Best</span>
+              <strong id="best-score">0</strong>
+            </div>
+            <div>
               <span>Lives</span>
               <strong id="lives">3</strong>
             </div>
@@ -51,6 +59,10 @@ permalink: /projects/breakout/
         <div class="status-row">
           <p id="status">Press Start to launch the ball. Arrow keys or mouse move the paddle.</p>
           <div class="actions">
+            <label class="level-picker" for="level-select">
+              <span>Level</span>
+              <select id="level-select"></select>
+            </label>
             <button id="start-button" type="button">Start</button>
             <button id="restart-button" type="button">Restart</button>
           </div>
@@ -65,7 +77,36 @@ permalink: /projects/breakout/
           aria-label="Breakout game board"
         ></canvas>
 
-        <p class="hint">Gold drops add extra balls. Rare red drops give every ball double-hit power for 20 seconds. Brick strength ranges from 1 to 10.</p>
+        <section class="shop" aria-label="Breakout shop">
+          <div class="shop-header">
+            <h2>Shop</h2>
+            <p>Coins stay after shopping. Score and coins increase together, but only coins are spent.</p>
+          </div>
+          <div class="shop-grid">
+            <button class="shop-item" id="buy-paddle" type="button">
+              <span class="shop-name">Longer Paddle</span>
+              <span class="shop-cost">3000</span>
+              <span class="shop-detail" id="shop-paddle-detail">+10% permanent length</span>
+            </button>
+            <button class="shop-item" id="buy-power" type="button">
+              <span class="shop-name">Ball Power</span>
+              <span class="shop-cost">5000</span>
+              <span class="shop-detail" id="shop-power-detail">+1 permanent damage</span>
+            </button>
+            <button class="shop-item" id="buy-life" type="button">
+              <span class="shop-name">Extra Life</span>
+              <span class="shop-cost">5000</span>
+              <span class="shop-detail" id="shop-life-detail">Add one life immediately</span>
+            </button>
+            <button class="shop-item" id="buy-luck" type="button">
+              <span class="shop-name">Better Drops</span>
+              <span class="shop-cost">5000</span>
+              <span class="shop-detail" id="shop-luck-detail">All drop rates +0.03</span>
+            </button>
+          </div>
+        </section>
+
+        <p class="hint">Space pauses the game. Gold drops add extra balls, red gives double-hit, green creates a safety net, and blue lightning fires a one-shot spread. Brick strength ranges from 1 to 10.</p>
       </section>
     </main>
 
