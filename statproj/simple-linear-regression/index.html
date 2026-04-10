@@ -1,0 +1,1081 @@
+---
+layout: default
+title: Simple Linear Regression
+permalink: /statproj/simple-linear-regression/
+---
+
+<div class="statproj-page">
+  <section class="hero-section stat-hero">
+    <h1 class="hero-title">Simple Linear Regression</h1>
+    <p class="hero-subtitle">Interactive simulation for generating data, exploring scatter plots, and fitting regression models.</p>
+  </section>
+
+  <section class="card stat-intro">
+    <div>
+      <h2>Model Setup</h2>
+      <p>
+        Generate data from
+        \( Y = a + b_1X_1 + b_2X_2 + \varepsilon \),
+        then explore how the coefficients, sample size, and variable distributions affect the fitted model.
+      </p>
+    </div>
+    <div class="formula-badge">OLS playground</div>
+  </section>
+
+  <section class="stat-layout">
+    <div class="stat-controls">
+      <article class="card">
+        <div class="section-title">
+          <span class="icon">🎛️</span>
+          <h3>Data Generator</h3>
+        </div>
+
+        <div class="control-grid compact-grid">
+          <label>
+            <span>Sample size</span>
+            <input id="sample-size" type="number" min="20" max="1000" step="10" value="180">
+          </label>
+          <label>
+            <span>Random seed</span>
+            <input id="random-seed" type="number" min="1" step="1" value="2026">
+          </label>
+          <label>
+            <span>Intercept a</span>
+            <input id="coef-a" type="number" step="0.1" value="1">
+          </label>
+          <label>
+            <span>Slope b1</span>
+            <input id="coef-b1" type="number" step="0.1" value="1.2">
+          </label>
+          <label>
+            <span>Slope b2</span>
+            <input id="coef-b2" type="number" step="0.1" value="-0.8">
+          </label>
+        </div>
+
+        <div class="dist-stack">
+          <div class="dist-card" data-var="x1">
+            <div class="dist-head">
+              <h4>X1 distribution</h4>
+              <select data-role="dist-type">
+                <option value="normal" selected>Normal</option>
+                <option value="uniform">Uniform</option>
+                <option value="bernoulli">Bernoulli</option>
+                <option value="exponential">Exponential</option>
+              </select>
+            </div>
+            <div class="dist-fields" data-role="dist-fields"></div>
+          </div>
+
+          <div class="dist-card" data-var="x2">
+            <div class="dist-head">
+              <h4>X2 distribution</h4>
+              <select data-role="dist-type">
+                <option value="normal">Normal</option>
+                <option value="uniform" selected>Uniform</option>
+                <option value="bernoulli">Bernoulli</option>
+                <option value="exponential">Exponential</option>
+              </select>
+            </div>
+            <div class="dist-fields" data-role="dist-fields"></div>
+          </div>
+
+          <div class="dist-card" data-var="eps">
+            <div class="dist-head">
+              <h4>Noise ε distribution</h4>
+              <select data-role="dist-type">
+                <option value="normal" selected>Normal</option>
+                <option value="uniform">Uniform</option>
+                <option value="bernoulli">Bernoulli</option>
+                <option value="exponential">Exponential</option>
+              </select>
+            </div>
+            <div class="dist-fields" data-role="dist-fields"></div>
+          </div>
+        </div>
+
+        <div class="button-row">
+          <button id="generate-btn" class="stat-button">Generate data</button>
+          <button id="randomize-btn" class="ghost-button">Randomize settings</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="section-title">
+          <span class="icon">📎</span>
+          <h3>Regression Setup</h3>
+        </div>
+
+        <div class="control-grid">
+          <label>
+            <span>Response variable</span>
+            <select id="response-select">
+              <option value="Y" selected>Y</option>
+              <option value="X1">X1</option>
+              <option value="X2">X2</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="predictor-group">
+          <span class="group-label">Predictors</span>
+          <label class="check-option"><input type="checkbox" value="Y"> <span>Y</span></label>
+          <label class="check-option"><input type="checkbox" value="X1" checked> <span>X1</span></label>
+          <label class="check-option"><input type="checkbox" value="X2" checked> <span>X2</span></label>
+        </div>
+
+        <p class="helper-text">Choose one predictor for a 2-variable regression, or two predictors for a 3-variable regression.</p>
+        <div id="regression-note" class="status-pill">Ready to fit OLS</div>
+      </article>
+    </div>
+
+    <div class="stat-results">
+      <article class="card">
+        <div class="section-title">
+          <span class="icon">📈</span>
+          <h3>Scatter Plot</h3>
+        </div>
+
+        <div class="control-grid compact-grid">
+          <label>
+            <span>X axis</span>
+            <select id="scatter-x">
+              <option value="X1" selected>X1</option>
+              <option value="X2">X2</option>
+              <option value="Y">Y</option>
+            </select>
+          </label>
+          <label>
+            <span>Y axis</span>
+            <select id="scatter-y">
+              <option value="Y" selected>Y</option>
+              <option value="X1">X1</option>
+              <option value="X2">X2</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="plot-meta">
+          <div id="plot-summary">Correlation will appear here.</div>
+          <div id="sample-summary">No data yet.</div>
+        </div>
+
+        <svg id="scatter-plot" viewBox="0 0 760 440" role="img" aria-label="Scatter plot"></svg>
+      </article>
+
+      <article class="card">
+        <div class="section-title">
+          <span class="icon">📋</span>
+          <h3>Regression Results</h3>
+        </div>
+
+        <div class="summary-grid">
+          <div class="summary-box">
+            <span class="summary-label">Observations</span>
+            <strong id="metric-n">-</strong>
+          </div>
+          <div class="summary-box">
+            <span class="summary-label">R²</span>
+            <strong id="metric-r2">-</strong>
+          </div>
+          <div class="summary-box">
+            <span class="summary-label">Adj. R²</span>
+            <strong id="metric-adj-r2">-</strong>
+          </div>
+          <div class="summary-box">
+            <span class="summary-label">Residual SE</span>
+            <strong id="metric-rse">-</strong>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Term</th>
+                <th>Estimate</th>
+                <th>Std. Error</th>
+                <th>t value</th>
+                <th>Pr(&gt;|t|)</th>
+              </tr>
+            </thead>
+            <tbody id="coef-table-body"></tbody>
+          </table>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>
+
+<style>
+  .statproj-page {
+    padding-bottom: 3rem;
+  }
+
+  .stat-hero {
+    margin-bottom: 2rem;
+  }
+
+  .stat-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .stat-intro h2,
+  .section-title h3,
+  .dist-card h4 {
+    margin: 0;
+    color: var(--primary-color);
+  }
+
+  .formula-badge {
+    padding: 0.8rem 1.2rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #edf4ff, #dbedff);
+    color: var(--primary-color);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .stat-layout {
+    display: grid;
+    grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .stat-controls,
+  .stat-results {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .section-title .icon {
+    margin: 0;
+  }
+
+  .control-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .compact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .control-grid label,
+  .dist-fields label {
+    display: grid;
+    gap: 0.45rem;
+    font-weight: 600;
+    color: #445;
+  }
+
+  .control-grid span,
+  .dist-fields span,
+  .group-label {
+    font-size: 0.92rem;
+  }
+
+  .control-grid input,
+  .control-grid select,
+  .dist-fields input,
+  .dist-head select {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ced9eb;
+    border-radius: 10px;
+    padding: 0.75rem 0.85rem;
+    font-size: 0.98rem;
+    background: #fff;
+    color: #2b3547;
+  }
+
+  .control-grid input:focus,
+  .control-grid select:focus,
+  .dist-fields input:focus,
+  .dist-head select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 4px rgba(0, 159, 253, 0.12);
+  }
+
+  .dist-stack {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .dist-card {
+    background: linear-gradient(180deg, #fbfdff, #f4f9ff);
+    border: 1px solid #dfeafa;
+    border-radius: 14px;
+    padding: 1rem;
+  }
+
+  .dist-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .dist-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+  }
+
+  .button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .stat-button,
+  .ghost-button {
+    border: none;
+    border-radius: 999px;
+    padding: 0.85rem 1.35rem;
+    font-size: 0.98rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  .stat-button {
+    color: #fff;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 10px 24px rgba(42, 42, 114, 0.18);
+  }
+
+  .ghost-button {
+    color: var(--primary-color);
+    background: #ecf4ff;
+  }
+
+  .stat-button:hover,
+  .ghost-button:hover {
+    transform: translateY(-1px);
+  }
+
+  .predictor-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .check-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 0.9rem;
+    border-radius: 999px;
+    background: #f4f8ff;
+    border: 1px solid #d8e6fb;
+    font-weight: 600;
+    color: #304260;
+  }
+
+  .helper-text {
+    color: #667188;
+    margin: 1rem 0 0.8rem;
+  }
+
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    width: fit-content;
+    padding: 0.55rem 0.85rem;
+    border-radius: 999px;
+    background: #edf8ef;
+    color: #1d7c45;
+    font-weight: 700;
+  }
+
+  .plot-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    color: #5c6882;
+    margin-bottom: 0.8rem;
+  }
+
+  #scatter-plot {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    background: linear-gradient(180deg, #fcfdff, #f6faff);
+    border: 1px solid #dfe7f2;
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .summary-box {
+    background: linear-gradient(180deg, #f9fbff, #f0f6ff);
+    border: 1px solid #dde7f6;
+    border-radius: 14px;
+    padding: 1rem;
+  }
+
+  .summary-label {
+    display: block;
+    font-size: 0.84rem;
+    color: #60708a;
+    margin-bottom: 0.4rem;
+  }
+
+  .summary-box strong {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+  }
+
+  #coef-table-body td.empty-row {
+    text-align: center;
+    color: #7b8799;
+    font-style: italic;
+  }
+
+  @media (max-width: 980px) {
+    .stat-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .stat-intro {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .control-grid,
+    .compact-grid,
+    .dist-fields,
+    .summary-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .dist-head {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .container {
+      padding: 1rem;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const distributionDefaults = {
+      normal: [
+        { key: "mean", label: "Mean", value: 0, step: 0.1 },
+        { key: "sd", label: "SD", value: 1, step: 0.1, min: 0.01 }
+      ],
+      uniform: [
+        { key: "min", label: "Min", value: -2, step: 0.1 },
+        { key: "max", label: "Max", value: 2, step: 0.1 }
+      ],
+      bernoulli: [
+        { key: "p", label: "P(1)", value: 0.5, step: 0.05, min: 0, max: 1 }
+      ],
+      exponential: [
+        { key: "rate", label: "Rate", value: 1, step: 0.1, min: 0.01 }
+      ]
+    };
+
+    const distState = {
+      x1: { type: "normal", params: { mean: 0, sd: 1 } },
+      x2: { type: "uniform", params: { min: -2, max: 2 } },
+      eps: { type: "normal", params: { mean: 0, sd: 1 } }
+    };
+
+    const sampleSizeInput = document.getElementById("sample-size");
+    const seedInput = document.getElementById("random-seed");
+    const coefInputs = {
+      a: document.getElementById("coef-a"),
+      b1: document.getElementById("coef-b1"),
+      b2: document.getElementById("coef-b2")
+    };
+
+    const responseSelect = document.getElementById("response-select");
+    const predictorInputs = Array.from(document.querySelectorAll('.predictor-group input[type="checkbox"]'));
+    const regressionNote = document.getElementById("regression-note");
+    const scatterX = document.getElementById("scatter-x");
+    const scatterY = document.getElementById("scatter-y");
+    const plotSummary = document.getElementById("plot-summary");
+    const sampleSummary = document.getElementById("sample-summary");
+    const scatterPlot = document.getElementById("scatter-plot");
+    const coefTableBody = document.getElementById("coef-table-body");
+
+    const metrics = {
+      n: document.getElementById("metric-n"),
+      r2: document.getElementById("metric-r2"),
+      adjR2: document.getElementById("metric-adj-r2"),
+      rse: document.getElementById("metric-rse")
+    };
+
+    let dataset = [];
+
+    function initializeDistributionCards() {
+      document.querySelectorAll(".dist-card").forEach((card) => {
+        const key = card.dataset.var;
+        const typeSelect = card.querySelector('[data-role="dist-type"]');
+        const fieldsContainer = card.querySelector('[data-role="dist-fields"]');
+
+        function renderFields(type) {
+          const config = distributionDefaults[type];
+          fieldsContainer.innerHTML = config
+            .map((field) => {
+              const value = distState[key].params[field.key] ?? field.value;
+              const min = field.min !== undefined ? `min="${field.min}"` : "";
+              const max = field.max !== undefined ? `max="${field.max}"` : "";
+              return `
+                <label>
+                  <span>${field.label}</span>
+                  <input
+                    data-param="${field.key}"
+                    type="number"
+                    step="${field.step}"
+                    value="${value}"
+                    ${min}
+                    ${max}
+                  >
+                </label>
+              `;
+            })
+            .join("");
+
+          fieldsContainer.querySelectorAll("input").forEach((input) => {
+            input.addEventListener("input", () => {
+              distState[key].params[input.dataset.param] = Number(input.value);
+              regenerate();
+            });
+          });
+        }
+
+        typeSelect.addEventListener("change", () => {
+          const nextType = typeSelect.value;
+          distState[key] = {
+            type: nextType,
+            params: Object.fromEntries(
+              distributionDefaults[nextType].map((field) => [field.key, field.value])
+            )
+          };
+          renderFields(nextType);
+          regenerate();
+        });
+
+        renderFields(distState[key].type);
+      });
+    }
+
+    function mulberry32(seed) {
+      let value = seed >>> 0;
+      return function () {
+        value += 0x6d2b79f5;
+        let t = value;
+        t = Math.imul(t ^ (t >>> 15), t | 1);
+        t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      };
+    }
+
+    function sampleNormal(random, mean, sd) {
+      const u1 = Math.max(random(), 1e-12);
+      const u2 = Math.max(random(), 1e-12);
+      const z = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+      return mean + sd * z;
+    }
+
+    function sampleDistribution(random, config) {
+      const params = config.params;
+      switch (config.type) {
+        case "normal":
+          return sampleNormal(random, Number(params.mean), Math.max(0.0001, Number(params.sd)));
+        case "uniform": {
+          const min = Number(params.min);
+          const max = Number(params.max);
+          const left = Math.min(min, max);
+          const right = Math.max(min, max);
+          return left + random() * (right - left);
+        }
+        case "bernoulli": {
+          const p = Math.min(1, Math.max(0, Number(params.p)));
+          return random() < p ? 1 : 0;
+        }
+        case "exponential": {
+          const rate = Math.max(0.0001, Number(params.rate));
+          return -Math.log(Math.max(1e-12, 1 - random())) / rate;
+        }
+        default:
+          return 0;
+      }
+    }
+
+    function generateDataset() {
+      const n = Math.max(20, Math.min(1000, Number(sampleSizeInput.value) || 180));
+      const seed = Number(seedInput.value) || 2026;
+      const random = mulberry32(seed);
+      const a = Number(coefInputs.a.value) || 0;
+      const b1 = Number(coefInputs.b1.value) || 0;
+      const b2 = Number(coefInputs.b2.value) || 0;
+
+      dataset = Array.from({ length: n }, () => {
+        const X1 = sampleDistribution(random, distState.x1);
+        const X2 = sampleDistribution(random, distState.x2);
+        const eps = sampleDistribution(random, distState.eps);
+        const Y = a + b1 * X1 + b2 * X2 + eps;
+        return { Y, X1, X2, eps };
+      });
+    }
+
+    function mean(values) {
+      return values.reduce((acc, value) => acc + value, 0) / values.length;
+    }
+
+    function correlation(xs, ys) {
+      const avgX = mean(xs);
+      const avgY = mean(ys);
+      let numerator = 0;
+      let sumX = 0;
+      let sumY = 0;
+      for (let i = 0; i < xs.length; i += 1) {
+        const dx = xs[i] - avgX;
+        const dy = ys[i] - avgY;
+        numerator += dx * dy;
+        sumX += dx * dx;
+        sumY += dy * dy;
+      }
+      const denom = Math.sqrt(sumX * sumY);
+      return denom === 0 ? 0 : numerator / denom;
+    }
+
+    function transpose(matrix) {
+      return matrix[0].map((_, colIndex) => matrix.map((row) => row[colIndex]));
+    }
+
+    function multiplyMatrices(a, b) {
+      return a.map((row) =>
+        b[0].map((_, colIndex) =>
+          row.reduce((sum, value, rowIndex) => sum + value * b[rowIndex][colIndex], 0)
+        )
+      );
+    }
+
+    function multiplyMatrixVector(matrix, vector) {
+      return matrix.map((row) => row.reduce((sum, value, index) => sum + value * vector[index], 0));
+    }
+
+    function inverseMatrix(matrix) {
+      const size = matrix.length;
+      const augmented = matrix.map((row, rowIndex) => [
+        ...row.map((value) => Number(value)),
+        ...Array.from({ length: size }, (_, index) => (index === rowIndex ? 1 : 0))
+      ]);
+
+      for (let col = 0; col < size; col += 1) {
+        let pivotRow = col;
+        for (let row = col + 1; row < size; row += 1) {
+          if (Math.abs(augmented[row][col]) > Math.abs(augmented[pivotRow][col])) {
+            pivotRow = row;
+          }
+        }
+
+        if (Math.abs(augmented[pivotRow][col]) < 1e-10) {
+          throw new Error("Matrix is singular");
+        }
+
+        [augmented[col], augmented[pivotRow]] = [augmented[pivotRow], augmented[col]];
+        const pivot = augmented[col][col];
+        for (let j = 0; j < 2 * size; j += 1) {
+          augmented[col][j] /= pivot;
+        }
+
+        for (let row = 0; row < size; row += 1) {
+          if (row === col) continue;
+          const factor = augmented[row][col];
+          for (let j = 0; j < 2 * size; j += 1) {
+            augmented[row][j] -= factor * augmented[col][j];
+          }
+        }
+      }
+
+      return augmented.map((row) => row.slice(size));
+    }
+
+    function gammaln(z) {
+      const cof = [
+        76.18009172947146,
+        -86.50532032941677,
+        24.01409824083091,
+        -1.231739572450155,
+        0.001208650973866179,
+        -0.000005395239384953
+      ];
+      let x = z;
+      let y = z;
+      let tmp = x + 5.5;
+      tmp -= (x + 0.5) * Math.log(tmp);
+      let ser = 1.000000000190015;
+      for (let j = 0; j < cof.length; j += 1) {
+        y += 1;
+        ser += cof[j] / y;
+      }
+      return -tmp + Math.log(2.5066282746310005 * ser / x);
+    }
+
+    function betacf(a, b, x) {
+      const maxIterations = 200;
+      const eps = 3e-12;
+      const fpmin = 1e-30;
+      let qab = a + b;
+      let qap = a + 1;
+      let qam = a - 1;
+      let c = 1;
+      let d = 1 - (qab * x) / qap;
+      if (Math.abs(d) < fpmin) d = fpmin;
+      d = 1 / d;
+      let h = d;
+
+      for (let m = 1; m <= maxIterations; m += 1) {
+        const m2 = 2 * m;
+        let aa = (m * (b - m) * x) / ((qam + m2) * (a + m2));
+        d = 1 + aa * d;
+        if (Math.abs(d) < fpmin) d = fpmin;
+        c = 1 + aa / c;
+        if (Math.abs(c) < fpmin) c = fpmin;
+        d = 1 / d;
+        h *= d * c;
+
+        aa = (-(a + m) * (qab + m) * x) / ((a + m2) * (qap + m2));
+        d = 1 + aa * d;
+        if (Math.abs(d) < fpmin) d = fpmin;
+        c = 1 + aa / c;
+        if (Math.abs(c) < fpmin) c = fpmin;
+        d = 1 / d;
+        const delta = d * c;
+        h *= delta;
+        if (Math.abs(delta - 1) < eps) break;
+      }
+
+      return h;
+    }
+
+    function regularizedIncompleteBeta(x, a, b) {
+      if (x <= 0) return 0;
+      if (x >= 1) return 1;
+      const bt = Math.exp(gammaln(a + b) - gammaln(a) - gammaln(b) + a * Math.log(x) + b * Math.log(1 - x));
+      if (x < (a + 1) / (a + b + 2)) {
+        return (bt * betacf(a, b, x)) / a;
+      }
+      return 1 - (bt * betacf(b, a, 1 - x)) / b;
+    }
+
+    function studentTCdf(tValue, degreesOfFreedom) {
+      if (degreesOfFreedom <= 0) return 0.5;
+      const x = degreesOfFreedom / (degreesOfFreedom + tValue * tValue);
+      const ib = regularizedIncompleteBeta(x, degreesOfFreedom / 2, 0.5);
+      if (tValue >= 0) {
+        return 1 - 0.5 * ib;
+      }
+      return 0.5 * ib;
+    }
+
+    function fitRegression(response, predictors) {
+      if (!dataset.length || predictors.length < 1 || predictors.length > 2) {
+        return null;
+      }
+
+      const filteredPredictors = predictors.filter((name) => name !== response);
+      if (!filteredPredictors.length) {
+        return null;
+      }
+
+      const y = dataset.map((row) => row[response]);
+      const X = dataset.map((row) => [1, ...filteredPredictors.map((name) => row[name])]);
+      const Xt = transpose(X);
+      const XtX = multiplyMatrices(Xt, X);
+      const XtY = multiplyMatrixVector(Xt, y);
+
+      let XtXInv;
+      try {
+        XtXInv = inverseMatrix(XtX);
+      } catch (error) {
+        return { error: "The selected predictors are perfectly collinear under the current simulation." };
+      }
+
+      const beta = multiplyMatrixVector(XtXInv, XtY);
+      const fitted = X.map((row) => row.reduce((sum, value, index) => sum + value * beta[index], 0));
+      const residuals = y.map((value, index) => value - fitted[index]);
+      const n = y.length;
+      const p = beta.length;
+      const df = n - p;
+      if (df <= 0) {
+        return { error: "Not enough degrees of freedom to estimate the model." };
+      }
+
+      const sse = residuals.reduce((sum, value) => sum + value * value, 0);
+      const yMean = mean(y);
+      const tss = y.reduce((sum, value) => sum + (value - yMean) ** 2, 0);
+      const r2 = tss === 0 ? 1 : 1 - sse / tss;
+      const adjR2 = 1 - ((1 - r2) * (n - 1)) / df;
+      const sigma2 = sse / df;
+      const covariance = XtXInv.map((row) => row.map((value) => value * sigma2));
+      const se = covariance.map((row, index) => Math.sqrt(Math.max(row[index], 0)));
+      const terms = ["Intercept", ...filteredPredictors];
+      const rows = beta.map((estimate, index) => {
+        const stderr = se[index];
+        const tValue = stderr > 0 ? estimate / stderr : 0;
+        const pValue = stderr > 0 ? 2 * (1 - studentTCdf(Math.abs(tValue), df)) : 1;
+        return {
+          term: terms[index],
+          estimate,
+          stderr,
+          tValue,
+          pValue
+        };
+      });
+
+      return {
+        response,
+        predictors: filteredPredictors,
+        n,
+        r2,
+        adjR2,
+        rse: Math.sqrt(sigma2),
+        rows
+      };
+    }
+
+    function formatNumber(value, digits = 3) {
+      if (!Number.isFinite(value)) return "-";
+      const abs = Math.abs(value);
+      if ((abs >= 10000 || (abs > 0 && abs < 0.001)) && abs !== 0) {
+        return value.toExponential(2);
+      }
+      return value.toFixed(digits);
+    }
+
+    function formatPValue(value) {
+      if (!Number.isFinite(value)) return "-";
+      if (value < 0.001) return "< 0.001";
+      return value.toFixed(3);
+    }
+
+    function updatePredictorAvailability() {
+      const response = responseSelect.value;
+      predictorInputs.forEach((input) => {
+        const disabled = input.value === response;
+        input.disabled = disabled;
+        if (disabled) input.checked = false;
+      });
+
+      const checked = predictorInputs.filter((input) => input.checked);
+      if (!checked.length) {
+        const firstAvailable = predictorInputs.find((input) => !input.disabled);
+        if (firstAvailable) firstAvailable.checked = true;
+      }
+      if (checked.length > 2) {
+        checked.slice(2).forEach((input) => {
+          input.checked = false;
+        });
+      }
+    }
+
+    function renderRegression() {
+      updatePredictorAvailability();
+      const response = responseSelect.value;
+      const predictors = predictorInputs.filter((input) => input.checked).map((input) => input.value);
+      const result = fitRegression(response, predictors);
+
+      if (!result || result.error) {
+        regressionNote.textContent = result && result.error ? result.error : "Choose valid predictors to fit OLS.";
+        regressionNote.style.background = "#fff3ef";
+        regressionNote.style.color = "#b3532d";
+        metrics.n.textContent = "-";
+        metrics.r2.textContent = "-";
+        metrics.adjR2.textContent = "-";
+        metrics.rse.textContent = "-";
+        coefTableBody.innerHTML = '<tr><td colspan="5" class="empty-row">No regression output available.</td></tr>';
+        return;
+      }
+
+      regressionNote.textContent = `${result.response} ~ ${result.predictors.join(" + ")}`;
+      regressionNote.style.background = "#edf8ef";
+      regressionNote.style.color = "#1d7c45";
+      metrics.n.textContent = result.n;
+      metrics.r2.textContent = formatNumber(result.r2);
+      metrics.adjR2.textContent = formatNumber(result.adjR2);
+      metrics.rse.textContent = formatNumber(result.rse);
+
+      coefTableBody.innerHTML = result.rows
+        .map(
+          (row) => `
+            <tr>
+              <td>${row.term}</td>
+              <td>${formatNumber(row.estimate)}</td>
+              <td>${formatNumber(row.stderr)}</td>
+              <td>${formatNumber(row.tValue)}</td>
+              <td>${formatPValue(row.pValue)}</td>
+            </tr>
+          `
+        )
+        .join("");
+    }
+
+    function renderScatterPlot() {
+      if (!dataset.length) {
+        scatterPlot.innerHTML = "";
+        return;
+      }
+
+      let xVar = scatterX.value;
+      let yVar = scatterY.value;
+      if (xVar === yVar) {
+        yVar = xVar === "Y" ? "X1" : "Y";
+        scatterY.value = yVar;
+      }
+
+      const xValues = dataset.map((row) => row[xVar]);
+      const yValues = dataset.map((row) => row[yVar]);
+      const corr = correlation(xValues, yValues);
+
+      const width = 760;
+      const height = 440;
+      const margin = { top: 28, right: 28, bottom: 52, left: 66 };
+      const innerWidth = width - margin.left - margin.right;
+      const innerHeight = height - margin.top - margin.bottom;
+
+      const minX = Math.min(...xValues);
+      const maxX = Math.max(...xValues);
+      const minY = Math.min(...yValues);
+      const maxY = Math.max(...yValues);
+      const padX = (maxX - minX || 1) * 0.08;
+      const padY = (maxY - minY || 1) * 0.08;
+      const domainX = [minX - padX, maxX + padX];
+      const domainY = [minY - padY, maxY + padY];
+
+      const scaleX = (value) =>
+        margin.left + ((value - domainX[0]) / (domainX[1] - domainX[0] || 1)) * innerWidth;
+      const scaleY = (value) =>
+        margin.top + innerHeight - ((value - domainY[0]) / (domainY[1] - domainY[0] || 1)) * innerHeight;
+
+      const ticks = 5;
+      const xTickValues = Array.from({ length: ticks }, (_, index) => domainX[0] + ((domainX[1] - domainX[0]) * index) / (ticks - 1));
+      const yTickValues = Array.from({ length: ticks }, (_, index) => domainY[0] + ((domainY[1] - domainY[0]) * index) / (ticks - 1));
+
+      const points = dataset
+        .map((row) => `<circle cx="${scaleX(row[xVar])}" cy="${scaleY(row[yVar])}" r="4.2" fill="rgba(0, 159, 253, 0.58)" stroke="rgba(42, 42, 114, 0.22)" />`)
+        .join("");
+
+      const xTicks = xTickValues
+        .map((tick) => {
+          const x = scaleX(tick);
+          return `
+            <line x1="${x}" y1="${margin.top}" x2="${x}" y2="${height - margin.bottom}" stroke="#e5edf7" />
+            <text x="${x}" y="${height - margin.bottom + 24}" text-anchor="middle" font-size="12" fill="#60708a">${formatNumber(tick, 2)}</text>
+          `;
+        })
+        .join("");
+
+      const yTicks = yTickValues
+        .map((tick) => {
+          const y = scaleY(tick);
+          return `
+            <line x1="${margin.left}" y1="${y}" x2="${width - margin.right}" y2="${y}" stroke="#e5edf7" />
+            <text x="${margin.left - 12}" y="${y + 4}" text-anchor="end" font-size="12" fill="#60708a">${formatNumber(tick, 2)}</text>
+          `;
+        })
+        .join("");
+
+      scatterPlot.innerHTML = `
+        <rect x="0" y="0" width="${width}" height="${height}" rx="16" fill="transparent"></rect>
+        ${xTicks}
+        ${yTicks}
+        <line x1="${margin.left}" y1="${height - margin.bottom}" x2="${width - margin.right}" y2="${height - margin.bottom}" stroke="#7f8da3" stroke-width="1.4"></line>
+        <line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${height - margin.bottom}" stroke="#7f8da3" stroke-width="1.4"></line>
+        ${points}
+        <text x="${width / 2}" y="${height - 10}" text-anchor="middle" font-size="14" fill="#304260">${xVar}</text>
+        <text x="18" y="${height / 2}" text-anchor="middle" font-size="14" fill="#304260" transform="rotate(-90 18 ${height / 2})">${yVar}</text>
+      `;
+
+      plotSummary.textContent = `corr(${xVar}, ${yVar}) = ${formatNumber(corr)}`;
+      sampleSummary.textContent = `mean(${xVar}) = ${formatNumber(mean(xValues))}, mean(${yVar}) = ${formatNumber(mean(yValues))}`;
+    }
+
+    function randomizeSettings() {
+      const random = mulberry32(Date.now());
+      sampleSizeInput.value = 80 + Math.floor(random() * 220);
+      seedInput.value = 1000 + Math.floor(random() * 9000);
+      coefInputs.a.value = (random() * 4 - 2).toFixed(1);
+      coefInputs.b1.value = (random() * 3 - 1.5).toFixed(1);
+      coefInputs.b2.value = (random() * 3 - 1.5).toFixed(1);
+
+      document.querySelectorAll(".dist-card").forEach((card) => {
+        const typeSelect = card.querySelector('[data-role="dist-type"]');
+        const options = ["normal", "uniform", "bernoulli", "exponential"];
+        typeSelect.value = options[Math.floor(random() * options.length)];
+        typeSelect.dispatchEvent(new Event("change"));
+      });
+    }
+
+    function regenerate() {
+      generateDataset();
+      renderScatterPlot();
+      renderRegression();
+    }
+
+    sampleSizeInput.addEventListener("input", regenerate);
+    seedInput.addEventListener("input", regenerate);
+    Object.values(coefInputs).forEach((input) => input.addEventListener("input", regenerate));
+    responseSelect.addEventListener("change", renderRegression);
+    scatterX.addEventListener("change", renderScatterPlot);
+    scatterY.addEventListener("change", renderScatterPlot);
+
+    predictorInputs.forEach((input) => {
+      input.addEventListener("change", () => {
+        const checked = predictorInputs.filter((item) => item.checked && !item.disabled);
+        if (checked.length > 2) {
+          input.checked = false;
+        }
+        renderRegression();
+      });
+    });
+
+    document.getElementById("generate-btn").addEventListener("click", regenerate);
+    document.getElementById("randomize-btn").addEventListener("click", () => {
+      randomizeSettings();
+      regenerate();
+    });
+
+    initializeDistributionCards();
+    updatePredictorAvailability();
+    regenerate();
+  })();
+</script>
