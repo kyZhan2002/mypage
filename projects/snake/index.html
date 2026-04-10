@@ -1,4 +1,5 @@
 ---
+layout: null
 title: Snake Game
 permalink: /projects/snake/
 ---
@@ -12,6 +13,14 @@ permalink: /projects/snake/
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <nav class="game-nav">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="{{ '/projects/' | relative_url }}">Games</a>
+      <a href="{{ '/statproj/' | relative_url }}">Stat Projects</a>
+      <a href="{{ '/papers/' | relative_url }}">Papers</a>
+    </nav>
+
     <main class="app-shell">
       <section class="panel">
         <header class="panel-header">
@@ -28,6 +37,14 @@ permalink: /projects/snake/
         <div class="status-row">
           <p id="status">Press Start or use an arrow key to begin.</p>
           <div class="actions">
+            <label class="difficulty-picker" for="difficulty-select">
+              <span>Difficulty</span>
+              <select id="difficulty-select">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+              </select>
+            </label>
             <button id="pause-button" type="button">Pause</button>
             <button id="restart-button" type="button">Restart</button>
           </div>
@@ -47,7 +64,7 @@ permalink: /projects/snake/
           <button class="control right" type="button" data-direction="right">Right</button>
         </section>
 
-        <p class="hint">Use arrow keys or WASD. Pause, restart, and boundary collisions are supported.</p>
+        <p class="hint">Use arrow keys or WASD. Choose a difficulty before starting. Hard mode adds moving blockers.</p>
       </section>
     </main>
 

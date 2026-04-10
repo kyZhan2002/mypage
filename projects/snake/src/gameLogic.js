@@ -1,6 +1,53 @@
-export const BOARD_SIZE = 16;
 export const INITIAL_DIRECTION = "right";
-export const TICK_MS = 140;
+export const DIFFICULTIES = {
+  easy: {
+    key: "easy",
+    label: "Easy",
+    boardSize: 8,
+    tickMs: 190,
+    fixedObstacles: [],
+    movingObstacles: [],
+  },
+  medium: {
+    key: "medium",
+    label: "Medium",
+    boardSize: 12,
+    tickMs: 120,
+    fixedObstacles: [
+      { x: 4, y: 2 },
+      { x: 4, y: 3 },
+      { x: 4, y: 4 },
+      { x: 7, y: 7 },
+      { x: 8, y: 7 },
+      { x: 9, y: 7 },
+      { x: 2, y: 9 },
+      { x: 3, y: 9 },
+    ],
+    movingObstacles: [],
+  },
+  hard: {
+    key: "hard",
+    label: "Hard",
+    boardSize: 16,
+    tickMs: 85,
+    fixedObstacles: [
+      { x: 5, y: 3 },
+      { x: 5, y: 4 },
+      { x: 5, y: 5 },
+      { x: 10, y: 4 },
+      { x: 10, y: 5 },
+      { x: 10, y: 6 },
+      { x: 3, y: 11 },
+      { x: 4, y: 11 },
+      { x: 11, y: 12 },
+      { x: 12, y: 12 },
+    ],
+    movingObstacles: [
+      { position: { x: 7, y: 2 }, direction: "down" },
+      { position: { x: 12, y: 10 }, direction: "left" },
+    ],
+  },
+};
 
 const DELTAS = {
   up: { x: 0, y: -1 },
@@ -18,9 +65,9 @@ const OPPOSITES = {
 
 export function createInitialSnake() {
   return [
-    { x: 2, y: 8 },
-    { x: 1, y: 8 },
-    { x: 0, y: 8 },
+    { x: 2, y: 0 },
+    { x: 1, y: 0 },
+    { x: 0, y: 0 },
   ];
 }
 
@@ -28,14 +75,34 @@ export function getCellKey(position) {
   return `${position.x},${position.y}`;
 }
 
-export function createInitialState(random = Math.random) {
-  const snake = createInitialSnake();
+export function createInitialState(difficultyKey = "medium", random = Math.random) {
+  const difficulty = DIFFICULTIES[difficultyKey] || DIFFICULTIES.medium;
+  const snake = createInitialSnake().map((segment) => ({
+    ...segment,
+    y: Math.min(segment.y + Math.floor(difficulty.boardSize / 2), difficulty.boardSize - 1),
+  }));
+  const fixedObstacles = difficulty.fixedObstacles.map(clonePosition);
+  const movingObstacles = difficulty.movingObstacles.map((obstacle) => ({
+    position: clonePosition(obstacle.position),
+    direction: obstacle.direction,
+  }));
+  const occupied = [
+    ...snake,
+    ...fixedObstacles,
+    ...movingObstacles.map((obstacle) => obstacle.position),
+  ];
+
   return {
-    boardSize: BOARD_SIZE,
+    difficulty: difficulty.key,
+    difficultyLabel: difficulty.label,
+    boardSize: difficulty.boardSize,
+    tickMs: difficulty.tickMs,
     snake,
     direction: INITIAL_DIRECTION,
     queuedDirection: INITIAL_DIRECTION,
-    food: placeFood(snake, BOARD_SIZE, random),
+    fixedObstacles,
+    movingObstacles,
+    food: placeFood(occupied, difficulty.boardSize, random),
     score: 0,
     isGameOver: false,
     isPaused: true,
@@ -70,8 +137,8 @@ export function togglePause(state) {
   };
 }
 
-export function restartGame(random = Math.random) {
-  return createInitialState(random);
+export function restartGame(difficultyKey = "medium", random = Math.random) {
+  return createInitialState(difficultyKey, random);
 }
 
 export function advanceGame(state, random = Math.random) {
@@ -83,11 +150,26 @@ export function advanceGame(state, random = Math.random) {
   const head = state.snake[0];
   const delta = DELTAS[direction];
   const nextHead = { x: head.x + delta.x, y: head.y + delta.y };
+  const movedObstacles = moveObstacles(state, nextHead);
+  const obstacleCells = [
+    ...state.fixedObstacles,
+    ...movedObstacles.map((obstacle) => obstacle.position),
+  ];
 
   if (isOutOfBounds(nextHead, state.boardSize)) {
     return {
       ...state,
       direction,
+      isGameOver: true,
+      isPaused: true,
+    };
+  }
+
+  if (obstacleCells.some((obstacle) => positionsEqual(obstacle, nextHead))) {
+    return {
+      ...state,
+      direction,
+      movingObstacles: movedObstacles,
       isGameOver: true,
       isPaused: true,
     };
@@ -104,17 +186,35 @@ export function advanceGame(state, random = Math.random) {
     return {
       ...state,
       direction,
+      movingObstacles: movedObstacles,
       isGameOver: true,
       isPaused: true,
     };
   }
+
+  if (movedObstacles.some((obstacle) => positionsEqual(obstacle.position, nextSnake[0]))) {
+    return {
+      ...state,
+      direction,
+      movingObstacles: movedObstacles,
+      isGameOver: true,
+      isPaused: true,
+    };
+  }
+
+  const occupied = [
+    ...nextSnake,
+    ...state.fixedObstacles,
+    ...movedObstacles.map((obstacle) => obstacle.position),
+  ];
 
   return {
     ...state,
     snake: nextSnake,
     direction,
     queuedDirection: direction,
-    food: grows ? placeFood(nextSnake, state.boardSize, random) : state.food,
+    movingObstacles: movedObstacles,
+    food: grows ? placeFood(occupied, state.boardSize, random) : state.food,
     score: grows ? state.score + 1 : state.score,
     hasStarted: true,
   };
@@ -128,8 +228,8 @@ export function startGame(state) {
   };
 }
 
-export function placeFood(snake, boardSize, random = Math.random) {
-  const occupied = new Set(snake.map(getCellKey));
+export function placeFood(occupiedCells, boardSize, random = Math.random) {
+  const occupied = new Set(occupiedCells.map(getCellKey));
   const freeCells = [];
 
   for (let y = 0; y < boardSize; y += 1) {
@@ -174,4 +274,62 @@ export function hasSelfCollision(snake) {
   }
 
   return false;
+}
+
+export function clonePosition(position) {
+  return { x: position.x, y: position.y };
+}
+
+export function moveObstacles(state, nextHead) {
+  if (!state.movingObstacles.length) {
+    return state.movingObstacles;
+  }
+
+  const occupied = new Set([
+    ...state.snake.map(getCellKey),
+    ...state.fixedObstacles.map(getCellKey),
+    ...(state.food ? [getCellKey(state.food)] : []),
+  ]);
+
+  return state.movingObstacles.map((obstacle, index) => {
+    const attempted = getNextObstaclePosition(obstacle);
+    const otherObstacles = state.movingObstacles
+      .filter((_, otherIndex) => otherIndex !== index)
+      .map((item) => item.position);
+    const blocked = (
+      isOutOfBounds(attempted.position, state.boardSize) ||
+      occupied.has(getCellKey(attempted.position)) ||
+      otherObstacles.some((item) => positionsEqual(item, attempted.position)) ||
+      positionsEqual(attempted.position, nextHead)
+    );
+
+    if (!blocked) {
+      return attempted;
+    }
+
+    const reversed = {
+      ...obstacle,
+      direction: OPPOSITES[obstacle.direction],
+    };
+    const retry = getNextObstaclePosition(reversed);
+    const retryBlocked = (
+      isOutOfBounds(retry.position, state.boardSize) ||
+      occupied.has(getCellKey(retry.position)) ||
+      otherObstacles.some((item) => positionsEqual(item, retry.position)) ||
+      positionsEqual(retry.position, nextHead)
+    );
+
+    return retryBlocked ? reversed : retry;
+  });
+}
+
+function getNextObstaclePosition(obstacle) {
+  const delta = DELTAS[obstacle.direction];
+  return {
+    position: {
+      x: obstacle.position.x + delta.x,
+      y: obstacle.position.y + delta.y,
+    },
+    direction: obstacle.direction,
+  };
 }

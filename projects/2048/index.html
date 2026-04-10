@@ -1,4 +1,5 @@
 ---
+layout: null
 title: 2048 Game
 permalink: /projects/2048/
 ---
@@ -12,6 +13,14 @@ permalink: /projects/2048/
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <nav class="game-nav">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="{{ '/projects/' | relative_url }}">Games</a>
+      <a href="{{ '/statproj/' | relative_url }}">Stat Projects</a>
+      <a href="{{ '/papers/' | relative_url }}">Papers</a>
+    </nav>
+
     <main class="app-shell">
       <section class="panel">
         <header class="panel-header">

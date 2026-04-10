@@ -24,10 +24,35 @@ body {
   color: var(--text);
 }
 
+.game-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: rgba(245, 241, 232, 0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.game-nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+.game-nav a:hover {
+  background: var(--button);
+}
+
 .app-shell {
   display: grid;
   place-items: center;
-  min-height: 100vh;
+  min-height: calc(100vh - 64px);
   padding: 24px;
 }
 
@@ -50,7 +75,8 @@ body {
 
 .eyebrow,
 .scoreboard span,
-.hint {
+.hint,
+.difficulty-picker span {
   margin: 0;
   color: var(--muted);
   font-size: 0.9rem;
@@ -86,6 +112,14 @@ h1 {
   gap: 8px;
 }
 
+.difficulty-picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 4px;
+}
+
+select,
 button {
   border: 1px solid var(--line);
   background: var(--button);
@@ -93,10 +127,14 @@ button {
   border-radius: 10px;
   padding: 10px 14px;
   font: inherit;
+}
+
+button {
   cursor: pointer;
 }
 
-button:hover {
+button:hover,
+select:hover {
   background: #e6dece;
 }
 
@@ -128,6 +166,14 @@ button:hover {
   background: var(--food);
 }
 
+.cell.obstacle {
+  background: #8d7b68;
+}
+
+.cell.moving-obstacle {
+  background: #6e5944;
+}
+
 .controls {
   margin-top: 16px;
   justify-content: center;
@@ -144,6 +190,11 @@ button:hover {
 .control.right { grid-area: right; }
 
 @media (max-width: 560px) {
+  .game-nav {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
   .panel {
     padding: 16px;
   }
@@ -156,9 +207,19 @@ button:hover {
 
   .actions {
     width: 100%;
+    flex-wrap: wrap;
   }
 
-  .actions button {
+  .actions button,
+  .difficulty-picker,
+  .difficulty-picker select {
     flex: 1;
+    width: 100%;
+  }
+
+  .difficulty-picker {
+    padding: 0;
+    align-items: flex-start;
+    flex-direction: column;
   }
 }

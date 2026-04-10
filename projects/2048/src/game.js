@@ -23,13 +23,14 @@ const KEY_TO_DIRECTION = {
 };
 
 const BEST_SCORE_KEY = "game-2048-best-score";
+let nextTileId = 1;
 
 let state = createInitialState(Number(boardSizeElement.value));
 
 function createInitialState(size) {
   const board = createEmptyBoard(size);
-  let nextBoard = addRandomTile(board);
-  nextBoard = addRandomTile(nextBoard);
+  let nextBoard = addRandomTile(board).board;
+  nextBoard = addRandomTile(nextBoard).board;
 
   return {
     size,
@@ -45,6 +46,12 @@ function createEmptyBoard(size) {
   return Array.from({ length: size }, () => Array(size).fill(0));
 }
 
+function createTile(value) {
+  const id = nextTileId;
+  nextTileId += 1;
+  return { id, value };
+}
+
 function addRandomTile(board) {
   const emptyCells = [];
 
@@ -57,32 +64,99 @@ function addRandomTile(board) {
   }
 
   if (emptyCells.length === 0) {
-    return board.map((line) => [...line]);
+    return {
+      board: board.map((line) => [...line]),
+      spawnedTile: null,
+    };
   }
 
   const { row, col } = emptyCells[Math.floor(Math.random() * emptyCells.length)];
   const value = Math.random() < 0.9 ? 2 : 4;
   const nextBoard = board.map((line) => [...line]);
-  nextBoard[row][col] = value;
-  return nextBoard;
+  const tile = createTile(value);
+  nextBoard[row][col] = tile;
+  return {
+    board: nextBoard,
+    spawnedTile: { ...tile, row, col },
+  };
 }
 
-function slideLine(line) {
-  const compacted = line.filter((value) => value !== 0);
+function slideLine(line, axis, index, reverse = false) {
+  const tiles = [];
+  const length = line.length;
+
+  for (let offset = 0; offset < length; offset += 1) {
+    const tile = line[offset];
+    if (!tile) {
+      continue;
+    }
+
+    const actualOffset = reverse ? length - 1 - offset : offset;
+    tiles.push({
+      ...tile,
+      sourceRow: axis === "row" ? index : actualOffset,
+      sourceCol: axis === "row" ? actualOffset : index,
+    });
+  }
+
   const merged = [];
   let scoreGained = 0;
+  const animations = [];
 
-  for (let index = 0; index < compacted.length; index += 1) {
-    const current = compacted[index];
-    const next = compacted[index + 1];
+  for (let offset = 0; offset < tiles.length; offset += 1) {
+    const current = tiles[offset];
+    const next = tiles[offset + 1];
 
-    if (current !== 0 && current === next) {
-      const mergedValue = current * 2;
-      merged.push(mergedValue);
+    if (next && current.value === next.value) {
+      const mergedValue = current.value * 2;
+      const mergedTile = {
+        id: current.id,
+        value: mergedValue,
+      };
+      const destination = merged.length;
+      const targetOffset = reverse ? length - 1 - destination : destination;
+      const targetRow = axis === "row" ? index : targetOffset;
+      const targetCol = axis === "row" ? targetOffset : index;
+
+      animations.push({
+        id: current.id,
+        value: mergedValue,
+        fromRow: current.sourceRow,
+        fromCol: current.sourceCol,
+        toRow: targetRow,
+        toCol: targetCol,
+      });
+      animations.push({
+        id: next.id,
+        value: next.value,
+        fromRow: next.sourceRow,
+        fromCol: next.sourceCol,
+        toRow: targetRow,
+        toCol: targetCol,
+      });
+
+      merged.push(mergedTile);
       scoreGained += mergedValue;
-      index += 1;
+      offset += 1;
     } else {
-      merged.push(current);
+      const destination = merged.length;
+      const targetOffset = reverse ? length - 1 - destination : destination;
+      const targetRow = axis === "row" ? index : targetOffset;
+      const targetCol = axis === "row" ? targetOffset : index;
+
+      animations.push({
+        id: current.id,
+        value: current.value,
+        fromRow: current.sourceRow,
+        fromCol: current.sourceCol,
+        toRow: targetRow,
+        toCol: targetCol,
+      });
+
+      merged.push({
+        id: current.id,
+        value: current.value,
+      });
     }
   }
 
@@ -90,7 +164,7 @@ function slideLine(line) {
     merged.push(0);
   }
 
-  return { line: merged, scoreGained };
+  return { line: merged, scoreGained, animations };
 }
 
 function transpose(board) {
@@ -99,41 +173,47 @@ function transpose(board) {
 
 function boardsEqual(first, second) {
   return first.every((row, rowIndex) =>
-    row.every((cell, colIndex) => cell === second[rowIndex][colIndex]),
+    row.every(
+      (cell, colIndex) =>
+        (cell?.value ?? 0) === (second[rowIndex][colIndex]?.value ?? 0),
+    ),
   );
 }
 
 function applyMove(board, direction) {
-  let workingBoard = board.map((row) => [...row]);
-  let rotated = false;
-  let reversed = false;
-
-  if (direction === "up" || direction === "down") {
-    workingBoard = transpose(workingBoard);
-    rotated = true;
-  }
-
-  if (direction === "right" || direction === "down") {
-    workingBoard = workingBoard.map((row) => [...row].reverse());
-    reversed = true;
-  }
-
   let scoreGained = 0;
-  let nextBoard = workingBoard.map((row) => {
-    const result = slideLine(row);
-    scoreGained += result.scoreGained;
-    return result.line;
-  });
+  const animations = [];
+  const size = board.length;
+  const nextBoard = createEmptyBoard(size);
 
-  if (reversed) {
-    nextBoard = nextBoard.map((row) => [...row].reverse());
+  if (direction === "left" || direction === "right") {
+    for (let rowIndex = 0; rowIndex < size; rowIndex += 1) {
+      const sourceLine = direction === "right"
+        ? [...board[rowIndex]].reverse()
+        : [...board[rowIndex]];
+      const result = slideLine(sourceLine, "row", rowIndex, direction === "right");
+      scoreGained += result.scoreGained;
+      animations.push(...result.animations);
+      nextBoard[rowIndex] =
+        direction === "right" ? [...result.line].reverse() : result.line;
+    }
+  } else {
+    for (let colIndex = 0; colIndex < size; colIndex += 1) {
+      const column = board.map((row) => row[colIndex]);
+      const sourceLine = direction === "down" ? [...column].reverse() : column;
+      const result = slideLine(sourceLine, "col", colIndex, direction === "down");
+      scoreGained += result.scoreGained;
+      animations.push(...result.animations);
+      const nextColumn =
+        direction === "down" ? [...result.line].reverse() : result.line;
+
+      for (let rowIndex = 0; rowIndex < size; rowIndex += 1) {
+        nextBoard[rowIndex][colIndex] = nextColumn[rowIndex];
+      }
+    }
   }
 
-  if (rotated) {
-    nextBoard = transpose(nextBoard);
-  }
-
-  return { board: nextBoard, scoreGained };
+  return { board: nextBoard, scoreGained, animations };
 }
 
 function canMove(board) {
@@ -177,36 +257,108 @@ function updateStatus() {
 }
 
 function tileClass(value) {
-  if (value === 0) {
-    return "cell empty";
-  }
-
   if (value > 2048) {
-    return "cell tile-super";
+    return "tile tile-super";
   }
 
-  return `cell tile-${value}`;
+  return `tile tile-${value}`;
 }
 
-function renderBoard() {
+function animateTiles(tileLayer, animationFrame) {
+  if (!animationFrame) {
+    return;
+  }
+
+  requestAnimationFrame(() => {
+    for (const tile of tileLayer.children) {
+      tile.classList.add("active");
+    }
+  });
+}
+
+function renderBoard(animationFrame = null) {
+  const size = state.size;
   boardElement.style.gridTemplateColumns = `repeat(${state.size}, minmax(0, 1fr))`;
   boardElement.innerHTML = "";
 
+  const background = document.createElement("div");
+  background.className = "board-background";
+  background.style.gridTemplateColumns = `repeat(${size}, minmax(0, 1fr))`;
+
+  for (let index = 0; index < size * size; index += 1) {
+    const cell = document.createElement("div");
+    cell.className = "cell empty";
+    background.append(cell);
+  }
+
+  const tileLayer = document.createElement("div");
+  tileLayer.className = "tile-layer";
+
+  const gap = 8;
+  const tileSize = `calc((100% - ${(size - 1) * gap}px) / ${size})`;
+
   for (const row of state.board) {
-    for (const value of row) {
-      const cell = document.createElement("div");
-      cell.className = tileClass(value);
-      cell.textContent = value === 0 ? "" : String(value);
-      boardElement.append(cell);
+    for (const tile of row) {
+      if (!tile) {
+        continue;
+      }
+
+      const { row: targetRow, col: targetCol, fromRow, fromCol, isSpawn } =
+        animationFrame?.tiles.get(tile.id) ?? {};
+      const finalRow = targetRow ?? findTilePosition(tile.id).row;
+      const finalCol = targetCol ?? findTilePosition(tile.id).col;
+      const tileElement = document.createElement("div");
+      tileElement.className = tileClass(tile.value);
+      tileElement.textContent = String(tile.value);
+      tileElement.style.width = tileSize;
+      tileElement.style.height = tileSize;
+      tileElement.style.top = `calc(${finalRow} * (${tileSize} + ${gap}px))`;
+      tileElement.style.left = `calc(${finalCol} * (${tileSize} + ${gap}px))`;
+
+      if (isSpawn) {
+        tileElement.classList.add("entering");
+      } else if (
+        fromRow !== undefined &&
+        fromCol !== undefined &&
+        (fromRow !== finalRow || fromCol !== finalCol)
+      ) {
+        tileElement.classList.add("moving");
+        tileElement.style.setProperty(
+          "--from-x",
+          `calc((${fromCol - finalCol}) * (${tileSize} + ${gap}px))`,
+        );
+        tileElement.style.setProperty(
+          "--from-y",
+          `calc((${fromRow - finalRow}) * (${tileSize} + ${gap}px))`,
+        );
+      }
+
+      tileLayer.append(tileElement);
     }
   }
+
+  boardElement.append(background, tileLayer);
+  animateTiles(tileLayer, animationFrame);
 }
 
-function render() {
+function findTilePosition(tileId) {
+  for (let rowIndex = 0; rowIndex < state.board.length; rowIndex += 1) {
+    for (let colIndex = 0; colIndex < state.board[rowIndex].length; colIndex += 1) {
+      const tile = state.board[rowIndex][colIndex];
+      if (tile?.id === tileId) {
+        return { row: rowIndex, col: colIndex };
+      }
+    }
+  }
+
+  return { row: 0, col: 0 };
+}
+
+function render(animationFrame = null) {
   scoreElement.textContent = String(state.score);
   bestScoreElement.textContent = String(getBestScore());
   updateStatus();
-  renderBoard();
+  renderBoard(animationFrame);
 }
 
 function resetGame() {
@@ -230,9 +382,11 @@ function move(direction) {
     return;
   }
 
-  const boardWithNewTile = addRandomTile(result.board);
+  const { board: boardWithNewTile, spawnedTile } = addRandomTile(result.board);
   const nextScore = state.score + result.scoreGained;
-  const hasWon = state.hasWon || boardWithNewTile.some((row) => row.some((value) => value >= 2048));
+  const hasWon =
+    state.hasWon ||
+    boardWithNewTile.some((row) => row.some((tile) => (tile?.value ?? 0) >= 2048));
   const isGameOver = !canMove(boardWithNewTile);
 
   state = {
@@ -244,7 +398,32 @@ function move(direction) {
   };
 
   updateBestScore(nextScore);
-  render();
+  const animationTiles = new Map();
+
+  for (const movement of result.animations) {
+    const tile = boardWithNewTile
+      .flat()
+      .find((candidate) => candidate && candidate.id === movement.id);
+
+    if (tile) {
+      animationTiles.set(tile.id, {
+        row: movement.toRow,
+        col: movement.toCol,
+        fromRow: movement.fromRow,
+        fromCol: movement.fromCol,
+      });
+    }
+  }
+
+  if (spawnedTile) {
+    animationTiles.set(spawnedTile.id, {
+      row: spawnedTile.row,
+      col: spawnedTile.col,
+      isSpawn: true,
+    });
+  }
+
+  render({ tiles: animationTiles });
 }
 
 document.addEventListener("keydown", (event) => {

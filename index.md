@@ -8,7 +8,8 @@ title: "Keyao's Blog"
 <nav class="navigation">
   <a href="{{ site.baseurl }}/">Home</a>
   <a href="{{ site.baseurl }}/blog/">Blog</a>
-  <a href="{{ site.baseurl }}/projects/">Projects</a>
+  <a href="{{ site.baseurl }}/projects/">Games</a>
+  <a href="{{ site.baseurl }}/statproj/">Stat Projects</a>
   <a href="{{ site.baseurl }}/papers/">Papers</a>
 </nav>
 
@@ -50,7 +51,7 @@ title: "Keyao's Blog"
     <div class="home-section card">
       <div class="section-header">
         <div class="icon">💡</div>
-        <h3>Featured Projects</h3>
+        <h3>Featured Games</h3>
       </div>
       {% assign project_pages = site.pages | where_exp: "page", "page.path contains 'projects'" | where_exp: "page", "page.name != 'index.html'" %}
       {% if project_pages.size > 0 %}
@@ -63,9 +64,9 @@ title: "Keyao's Blog"
         </li>
         {% endfor %}
       </ul>
-      <a href="{{ site.baseurl }}/projects/" class="view-all-link">View all projects →</a>
+      <a href="{{ site.baseurl }}/projects/" class="view-all-link">View all games →</a>
       {% else %}
-      <p class="empty-state">No projects yet. Stay tuned!</p>
+      <p class="empty-state">No games yet. Stay tuned!</p>
       {% endif %}
     </div>
 
