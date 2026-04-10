@@ -53,7 +53,7 @@ body {
 }
 
 .panel {
-  width: min(100%, 520px);
+  width: min(100%, 680px);
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 16px;
@@ -91,11 +91,13 @@ h1 {
   text-align: right;
   flex-wrap: wrap;
   justify-content: flex-end;
+  align-items: flex-start;
 }
 
 .scoreboard strong {
   display: block;
   font-size: 1.15rem;
+  white-space: nowrap;
 }
 
 .status-row {
@@ -106,6 +108,10 @@ h1 {
 #status {
   margin: 0;
   min-height: 1.5em;
+}
+
+#daily-status {
+  margin: -4px 0 12px;
 }
 
 .actions {

@@ -7,7 +7,9 @@ const livesElement = document.querySelector("#lives");
 const levelElement = document.querySelector("#level");
 const powerElement = document.querySelector("#power");
 const statusElement = document.querySelector("#status");
+const dailyStatusElement = document.querySelector("#daily-status");
 const levelSelect = document.querySelector("#level-select");
+const dailyButton = document.querySelector("#daily-button");
 const startButton = document.querySelector("#start-button");
 const restartButton = document.querySelector("#restart-button");
 const buyPaddleButton = document.querySelector("#buy-paddle");
@@ -39,11 +41,15 @@ const DOUBLE_HIT_DROP_RATE = 0.01;
 const SAFETY_NET_DROP_RATE = 0.01;
 const LIGHTNING_DROP_RATE = 0.01;
 const DOUBLE_HIT_DURATION = 20;
+const DOUBLE_HIT_EXTENSION = 5;
 const SAFETY_NET_DURATION = 25;
+const BOSS_WARNING_DURATION = 2.4;
+const PHASE_FLASH_DURATION = 1.3;
 const BEST_SCORE_KEY = "breakout-best-score";
 const CURRENCY_KEY = "breakout-currency-score";
 const UNLOCKED_LEVEL_KEY = "breakout-unlocked-level";
 const UPGRADE_STATE_KEY = "breakout-upgrades";
+const DAILY_PROGRESS_KEY = "breakout-daily-progress";
 const PADDLE_UPGRADE_COST = 3000;
 const POWER_UPGRADE_COST = 5000;
 const LIFE_UPGRADE_COST = 5000;
@@ -52,6 +58,9 @@ const LUCK_UPGRADE_COST = 5000;
 const PADDLE_UPGRADE_CAP = 5;
 const POWER_UPGRADE_CAP = 5;
 const LUCK_UPGRADE_CAP = 4;
+const DAILY_BONUS_COINS = 1000;
+const COMBO_TARGET = 6;
+const COMBO_BONUS_COINS = 500;
 
 const BRICK_COLORS = {
   1: "#eee4cf",
@@ -177,6 +186,22 @@ const LEVELS = [
     ],
   },
   {
+    name: "Warden Core",
+    boss: true,
+    offsetTop: 44,
+    layout: [
+      [0, 0, 0, 12, 16, 16, 12, 0, 0, 0],
+      [0, 12, 16, 20, 24, 24, 20, 16, 12, 0],
+      [10, 14, 0, 22, 28, 28, 22, 0, 14, 10],
+      [12, 16, 0, 24, 36, 36, 24, 0, 16, 12],
+      [14, 18, 20, 28, 40, 40, 28, 20, 18, 14],
+      [12, 16, 0, 24, 36, 36, 24, 0, 16, 12],
+      [10, 14, 0, 22, 28, 28, 22, 0, 14, 10],
+      [0, 12, 16, 20, 24, 24, 20, 16, 12, 0],
+      [0, 0, 0, 12, 16, 16, 12, 0, 0, 0],
+    ],
+  },
+  {
     name: "Side Vault",
     offsetTop: 98,
     layout: [
@@ -295,6 +320,22 @@ const LEVELS = [
       [20, 0, 22, 24, 25, 25, 24, 22, 0, 20],
     ],
   },
+  {
+    name: "Crimson Sovereign",
+    boss: true,
+    offsetTop: 28,
+    layout: [
+      [0, 0, 18, 24, 30, 30, 24, 18, 0, 0],
+      [0, 20, 26, 32, 38, 38, 32, 26, 20, 0],
+      [18, 24, 0, 36, 44, 44, 36, 0, 24, 18],
+      [22, 0, 30, 40, 52, 52, 40, 30, 0, 22],
+      [24, 28, 34, 46, 60, 60, 46, 34, 28, 24],
+      [22, 0, 30, 40, 52, 52, 40, 30, 0, 22],
+      [18, 24, 0, 36, 44, 44, 36, 0, 24, 18],
+      [0, 20, 26, 32, 38, 38, 32, 26, 20, 0],
+      [0, 0, 18, 24, 30, 30, 24, 18, 0, 0],
+    ],
+  },
 ];
 
 let animationId = null;
@@ -305,7 +346,9 @@ const state = createInitialState();
 function createInitialState() {
   const unlockedLevel = getUnlockedLevel();
   const upgrades = getUpgradeState();
+  const dailyChallenge = buildDailyChallenge();
   return {
+    mode: "campaign",
     score: 0,
     currency: getCurrency(),
     lives: 3,
@@ -313,10 +356,19 @@ function createInitialState() {
     levelName: LEVELS[0].name,
     unlockedLevel,
     upgrades,
+    dailyChallenge,
+    dailyStage: 0,
     isRunning: false,
     isPaused: false,
     isGameOver: false,
     isWin: false,
+    isBossWarning: false,
+    bossWarningSeen: false,
+    bossWarningTimer: 0,
+    bossPhase: 0,
+    phaseFlashTimer: 0,
+    phaseFlashLabel: "",
+    doubleHitLevel: 1,
     doubleHitTimer: 0,
     safetyNetTimer: 0,
     ambientDropTimer: 0,
@@ -328,9 +380,130 @@ function createInitialState() {
     },
     balls: [createBall()],
     lightningBalls: [],
-    bricks: createBricks(0),
+    bricks: createBricks(LEVELS[0], 0),
     powerUps: [],
+    floatingTexts: [],
   };
+}
+
+function getTodayKey() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function hashString(value) {
+  let hash = 2166136261;
+  for (let index = 0; index < value.length; index += 1) {
+    hash ^= value.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
+function createRng(seed) {
+  let stateSeed = seed >>> 0;
+  return () => {
+    stateSeed = (stateSeed + 0x6d2b79f5) | 0;
+    let value = Math.imul(stateSeed ^ (stateSeed >>> 15), 1 | stateSeed);
+    value ^= value + Math.imul(value ^ (value >>> 7), 61 | value);
+    return ((value ^ (value >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function generateDailyLevel(dayKey, stageIndex) {
+  const seed = hashString(`${dayKey}-daily-${stageIndex}`);
+  const random = createRng(seed);
+  const rows = stageIndex === 0 ? 7 : 8;
+  const cols = 10;
+  const base = stageIndex === 0 ? 5 : 9;
+  const peak = stageIndex === 0 ? 14 : 20;
+  const layout = [];
+
+  for (let row = 0; row < rows; row += 1) {
+    const nextRow = [];
+    for (let col = 0; col < cols; col += 1) {
+      const centerDistance = Math.abs(col - (cols - 1) / 2);
+      const rowBias = row / Math.max(1, rows - 1);
+      const holeChance = stageIndex === 0 ? 0.18 : 0.12;
+      if (random() < holeChance && centerDistance > 1.4) {
+        nextRow.push(0);
+        continue;
+      }
+
+      const shapeBias = Math.max(0, 1 - centerDistance / 5);
+      const value = base + Math.round(shapeBias * 4 + rowBias * (peak - base) + random() * 4);
+      nextRow.push(clamp(value, 1, peak));
+    }
+    layout.push(nextRow);
+  }
+
+  const mirrored = layout.map((row) => {
+    const result = [...row];
+    for (let col = 0; col < Math.floor(cols / 2); col += 1) {
+      result[cols - 1 - col] = row[col];
+    }
+    return result;
+  });
+
+  if (stageIndex === 0) {
+    mirrored[rows - 1][4] = 0;
+    mirrored[rows - 1][5] = 0;
+  } else {
+    mirrored[0][4] = 0;
+    mirrored[0][5] = 0;
+    mirrored[rows - 1][3] = Math.max(mirrored[rows - 1][3], 12);
+    mirrored[rows - 1][6] = Math.max(mirrored[rows - 1][6], 12);
+  }
+
+  return {
+    name: `Daily ${stageIndex + 1}`,
+    offsetTop: stageIndex === 0 ? 52 : 42,
+    layout: mirrored,
+    seedLabel: `${dayKey} / ${stageIndex + 1}`,
+  };
+}
+
+function getDailyProgress() {
+  const raw = window.localStorage.getItem(DAILY_PROGRESS_KEY);
+  if (!raw) {
+    return {};
+  }
+
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return {};
+  }
+}
+
+function setDailyProgress(progress) {
+  window.localStorage.setItem(DAILY_PROGRESS_KEY, JSON.stringify(progress));
+}
+
+function buildDailyChallenge() {
+  const dayKey = getTodayKey();
+  const progress = getDailyProgress()[dayKey] ?? { clearedStages: 0, rewardClaimed: false };
+  return {
+    dayKey,
+    levels: [generateDailyLevel(dayKey, 0), generateDailyLevel(dayKey, 1)],
+    clearedStages: progress.clearedStages ?? 0,
+    rewardClaimed: Boolean(progress.rewardClaimed),
+  };
+}
+
+function syncDailyChallenge() {
+  const progress = getDailyProgress();
+  progress[state.dailyChallenge.dayKey] = {
+    clearedStages: state.dailyChallenge.clearedStages,
+    rewardClaimed: state.dailyChallenge.rewardClaimed,
+  };
+  setDailyProgress(progress);
+}
+
+function getActiveLevel() {
+  if (state.mode === "daily") {
+    return state.dailyChallenge.levels[state.dailyStage];
+  }
+  return LEVELS[state.levelIndex];
 }
 
 function getUnlockedLevel() {
@@ -396,7 +569,8 @@ function getPaddleWidth(upgrades = state.upgrades) {
 }
 
 function currentDamage() {
-  return 1 + state.upgrades.powerLevels + (state.doubleHitTimer > 0 ? 1 : 0);
+  const temporaryBonus = state.doubleHitTimer > 0 ? state.doubleHitLevel - 1 : 0;
+  return 1 + state.upgrades.powerLevels + temporaryBonus;
 }
 
 function currentDropBonus() {
@@ -525,6 +699,54 @@ function populateLevelSelect() {
   levelSelect.value = String(state.levelIndex);
 }
 
+function isBossLevel(levelIndex = state.levelIndex) {
+  if (state.mode === "daily") {
+    return false;
+  }
+  return Boolean(LEVELS[levelIndex]?.boss);
+}
+
+function getBossConfig(levelIndex = state.levelIndex) {
+  if (!isBossLevel(levelIndex)) {
+    return null;
+  }
+
+  if (levelIndex === 9) {
+    return {
+      id: "warden-core",
+      coreCells: new Set(["4,4", "4,5"]),
+      exposeArmorCount: 12,
+    };
+  }
+
+  if (levelIndex === 19) {
+    return {
+      id: "crimson-sovereign",
+      coreCells: new Set(["4,4", "4,5"]),
+      conduitCells: new Set(["3,4", "3,5", "5,4", "5,5", "4,3", "4,6"]),
+      exposeConduitsArmorCount: 16,
+    };
+  }
+
+  return null;
+}
+
+function getBrickSpecial(levelIndex, row, col) {
+  const bossConfig = getBossConfig(levelIndex);
+  if (!bossConfig) {
+    return null;
+  }
+
+  const cell = `${row},${col}`;
+  if (bossConfig.coreCells.has(cell)) {
+    return "boss-core";
+  }
+  if (bossConfig.conduitCells?.has(cell)) {
+    return "boss-conduit";
+  }
+  return "boss-armor";
+}
+
 function createBall() {
   return {
     x: WIDTH / 2,
@@ -533,6 +755,7 @@ function createBall() {
     vy: 0,
     radius: BALL_RADIUS,
     isLaunched: false,
+    streak: 0,
   };
 }
 
@@ -542,8 +765,7 @@ function launchBall(ball, direction = 1) {
   ball.isLaunched = true;
 }
 
-function createBricks(levelIndex) {
-  const level = LEVELS[levelIndex];
+function createBricks(level, levelIndex = state.levelIndex) {
   const rows = level.layout.length;
   const cols = Math.max(...level.layout.map((row) => row.length));
   const totalGaps = (cols - 1) * BRICK_PADDING;
@@ -565,6 +787,7 @@ function createBricks(levelIndex) {
         width: brickWidth,
         height: BRICK_HEIGHT,
         hitsRemaining: durability,
+        special: getBrickSpecial(levelIndex, row, col),
       });
     }
   }
@@ -583,12 +806,21 @@ function resetGame() {
 }
 
 function loadLevel(levelIndex, keepScore = true, keepLives = true) {
+  state.mode = "campaign";
   state.levelIndex = levelIndex;
   state.levelName = LEVELS[levelIndex].name;
-  state.bricks = createBricks(levelIndex);
+  state.bricks = createBricks(LEVELS[levelIndex], levelIndex);
   state.powerUps = [];
   state.balls = [createBall()];
   state.lightningBalls = [];
+  state.floatingTexts = [];
+  state.isBossWarning = false;
+  state.bossWarningSeen = false;
+  state.bossWarningTimer = 0;
+  state.bossPhase = isBossLevel(levelIndex) ? 1 : 0;
+  state.phaseFlashTimer = 0;
+  state.phaseFlashLabel = "";
+  state.doubleHitLevel = 1;
   state.doubleHitTimer = 0;
   state.safetyNetTimer = 0;
   state.ambientDropTimer = 0;
@@ -605,10 +837,48 @@ function loadLevel(levelIndex, keepScore = true, keepLives = true) {
     state.lives = 3;
   }
   populateLevelSelect();
-  statusElement.textContent = `Level ${levelIndex + 1}: ${state.levelName}. Press Start to launch.`;
+  statusElement.textContent = isBossLevel(levelIndex)
+    ? `Boss Level ${levelIndex + 1}: ${state.levelName}. Press Start to trigger warning.`
+    : `Level ${levelIndex + 1}: ${state.levelName}. Press Start to launch.`;
 }
 
-function startGame() {
+function loadDailyLevel(stageIndex, keepScore = false, keepLives = false) {
+  state.mode = "daily";
+  state.dailyChallenge = buildDailyChallenge();
+  state.dailyStage = stageIndex;
+  state.levelName = state.dailyChallenge.levels[stageIndex].name;
+  state.bricks = createBricks(state.dailyChallenge.levels[stageIndex], stageIndex);
+  state.powerUps = [];
+  state.balls = [createBall()];
+  state.lightningBalls = [];
+  state.floatingTexts = [];
+  state.isBossWarning = false;
+  state.bossWarningSeen = true;
+  state.bossWarningTimer = 0;
+  state.bossPhase = 0;
+  state.phaseFlashTimer = 0;
+  state.phaseFlashLabel = "";
+  state.doubleHitLevel = 1;
+  state.doubleHitTimer = 0;
+  state.safetyNetTimer = 0;
+  state.ambientDropTimer = 0;
+  state.paddle.width = getPaddleWidth();
+  state.paddle.x = (WIDTH - state.paddle.width) / 2;
+  state.isRunning = false;
+  state.isPaused = false;
+  state.isGameOver = false;
+  state.isWin = false;
+  if (!keepScore) {
+    state.score = 0;
+  }
+  if (!keepLives) {
+    state.lives = 3;
+  }
+  levelSelect.value = String(state.levelIndex);
+  statusElement.textContent = `Daily Challenge ${stageIndex + 1}/2 ready. Press Start to launch.`;
+}
+
+function launchCurrentLevel() {
   if (state.isGameOver || state.isWin) {
     resetGame();
   }
@@ -621,6 +891,27 @@ function startGame() {
     }
   }
   statusElement.textContent = `${state.levelName} in progress. Gold adds balls, red adds double hit, green adds a safety net, blue adds lightning.`;
+}
+
+function startBossWarning() {
+  state.isBossWarning = true;
+  state.bossWarningSeen = true;
+  state.bossWarningTimer = BOSS_WARNING_DURATION;
+  statusElement.textContent = `Warning: ${state.levelName} incoming.`;
+  ensureAnimation();
+}
+
+function startGame() {
+  if (state.isBossWarning) {
+    return;
+  }
+
+  if (isBossLevel() && !state.bossWarningSeen) {
+    startBossWarning();
+    return;
+  }
+
+  launchCurrentLevel();
   ensureAnimation();
 }
 
@@ -646,15 +937,25 @@ function step(timestamp) {
   const deltaSeconds = Math.min((timestamp - lastTimestamp) / 1000, 0.02);
   lastTimestamp = timestamp;
 
-  if (!state.isPaused) {
+  if (state.isBossWarning) {
+    updateBossWarning(deltaSeconds);
+  } else if (!state.isPaused) {
     update(deltaSeconds);
   }
   render();
 
-  if (state.isRunning || state.isPaused) {
+  if (state.isRunning || state.isPaused || state.isBossWarning) {
     animationId = window.requestAnimationFrame(step);
   } else {
     stopAnimation();
+  }
+}
+
+function updateBossWarning(deltaSeconds) {
+  state.bossWarningTimer = Math.max(0, state.bossWarningTimer - deltaSeconds);
+  if (state.bossWarningTimer === 0) {
+    state.isBossWarning = false;
+    launchCurrentLevel();
   }
 }
 
@@ -664,9 +965,16 @@ function update(deltaSeconds) {
   updateLightningBalls(deltaSeconds);
   updatePowerUps(deltaSeconds);
   updateAmbientDrops(deltaSeconds);
+  updateFloatingTexts(deltaSeconds);
 
+  if (state.phaseFlashTimer > 0) {
+    state.phaseFlashTimer = Math.max(0, state.phaseFlashTimer - deltaSeconds);
+  }
   if (state.doubleHitTimer > 0) {
     state.doubleHitTimer = Math.max(0, state.doubleHitTimer - deltaSeconds);
+    if (state.doubleHitTimer === 0) {
+      state.doubleHitLevel = 1;
+    }
   }
   if (state.safetyNetTimer > 0) {
     state.safetyNetTimer = Math.max(0, state.safetyNetTimer - deltaSeconds);
@@ -742,6 +1050,7 @@ function handlePaddleCollision(ball) {
   ball.vx = BASE_BALL_SPEED * hitRatio;
   ball.vy = -Math.max(BASE_BALL_SPEED * 0.75, Math.abs(ball.vy));
   ball.y = paddle.y - ball.radius - 1;
+  ball.streak = 0;
 }
 
 function handleBrickCollision(ball) {
@@ -759,24 +1068,61 @@ function handleBrickCollision(ball) {
       continue;
     }
 
+    if (!canDamageBrick(brick)) {
+      bounceBallFromBrick(ball, dx, dy);
+      return;
+    }
+
     const damage = currentDamage();
     brick.hitsRemaining = Math.max(0, brick.hitsRemaining - damage);
     awardScore(10 * damage);
     maybeDropPowerUp(brick);
-
-    if (Math.abs(dx) > Math.abs(dy)) {
-      ball.vx *= -1;
-    } else {
-      ball.vy *= -1;
-    }
+    bounceBallFromBrick(ball, dx, dy);
+    registerBrickHitCombo(ball);
 
     if (brick.hitsRemaining <= 0) {
       awardScore(10);
       maybeDropPowerUp(brick);
     }
 
+    updateBossPhase();
+
     return;
   }
+}
+
+function bounceBallFromBrick(ball, dx, dy) {
+  if (Math.abs(dx) > Math.abs(dy)) {
+    ball.vx *= -1;
+  } else {
+    ball.vy *= -1;
+  }
+}
+
+function canDamageBrick(brick) {
+  if (!brick.special || !isBossLevel()) {
+    return true;
+  }
+
+  if (brick.special === "boss-armor") {
+    return true;
+  }
+
+  const bossConfig = getBossConfig();
+  if (brick.special === "boss-core") {
+    if (bossConfig?.id === "warden-core") {
+      return state.bossPhase >= 2;
+    }
+    if (bossConfig?.id === "crimson-sovereign") {
+      return state.bossPhase >= 3;
+    }
+  }
+
+  if (brick.special === "boss-conduit") {
+    return state.bossPhase >= 2;
+  }
+
+  return true;
 }
 
 function handleSafetyNet(ball) {
@@ -833,6 +1179,38 @@ function maybeSpawnPowerUp(x, y) {
   return true;
 }
 
+function registerBrickHitCombo(ball) {
+  ball.streak = (ball.streak ?? 0) + 1;
+  if (ball.streak < COMBO_TARGET) {
+    return;
+  }
+
+  ball.streak = 0;
+  setCurrency(state.currency + COMBO_BONUS_COINS);
+  addExtraBall({ suppressStatus: true });
+  spawnFloatingText(ball.x, ball.y - 14, `Combo +${COMBO_BONUS_COINS}`);
+  statusElement.textContent = `Combo reward: +${COMBO_BONUS_COINS} coins and an extra ball.`;
+}
+
+function spawnFloatingText(x, y, text) {
+  state.floatingTexts.push({
+    x,
+    y,
+    text,
+    ttl: 1.2,
+  });
+}
+
+function updateFloatingTexts(deltaSeconds) {
+  state.floatingTexts = state.floatingTexts
+    .map((floatingText) => ({
+      ...floatingText,
+      y: floatingText.y - 26 * deltaSeconds,
+      ttl: floatingText.ttl - deltaSeconds,
+    }))
+    .filter((floatingText) => floatingText.ttl > 0);
+}
+
 function updateAmbientDrops(deltaSeconds) {
   state.ambientDropTimer += deltaSeconds;
 
@@ -872,18 +1250,29 @@ function updatePowerUps(deltaSeconds) {
   });
 }
 
-function addExtraBall() {
+function addExtraBall(options = {}) {
+  const { suppressStatus = false } = options;
   const ball = createBall();
   ball.x = state.paddle.x + state.paddle.width / 2;
   ball.y = state.paddle.y - ball.radius - 2;
   launchBall(ball, Math.random() > 0.5 ? 1 : -1);
   state.balls.push(ball);
-  statusElement.textContent = "Extra ball collected.";
+  if (!suppressStatus) {
+    statusElement.textContent = "Extra ball collected.";
+  }
 }
 
 function activateDoubleHit() {
+  if (state.doubleHitTimer > 0) {
+    state.doubleHitLevel += 1;
+    state.doubleHitTimer += DOUBLE_HIT_EXTENSION;
+    statusElement.textContent = `Power upgraded to ${state.doubleHitLevel}x for ${Math.ceil(state.doubleHitTimer)} seconds.`;
+    return;
+  }
+
+  state.doubleHitLevel = 2;
   state.doubleHitTimer = DOUBLE_HIT_DURATION;
-  statusElement.textContent = "Double Hit activated for 20 seconds.";
+  statusElement.textContent = "Double Hit activated at 2x for 20 seconds.";
 }
 
 function activateSafetyNet() {
@@ -949,6 +1338,10 @@ function handleLightningBrickCollision(ball) {
       continue;
     }
 
+    if (!canDamageBrick(brick)) {
+      return true;
+    }
+
     brick.hitsRemaining = Math.max(0, brick.hitsRemaining - 1);
     awardScore(10);
     maybeDropPowerUp(brick);
@@ -956,10 +1349,52 @@ function handleLightningBrickCollision(ball) {
       awardScore(10);
       maybeDropPowerUp(brick);
     }
+    updateBossPhase();
     return true;
   }
 
   return false;
+}
+
+function updateBossPhase() {
+  const bossConfig = getBossConfig();
+  if (!bossConfig) {
+    return;
+  }
+
+  const armorRemaining = state.bricks.filter(
+    (brick) => brick.hitsRemaining > 0 && brick.special === "boss-armor",
+  ).length;
+  const conduitRemaining = state.bricks.filter(
+    (brick) => brick.hitsRemaining > 0 && brick.special === "boss-conduit",
+  ).length;
+
+  if (bossConfig.id === "warden-core" && state.bossPhase === 1 && armorRemaining <= bossConfig.exposeArmorCount) {
+    state.bossPhase = 2;
+    triggerPhaseFlash("CORE EXPOSED");
+    statusElement.textContent = "Warden Core armor shattered. Strike the weak core.";
+    return;
+  }
+
+  if (bossConfig.id === "crimson-sovereign") {
+    if (state.bossPhase === 1 && armorRemaining <= bossConfig.exposeConduitsArmorCount) {
+      state.bossPhase = 2;
+      triggerPhaseFlash("CHANNELS OPEN");
+      statusElement.textContent = "Crimson Sovereign opens its conduits. Break them to reach the core.";
+      return;
+    }
+
+    if (state.bossPhase === 2 && conduitRemaining === 0) {
+      state.bossPhase = 3;
+      triggerPhaseFlash("WEAK CORE");
+      statusElement.textContent = "Crimson Sovereign core exposed. Finish it now.";
+    }
+  }
+}
+
+function triggerPhaseFlash(label) {
+  state.phaseFlashTimer = PHASE_FLASH_DURATION;
+  state.phaseFlashLabel = label;
 }
 
 function handleLifeLost() {
@@ -968,14 +1403,20 @@ function handleLifeLost() {
   if (state.lives <= 0) {
     state.isRunning = false;
     state.isPaused = false;
+    state.isBossWarning = false;
     state.isGameOver = true;
-    statusElement.textContent = "Game over. Restart to try again.";
+    statusElement.textContent =
+      state.mode === "daily" ? "Daily attempt failed. Restart to try today's seed again." : "Game over. Restart to try again.";
     return;
   }
 
   state.balls = [createBall()];
   state.powerUps = [];
   state.lightningBalls = [];
+  state.floatingTexts = [];
+  state.isBossWarning = false;
+  state.bossWarningTimer = 0;
+  state.doubleHitLevel = 1;
   state.doubleHitTimer = 0;
   state.safetyNetTimer = 0;
   state.ambientDropTimer = 0;
@@ -985,10 +1426,50 @@ function handleLifeLost() {
 }
 
 function advanceLevel() {
+  if (state.mode === "daily") {
+    state.isRunning = false;
+    state.isPaused = false;
+    state.isBossWarning = false;
+    state.powerUps = [];
+    state.lightningBalls = [];
+    state.bossWarningTimer = 0;
+    state.doubleHitLevel = 1;
+    state.doubleHitTimer = 0;
+    state.safetyNetTimer = 0;
+    state.ambientDropTimer = 0;
+    state.dailyChallenge.clearedStages = Math.max(state.dailyChallenge.clearedStages, state.dailyStage + 1);
+
+    if (state.dailyStage === 0) {
+      syncDailyChallenge();
+      loadDailyLevel(1, true, true);
+      return;
+    }
+
+    if (!state.dailyChallenge.rewardClaimed) {
+      state.dailyChallenge.rewardClaimed = true;
+      setCurrency(state.currency + DAILY_BONUS_COINS);
+      syncDailyChallenge();
+      state.isWin = true;
+      statusElement.textContent = `Daily cleared. Bonus +${DAILY_BONUS_COINS} coins awarded.`;
+      render();
+      return;
+    }
+
+    syncDailyChallenge();
+    state.isWin = true;
+    statusElement.textContent = "Daily cleared. Bonus already claimed today.";
+    render();
+    return;
+  }
+
   state.isRunning = false;
   state.isPaused = false;
+  state.isBossWarning = false;
   state.powerUps = [];
   state.lightningBalls = [];
+  state.floatingTexts = [];
+  state.bossWarningTimer = 0;
+  state.doubleHitLevel = 1;
   state.doubleHitTimer = 0;
   state.safetyNetTimer = 0;
   state.ambientDropTimer = 0;
@@ -1008,7 +1489,7 @@ function advanceLevel() {
 function currentPowerLabel() {
   const labels = [];
   if (state.doubleHitTimer > 0) {
-    labels.push(`2x ${Math.ceil(state.doubleHitTimer)}s`);
+    labels.push(`${state.doubleHitLevel}x ${Math.ceil(state.doubleHitTimer)}s`);
   }
   if (state.safetyNetTimer > 0) {
     labels.push(`Net ${Math.ceil(state.safetyNetTimer)}s`);
@@ -1023,6 +1504,14 @@ function syncScoreboard() {
   livesElement.textContent = String(state.lives);
   levelElement.textContent = `${state.levelIndex + 1}`;
   powerElement.textContent = currentPowerLabel();
+}
+
+function updateDailyStatus() {
+  const cleared = state.dailyChallenge.clearedStages;
+  const reward = state.dailyChallenge.rewardClaimed ? "bonus claimed" : "bonus pending";
+  const stageLabel =
+    state.mode === "daily" ? `playing ${state.dailyStage + 1}/2` : `best ${cleared}/2 cleared`;
+  dailyStatusElement.textContent = `Daily Challenge ${state.dailyChallenge.dayKey}: ${stageLabel}, ${reward}.`;
 }
 
 function renderShop() {
@@ -1069,12 +1558,12 @@ function drawBricks() {
       continue;
     }
 
-    context.fillStyle = getBrickColor(brick.hitsRemaining);
+    context.fillStyle = getBrickFill(brick);
     context.fillRect(brick.x, brick.y, brick.width, brick.height);
-    context.strokeStyle = "rgba(36, 31, 22, 0.12)";
+    context.strokeStyle = getBrickStroke(brick);
     context.strokeRect(brick.x, brick.y, brick.width, brick.height);
 
-    context.fillStyle = brick.hitsRemaining >= 12 ? "#fffaf2" : "#241f16";
+    context.fillStyle = getBrickTextColor(brick);
     context.font = "10px Avenir Next, sans-serif";
     context.textAlign = "center";
     context.textBaseline = "middle";
@@ -1091,12 +1580,52 @@ function getBrickColor(hitsRemaining) {
     return BRICK_COLORS[hitsRemaining];
   }
 
-  const clamped = clamp(hitsRemaining, 11, 25);
-  const ratio = (clamped - 11) / 14;
+  const clamped = clamp(hitsRemaining, 11, 60);
+  const ratio = (clamped - 11) / 49;
   const hue = 18 - ratio * 18;
-  const saturation = 52 + ratio * 18;
-  const lightness = 26 - ratio * 12;
+  const saturation = 52 + ratio * 26;
+  const lightness = 26 - ratio * 14;
   return `hsl(${hue} ${saturation}% ${lightness}%)`;
+}
+
+function getBrickFill(brick) {
+  if (!brick.special) {
+    return getBrickColor(brick.hitsRemaining);
+  }
+
+  if (brick.special === "boss-armor") {
+    return getBrickColor(brick.hitsRemaining);
+  }
+
+  if (brick.special === "boss-conduit") {
+    return canDamageBrick(brick) ? "#6e322f" : "#54453f";
+  }
+
+  return canDamageBrick(brick) ? "#c23a32" : "#332826";
+}
+
+function getBrickStroke(brick) {
+  if (!brick.special) {
+    return "rgba(36, 31, 22, 0.12)";
+  }
+
+  if (brick.special === "boss-core") {
+    return canDamageBrick(brick) ? "rgba(255, 232, 220, 0.9)" : "rgba(120, 105, 98, 0.7)";
+  }
+
+  if (brick.special === "boss-conduit") {
+    return canDamageBrick(brick) ? "rgba(255, 210, 190, 0.85)" : "rgba(120, 105, 98, 0.6)";
+  }
+
+  return "rgba(90, 28, 24, 0.35)";
+}
+
+function getBrickTextColor(brick) {
+  if (!brick.special) {
+    return brick.hitsRemaining >= 12 ? "#fffaf2" : "#241f16";
+  }
+
+  return "#fffaf2";
 }
 
 function drawPowerUps() {
@@ -1139,12 +1668,25 @@ function drawLightningBalls() {
   }
 }
 
+function drawFloatingTexts() {
+  for (const floatingText of state.floatingTexts) {
+    const alpha = Math.min(1, floatingText.ttl / 1.2);
+    context.fillStyle = `rgba(179, 70, 60, ${alpha})`;
+    context.font = "bold 14px Avenir Next, sans-serif";
+    context.textAlign = "center";
+    context.textBaseline = "middle";
+    context.fillText(floatingText.text, floatingText.x, floatingText.y);
+  }
+}
+
 function drawLevelBanner() {
   context.fillStyle = "rgba(36, 31, 22, 0.55)";
   context.font = "11px Avenir Next, sans-serif";
   context.textAlign = "left";
   context.textBaseline = "top";
-  context.fillText(`Level ${state.levelIndex + 1}: ${state.levelName}`, 12, HEIGHT - 18);
+  const label =
+    state.mode === "daily" ? `Daily ${state.dailyStage + 1}/2: ${state.levelName}` : `Level ${state.levelIndex + 1}: ${state.levelName}`;
+  context.fillText(label, 12, HEIGHT - 18);
 }
 
 function render() {
@@ -1160,6 +1702,7 @@ function render() {
   for (const ball of state.balls) {
     drawBall(ball);
   }
+  drawFloatingTexts();
   drawLevelBanner();
 
   if (state.isPaused) {
@@ -1172,7 +1715,35 @@ function render() {
     context.fillText("Paused", WIDTH / 2, HEIGHT / 2);
   }
 
+  if (state.isBossWarning) {
+    const pulse = 0.45 + 0.25 * Math.sin((BOSS_WARNING_DURATION - state.bossWarningTimer) * 10);
+    context.fillStyle = `rgba(150, 24, 24, ${pulse})`;
+    context.fillRect(0, 0, WIDTH, HEIGHT);
+    context.strokeStyle = "rgba(255, 215, 215, 0.9)";
+    context.lineWidth = 4;
+    context.strokeRect(10, 10, WIDTH - 20, HEIGHT - 20);
+    context.fillStyle = "#fff4f1";
+    context.font = "bold 34px Avenir Next, sans-serif";
+    context.textAlign = "center";
+    context.textBaseline = "middle";
+    context.fillText("BOSS WARNING", WIDTH / 2, HEIGHT / 2 - 18);
+    context.font = "bold 18px Avenir Next, sans-serif";
+    context.fillText(state.levelName, WIDTH / 2, HEIGHT / 2 + 16);
+  }
+
+  if (state.phaseFlashTimer > 0) {
+    const opacity = Math.min(0.5, state.phaseFlashTimer / PHASE_FLASH_DURATION);
+    context.fillStyle = `rgba(168, 38, 30, ${opacity})`;
+    context.fillRect(0, 0, WIDTH, HEIGHT);
+    context.fillStyle = "#fff4f1";
+    context.font = "bold 26px Avenir Next, sans-serif";
+    context.textAlign = "center";
+    context.textBaseline = "middle";
+    context.fillText(state.phaseFlashLabel, WIDTH / 2, HEIGHT / 2);
+  }
+
   syncScoreboard();
+  updateDailyStatus();
   renderShop();
 }
 
@@ -1192,7 +1763,7 @@ document.addEventListener("keydown", (event) => {
   if (event.key === " ") {
     event.preventDefault();
 
-    if (state.isGameOver || state.isWin) {
+    if (state.isGameOver || state.isWin || state.isBossWarning) {
       return;
     }
 
@@ -1246,6 +1817,14 @@ levelSelect.addEventListener("change", () => {
   render();
 });
 
+dailyButton.addEventListener("click", () => {
+  state.isRunning = false;
+  state.isPaused = false;
+  stopAnimation();
+  loadDailyLevel(0, false, false);
+  render();
+});
+
 startButton.addEventListener("click", () => {
   startGame();
 });
@@ -1254,7 +1833,11 @@ restartButton.addEventListener("click", () => {
   state.isRunning = false;
   state.isPaused = false;
   stopAnimation();
-  resetGame();
+  if (state.mode === "daily") {
+    loadDailyLevel(0, false, false);
+  } else {
+    resetGame();
+  }
 });
 
 buyPaddleButton.addEventListener("click", () => {

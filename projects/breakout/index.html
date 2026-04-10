@@ -63,16 +63,19 @@ permalink: /projects/breakout/
               <span>Level</span>
               <select id="level-select"></select>
             </label>
+            <button id="daily-button" type="button">Daily</button>
             <button id="start-button" type="button">Start</button>
             <button id="restart-button" type="button">Restart</button>
           </div>
         </div>
 
+        <p class="hint" id="daily-status">Daily Challenge: not started.</p>
+
         <canvas
           id="game-canvas"
           class="game-canvas"
-          width="420"
-          height="440"
+          width="560"
+          height="460"
           role="img"
           aria-label="Breakout game board"
         ></canvas>
@@ -111,7 +114,7 @@ permalink: /projects/breakout/
           </div>
         </section>
 
-        <p class="hint">Space pauses the game. </p>
+        <p class="hint">Space pauses the game. Daily mode generates two seeded layouts per day, with a 1000 coin bonus for clearing both.</p>
       </section>
     </main>
 
