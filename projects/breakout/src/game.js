@@ -13,10 +13,12 @@ const restartButton = document.querySelector("#restart-button");
 const buyPaddleButton = document.querySelector("#buy-paddle");
 const buyPowerButton = document.querySelector("#buy-power");
 const buyLifeButton = document.querySelector("#buy-life");
+const buyMultiballButton = document.querySelector("#buy-multiball");
 const buyLuckButton = document.querySelector("#buy-luck");
 const shopPaddleDetail = document.querySelector("#shop-paddle-detail");
 const shopPowerDetail = document.querySelector("#shop-power-detail");
 const shopLifeDetail = document.querySelector("#shop-life-detail");
+const shopMultiballDetail = document.querySelector("#shop-multiball-detail");
 const shopLuckDetail = document.querySelector("#shop-luck-detail");
 
 const WIDTH = canvas.width;
@@ -45,6 +47,7 @@ const UPGRADE_STATE_KEY = "breakout-upgrades";
 const PADDLE_UPGRADE_COST = 3000;
 const POWER_UPGRADE_COST = 5000;
 const LIFE_UPGRADE_COST = 5000;
+const MULTIBALL_SHOP_COST = 2000;
 const LUCK_UPGRADE_COST = 5000;
 const PADDLE_UPGRADE_CAP = 5;
 const POWER_UPGRADE_CAP = 5;
@@ -148,6 +151,148 @@ const LEVELS = [
       [4, 8, 8, 5, 0, 0, 5, 8, 8, 4],
       [3, 8, 8, 4, 8, 8, 4, 8, 8, 3],
       [2, 8, 8, 3, 8, 8, 3, 8, 8, 2],
+    ],
+  },
+  {
+    name: "Saw Teeth",
+    offsetTop: 74,
+    layout: [
+      [0, 0, 9, 0, 11, 11, 0, 9, 0, 0],
+      [0, 9, 10, 12, 0, 0, 12, 10, 9, 0],
+      [8, 10, 12, 14, 4, 4, 14, 12, 10, 8],
+      [0, 9, 11, 13, 0, 0, 13, 11, 9, 0],
+      [0, 0, 10, 0, 12, 12, 0, 10, 0, 0],
+    ],
+  },
+  {
+    name: "Split Reactor",
+    offsetTop: 54,
+    layout: [
+      [10, 0, 11, 0, 14, 14, 0, 11, 0, 10],
+      [11, 0, 12, 0, 16, 16, 0, 12, 0, 11],
+      [12, 4, 13, 0, 18, 18, 0, 13, 4, 12],
+      [13, 5, 14, 0, 20, 20, 0, 14, 5, 13],
+      [12, 4, 13, 0, 18, 18, 0, 13, 4, 12],
+      [11, 0, 12, 0, 16, 16, 0, 12, 0, 11],
+    ],
+  },
+  {
+    name: "Side Vault",
+    offsetTop: 98,
+    layout: [
+      [14, 0, 0, 10, 0, 0, 10, 0, 0, 14],
+      [15, 0, 0, 12, 0, 0, 12, 0, 0, 15],
+      [16, 0, 0, 14, 18, 18, 14, 0, 0, 16],
+      [17, 0, 0, 15, 20, 20, 15, 0, 0, 17],
+      [18, 8, 0, 16, 0, 0, 16, 0, 8, 18],
+      [19, 10, 12, 17, 0, 0, 17, 12, 10, 19],
+    ],
+  },
+  {
+    name: "Prism Steps",
+    offsetTop: 64,
+    layout: [
+      [0, 0, 11, 12, 13, 13, 12, 11, 0, 0],
+      [0, 12, 13, 14, 15, 15, 14, 13, 12, 0],
+      [11, 13, 15, 17, 19, 19, 17, 15, 13, 11],
+      [0, 12, 14, 16, 18, 18, 16, 14, 12, 0],
+      [0, 0, 13, 15, 17, 17, 15, 13, 0, 0],
+      [0, 0, 0, 14, 16, 16, 14, 0, 0, 0],
+    ],
+  },
+  {
+    name: "Tunnels",
+    offsetTop: 86,
+    layout: [
+      [12, 12, 0, 16, 0, 0, 16, 0, 12, 12],
+      [13, 13, 0, 17, 0, 0, 17, 0, 13, 13],
+      [14, 14, 0, 18, 20, 20, 18, 0, 14, 14],
+      [15, 15, 0, 19, 0, 0, 19, 0, 15, 15],
+      [16, 16, 0, 20, 22, 22, 20, 0, 16, 16],
+      [17, 17, 0, 21, 0, 0, 21, 0, 17, 17],
+    ],
+  },
+  {
+    name: "Iron Crown",
+    offsetTop: 44,
+    layout: [
+      [0, 14, 16, 18, 21, 21, 18, 16, 14, 0],
+      [14, 0, 18, 0, 23, 23, 0, 18, 0, 14],
+      [16, 18, 20, 12, 24, 24, 12, 20, 18, 16],
+      [0, 19, 21, 15, 25, 25, 15, 21, 19, 0],
+      [0, 0, 17, 19, 22, 22, 19, 17, 0, 0],
+    ],
+  },
+  {
+    name: "Spiral Lock",
+    offsetTop: 60,
+    layout: [
+      [20, 19, 18, 17, 16, 15, 14, 13, 12, 11],
+      [0, 0, 0, 0, 0, 0, 0, 0, 11, 10],
+      [18, 19, 20, 21, 22, 23, 24, 0, 10, 9],
+      [17, 0, 0, 0, 0, 0, 25, 0, 9, 8],
+      [16, 15, 14, 13, 12, 0, 24, 0, 8, 7],
+      [0, 0, 0, 0, 11, 0, 23, 22, 21, 20],
+    ],
+  },
+  {
+    name: "Pressure Dome",
+    offsetTop: 54,
+    layout: [
+      [0, 0, 15, 18, 21, 21, 18, 15, 0, 0],
+      [0, 16, 19, 22, 24, 24, 22, 19, 16, 0],
+      [15, 18, 22, 25, 0, 0, 25, 22, 18, 15],
+      [0, 16, 19, 23, 25, 25, 23, 19, 16, 0],
+      [0, 0, 15, 18, 21, 21, 18, 15, 0, 0],
+      [0, 14, 17, 21, 24, 24, 21, 17, 14, 0],
+      [13, 15, 18, 22, 0, 0, 22, 18, 15, 13],
+      [0, 12, 15, 19, 21, 21, 19, 15, 12, 0],
+    ],
+  },
+  {
+    name: "Crossfire",
+    offsetTop: 38,
+    layout: [
+      [0, 0, 18, 0, 22, 22, 0, 18, 0, 0],
+      [0, 0, 19, 0, 23, 23, 0, 19, 0, 0],
+      [18, 19, 20, 21, 24, 24, 21, 20, 19, 18],
+      [0, 0, 20, 0, 25, 25, 0, 20, 0, 0],
+      [0, 0, 21, 0, 24, 24, 0, 21, 0, 0],
+      [0, 0, 22, 23, 25, 25, 23, 22, 0, 0],
+      [0, 0, 21, 0, 24, 24, 0, 21, 0, 0],
+      [18, 19, 20, 22, 23, 23, 22, 20, 19, 18],
+      [0, 17, 19, 0, 22, 22, 0, 19, 17, 0],
+    ],
+  },
+  {
+    name: "Cathedral",
+    offsetTop: 34,
+    layout: [
+      [0, 0, 0, 18, 22, 22, 18, 0, 0, 0],
+      [0, 0, 18, 20, 24, 24, 20, 18, 0, 0],
+      [0, 18, 20, 22, 25, 25, 22, 20, 18, 0],
+      [18, 20, 22, 24, 25, 25, 24, 22, 20, 18],
+      [16, 0, 0, 21, 24, 24, 21, 0, 0, 16],
+      [14, 0, 0, 19, 23, 23, 19, 0, 0, 14],
+      [12, 12, 14, 18, 20, 20, 18, 14, 12, 12],
+      [10, 10, 12, 16, 18, 18, 16, 12, 10, 10],
+      [8, 0, 0, 14, 16, 16, 14, 0, 0, 8],
+    ],
+  },
+  {
+    name: "Final Circuit",
+    offsetTop: 36,
+    layout: [
+      [25, 0, 23, 0, 21, 21, 0, 23, 0, 25],
+      [0, 24, 0, 22, 0, 0, 22, 0, 24, 0],
+      [23, 0, 25, 0, 24, 24, 0, 25, 0, 23],
+      [0, 22, 0, 24, 25, 25, 24, 0, 22, 0],
+      [21, 0, 24, 25, 0, 0, 25, 24, 0, 21],
+      [0, 20, 0, 23, 24, 24, 23, 0, 20, 0],
+      [19, 18, 20, 22, 23, 23, 22, 20, 18, 19],
+      [0, 17, 0, 21, 22, 22, 21, 0, 17, 0],
+      [18, 19, 21, 23, 24, 24, 23, 21, 19, 18],
+      [20, 0, 22, 24, 25, 25, 24, 22, 0, 20],
     ],
   },
 ];
@@ -342,7 +487,17 @@ function purchaseLife() {
   render();
 }
 
-  function purchaseLuckUpgrade() {
+function purchaseShopMultiball() {
+  if (!spendCurrency(MULTIBALL_SHOP_COST)) {
+    return;
+  }
+
+  addExtraBall();
+  statusElement.textContent = "Shop purchase: extra ball added.";
+  render();
+}
+
+function purchaseLuckUpgrade() {
   if (state.upgrades.luckLevels >= LUCK_UPGRADE_CAP) {
     statusElement.textContent = "Drop rate boost is already at max level.";
     render();
@@ -361,11 +516,10 @@ function purchaseLife() {
 
 function populateLevelSelect() {
   levelSelect.innerHTML = "";
-  for (let index = 0; index < LEVELS.length; index += 1) {
+  for (let index = 0; index <= state.unlockedLevel; index += 1) {
     const option = document.createElement("option");
     option.value = String(index);
     option.textContent = `Level ${index + 1}: ${LEVELS[index].name}`;
-    option.disabled = index > state.unlockedLevel;
     levelSelect.append(option);
   }
   levelSelect.value = String(state.levelIndex);
@@ -618,6 +772,7 @@ function handleBrickCollision(ball) {
 
     if (brick.hitsRemaining <= 0) {
       awardScore(10);
+      maybeDropPowerUp(brick);
     }
 
     return;
@@ -739,7 +894,7 @@ function activateSafetyNet() {
 function activateLightningVolley() {
   const originX = state.paddle.x + state.paddle.width / 2;
   const originY = state.paddle.y - 4;
-  const count = 15;
+  const count = 40;
   const startAngle = Math.PI + Math.PI / 12;
   const endAngle = (2 * Math.PI) - Math.PI / 12;
 
@@ -799,6 +954,7 @@ function handleLightningBrickCollision(ball) {
     maybeDropPowerUp(brick);
     if (brick.hitsRemaining <= 0) {
       awardScore(10);
+      maybeDropPowerUp(brick);
     }
     return true;
   }
@@ -873,6 +1029,7 @@ function renderShop() {
   shopPaddleDetail.textContent = `Lv ${state.upgrades.paddleLevels}/${PADDLE_UPGRADE_CAP} • +10% permanent length`;
   shopPowerDetail.textContent = `Lv ${state.upgrades.powerLevels}/${POWER_UPGRADE_CAP} • total damage ${1 + state.upgrades.powerLevels}`;
   shopLifeDetail.textContent = `Add one life immediately • current ${state.lives}`;
+  shopMultiballDetail.textContent = `Add one launched ball immediately • active ${state.balls.length}`;
   shopLuckDetail.textContent = `Lv ${state.upgrades.luckLevels}/${LUCK_UPGRADE_CAP} • total drop bonus +${currentDropBonus().toFixed(3)}`;
 
   buyPaddleButton.disabled =
@@ -880,6 +1037,7 @@ function renderShop() {
   buyPowerButton.disabled =
     state.currency < POWER_UPGRADE_COST || state.upgrades.powerLevels >= POWER_UPGRADE_CAP;
   buyLifeButton.disabled = state.currency < LIFE_UPGRADE_COST;
+  buyMultiballButton.disabled = state.currency < MULTIBALL_SHOP_COST;
   buyLuckButton.disabled =
     state.currency < LUCK_UPGRADE_COST || state.upgrades.luckLevels >= LUCK_UPGRADE_CAP;
 }
@@ -911,12 +1069,12 @@ function drawBricks() {
       continue;
     }
 
-    context.fillStyle = BRICK_COLORS[brick.hitsRemaining];
+    context.fillStyle = getBrickColor(brick.hitsRemaining);
     context.fillRect(brick.x, brick.y, brick.width, brick.height);
     context.strokeStyle = "rgba(36, 31, 22, 0.12)";
     context.strokeRect(brick.x, brick.y, brick.width, brick.height);
 
-    context.fillStyle = brick.hitsRemaining >= 6 ? "#fffaf2" : "#241f16";
+    context.fillStyle = brick.hitsRemaining >= 12 ? "#fffaf2" : "#241f16";
     context.font = "10px Avenir Next, sans-serif";
     context.textAlign = "center";
     context.textBaseline = "middle";
@@ -926,6 +1084,19 @@ function drawBricks() {
       brick.y + brick.height / 2 + 0.5,
     );
   }
+}
+
+function getBrickColor(hitsRemaining) {
+  if (BRICK_COLORS[hitsRemaining]) {
+    return BRICK_COLORS[hitsRemaining];
+  }
+
+  const clamped = clamp(hitsRemaining, 11, 25);
+  const ratio = (clamped - 11) / 14;
+  const hue = 18 - ratio * 18;
+  const saturation = 52 + ratio * 18;
+  const lightness = 26 - ratio * 12;
+  return `hsl(${hue} ${saturation}% ${lightness}%)`;
 }
 
 function drawPowerUps() {
@@ -1096,6 +1267,10 @@ buyPowerButton.addEventListener("click", () => {
 
 buyLifeButton.addEventListener("click", () => {
   purchaseLife();
+});
+
+buyMultiballButton.addEventListener("click", () => {
+  purchaseShopMultiball();
 });
 
 buyLuckButton.addEventListener("click", () => {
