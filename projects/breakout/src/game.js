@@ -31,10 +31,11 @@ const LIGHTNING_BALL_SPEED = 280;
 const BRICK_HEIGHT = 14;
 const BRICK_PADDING = 4;
 const BRICK_OFFSET_LEFT = 14;
-const MULTI_BALL_DROP_RATE = 0.15;
-const DOUBLE_HIT_DROP_RATE = 0.06;
-const SAFETY_NET_DROP_RATE = 0.06;
-const LIGHTNING_DROP_RATE = 0.04;
+const AMBIENT_DROP_INTERVAL = 3;
+const MULTI_BALL_DROP_RATE = 0.025;
+const DOUBLE_HIT_DROP_RATE = 0.01;
+const SAFETY_NET_DROP_RATE = 0.01;
+const LIGHTNING_DROP_RATE = 0.01;
 const DOUBLE_HIT_DURATION = 20;
 const SAFETY_NET_DURATION = 25;
 const BEST_SCORE_KEY = "breakout-best-score";
@@ -136,6 +137,19 @@ const LEVELS = [
       [2, 0, 0, 3, 5, 5, 3, 0, 0, 2],
     ],
   },
+  {
+    name: "Big Wall",
+    offsetTop: 92,
+    layout: [
+      [8, 8, 8, 9, 10, 10, 9, 8, 8, 8],
+      [7, 8, 8, 8, 0, 0, 8, 8, 8, 7],
+      [6, 8, 8, 7, 0, 0, 7, 8, 8, 6],
+      [5, 8, 8, 6, 8, 8, 6, 8, 8, 5],
+      [4, 8, 8, 5, 0, 0, 5, 8, 8, 4],
+      [3, 8, 8, 4, 8, 8, 4, 8, 8, 3],
+      [2, 8, 8, 3, 8, 8, 3, 8, 8, 2],
+    ],
+  },
 ];
 
 let animationId = null;
@@ -160,6 +174,7 @@ function createInitialState() {
     isWin: false,
     doubleHitTimer: 0,
     safetyNetTimer: 0,
+    ambientDropTimer: 0,
     paddle: {
       x: (WIDTH - getPaddleWidth(upgrades)) / 2,
       y: HEIGHT - 28,
@@ -240,7 +255,7 @@ function currentDamage() {
 }
 
 function currentDropBonus() {
-  return state.upgrades.luckLevels * 0.03;
+  return state.upgrades.luckLevels * 0.003;
 }
 
 function awardScore(points) {
@@ -327,7 +342,7 @@ function purchaseLife() {
   render();
 }
 
-function purchaseLuckUpgrade() {
+  function purchaseLuckUpgrade() {
   if (state.upgrades.luckLevels >= LUCK_UPGRADE_CAP) {
     statusElement.textContent = "Drop rate boost is already at max level.";
     render();
@@ -340,7 +355,7 @@ function purchaseLuckUpgrade() {
 
   state.upgrades.luckLevels += 1;
   persistUpgradeState();
-  statusElement.textContent = "Luck upgraded. All power-up drop rates increased by 0.03.";
+  statusElement.textContent = "Luck upgraded. All power-up drop rates increased by 0.003.";
   render();
 }
 
@@ -422,6 +437,7 @@ function loadLevel(levelIndex, keepScore = true, keepLives = true) {
   state.lightningBalls = [];
   state.doubleHitTimer = 0;
   state.safetyNetTimer = 0;
+  state.ambientDropTimer = 0;
   state.paddle.width = getPaddleWidth();
   state.paddle.x = (WIDTH - state.paddle.width) / 2;
   state.isRunning = false;
@@ -493,6 +509,7 @@ function update(deltaSeconds) {
   updateBalls(deltaSeconds);
   updateLightningBalls(deltaSeconds);
   updatePowerUps(deltaSeconds);
+  updateAmbientDrops(deltaSeconds);
 
   if (state.doubleHitTimer > 0) {
     state.doubleHitTimer = Math.max(0, state.doubleHitTimer - deltaSeconds);
@@ -591,6 +608,7 @@ function handleBrickCollision(ball) {
     const damage = currentDamage();
     brick.hitsRemaining = Math.max(0, brick.hitsRemaining - damage);
     awardScore(10 * damage);
+    maybeDropPowerUp(brick);
 
     if (Math.abs(dx) > Math.abs(dy)) {
       ball.vx *= -1;
@@ -600,7 +618,6 @@ function handleBrickCollision(ball) {
 
     if (brick.hitsRemaining <= 0) {
       awardScore(10);
-      maybeDropPowerUp(brick);
     }
 
     return;
@@ -623,6 +640,10 @@ function handleSafetyNet(ball) {
 }
 
 function maybeDropPowerUp(brick) {
+  return maybeSpawnPowerUp(brick.x + brick.width / 2, brick.y + brick.height / 2);
+}
+
+function maybeSpawnPowerUp(x, y) {
   const roll = Math.random();
   let type = null;
 
@@ -643,16 +664,28 @@ function maybeDropPowerUp(brick) {
   }
 
   if (!type) {
-    return;
+    return false;
   }
 
   state.powerUps.push({
     type,
-    x: brick.x + brick.width / 2,
-    y: brick.y + brick.height / 2,
+    x,
+    y,
     size: 12,
     vy: POWER_UP_SPEED,
   });
+
+  return true;
+}
+
+function updateAmbientDrops(deltaSeconds) {
+  state.ambientDropTimer += deltaSeconds;
+
+  while (state.ambientDropTimer >= AMBIENT_DROP_INTERVAL) {
+    state.ambientDropTimer -= AMBIENT_DROP_INTERVAL;
+    const spawnX = 18 + Math.random() * (WIDTH - 36);
+    maybeSpawnPowerUp(spawnX, 12);
+  }
 }
 
 function updatePowerUps(deltaSeconds) {
@@ -763,9 +796,9 @@ function handleLightningBrickCollision(ball) {
 
     brick.hitsRemaining = Math.max(0, brick.hitsRemaining - 1);
     awardScore(10);
+    maybeDropPowerUp(brick);
     if (brick.hitsRemaining <= 0) {
       awardScore(10);
-      maybeDropPowerUp(brick);
     }
     return true;
   }
@@ -789,6 +822,7 @@ function handleLifeLost() {
   state.lightningBalls = [];
   state.doubleHitTimer = 0;
   state.safetyNetTimer = 0;
+  state.ambientDropTimer = 0;
   state.isRunning = false;
   state.isPaused = false;
   statusElement.textContent = `Life lost. ${state.lives} left. Press Start to relaunch.`;
@@ -801,6 +835,7 @@ function advanceLevel() {
   state.lightningBalls = [];
   state.doubleHitTimer = 0;
   state.safetyNetTimer = 0;
+  state.ambientDropTimer = 0;
 
   if (state.levelIndex === LEVELS.length - 1) {
     state.isWin = true;
@@ -838,7 +873,7 @@ function renderShop() {
   shopPaddleDetail.textContent = `Lv ${state.upgrades.paddleLevels}/${PADDLE_UPGRADE_CAP} • +10% permanent length`;
   shopPowerDetail.textContent = `Lv ${state.upgrades.powerLevels}/${POWER_UPGRADE_CAP} • total damage ${1 + state.upgrades.powerLevels}`;
   shopLifeDetail.textContent = `Add one life immediately • current ${state.lives}`;
-  shopLuckDetail.textContent = `Lv ${state.upgrades.luckLevels}/${LUCK_UPGRADE_CAP} • total drop bonus +${currentDropBonus().toFixed(2)}`;
+  shopLuckDetail.textContent = `Lv ${state.upgrades.luckLevels}/${LUCK_UPGRADE_CAP} • total drop bonus +${currentDropBonus().toFixed(3)}`;
 
   buyPaddleButton.disabled =
     state.currency < PADDLE_UPGRADE_COST || state.upgrades.paddleLevels >= PADDLE_UPGRADE_CAP;
