@@ -72,6 +72,15 @@ title: "Keyao's Blog"
 
     <div class="home-section card">
       <div class="section-header">
+        <div class="icon">📊</div>
+        <h3>Stat Projects</h3>
+      </div>
+      <p class="empty-state">A dedicated space for future interactive statistics and visualization projects.</p>
+      <a href="{{ site.baseurl }}/statproj/" class="view-all-link">Explore stat projects →</a>
+    </div>
+
+    <div class="home-section card">
+      <div class="section-header">
         <div class="icon">🎯</div>
         <h3>Skills & Interests</h3>
       </div>
