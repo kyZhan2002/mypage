@@ -1,0 +1,66 @@
+---
+layout: null
+title: Breakout
+permalink: /projects/breakout/
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breakout</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <nav class="game-nav">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="{{ '/projects/' | relative_url }}">Games</a>
+      <a href="{{ '/statproj/' | relative_url }}">Stat Projects</a>
+      <a href="{{ '/papers/' | relative_url }}">Papers</a>
+    </nav>
+
+    <main class="app-shell">
+      <section class="panel">
+        <header class="panel-header">
+          <div>
+            <p class="eyebrow">Classic Arcade</p>
+            <h1>Breakout</h1>
+          </div>
+          <div class="scoreboard">
+            <div>
+              <span>Score</span>
+              <strong id="score">0</strong>
+            </div>
+            <div>
+              <span>Lives</span>
+              <strong id="lives">3</strong>
+            </div>
+          </div>
+        </header>
+
+        <div class="status-row">
+          <p id="status">Press Start to launch the ball. Arrow keys or mouse move the paddle.</p>
+          <div class="actions">
+            <button id="start-button" type="button">Start</button>
+            <button id="restart-button" type="button">Restart</button>
+          </div>
+        </div>
+
+        <canvas
+          id="game-canvas"
+          class="game-canvas"
+          width="320"
+          height="440"
+          role="img"
+          aria-label="Breakout game board"
+        ></canvas>
+
+        <p class="hint">Rare gold drops add an extra ball. Brick colors show how many hits are needed: 1 to 5.</p>
+      </section>
+    </main>
+
+    <script type="module" src="./src/game.js"></script>
+  </body>
+</html>

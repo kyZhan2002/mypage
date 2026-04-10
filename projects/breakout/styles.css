@@ -1,0 +1,159 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f1e8;
+  --panel: #fffdfa;
+  --line: #d7cfbf;
+  --text: #241f16;
+  --muted: #6a6255;
+  --button: #efe7d9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.game-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  padding: 10px 12px;
+  background: rgba(245, 241, 232, 0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.game-nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 9px;
+  border-radius: 999px;
+}
+
+.game-nav a:hover {
+  background: var(--button);
+}
+
+.app-shell {
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 64px);
+  padding: 18px;
+}
+
+.panel {
+  width: min(100%, 420px);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 10px 30px rgba(36, 31, 22, 0.08);
+}
+
+.panel-header,
+.status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.eyebrow,
+.scoreboard span,
+.hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+h1 {
+  margin: 4px 0 0;
+  font-size: 1.5rem;
+}
+
+.scoreboard {
+  display: flex;
+  gap: 12px;
+  text-align: right;
+}
+
+.scoreboard strong {
+  display: block;
+  font-size: 1.15rem;
+}
+
+.status-row {
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+
+#status {
+  margin: 0;
+  min-height: 1.5em;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+button {
+  border: 1px solid var(--line);
+  background: var(--button);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 7px 10px;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e6dece;
+}
+
+.game-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fbf7ee, #efe5d3);
+  box-shadow: inset 0 0 0 1px rgba(215, 207, 191, 0.35);
+}
+
+@media (max-width: 560px) {
+  .game-nav {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .panel {
+    padding: 12px;
+  }
+
+  .panel-header,
+  .status-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .scoreboard,
+  .actions {
+    width: 100%;
+  }
+
+  .actions button {
+    flex: 1;
+  }
+}
