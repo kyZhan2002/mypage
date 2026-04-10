@@ -53,7 +53,7 @@ body {
 }
 
 .panel {
-  width: min(100%, 1120px);
+  width: min(100%, 980px);
   max-height: calc(100vh - 88px);
   background: var(--panel);
   border: 1px solid var(--line);
@@ -62,7 +62,7 @@ body {
   box-shadow: 0 10px 30px rgba(36, 31, 22, 0.08);
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
-  gap: 12px;
+  gap: 10px;
   overflow: hidden;
 }
 
@@ -163,23 +163,24 @@ select:hover {
 
 .panel-grid {
   display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(240px, 1fr);
-  gap: 14px;
+  grid-template-columns: minmax(0, 2.55fr) minmax(230px, 1fr);
+  gap: 12px;
   min-height: 0;
 }
 
 .game-column {
   display: grid;
   grid-template-rows: auto auto minmax(0, 1fr) auto;
-  gap: 10px;
+  gap: 8px;
   min-height: 0;
 }
 
 .side-column {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
-  gap: 10px;
+  gap: 8px;
   min-height: 0;
+  align-content: start;
 }
 
 .game-canvas {
@@ -195,7 +196,7 @@ select:hover {
 
 .wallet-card,
 .shop {
-  padding: 11px;
+  padding: 9px;
   border: 1px solid var(--line);
   border-radius: 14px;
   background: #faf6ee;
@@ -203,7 +204,7 @@ select:hover {
 
 .wallet-card {
   display: grid;
-  gap: 4px;
+  gap: 3px;
 }
 
 .wallet-label {
@@ -212,15 +213,15 @@ select:hover {
 }
 
 .wallet-card strong {
-  font-size: 1.6rem;
+  font-size: 1.45rem;
   line-height: 1;
 }
 
 .wallet-note {
   margin: 0;
   color: var(--muted);
-  font-size: 0.82rem;
-  line-height: 1.35;
+  font-size: 0.76rem;
+  line-height: 1.25;
 }
 
 .shop-header {
@@ -228,7 +229,7 @@ select:hover {
   justify-content: space-between;
   gap: 8px;
   align-items: flex-start;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .shop-header h2 {
@@ -239,14 +240,14 @@ select:hover {
 .shop-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 7px;
+  gap: 6px;
 }
 
 .shop-item {
   display: grid;
-  gap: 3px;
+  gap: 2px;
   text-align: left;
-  padding: 9px;
+  padding: 7px 8px;
 }
 
 .shop-item:disabled {
@@ -260,17 +261,17 @@ select:hover {
 }
 
 .shop-cost {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .shop-detail {
-  font-size: 0.8rem;
-  line-height: 1.25;
+  font-size: 0.75rem;
+  line-height: 1.2;
 }
 
 .footer-hint {
-  font-size: 0.82rem;
-  line-height: 1.35;
+  font-size: 0.76rem;
+  line-height: 1.25;
 }
 
 @media (max-width: 560px) {
