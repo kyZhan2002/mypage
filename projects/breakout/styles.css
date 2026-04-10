@@ -53,7 +53,7 @@ body {
 }
 
 .panel {
-  width: min(100%, 980px);
+  width: min(100%, 880px);
   max-height: calc(100vh - 88px);
   background: var(--panel);
   border: 1px solid var(--line);
@@ -163,7 +163,7 @@ select:hover {
 
 .panel-grid {
   display: grid;
-  grid-template-columns: minmax(0, 2.55fr) minmax(230px, 1fr);
+  grid-template-columns: minmax(0, 1.9fr) minmax(210px, 1fr);
   gap: 12px;
   min-height: 0;
 }
@@ -222,6 +222,17 @@ select:hover {
   color: var(--muted);
   font-size: 0.76rem;
   line-height: 1.25;
+}
+
+.wallet-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.wallet-actions button {
+  padding: 6px 8px;
 }
 
 .shop-header {

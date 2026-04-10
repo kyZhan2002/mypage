@@ -10,6 +10,9 @@ const statusElement = document.querySelector("#status");
 const dailyStatusElement = document.querySelector("#daily-status");
 const levelSelect = document.querySelector("#level-select");
 const dailyButton = document.querySelector("#daily-button");
+const saveButton = document.querySelector("#save-button");
+const loadButton = document.querySelector("#load-button");
+const resetButton = document.querySelector("#reset-button");
 const startButton = document.querySelector("#start-button");
 const restartButton = document.querySelector("#restart-button");
 const buyPaddleButton = document.querySelector("#buy-paddle");
@@ -50,6 +53,7 @@ const CURRENCY_KEY = "breakout-currency-score";
 const UNLOCKED_LEVEL_KEY = "breakout-unlocked-level";
 const UPGRADE_STATE_KEY = "breakout-upgrades";
 const DAILY_PROGRESS_KEY = "breakout-daily-progress";
+const SAVE_PREFIX = "breakout-save-";
 const PADDLE_UPGRADE_COST = 3000;
 const POWER_UPGRADE_COST = 5000;
 const LIFE_UPGRADE_COST = 5000;
@@ -59,7 +63,7 @@ const PADDLE_UPGRADE_CAP = 5;
 const POWER_UPGRADE_CAP = 5;
 const LUCK_UPGRADE_CAP = 4;
 const DAILY_BONUS_COINS = 1000;
-const COMBO_TARGET = 6;
+const COMBO_TARGET = 120;
 const COMBO_BONUS_COINS = 500;
 
 const BRICK_COLORS = {
@@ -349,6 +353,7 @@ function createInitialState() {
   const dailyChallenge = buildDailyChallenge();
   return {
     mode: "campaign",
+    currentUsername: null,
     score: 0,
     currency: getCurrency(),
     lives: 3,
@@ -479,6 +484,14 @@ function setDailyProgress(progress) {
   window.localStorage.setItem(DAILY_PROGRESS_KEY, JSON.stringify(progress));
 }
 
+function normalizeUsername(username) {
+  return username.trim().toLowerCase();
+}
+
+function getSaveKey(username) {
+  return `${SAVE_PREFIX}${normalizeUsername(username)}`;
+}
+
 function buildDailyChallenge() {
   const dayKey = getTodayKey();
   const progress = getDailyProgress()[dayKey] ?? { clearedStages: 0, rewardClaimed: false };
@@ -504,6 +517,170 @@ function getActiveLevel() {
     return state.dailyChallenge.levels[state.dailyStage];
   }
   return LEVELS[state.levelIndex];
+}
+
+function serializeState() {
+  return {
+    mode: state.mode,
+    score: state.score,
+    currency: state.currency,
+    lives: state.lives,
+    levelIndex: state.levelIndex,
+    levelName: state.levelName,
+    unlockedLevel: state.unlockedLevel,
+    upgrades: structuredClone(state.upgrades),
+    dailyChallenge: structuredClone(state.dailyChallenge),
+    dailyStage: state.dailyStage,
+    isGameOver: state.isGameOver,
+    isWin: state.isWin,
+    bossWarningSeen: state.bossWarningSeen,
+    bossPhase: state.bossPhase,
+    phaseFlashLabel: state.phaseFlashLabel,
+    doubleHitLevel: state.doubleHitLevel,
+    doubleHitTimer: state.doubleHitTimer,
+    safetyNetTimer: state.safetyNetTimer,
+    ambientDropTimer: state.ambientDropTimer,
+    paddle: structuredClone(state.paddle),
+    balls: structuredClone(state.balls),
+    lightningBalls: structuredClone(state.lightningBalls),
+    bricks: structuredClone(state.bricks),
+    powerUps: structuredClone(state.powerUps),
+    floatingTexts: structuredClone(state.floatingTexts),
+    bestScore: getBestScore(),
+    dailyProgress: getDailyProgress(),
+  };
+}
+
+function saveGame() {
+  const username = window.prompt("Enter a username to save this Breakout progress:");
+  if (!username || !username.trim()) {
+    return;
+  }
+
+  state.currentUsername = username.trim();
+
+  const snapshot = {
+    username: username.trim(),
+    savedAt: new Date().toISOString(),
+    data: serializeState(),
+  };
+
+  window.localStorage.setItem(getSaveKey(username), JSON.stringify(snapshot));
+  persistUpgradeState();
+  window.localStorage.setItem(UNLOCKED_LEVEL_KEY, String(state.unlockedLevel));
+  window.localStorage.setItem(BEST_SCORE_KEY, String(getBestScore()));
+  window.localStorage.setItem(CURRENCY_KEY, String(state.currency));
+  syncDailyChallenge();
+  statusElement.textContent = `Saved progress for ${username.trim()}.`;
+  render();
+}
+
+function restoreState(snapshot) {
+  const restored = snapshot.data;
+  state.currentUsername = snapshot.username ?? null;
+  window.localStorage.setItem(CURRENCY_KEY, String(restored.currency));
+  window.localStorage.setItem(UNLOCKED_LEVEL_KEY, String(restored.unlockedLevel));
+  window.localStorage.setItem(BEST_SCORE_KEY, String(restored.bestScore));
+  window.localStorage.setItem(UPGRADE_STATE_KEY, JSON.stringify(restored.upgrades));
+  setDailyProgress(restored.dailyProgress ?? {});
+
+  state.mode = restored.mode ?? "campaign";
+  state.currentUsername = snapshot.username ?? restored.currentUsername ?? null;
+  state.score = restored.score ?? 0;
+  state.currency = restored.currency ?? 0;
+  state.lives = restored.lives ?? 3;
+  state.levelIndex = restored.levelIndex ?? 0;
+  state.levelName = restored.levelName ?? LEVELS[0].name;
+  state.unlockedLevel = restored.unlockedLevel ?? 0;
+  state.upgrades = structuredClone(
+    restored.upgrades ?? {
+      paddleLevels: 0,
+      powerLevels: 0,
+      luckLevels: 0,
+      purchaseCounts: { paddle: 0, power: 0, life: 0, multiball: 0, luck: 0 },
+    },
+  );
+  state.dailyChallenge = structuredClone(restored.dailyChallenge ?? buildDailyChallenge());
+  state.dailyStage = restored.dailyStage ?? 0;
+  state.isRunning = false;
+  state.isPaused = false;
+  state.isBossWarning = false;
+  state.isGameOver = Boolean(restored.isGameOver);
+  state.isWin = Boolean(restored.isWin);
+  state.bossWarningSeen = Boolean(restored.bossWarningSeen);
+  state.bossWarningTimer = 0;
+  state.bossPhase = restored.bossPhase ?? 0;
+  state.phaseFlashTimer = 0;
+  state.phaseFlashLabel = restored.phaseFlashLabel ?? "";
+  state.doubleHitLevel = restored.doubleHitLevel ?? 1;
+  state.doubleHitTimer = restored.doubleHitTimer ?? 0;
+  state.safetyNetTimer = restored.safetyNetTimer ?? 0;
+  state.ambientDropTimer = restored.ambientDropTimer ?? 0;
+  state.paddle = structuredClone(restored.paddle ?? createInitialState().paddle);
+  state.balls = structuredClone(restored.balls ?? [createBall()]);
+  state.lightningBalls = structuredClone(restored.lightningBalls ?? []);
+  state.bricks = structuredClone(restored.bricks ?? createBricks(getActiveLevel(), state.levelIndex));
+  state.powerUps = structuredClone(restored.powerUps ?? []);
+  state.floatingTexts = structuredClone(restored.floatingTexts ?? []);
+
+  populateLevelSelect();
+  if (state.mode === "daily") {
+    levelSelect.value = String(state.levelIndex);
+  }
+}
+
+function loadGame() {
+  const username = window.prompt("Enter the username to load:");
+  if (!username || !username.trim()) {
+    return;
+  }
+
+  const raw = window.localStorage.getItem(getSaveKey(username));
+  if (!raw) {
+    statusElement.textContent = `No save found for ${username.trim()}.`;
+    render();
+    return;
+  }
+
+  try {
+    const snapshot = JSON.parse(raw);
+    stopAnimation();
+    restoreState(snapshot);
+    statusElement.textContent = `Loaded ${snapshot.username}. Press Start to continue.`;
+    render();
+  } catch {
+    statusElement.textContent = `Save data for ${username.trim()} is invalid.`;
+    render();
+  }
+}
+
+function resetPersistentProgress() {
+  window.localStorage.removeItem(CURRENCY_KEY);
+  window.localStorage.removeItem(BEST_SCORE_KEY);
+  window.localStorage.removeItem(UNLOCKED_LEVEL_KEY);
+  window.localStorage.removeItem(UPGRADE_STATE_KEY);
+  window.localStorage.removeItem(DAILY_PROGRESS_KEY);
+}
+
+function resetCurrentProfile() {
+  if (!state.currentUsername) {
+    statusElement.textContent = "Load or save a username first, then reset that profile.";
+    render();
+    return;
+  }
+
+  const confirmed = window.confirm(`Reset all progress for ${state.currentUsername}?`);
+  if (!confirmed) {
+    return;
+  }
+
+  window.localStorage.removeItem(getSaveKey(state.currentUsername));
+  resetPersistentProgress();
+  const username = state.currentUsername;
+  resetGame();
+  state.currentUsername = username;
+  statusElement.textContent = `Reset progress for ${username}.`;
+  render();
 }
 
 function getUnlockedLevel() {
@@ -534,7 +711,12 @@ function setUnlockedLevel(levelIndex) {
 function getUpgradeState() {
   const stored = window.localStorage.getItem(UPGRADE_STATE_KEY);
   if (!stored) {
-    return { paddleLevels: 0, powerLevels: 0, luckLevels: 0 };
+    return {
+      paddleLevels: 0,
+      powerLevels: 0,
+      luckLevels: 0,
+      purchaseCounts: { paddle: 0, power: 0, life: 0, multiball: 0, luck: 0 },
+    };
   }
 
   try {
@@ -543,9 +725,21 @@ function getUpgradeState() {
       paddleLevels: Number(parsed.paddleLevels) || 0,
       powerLevels: Number(parsed.powerLevels) || 0,
       luckLevels: Number(parsed.luckLevels) || 0,
+      purchaseCounts: {
+        paddle: Number(parsed.purchaseCounts?.paddle) || 0,
+        power: Number(parsed.purchaseCounts?.power) || 0,
+        life: Number(parsed.purchaseCounts?.life) || 0,
+        multiball: Number(parsed.purchaseCounts?.multiball) || 0,
+        luck: Number(parsed.purchaseCounts?.luck) || 0,
+      },
     };
   } catch {
-    return { paddleLevels: 0, powerLevels: 0, luckLevels: 0 };
+    return {
+      paddleLevels: 0,
+      powerLevels: 0,
+      luckLevels: 0,
+      purchaseCounts: { paddle: 0, power: 0, life: 0, multiball: 0, luck: 0 },
+    };
   }
 }
 
@@ -575,6 +769,16 @@ function currentDamage() {
 
 function currentDropBonus() {
   return state.upgrades.luckLevels * 0.003;
+}
+
+function getScaledCost(baseCost, itemKey) {
+  const purchases = Number(state.upgrades.purchaseCounts?.[itemKey]) || 0;
+  return baseCost * (purchases + 1);
+}
+
+function recordPurchase(itemKey) {
+  state.upgrades.purchaseCounts[itemKey] = (Number(state.upgrades.purchaseCounts[itemKey]) || 0) + 1;
+  persistUpgradeState();
 }
 
 function awardScore(points) {
@@ -609,12 +813,13 @@ function purchasePaddleUpgrade() {
     return;
   }
 
-  if (!spendCurrency(PADDLE_UPGRADE_COST)) {
+  const cost = getScaledCost(PADDLE_UPGRADE_COST, "paddle");
+  if (!spendCurrency(cost)) {
     return;
   }
 
   state.upgrades.paddleLevels += 1;
-  persistUpgradeState();
+  recordPurchase("paddle");
   applyPaddleUpgrade();
   statusElement.textContent = "Paddle upgraded. Permanent length increased by 10%.";
   render();
@@ -627,18 +832,20 @@ function purchasePowerUpgrade() {
     return;
   }
 
-  if (!spendCurrency(POWER_UPGRADE_COST)) {
+  const cost = getScaledCost(POWER_UPGRADE_COST, "power");
+  if (!spendCurrency(cost)) {
     return;
   }
 
   state.upgrades.powerLevels += 1;
-  persistUpgradeState();
+  recordPurchase("power");
   statusElement.textContent = "Ball power upgraded. Permanent damage increased by 1.";
   render();
 }
 
 function purchaseLife() {
-  if (!spendCurrency(LIFE_UPGRADE_COST)) {
+  const cost = getScaledCost(LIFE_UPGRADE_COST, "life");
+  if (!spendCurrency(cost)) {
     return;
   }
 
@@ -660,15 +867,18 @@ function purchaseLife() {
     statusElement.textContent = `Extra life purchased. Lives: ${state.lives}.`;
   }
 
+  recordPurchase("life");
   render();
 }
 
 function purchaseShopMultiball() {
-  if (!spendCurrency(MULTIBALL_SHOP_COST)) {
+  const cost = getScaledCost(MULTIBALL_SHOP_COST, "multiball");
+  if (!spendCurrency(cost)) {
     return;
   }
 
   addExtraBall();
+  recordPurchase("multiball");
   statusElement.textContent = "Shop purchase: extra ball added.";
   render();
 }
@@ -680,12 +890,13 @@ function purchaseLuckUpgrade() {
     return;
   }
 
-  if (!spendCurrency(LUCK_UPGRADE_COST)) {
+  const cost = getScaledCost(LUCK_UPGRADE_COST, "luck");
+  if (!spendCurrency(cost)) {
     return;
   }
 
   state.upgrades.luckLevels += 1;
-  persistUpgradeState();
+  recordPurchase("luck");
   statusElement.textContent = "Luck upgraded. All power-up drop rates increased by 0.003.";
   render();
 }
@@ -1520,6 +1731,18 @@ function updateDailyStatus() {
 }
 
 function renderShop() {
+  const paddleCost = getScaledCost(PADDLE_UPGRADE_COST, "paddle");
+  const powerCost = getScaledCost(POWER_UPGRADE_COST, "power");
+  const lifeCost = getScaledCost(LIFE_UPGRADE_COST, "life");
+  const multiballCost = getScaledCost(MULTIBALL_SHOP_COST, "multiball");
+  const luckCost = getScaledCost(LUCK_UPGRADE_COST, "luck");
+
+  buyPaddleButton.querySelector(".shop-cost").textContent = String(paddleCost);
+  buyPowerButton.querySelector(".shop-cost").textContent = String(powerCost);
+  buyLifeButton.querySelector(".shop-cost").textContent = String(lifeCost);
+  buyMultiballButton.querySelector(".shop-cost").textContent = String(multiballCost);
+  buyLuckButton.querySelector(".shop-cost").textContent = String(luckCost);
+
   shopPaddleDetail.textContent = `Lv ${state.upgrades.paddleLevels}/${PADDLE_UPGRADE_CAP} • +10% permanent length`;
   shopPowerDetail.textContent = `Lv ${state.upgrades.powerLevels}/${POWER_UPGRADE_CAP} • total damage ${1 + state.upgrades.powerLevels}`;
   shopLifeDetail.textContent = `Add one life immediately • current ${state.lives}`;
@@ -1527,13 +1750,13 @@ function renderShop() {
   shopLuckDetail.textContent = `Lv ${state.upgrades.luckLevels}/${LUCK_UPGRADE_CAP} • total drop bonus +${currentDropBonus().toFixed(3)}`;
 
   buyPaddleButton.disabled =
-    state.currency < PADDLE_UPGRADE_COST || state.upgrades.paddleLevels >= PADDLE_UPGRADE_CAP;
+    state.currency < paddleCost || state.upgrades.paddleLevels >= PADDLE_UPGRADE_CAP;
   buyPowerButton.disabled =
-    state.currency < POWER_UPGRADE_COST || state.upgrades.powerLevels >= POWER_UPGRADE_CAP;
-  buyLifeButton.disabled = state.currency < LIFE_UPGRADE_COST;
-  buyMultiballButton.disabled = state.currency < MULTIBALL_SHOP_COST;
+    state.currency < powerCost || state.upgrades.powerLevels >= POWER_UPGRADE_CAP;
+  buyLifeButton.disabled = state.currency < lifeCost;
+  buyMultiballButton.disabled = state.currency < multiballCost;
   buyLuckButton.disabled =
-    state.currency < LUCK_UPGRADE_COST || state.upgrades.luckLevels >= LUCK_UPGRADE_CAP;
+    state.currency < luckCost || state.upgrades.luckLevels >= LUCK_UPGRADE_CAP;
 }
 
 function drawBall(ball) {
@@ -1828,6 +2051,18 @@ dailyButton.addEventListener("click", () => {
   stopAnimation();
   loadDailyLevel(0, false, false);
   render();
+});
+
+saveButton.addEventListener("click", () => {
+  saveGame();
+});
+
+loadButton.addEventListener("click", () => {
+  loadGame();
+});
+
+resetButton.addEventListener("click", () => {
+  resetCurrentProfile();
 });
 
 startButton.addEventListener("click", () => {
