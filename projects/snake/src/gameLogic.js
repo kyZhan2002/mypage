@@ -29,7 +29,7 @@ export const DIFFICULTIES = {
     key: "hard",
     label: "Hard",
     boardSize: 16,
-    tickMs: 85,
+    tickMs: 128,
     fixedObstacles: [
       { x: 5, y: 3 },
       { x: 5, y: 4 },
@@ -43,8 +43,8 @@ export const DIFFICULTIES = {
       { x: 12, y: 12 },
     ],
     movingObstacles: [
-      { position: { x: 7, y: 2 }, direction: "down" },
-      { position: { x: 12, y: 10 }, direction: "left" },
+      { position: { x: 7, y: 2 }, direction: "down", length: 3 },
+      { position: { x: 12, y: 10 }, direction: "left", length: 3 },
     ],
   },
 };
@@ -85,11 +85,13 @@ export function createInitialState(difficultyKey = "medium", random = Math.rando
   const movingObstacles = difficulty.movingObstacles.map((obstacle) => ({
     position: clonePosition(obstacle.position),
     direction: obstacle.direction,
+    length: obstacle.length ?? 1,
   }));
+  const movingObstacleCells = movingObstacles.flatMap(getMovingObstacleCells);
   const occupied = [
     ...snake,
     ...fixedObstacles,
-    ...movingObstacles.map((obstacle) => obstacle.position),
+    ...movingObstacleCells,
   ];
 
   return {
@@ -102,6 +104,7 @@ export function createInitialState(difficultyKey = "medium", random = Math.rando
     queuedDirection: INITIAL_DIRECTION,
     fixedObstacles,
     movingObstacles,
+    movingObstacleCells,
     food: placeFood(occupied, difficulty.boardSize, random),
     score: 0,
     isGameOver: false,
@@ -151,15 +154,15 @@ export function advanceGame(state, random = Math.random) {
   const delta = DELTAS[direction];
   const nextHead = { x: head.x + delta.x, y: head.y + delta.y };
   const movedObstacles = moveObstacles(state, nextHead);
-  const obstacleCells = [
-    ...state.fixedObstacles,
-    ...movedObstacles.map((obstacle) => obstacle.position),
-  ];
+  const movingObstacleCells = movedObstacles.flatMap(getMovingObstacleCells);
+  const obstacleCells = [...state.fixedObstacles, ...movingObstacleCells];
 
   if (isOutOfBounds(nextHead, state.boardSize)) {
     return {
       ...state,
       direction,
+      movingObstacles: movedObstacles,
+      movingObstacleCells,
       isGameOver: true,
       isPaused: true,
     };
@@ -170,6 +173,7 @@ export function advanceGame(state, random = Math.random) {
       ...state,
       direction,
       movingObstacles: movedObstacles,
+      movingObstacleCells,
       isGameOver: true,
       isPaused: true,
     };
@@ -187,16 +191,18 @@ export function advanceGame(state, random = Math.random) {
       ...state,
       direction,
       movingObstacles: movedObstacles,
+      movingObstacleCells,
       isGameOver: true,
       isPaused: true,
     };
   }
 
-  if (movedObstacles.some((obstacle) => positionsEqual(obstacle.position, nextSnake[0]))) {
+  if (nextSnake.some((segment) => obstacleCells.some((cell) => positionsEqual(cell, segment)))) {
     return {
       ...state,
       direction,
       movingObstacles: movedObstacles,
+      movingObstacleCells,
       isGameOver: true,
       isPaused: true,
     };
@@ -205,7 +211,7 @@ export function advanceGame(state, random = Math.random) {
   const occupied = [
     ...nextSnake,
     ...state.fixedObstacles,
-    ...movedObstacles.map((obstacle) => obstacle.position),
+    ...movingObstacleCells,
   ];
 
   return {
@@ -214,6 +220,7 @@ export function advanceGame(state, random = Math.random) {
     direction,
     queuedDirection: direction,
     movingObstacles: movedObstacles,
+    movingObstacleCells,
     food: grows ? placeFood(occupied, state.boardSize, random) : state.food,
     score: grows ? state.score + 1 : state.score,
     hasStarted: true,
@@ -286,21 +293,21 @@ export function moveObstacles(state, nextHead) {
   }
 
   const occupied = new Set([
-    ...state.snake.map(getCellKey),
     ...state.fixedObstacles.map(getCellKey),
     ...(state.food ? [getCellKey(state.food)] : []),
   ]);
+  const nextHeadKey = getCellKey(nextHead);
 
   return state.movingObstacles.map((obstacle, index) => {
     const attempted = getNextObstaclePosition(obstacle);
+    const attemptedCells = getMovingObstacleCells(attempted);
     const otherObstacles = state.movingObstacles
       .filter((_, otherIndex) => otherIndex !== index)
-      .map((item) => item.position);
+      .flatMap(getMovingObstacleCells);
     const blocked = (
-      isOutOfBounds(attempted.position, state.boardSize) ||
-      occupied.has(getCellKey(attempted.position)) ||
-      otherObstacles.some((item) => positionsEqual(item, attempted.position)) ||
-      positionsEqual(attempted.position, nextHead)
+      attemptedCells.some((cell) => isOutOfBounds(cell, state.boardSize)) ||
+      attemptedCells.some((cell) => occupied.has(getCellKey(cell)) && getCellKey(cell) !== nextHeadKey) ||
+      attemptedCells.some((cell) => otherObstacles.some((item) => positionsEqual(item, cell)))
     );
 
     if (!blocked) {
@@ -312,11 +319,11 @@ export function moveObstacles(state, nextHead) {
       direction: OPPOSITES[obstacle.direction],
     };
     const retry = getNextObstaclePosition(reversed);
+    const retryCells = getMovingObstacleCells(retry);
     const retryBlocked = (
-      isOutOfBounds(retry.position, state.boardSize) ||
-      occupied.has(getCellKey(retry.position)) ||
-      otherObstacles.some((item) => positionsEqual(item, retry.position)) ||
-      positionsEqual(retry.position, nextHead)
+      retryCells.some((cell) => isOutOfBounds(cell, state.boardSize)) ||
+      retryCells.some((cell) => occupied.has(getCellKey(cell)) && getCellKey(cell) !== nextHeadKey) ||
+      retryCells.some((cell) => otherObstacles.some((item) => positionsEqual(item, cell)))
     );
 
     return retryBlocked ? reversed : retry;
@@ -331,5 +338,20 @@ function getNextObstaclePosition(obstacle) {
       y: obstacle.position.y + delta.y,
     },
     direction: obstacle.direction,
+    length: obstacle.length,
   };
+}
+
+export function getMovingObstacleCells(obstacle) {
+  const oppositeDelta = DELTAS[OPPOSITES[obstacle.direction]];
+  const cells = [];
+
+  for (let index = 0; index < (obstacle.length ?? 1); index += 1) {
+    cells.push({
+      x: obstacle.position.x + oppositeDelta.x * index,
+      y: obstacle.position.y + oppositeDelta.y * index,
+    });
+  }
+
+  return cells;
 }

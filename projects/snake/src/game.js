@@ -10,6 +10,7 @@ import {
 
 const boardElement = document.querySelector("#board");
 const scoreElement = document.querySelector("#score");
+const bestScoreElement = document.querySelector("#best-score");
 const statusElement = document.querySelector("#status");
 const pauseButton = document.querySelector("#pause-button");
 const restartButton = document.querySelector("#restart-button");
@@ -34,14 +35,27 @@ const KEY_TO_DIRECTION = {
 let state = createInitialState(difficultySelect.value);
 let gameLoopId = null;
 
+function getBestScoreKey(difficultyKey) {
+  return `snake-best-score-${difficultyKey}`;
+}
+
+function getBestScore(difficultyKey) {
+  const value = window.localStorage.getItem(getBestScoreKey(difficultyKey));
+  return value ? Number(value) : 0;
+}
+
+function updateBestScore() {
+  const best = Math.max(getBestScore(state.difficulty), state.score);
+  window.localStorage.setItem(getBestScoreKey(state.difficulty), String(best));
+  bestScoreElement.textContent = String(best);
+}
+
 function renderBoard() {
   const snakeCells = new Set(state.snake.map(getCellKey));
   const headKey = getCellKey(state.snake[0]);
   const foodKey = state.food ? getCellKey(state.food) : "";
   const fixedObstacleCells = new Set(state.fixedObstacles.map(getCellKey));
-  const movingObstacleCells = new Set(
-    state.movingObstacles.map((obstacle) => getCellKey(obstacle.position)),
-  );
+  const movingObstacleCells = new Set(state.movingObstacleCells.map(getCellKey));
 
   boardElement.innerHTML = "";
   boardElement.style.gridTemplateColumns = `repeat(${state.boardSize}, minmax(0, 1fr))`;
@@ -102,6 +116,7 @@ function renderStatus() {
 
 function render() {
   scoreElement.textContent = String(state.score);
+  bestScoreElement.textContent = String(getBestScore(state.difficulty));
   renderStatus();
   renderBoard();
 }
@@ -133,6 +148,7 @@ function resetLoop() {
 
   const tick = () => {
     state = advanceGame(state);
+    updateBestScore();
     render();
     gameLoopId = window.setTimeout(tick, state.tickMs);
   };

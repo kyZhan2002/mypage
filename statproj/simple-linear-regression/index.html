@@ -209,18 +209,24 @@ permalink: /statproj/simple-linear-regression/
 
 <style>
   .statproj-page {
-    padding-bottom: 3rem;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding-bottom: 2.25rem;
+    transform: scale(0.75);
+    transform-origin: top center;
+    width: 133.3333%;
+    margin-left: calc((100% - 133.3333%) / 2);
   }
 
   .stat-hero {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .stat-intro {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.125rem;
   }
 
   .stat-intro h2,
@@ -231,7 +237,7 @@ permalink: /statproj/simple-linear-regression/
   }
 
   .formula-badge {
-    padding: 0.8rem 1.2rem;
+    padding: 0.6rem 0.9rem;
     border-radius: 999px;
     background: linear-gradient(135deg, #edf4ff, #dbedff);
     color: var(--primary-color);
@@ -241,22 +247,22 @@ permalink: /statproj/simple-linear-regression/
 
   .stat-layout {
     display: grid;
-    grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
-    gap: 2rem;
+    grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
+    gap: 1.5rem;
     align-items: start;
   }
 
   .stat-controls,
   .stat-results {
     display: grid;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .section-title {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1.4rem;
+    gap: 0.56rem;
+    margin-bottom: 1.05rem;
   }
 
   .section-title .icon {
@@ -266,7 +272,7 @@ permalink: /statproj/simple-linear-regression/
   .control-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
+    gap: 0.75rem;
   }
 
   .compact-grid {
@@ -276,7 +282,7 @@ permalink: /statproj/simple-linear-regression/
   .control-grid label,
   .dist-fields label {
     display: grid;
-    gap: 0.45rem;
+    gap: 0.34rem;
     font-weight: 600;
     color: #445;
   }
@@ -284,7 +290,7 @@ permalink: /statproj/simple-linear-regression/
   .control-grid span,
   .dist-fields span,
   .group-label {
-    font-size: 0.92rem;
+    font-size: 0.84rem;
   }
 
   .control-grid input,
@@ -295,8 +301,8 @@ permalink: /statproj/simple-linear-regression/
     box-sizing: border-box;
     border: 1px solid #ced9eb;
     border-radius: 10px;
-    padding: 0.75rem 0.85rem;
-    font-size: 0.98rem;
+    padding: 0.56rem 0.64rem;
+    font-size: 0.9rem;
     background: #fff;
     color: #2b3547;
   }
@@ -312,44 +318,44 @@ permalink: /statproj/simple-linear-regression/
 
   .dist-stack {
     display: grid;
-    gap: 1rem;
-    margin-top: 1.5rem;
+    gap: 0.75rem;
+    margin-top: 1.125rem;
   }
 
   .dist-card {
     background: linear-gradient(180deg, #fbfdff, #f4f9ff);
     border: 1px solid #dfeafa;
     border-radius: 14px;
-    padding: 1rem;
+    padding: 0.75rem;
   }
 
   .dist-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
   }
 
   .dist-fields {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.8rem;
+    gap: 0.6rem;
   }
 
   .button-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.8rem;
-    margin-top: 1.5rem;
+    gap: 0.6rem;
+    margin-top: 1.125rem;
   }
 
   .stat-button,
   .ghost-button {
     border: none;
     border-radius: 999px;
-    padding: 0.85rem 1.35rem;
-    font-size: 0.98rem;
+    padding: 0.64rem 1rem;
+    font-size: 0.9rem;
     font-weight: 700;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
@@ -374,15 +380,15 @@ permalink: /statproj/simple-linear-regression/
   .predictor-group {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 1rem;
+    gap: 0.56rem;
+    margin-top: 0.75rem;
   }
 
   .check-option {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.7rem 0.9rem;
+    gap: 0.38rem;
+    padding: 0.52rem 0.68rem;
     border-radius: 999px;
     background: #f4f8ff;
     border: 1px solid #d8e6fb;
@@ -392,15 +398,15 @@ permalink: /statproj/simple-linear-regression/
 
   .helper-text {
     color: #667188;
-    margin: 1rem 0 0.8rem;
+    margin: 0.75rem 0 0.6rem;
   }
 
   .status-pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.3rem;
     width: fit-content;
-    padding: 0.55rem 0.85rem;
+    padding: 0.42rem 0.64rem;
     border-radius: 999px;
     background: #edf8ef;
     color: #1d7c45;
@@ -410,10 +416,10 @@ permalink: /statproj/simple-linear-regression/
   .plot-meta {
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 0.75rem;
     flex-wrap: wrap;
     color: #5c6882;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
   }
 
   #scatter-plot {
@@ -427,27 +433,27 @@ permalink: /statproj/simple-linear-regression/
   .summary-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1rem;
-    margin-bottom: 1.4rem;
+    gap: 0.75rem;
+    margin-bottom: 1.05rem;
   }
 
   .summary-box {
     background: linear-gradient(180deg, #f9fbff, #f0f6ff);
     border: 1px solid #dde7f6;
     border-radius: 14px;
-    padding: 1rem;
+    padding: 0.75rem;
   }
 
   .summary-label {
     display: block;
-    font-size: 0.84rem;
+    font-size: 0.74rem;
     color: #60708a;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.3rem;
   }
 
   .summary-box strong {
     color: var(--primary-color);
-    font-size: 1.25rem;
+    font-size: 0.95rem;
   }
 
   .table-wrap {
@@ -461,6 +467,13 @@ permalink: /statproj/simple-linear-regression/
   }
 
   @media (max-width: 980px) {
+    .statproj-page {
+      transform: none;
+      width: 100%;
+      margin-left: 0;
+      max-width: none;
+    }
+
     .stat-layout {
       grid-template-columns: 1fr;
     }
