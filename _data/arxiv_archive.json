@@ -1,6 +1,27 @@
 {
-  "last_updated": 1775615018,
+  "last_updated": 1775788127,
   "papers": [
+    {
+      "arxiv_id": "2603.07921",
+      "title": "Robust Transfer Learning with Side Information",
+      "authors": [
+        "Akram S. Awad",
+        "Shihab Ahmed",
+        "Yue Wang",
+        "George K. Atia"
+      ],
+      "abstract": "Robust Markov Decision Processes (MDPs) address environmental shift through distributionally robust optimization (DRO) by finding an optimal worst-case policy within an uncertainty set of transition kernels. However, standard DRO approaches require enlarging the uncertainty set under large shifts, which leads to overly conservative and pessimistic policies.\n  In this paper, we propose a framework for transfer under environment shift that derives a robust target-domain policy via estimate-centered uncertainty sets, constructed through constrained estimation that integrates limited target samples with side information about the source-target dynamics. The side information includes bounds on feature moments, distributional distances, and density ratios, yielding improved kernel estimates and tighter uncertainty sets.\n  The side information includes bounds on feature moments, distributional distances, and density ratios, yielding improved kernel estimates and tighter uncertainty sets.\n  Error bounds and convergence results are established for both robust and non-robust value functions. Moreover, we provide a finite-sample guarantee on the learned robust policy and analyze the robust sub-optimality gap. Under mild low-dimensional structure on the transition model, the side information reduces this gap and improves sample efficiency. We assess the performance of our approach across OpenAI Gym environments and classic control problems, consistently demonstrating superior target-domain performance over state-of-the-art robust and non-robust baselines.",
+      "published": "March 09, 2026",
+      "published_raw": "2026-03-09T03:29:44Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2603.07921v1",
+      "arxiv_url": "https://arxiv.org/abs/2603.07921v1",
+      "added_timestamp": 1773194156,
+      "archived_timestamp": 1775788127
+    },
     {
       "arxiv_id": "2603.05568",
       "title": "Learning Optimal Distributionally Robust Individualized Treatment Rules Integrating Multi-Source Data",
