@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="panel">
+        <header class="panel-header">
+          <div>
+            <p class="eyebrow">Classic Arcade</p>
+            <h1>Snake</h1>
+          </div>
+          <div class="scoreboard">
+            <span>Score</span>
+            <strong id="score">0</strong>
+          </div>
+        </header>
+
+        <div class="status-row">
+          <p id="status">Press Start or use an arrow key to begin.</p>
+          <div class="actions">
+            <button id="pause-button" type="button">Pause</button>
+            <button id="restart-button" type="button">Restart</button>
+          </div>
+        </div>
+
+        <div
+          id="board"
+          class="board"
+          role="grid"
+          aria-label="Snake game board"
+        ></div>
+
+        <section class="controls" aria-label="Touch controls">
+          <button class="control up" type="button" data-direction="up">Up</button>
+          <button class="control left" type="button" data-direction="left">Left</button>
+          <button class="control down" type="button" data-direction="down">Down</button>
+          <button class="control right" type="button" data-direction="right">Right</button>
+        </section>
+
+        <p class="hint">Use arrow keys or WASD. Pause, restart, and boundary collisions are supported.</p>
+      </section>
+    </main>
+
+    <script type="module" src="./src/game.js"></script>
+  </body>
+</html>
