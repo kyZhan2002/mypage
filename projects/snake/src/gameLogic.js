@@ -314,10 +314,7 @@ export function moveObstacles(state, nextHead) {
       return attempted;
     }
 
-    const reversed = {
-      ...obstacle,
-      direction: OPPOSITES[obstacle.direction],
-    };
+    const reversed = reverseObstacle(obstacle);
     const retry = getNextObstaclePosition(reversed);
     const retryCells = getMovingObstacleCells(retry);
     const retryBlocked = (
@@ -338,6 +335,16 @@ function getNextObstaclePosition(obstacle) {
       y: obstacle.position.y + delta.y,
     },
     direction: obstacle.direction,
+    length: obstacle.length,
+  };
+}
+
+function reverseObstacle(obstacle) {
+  const cells = getMovingObstacleCells(obstacle);
+
+  return {
+    position: cells[cells.length - 1],
+    direction: OPPOSITES[obstacle.direction],
     length: obstacle.length,
   };
 }

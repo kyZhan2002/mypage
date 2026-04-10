@@ -1,0 +1,239 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f1e8;
+  --panel: #fffdfa;
+  --line: #d7cfbf;
+  --text: #241f16;
+  --muted: #6a6255;
+  --button: #efe7d9;
+  --board: #f0eadc;
+  --cell: #ece6d7;
+  --cell-revealed: #f7f3ea;
+  --mine: #c64b3f;
+  --flag: #8f6a4b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.game-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  padding: 10px 12px;
+  background: rgba(245, 241, 232, 0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.game-nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 9px;
+  border-radius: 999px;
+}
+
+.game-nav a:hover {
+  background: var(--button);
+}
+
+.app-shell {
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 64px);
+  padding: 18px;
+}
+
+.panel {
+  width: min(100%, 720px);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 10px 30px rgba(36, 31, 22, 0.08);
+}
+
+.panel-header,
+.status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.eyebrow,
+.scoreboard span,
+.hint,
+.difficulty-picker span {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+h1 {
+  margin: 4px 0 0;
+  font-size: 1.5rem;
+}
+
+.scoreboard {
+  display: flex;
+  gap: 12px;
+  text-align: right;
+}
+
+.scoreboard strong {
+  display: block;
+  font-size: 1.15rem;
+}
+
+.status-row {
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+
+#status {
+  margin: 0;
+  min-height: 1.5em;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+.difficulty-picker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 3px;
+}
+
+select,
+button {
+  border: 1px solid var(--line);
+  background: var(--button);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 7px 10px;
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover,
+select:hover {
+  background: #e6dece;
+}
+
+.board {
+  display: grid;
+  gap: 3px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--board);
+  overflow: auto;
+}
+
+.cell {
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(106, 98, 85, 0.2);
+  border-radius: 4px;
+  background: var(--cell);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  user-select: none;
+}
+
+.cell:hover {
+  background: #e7decd;
+}
+
+.cell.revealed {
+  background: var(--cell-revealed);
+  border-color: rgba(106, 98, 85, 0.08);
+}
+
+.cell.mine {
+  background: #f4d3cf;
+}
+
+.cell.exploded {
+  background: var(--mine);
+  color: #fff9f7;
+}
+
+.cell.flagged {
+  color: var(--flag);
+}
+
+.cell.number-1 { color: #2a5bd7; }
+.cell.number-2 { color: #2c7a4b; }
+.cell.number-3 { color: #b14c2f; }
+.cell.number-4 { color: #5e4bb3; }
+.cell.number-5 { color: #9a3b35; }
+.cell.number-6 { color: #2a7f83; }
+.cell.number-7 { color: #1f1f1f; }
+.cell.number-8 { color: #6d6d6d; }
+
+@media (max-width: 760px) {
+  .game-nav {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .panel {
+    padding: 12px;
+  }
+
+  .panel-header,
+  .status-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .scoreboard,
+  .actions {
+    width: 100%;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+  }
+
+  .actions button,
+  .difficulty-picker,
+  .difficulty-picker select {
+    width: 100%;
+  }
+
+  .difficulty-picker {
+    padding: 0;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

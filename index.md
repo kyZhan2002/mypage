@@ -56,7 +56,7 @@ title: "Keyao's Blog"
       {% assign project_pages = site.pages | where_exp: "page", "page.path contains 'projects'" | where_exp: "page", "page.name != 'index.html'" %}
       {% if project_pages.size > 0 %}
       <ul class="home-list">
-        {% for project in project_pages limit:2 %}
+        {% for project in project_pages limit:4 %}
         <li>
           <a href="{{ site.baseurl }}{{ project.permalink }}" class="home-link">
             <span class="link-title">{{ project.title }}</span>

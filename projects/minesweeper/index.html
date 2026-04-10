@@ -1,0 +1,75 @@
+---
+layout: null
+title: Minesweeper
+permalink: /projects/minesweeper/
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minesweeper</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <nav class="game-nav">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="{{ '/projects/' | relative_url }}">Games</a>
+      <a href="{{ '/statproj/' | relative_url }}">Stat Projects</a>
+      <a href="{{ '/papers/' | relative_url }}">Papers</a>
+    </nav>
+
+    <main class="app-shell">
+      <section class="panel">
+        <header class="panel-header">
+          <div>
+            <p class="eyebrow">Classic Puzzle</p>
+            <h1>Minesweeper</h1>
+          </div>
+          <div class="scoreboard">
+            <div>
+              <span>Mines Left</span>
+              <strong id="mines-left">10</strong>
+            </div>
+            <div>
+              <span>Time</span>
+              <strong id="timer">0</strong>
+            </div>
+            <div>
+              <span>Best</span>
+              <strong id="best-time">-</strong>
+            </div>
+          </div>
+        </header>
+
+        <div class="status-row">
+          <p id="status">Choose a difficulty and reveal a safe tile to begin.</p>
+          <div class="actions">
+            <label class="difficulty-picker" for="difficulty-select">
+              <span>Difficulty</span>
+              <select id="difficulty-select">
+                <option value="beginner">Beginner</option>
+                <option value="intermediate" selected>Intermediate</option>
+                <option value="expert">Expert</option>
+              </select>
+            </label>
+            <button id="new-game-button" type="button">New Game</button>
+          </div>
+        </div>
+
+        <div
+          id="board"
+          class="board"
+          role="grid"
+          aria-label="Minesweeper board"
+        ></div>
+
+        <p class="hint">Left click to reveal. Right click to flag. First click is always safe.</p>
+      </section>
+    </main>
+
+    <script type="module" src="./src/game.js"></script>
+  </body>
+</html>
