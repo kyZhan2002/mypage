@@ -61,14 +61,14 @@ body {
 }
 
 .panel {
-  width: min(100%, 880px);
+  width: min(100%, 1040px);
   background: var(--panel);
   border: 1px solid var(--line-strong);
   border-radius: 24px;
-  padding: 18px;
+  padding: 22px;
   box-shadow: var(--shadow);
   display: grid;
-  gap: 16px;
+  gap: 18px;
 }
 
 .panel-header,
@@ -200,19 +200,19 @@ select:hover {
 
 .panel-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.75fr) minmax(260px, 0.95fr);
-  gap: 16px;
+  grid-template-columns: minmax(0, 1.95fr) minmax(280px, 0.95fr);
+  gap: 18px;
   align-items: start;
 }
 
 .game-column {
   display: grid;
-  gap: 12px;
+  gap: 14px;
 }
 
 .side-column {
   display: grid;
-  gap: 12px;
+  gap: 14px;
   align-content: start;
   position: sticky;
   top: 78px;
