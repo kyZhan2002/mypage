@@ -2,34 +2,87 @@ const canvas = document.querySelector("#game-canvas");
 const context = canvas.getContext("2d");
 const scoreElement = document.querySelector("#score");
 const livesElement = document.querySelector("#lives");
+const levelElement = document.querySelector("#level");
+const powerElement = document.querySelector("#power");
 const statusElement = document.querySelector("#status");
 const startButton = document.querySelector("#start-button");
 const restartButton = document.querySelector("#restart-button");
 
 const WIDTH = canvas.width;
 const HEIGHT = canvas.height;
-const PADDLE_WIDTH = 64;
+const PADDLE_WIDTH = 78;
 const PADDLE_HEIGHT = 10;
-const PADDLE_SPEED = 320;
+const PADDLE_SPEED = 340;
 const BALL_RADIUS = 6;
-const BASE_BALL_SPEED = 220;
+const BASE_BALL_SPEED = 230;
 const POWER_UP_SPEED = 96;
-const BRICK_ROWS = 6;
-const BRICK_COLUMNS = 8;
-const BRICK_WIDTH = 34;
 const BRICK_HEIGHT = 14;
 const BRICK_PADDING = 4;
 const BRICK_OFFSET_TOP = 40;
-const BRICK_OFFSET_LEFT = 12;
+const BRICK_OFFSET_LEFT = 14;
 const MULTI_BALL_DROP_RATE = 0.12;
+const DOUBLE_HIT_DROP_RATE = 0.045;
+const DOUBLE_HIT_DURATION = 20;
 
 const BRICK_COLORS = {
-  1: "#e7d8b5",
-  2: "#d9ba83",
-  3: "#d48f5e",
-  4: "#be6848",
-  5: "#934632",
+  1: "#eee4cf",
+  2: "#e3cca4",
+  3: "#d6b176",
+  4: "#c99258",
+  5: "#bb7746",
+  6: "#ae603e",
+  7: "#9f5137",
+  8: "#8f4532",
+  9: "#7a392d",
+  10: "#652d28",
 };
+
+const LEVELS = [
+  {
+    name: "Warm-Up Wall",
+    layout: [
+      [0, 0, 1, 1, 2, 2, 1, 1, 0, 0],
+      [0, 1, 2, 2, 3, 3, 2, 2, 1, 0],
+      [1, 2, 2, 3, 4, 4, 3, 2, 2, 1],
+      [1, 1, 2, 2, 3, 3, 2, 2, 1, 1],
+      [0, 0, 1, 1, 2, 2, 1, 1, 0, 0],
+    ],
+  },
+  {
+    name: "Sky Lanes",
+    layout: [
+      [2, 0, 2, 4, 0, 0, 4, 2, 0, 2],
+      [3, 0, 3, 5, 0, 0, 5, 3, 0, 3],
+      [4, 0, 4, 6, 0, 0, 6, 4, 0, 4],
+      [5, 1, 5, 7, 2, 2, 7, 5, 1, 5],
+      [6, 2, 6, 8, 3, 3, 8, 6, 2, 6],
+      [7, 3, 7, 9, 4, 4, 9, 7, 3, 7],
+    ],
+  },
+  {
+    name: "Side Channel",
+    layout: [
+      [0, 4, 4, 5, 6, 6, 5, 4, 4, 0],
+      [0, 5, 0, 0, 7, 7, 0, 0, 5, 0],
+      [0, 6, 0, 0, 8, 8, 0, 0, 6, 0],
+      [0, 7, 0, 0, 9, 9, 0, 0, 7, 0],
+      [0, 8, 8, 0, 10, 10, 0, 8, 8, 0],
+      [0, 0, 0, 0, 4, 4, 0, 0, 0, 0],
+    ],
+  },
+  {
+    name: "Fortress",
+    layout: [
+      [0, 0, 6, 6, 7, 7, 6, 6, 0, 0],
+      [0, 7, 8, 0, 0, 0, 0, 8, 7, 0],
+      [6, 8, 9, 5, 0, 0, 5, 9, 8, 6],
+      [6, 0, 10, 6, 4, 4, 6, 10, 0, 6],
+      [6, 8, 9, 5, 0, 0, 5, 9, 8, 6],
+      [0, 7, 8, 0, 3, 3, 0, 8, 7, 0],
+      [0, 0, 6, 6, 7, 7, 6, 6, 0, 0],
+    ],
+  },
+];
 
 let animationId = null;
 let lastTimestamp = 0;
@@ -40,9 +93,12 @@ function createInitialState() {
   return {
     score: 0,
     lives: 3,
+    levelIndex: 0,
+    levelName: LEVELS[0].name,
     isRunning: false,
     isGameOver: false,
     isWin: false,
+    powerTimer: 0,
     paddle: {
       x: (WIDTH - PADDLE_WIDTH) / 2,
       y: HEIGHT - 28,
@@ -50,7 +106,7 @@ function createInitialState() {
       height: PADDLE_HEIGHT,
     },
     balls: [createBall()],
-    bricks: createBricks(),
+    bricks: createBricks(0),
     powerUps: [],
   };
 }
@@ -67,22 +123,31 @@ function createBall() {
 }
 
 function launchBall(ball, direction = 1) {
-  const speedX = BASE_BALL_SPEED * 0.72 * direction;
-  ball.vx = speedX;
+  ball.vx = BASE_BALL_SPEED * 0.72 * direction;
   ball.vy = -BASE_BALL_SPEED;
   ball.isLaunched = true;
 }
 
-function createBricks() {
+function createBricks(levelIndex) {
+  const level = LEVELS[levelIndex];
+  const rows = level.layout.length;
+  const cols = Math.max(...level.layout.map((row) => row.length));
+  const totalGaps = (cols - 1) * BRICK_PADDING;
+  const availableWidth = WIDTH - BRICK_OFFSET_LEFT * 2 - totalGaps;
+  const brickWidth = availableWidth / cols;
   const bricks = [];
 
-  for (let row = 0; row < BRICK_ROWS; row += 1) {
-    for (let column = 0; column < BRICK_COLUMNS; column += 1) {
-      const durability = row < 2 ? 1 + row : Math.min(5, 2 + row - Math.floor(Math.random() * 2));
+  for (let row = 0; row < rows; row += 1) {
+    for (let col = 0; col < cols; col += 1) {
+      const durability = level.layout[row][col] ?? 0;
+      if (durability <= 0) {
+        continue;
+      }
+
       bricks.push({
-        x: BRICK_OFFSET_LEFT + column * (BRICK_WIDTH + BRICK_PADDING),
+        x: BRICK_OFFSET_LEFT + col * (brickWidth + BRICK_PADDING),
         y: BRICK_OFFSET_TOP + row * (BRICK_HEIGHT + BRICK_PADDING),
-        width: BRICK_WIDTH,
+        width: brickWidth,
         height: BRICK_HEIGHT,
         hitsRemaining: durability,
       });
@@ -99,6 +164,25 @@ function resetGame() {
   render();
 }
 
+function loadLevel(levelIndex, keepScore = true, keepLives = true) {
+  state.levelIndex = levelIndex;
+  state.levelName = LEVELS[levelIndex].name;
+  state.bricks = createBricks(levelIndex);
+  state.powerUps = [];
+  state.balls = [createBall()];
+  state.powerTimer = 0;
+  state.isRunning = false;
+  state.isGameOver = false;
+  state.isWin = false;
+  if (!keepScore) {
+    state.score = 0;
+  }
+  if (!keepLives) {
+    state.lives = 3;
+  }
+  statusElement.textContent = `Level ${levelIndex + 1}: ${state.levelName}. Press Start to launch.`;
+}
+
 function startGame() {
   if (state.isGameOver || state.isWin) {
     resetGame();
@@ -110,7 +194,11 @@ function startGame() {
       launchBall(ball, Math.random() > 0.5 ? 1 : -1);
     }
   }
-  statusElement.textContent = "Break the bricks and catch rare gold drops for extra balls.";
+  if (state.powerTimer > 0) {
+    statusElement.textContent = `Double Hit active. ${state.levelName} in progress.`;
+  } else {
+    statusElement.textContent = `${state.levelName} in progress. Gold adds balls, red adds double hit power.`;
+  }
   ensureAnimation();
 }
 
@@ -150,6 +238,14 @@ function update(deltaSeconds) {
   movePaddle(deltaSeconds);
   updateBalls(deltaSeconds);
   updatePowerUps(deltaSeconds);
+
+  if (state.powerTimer > 0) {
+    state.powerTimer = Math.max(0, state.powerTimer - deltaSeconds);
+    if (state.powerTimer === 0 && state.isRunning) {
+      statusElement.textContent = `${state.levelName} in progress. Double Hit expired.`;
+    }
+  }
+
   syncScoreboard();
 }
 
@@ -201,9 +297,7 @@ function updateBalls(deltaSeconds) {
   }
 
   if (state.bricks.every((brick) => brick.hitsRemaining <= 0)) {
-    state.isRunning = false;
-    state.isWin = true;
-    statusElement.textContent = "Board cleared. Restart to play another round.";
+    advanceLevel();
   }
 }
 
@@ -237,8 +331,9 @@ function handleBrickCollision(ball) {
       continue;
     }
 
-    brick.hitsRemaining -= 1;
-    state.score += 10;
+    const damage = state.powerTimer > 0 ? 2 : 1;
+    brick.hitsRemaining = Math.max(0, brick.hitsRemaining - damage);
+    state.score += 10 * damage;
 
     if (Math.abs(dx) > Math.abs(dy)) {
       ball.vx *= -1;
@@ -256,11 +351,21 @@ function handleBrickCollision(ball) {
 }
 
 function maybeDropPowerUp(brick) {
-  if (Math.random() > MULTI_BALL_DROP_RATE) {
+  const roll = Math.random();
+  let type = null;
+
+  if (roll < DOUBLE_HIT_DROP_RATE) {
+    type = "double-hit";
+  } else if (roll < DOUBLE_HIT_DROP_RATE + MULTI_BALL_DROP_RATE) {
+    type = "multi-ball";
+  }
+
+  if (!type) {
     return;
   }
 
   state.powerUps.push({
+    type,
     x: brick.x + brick.width / 2,
     y: brick.y + brick.height / 2,
     size: 12,
@@ -281,7 +386,11 @@ function updatePowerUps(deltaSeconds) {
       powerUp.y - powerUp.size <= paddle.y + paddle.height;
 
     if (caught) {
-      addExtraBall();
+      if (powerUp.type === "multi-ball") {
+        addExtraBall();
+      } else {
+        activateDoubleHit();
+      }
       return false;
     }
 
@@ -298,6 +407,11 @@ function addExtraBall() {
   statusElement.textContent = "Extra ball collected.";
 }
 
+function activateDoubleHit() {
+  state.powerTimer = DOUBLE_HIT_DURATION;
+  statusElement.textContent = "Double Hit activated for 20 seconds.";
+}
+
 function handleLifeLost() {
   state.lives -= 1;
 
@@ -310,18 +424,35 @@ function handleLifeLost() {
 
   state.balls = [createBall()];
   state.powerUps = [];
+  state.powerTimer = 0;
   state.isRunning = false;
   statusElement.textContent = `Life lost. ${state.lives} left. Press Start to relaunch.`;
+}
+
+function advanceLevel() {
+  state.isRunning = false;
+  state.powerUps = [];
+  state.powerTimer = 0;
+
+  if (state.levelIndex === LEVELS.length - 1) {
+    state.isWin = true;
+    statusElement.textContent = "All levels cleared. Restart to play again.";
+    return;
+  }
+
+  loadLevel(state.levelIndex + 1);
 }
 
 function syncScoreboard() {
   scoreElement.textContent = String(state.score);
   livesElement.textContent = String(state.lives);
+  levelElement.textContent = `${state.levelIndex + 1}`;
+  powerElement.textContent = state.powerTimer > 0 ? `${Math.ceil(state.powerTimer)}s` : "-";
 }
 
 function drawBall(ball) {
   context.beginPath();
-  context.fillStyle = "#8f6a4b";
+  context.fillStyle = state.powerTimer > 0 ? "#b0463c" : "#8f6a4b";
   context.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
   context.fill();
 }
@@ -342,17 +473,21 @@ function drawBricks() {
     context.strokeStyle = "rgba(36, 31, 22, 0.12)";
     context.strokeRect(brick.x, brick.y, brick.width, brick.height);
 
-    context.fillStyle = brick.hitsRemaining >= 4 ? "#fffaf2" : "#241f16";
+    context.fillStyle = brick.hitsRemaining >= 6 ? "#fffaf2" : "#241f16";
     context.font = "10px Avenir Next, sans-serif";
     context.textAlign = "center";
     context.textBaseline = "middle";
-    context.fillText(String(brick.hitsRemaining), brick.x + brick.width / 2, brick.y + brick.height / 2 + 0.5);
+    context.fillText(
+      String(brick.hitsRemaining),
+      brick.x + brick.width / 2,
+      brick.y + brick.height / 2 + 0.5,
+    );
   }
 }
 
 function drawPowerUps() {
   for (const powerUp of state.powerUps) {
-    context.fillStyle = "#c9a33d";
+    context.fillStyle = powerUp.type === "double-hit" ? "#c64b3f" : "#c9a33d";
     context.beginPath();
     context.arc(powerUp.x, powerUp.y, powerUp.size / 2, 0, Math.PI * 2);
     context.fill();
@@ -360,24 +495,30 @@ function drawPowerUps() {
     context.font = "9px Avenir Next, sans-serif";
     context.textAlign = "center";
     context.textBaseline = "middle";
-    context.fillText("+", powerUp.x, powerUp.y + 0.5);
+    context.fillText(powerUp.type === "double-hit" ? "2" : "+", powerUp.x, powerUp.y + 0.5);
   }
+}
+
+function drawLevelBanner() {
+  context.fillStyle = "rgba(36, 31, 22, 0.55)";
+  context.font = "11px Avenir Next, sans-serif";
+  context.textAlign = "left";
+  context.textBaseline = "top";
+  context.fillText(`Level ${state.levelIndex + 1}: ${state.levelName}`, 12, HEIGHT - 18);
 }
 
 function render() {
   context.clearRect(0, 0, WIDTH, HEIGHT);
-
   context.fillStyle = "#faf6ee";
   context.fillRect(0, 0, WIDTH, HEIGHT);
 
   drawBricks();
   drawPaddle();
   drawPowerUps();
-
   for (const ball of state.balls) {
     drawBall(ball);
   }
-
+  drawLevelBanner();
   syncScoreboard();
 }
 
