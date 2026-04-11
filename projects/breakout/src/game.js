@@ -2,6 +2,7 @@ const canvas = document.querySelector("#game-canvas");
 const context = canvas.getContext("2d");
 const scoreElement = document.querySelector("#score");
 const currencyElement = document.querySelector("#currency-score");
+const currentUsernameElement = document.querySelector("#current-username");
 const bestScoreElement = document.querySelector("#best-score");
 const livesElement = document.querySelector("#lives");
 const levelElement = document.querySelector("#level");
@@ -28,7 +29,7 @@ const shopLuckDetail = document.querySelector("#shop-luck-detail");
 
 const WIDTH = canvas.width;
 const HEIGHT = canvas.height;
-const PADDLE_WIDTH = 78;
+const PADDLE_WIDTH = 70;
 const PADDLE_HEIGHT = 10;
 const PADDLE_SPEED = 340;
 const BALL_RADIUS = 6;
@@ -39,15 +40,16 @@ const BRICK_HEIGHT = 14;
 const BRICK_PADDING = 4;
 const BRICK_OFFSET_LEFT = 14;
 const AMBIENT_DROP_INTERVAL = 3;
-const MULTI_BALL_DROP_RATE = 0.025;
-const DOUBLE_HIT_DROP_RATE = 0.01;
-const SAFETY_NET_DROP_RATE = 0.01;
-const LIGHTNING_DROP_RATE = 0.01;
-const DOUBLE_HIT_DURATION = 20;
+const MULTI_BALL_DROP_RATE = 0.01;
+const DOUBLE_HIT_DROP_RATE = 0.006;
+const SAFETY_NET_DROP_RATE = 0.004;
+const LIGHTNING_DROP_RATE = 0.004;
+const DOUBLE_HIT_DURATION = 10;
 const DOUBLE_HIT_EXTENSION = 5;
-const SAFETY_NET_DURATION = 25;
+const SAFETY_NET_DURATION = 5;
 const BOSS_WARNING_DURATION = 2.4;
 const PHASE_FLASH_DURATION = 1.3;
+const BOSS_TELEGRAPH_DURATION = 0.7;
 const BEST_SCORE_KEY = "breakout-best-score";
 const CURRENCY_KEY = "breakout-currency-score";
 const UNLOCKED_LEVEL_KEY = "breakout-unlocked-level";
@@ -55,15 +57,15 @@ const UPGRADE_STATE_KEY = "breakout-upgrades";
 const DAILY_PROGRESS_KEY = "breakout-daily-progress";
 const SAVE_PREFIX = "breakout-save-";
 const PADDLE_UPGRADE_COST = 3000;
-const POWER_UPGRADE_COST = 5000;
+const POWER_UPGRADE_COST = 10000;
 const LIFE_UPGRADE_COST = 5000;
 const MULTIBALL_SHOP_COST = 2000;
 const LUCK_UPGRADE_COST = 5000;
-const PADDLE_UPGRADE_CAP = 5;
-const POWER_UPGRADE_CAP = 5;
-const LUCK_UPGRADE_CAP = 4;
-const DAILY_BONUS_COINS = 1000;
-const COMBO_TARGET = 120;
+const PADDLE_UPGRADE_CAP = 10;
+const POWER_UPGRADE_CAP = 3;
+const LUCK_UPGRADE_CAP = 10;
+const DAILY_BONUS_COINS = 2000;
+const COMBO_TARGET = 50;
 const COMBO_BONUS_COINS = 500;
 
 const BRICK_COLORS = {
@@ -371,6 +373,7 @@ function createInitialState() {
     bossWarningSeen: false,
     bossWarningTimer: 0,
     bossPhase: 0,
+    bossAttackTimer: 0,
     phaseFlashTimer: 0,
     phaseFlashLabel: "",
     doubleHitLevel: 1,
@@ -387,6 +390,7 @@ function createInitialState() {
     lightningBalls: [],
     bricks: createBricks(LEVELS[0], 0),
     powerUps: [],
+    bossHazards: [],
     floatingTexts: [],
   };
 }
@@ -535,6 +539,7 @@ function serializeState() {
     isWin: state.isWin,
     bossWarningSeen: state.bossWarningSeen,
     bossPhase: state.bossPhase,
+    bossAttackTimer: state.bossAttackTimer,
     phaseFlashLabel: state.phaseFlashLabel,
     doubleHitLevel: state.doubleHitLevel,
     doubleHitTimer: state.doubleHitTimer,
@@ -545,10 +550,28 @@ function serializeState() {
     lightningBalls: structuredClone(state.lightningBalls),
     bricks: structuredClone(state.bricks),
     powerUps: structuredClone(state.powerUps),
+    bossHazards: structuredClone(state.bossHazards),
     floatingTexts: structuredClone(state.floatingTexts),
     bestScore: getBestScore(),
     dailyProgress: getDailyProgress(),
   };
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function setStatusMessage(message) {
+  statusElement.textContent = message;
+}
+
+function setStatusWithUsername(prefix, username, suffix = "") {
+  statusElement.innerHTML = `${escapeHtml(prefix)}<span class="username-highlight">${escapeHtml(username)}</span>${escapeHtml(suffix)}`;
 }
 
 function saveGame() {
@@ -557,10 +580,11 @@ function saveGame() {
     return;
   }
 
-  state.currentUsername = username.trim();
+  const trimmedUsername = username.trim();
+  state.currentUsername = trimmedUsername;
 
   const snapshot = {
-    username: username.trim(),
+    username: trimmedUsername,
     savedAt: new Date().toISOString(),
     data: serializeState(),
   };
@@ -571,7 +595,7 @@ function saveGame() {
   window.localStorage.setItem(BEST_SCORE_KEY, String(getBestScore()));
   window.localStorage.setItem(CURRENCY_KEY, String(state.currency));
   syncDailyChallenge();
-  statusElement.textContent = `Saved progress for ${username.trim()}.`;
+  setStatusWithUsername("Saved progress for ", trimmedUsername, ".");
   render();
 }
 
@@ -610,6 +634,7 @@ function restoreState(snapshot) {
   state.bossWarningSeen = Boolean(restored.bossWarningSeen);
   state.bossWarningTimer = 0;
   state.bossPhase = restored.bossPhase ?? 0;
+  state.bossAttackTimer = restored.bossAttackTimer ?? 0;
   state.phaseFlashTimer = 0;
   state.phaseFlashLabel = restored.phaseFlashLabel ?? "";
   state.doubleHitLevel = restored.doubleHitLevel ?? 1;
@@ -621,6 +646,7 @@ function restoreState(snapshot) {
   state.lightningBalls = structuredClone(restored.lightningBalls ?? []);
   state.bricks = structuredClone(restored.bricks ?? createBricks(getActiveLevel(), state.levelIndex));
   state.powerUps = structuredClone(restored.powerUps ?? []);
+  state.bossHazards = structuredClone(restored.bossHazards ?? []);
   state.floatingTexts = structuredClone(restored.floatingTexts ?? []);
 
   populateLevelSelect();
@@ -635,9 +661,11 @@ function loadGame() {
     return;
   }
 
+  const trimmedUsername = username.trim();
+
   const raw = window.localStorage.getItem(getSaveKey(username));
   if (!raw) {
-    statusElement.textContent = `No save found for ${username.trim()}.`;
+    setStatusWithUsername("No save found for ", trimmedUsername, ".");
     render();
     return;
   }
@@ -646,10 +674,10 @@ function loadGame() {
     const snapshot = JSON.parse(raw);
     stopAnimation();
     restoreState(snapshot);
-    statusElement.textContent = `Loaded ${snapshot.username}. Press Start to continue.`;
+    setStatusWithUsername("Loaded ", snapshot.username, ". Press Start to continue.");
     render();
   } catch {
-    statusElement.textContent = `Save data for ${username.trim()} is invalid.`;
+    setStatusWithUsername("Save data for ", trimmedUsername, " is invalid.");
     render();
   }
 }
@@ -664,7 +692,7 @@ function resetPersistentProgress() {
 
 function resetCurrentProfile() {
   if (!state.currentUsername) {
-    statusElement.textContent = "Load or save a username first, then reset that profile.";
+    setStatusMessage("Load or save a username first, then reset that profile.");
     render();
     return;
   }
@@ -679,7 +707,7 @@ function resetCurrentProfile() {
   const username = state.currentUsername;
   resetGame();
   state.currentUsername = username;
-  statusElement.textContent = `Reset progress for ${username}.`;
+  setStatusWithUsername("Reset progress for ", username, ".");
   render();
 }
 
@@ -767,8 +795,8 @@ function currentDamage() {
   return 1 + state.upgrades.powerLevels + temporaryBonus;
 }
 
-function currentDropBonus() {
-  return state.upgrades.luckLevels * 0.003;
+function currentDropMultiplier() {
+  return 1 + state.upgrades.luckLevels * 0.1;
 }
 
 function getScaledCost(baseCost, itemKey) {
@@ -897,7 +925,7 @@ function purchaseLuckUpgrade() {
 
   state.upgrades.luckLevels += 1;
   recordPurchase("luck");
-  statusElement.textContent = "Luck upgraded. All power-up drop rates increased by 0.003.";
+  statusElement.textContent = "Luck upgraded. All base drop rates increased by 10%.";
   render();
 }
 
@@ -945,6 +973,109 @@ function getBossConfig(levelIndex = null) {
   }
 
   return null;
+}
+
+function getBossAttackProfile() {
+  const bossConfig = getBossConfig();
+  if (!bossConfig) {
+    return null;
+  }
+
+  if (bossConfig.id === "warden-core") {
+    if (state.bossPhase >= 2) {
+      return {
+        kind: "meteor",
+        interval: 2.9,
+        count: 2,
+        speed: 210,
+        radius: 11,
+        spread: 210,
+      };
+    }
+
+    return {
+      kind: "meteor",
+      interval: 4.2,
+      count: 1,
+      speed: 180,
+      radius: 10,
+      spread: 0,
+    };
+  }
+
+  if (bossConfig.id === "crimson-sovereign") {
+    if (state.bossPhase >= 3) {
+      return {
+        kind: "ember",
+        interval: 2.1,
+        count: 4,
+        speed: 245,
+        radius: 11,
+        spread: 270,
+      };
+    }
+
+    if (state.bossPhase >= 2) {
+      return {
+        kind: "ember",
+        interval: 2.7,
+        count: 3,
+        speed: 220,
+        radius: 10,
+        spread: 220,
+      };
+    }
+
+    return {
+      kind: "ember",
+      interval: 3.4,
+      count: 2,
+      speed: 195,
+      radius: 9,
+      spread: 160,
+    };
+  }
+
+  return null;
+}
+
+function resetBossAttacks() {
+  state.bossAttackTimer = 0;
+  state.bossHazards = [];
+}
+
+function createBossHazard(profile, x) {
+  return {
+    kind: profile.kind,
+    x,
+    y: 20,
+    radius: profile.radius,
+    vy: profile.speed,
+    mode: "telegraph",
+    timer: BOSS_TELEGRAPH_DURATION,
+  };
+}
+
+function spawnBossAttack(profile) {
+  const centerX = state.paddle.x + state.paddle.width / 2;
+  const positions = [];
+
+  if (profile.count === 1) {
+    positions.push(clamp(centerX + (Math.random() - 0.5) * 90, 24, WIDTH - 24));
+  } else {
+    const leftEdge = centerX - profile.spread / 2;
+    const step = profile.count === 1 ? 0 : profile.spread / (profile.count - 1);
+    for (let index = 0; index < profile.count; index += 1) {
+      const jitter = (Math.random() - 0.5) * 28;
+      positions.push(clamp(leftEdge + step * index + jitter, 24, WIDTH - 24));
+    }
+  }
+
+  for (const x of positions) {
+    state.bossHazards.push(createBossHazard(profile, x));
+  }
+
+  state.bossAttackTimer = profile.interval;
 }
 
 function getBrickSpecial(levelIndex, row, col) {
@@ -1034,6 +1165,7 @@ function loadLevel(levelIndex, keepScore = true, keepLives = true) {
   state.bossWarningSeen = false;
   state.bossWarningTimer = 0;
   state.bossPhase = isBossLevel(levelIndex) ? 1 : 0;
+  resetBossAttacks();
   state.phaseFlashTimer = 0;
   state.phaseFlashLabel = "";
   state.doubleHitLevel = 1;
@@ -1072,6 +1204,7 @@ function loadDailyLevel(stageIndex, keepScore = false, keepLives = false) {
   state.bossWarningSeen = true;
   state.bossWarningTimer = 0;
   state.bossPhase = 0;
+  resetBossAttacks();
   state.phaseFlashTimer = 0;
   state.phaseFlashLabel = "";
   state.doubleHitLevel = 1;
@@ -1105,6 +1238,10 @@ function launchCurrentLevel() {
     if (!ball.isLaunched) {
       launchBall(ball, Math.random() > 0.5 ? 1 : -1);
     }
+  }
+  if (isBossLevel()) {
+    const attackProfile = getBossAttackProfile();
+    state.bossAttackTimer = attackProfile ? attackProfile.interval * 0.7 : 0;
   }
   statusElement.textContent = `${state.levelName} in progress. Gold adds balls, red adds double hit, green adds a safety net, blue adds lightning.`;
 }
@@ -1180,6 +1317,7 @@ function update(deltaSeconds) {
   updateBalls(deltaSeconds);
   updateLightningBalls(deltaSeconds);
   updatePowerUps(deltaSeconds);
+  updateBossAttacks(deltaSeconds);
   updateAmbientDrops(deltaSeconds);
   updateFloatingTexts(deltaSeconds);
 
@@ -1198,6 +1336,71 @@ function update(deltaSeconds) {
 
   syncScoreboard();
   updateBestScore();
+}
+
+function updateBossAttacks(deltaSeconds) {
+  const profile = getBossAttackProfile();
+  if (!profile || !state.isRunning) {
+    resetBossAttacks();
+    return;
+  }
+
+  state.bossAttackTimer -= deltaSeconds;
+  if (state.bossAttackTimer <= 0) {
+    spawnBossAttack(profile);
+  }
+
+  const nextHazards = [];
+
+  for (const hazard of state.bossHazards) {
+    if (hazard.mode === "telegraph") {
+      hazard.timer -= deltaSeconds;
+      if (hazard.timer <= 0) {
+        hazard.mode = "active";
+        hazard.y = 26;
+      }
+      nextHazards.push(hazard);
+      continue;
+    }
+
+    hazard.y += hazard.vy * deltaSeconds;
+
+    let destroyed = false;
+    for (const ball of state.balls) {
+      const dx = ball.x - hazard.x;
+      const dy = ball.y - hazard.y;
+      const collisionDistance = ball.radius + hazard.radius;
+      if (dx * dx + dy * dy > collisionDistance * collisionDistance) {
+        continue;
+      }
+
+      ball.vy = -Math.abs(ball.vy);
+      ball.vx += dx * 0.9;
+      destroyed = true;
+      spawnFloatingText(hazard.x, hazard.y - 12, "BLOCK");
+      break;
+    }
+
+    if (destroyed) {
+      continue;
+    }
+
+    const nearestX = clamp(hazard.x, state.paddle.x, state.paddle.x + state.paddle.width);
+    const nearestY = clamp(hazard.y, state.paddle.y, state.paddle.y + state.paddle.height);
+    const paddleDx = hazard.x - nearestX;
+    const paddleDy = hazard.y - nearestY;
+    if (paddleDx * paddleDx + paddleDy * paddleDy <= hazard.radius * hazard.radius) {
+      spawnFloatingText(hazard.x, state.paddle.y - 10, "HIT");
+      handleLifeLost();
+      return;
+    }
+
+    if (hazard.y - hazard.radius <= HEIGHT + 12) {
+      nextHazards.push(hazard);
+    }
+  }
+
+  state.bossHazards = nextHazards;
 }
 
 function movePaddle(deltaSeconds) {
@@ -1364,11 +1567,15 @@ function maybeSpawnPowerUp(x, y) {
   const roll = Math.random();
   let type = null;
 
-  const dropBonus = currentDropBonus();
-  const lightningThreshold = LIGHTNING_DROP_RATE + dropBonus;
-  const safetyThreshold = lightningThreshold + SAFETY_NET_DROP_RATE + dropBonus;
-  const doubleHitThreshold = safetyThreshold + DOUBLE_HIT_DROP_RATE + dropBonus;
-  const multiBallThreshold = doubleHitThreshold + MULTI_BALL_DROP_RATE + dropBonus;
+  const dropMultiplier = currentDropMultiplier();
+  const lightningRate = LIGHTNING_DROP_RATE * dropMultiplier;
+  const safetyRate = SAFETY_NET_DROP_RATE * dropMultiplier;
+  const doubleHitRate = DOUBLE_HIT_DROP_RATE * dropMultiplier;
+  const multiBallRate = MULTI_BALL_DROP_RATE * dropMultiplier;
+  const lightningThreshold = lightningRate;
+  const safetyThreshold = lightningThreshold + safetyRate;
+  const doubleHitThreshold = safetyThreshold + doubleHitRate;
+  const multiBallThreshold = doubleHitThreshold + multiBallRate;
 
   if (roll < lightningThreshold) {
     type = "lightning";
@@ -1587,6 +1794,7 @@ function updateBossPhase() {
 
   if (bossConfig.id === "warden-core" && state.bossPhase === 1 && armorRemaining <= bossConfig.exposeArmorCount) {
     state.bossPhase = 2;
+    state.bossAttackTimer = 0.8;
     triggerPhaseFlash("CORE EXPOSED");
     statusElement.textContent = "Warden Core armor shattered. Strike the weak core.";
     return;
@@ -1595,6 +1803,7 @@ function updateBossPhase() {
   if (bossConfig.id === "crimson-sovereign") {
     if (state.bossPhase === 1 && armorRemaining <= bossConfig.exposeConduitsArmorCount) {
       state.bossPhase = 2;
+      state.bossAttackTimer = 0.7;
       triggerPhaseFlash("CHANNELS OPEN");
       statusElement.textContent = "Crimson Sovereign opens its conduits. Break them to reach the core.";
       return;
@@ -1602,6 +1811,7 @@ function updateBossPhase() {
 
     if (state.bossPhase === 2 && conduitRemaining === 0) {
       state.bossPhase = 3;
+      state.bossAttackTimer = 0.6;
       triggerPhaseFlash("WEAK CORE");
       statusElement.textContent = "Crimson Sovereign core exposed. Finish it now.";
     }
@@ -1620,6 +1830,7 @@ function handleLifeLost() {
     state.isRunning = false;
     state.isPaused = false;
     state.isBossWarning = false;
+    resetBossAttacks();
     state.isGameOver = true;
     statusElement.textContent =
       state.mode === "daily" ? "Daily attempt failed. Restart to try today's seed again." : "Game over. Restart to try again.";
@@ -1632,6 +1843,7 @@ function handleLifeLost() {
   state.floatingTexts = [];
   state.isBossWarning = false;
   state.bossWarningTimer = 0;
+  resetBossAttacks();
   state.doubleHitLevel = 1;
   state.doubleHitTimer = 0;
   state.safetyNetTimer = 0;
@@ -1648,6 +1860,7 @@ function advanceLevel() {
     state.isBossWarning = false;
     state.powerUps = [];
     state.lightningBalls = [];
+    resetBossAttacks();
     state.bossWarningTimer = 0;
     state.doubleHitLevel = 1;
     state.doubleHitTimer = 0;
@@ -1684,6 +1897,7 @@ function advanceLevel() {
   state.powerUps = [];
   state.lightningBalls = [];
   state.floatingTexts = [];
+  resetBossAttacks();
   state.bossWarningTimer = 0;
   state.doubleHitLevel = 1;
   state.doubleHitTimer = 0;
@@ -1716,6 +1930,7 @@ function currentPowerLabel() {
 function syncScoreboard() {
   scoreElement.textContent = String(state.score);
   currencyElement.textContent = String(state.currency);
+  currentUsernameElement.textContent = state.currentUsername ?? "Guest";
   bestScoreElement.textContent = String(getBestScore());
   livesElement.textContent = String(state.lives);
   levelElement.textContent = state.mode === "daily" ? `D${state.dailyStage + 1}` : `${state.levelIndex + 1}`;
@@ -1725,9 +1940,19 @@ function syncScoreboard() {
 function updateDailyStatus() {
   const cleared = state.dailyChallenge.clearedStages;
   const reward = state.dailyChallenge.rewardClaimed ? "bonus claimed" : "bonus pending";
+  const rewardClass = state.dailyChallenge.rewardClaimed
+    ? "daily-status-reward-claimed"
+    : "daily-status-reward-pending";
   const stageLabel =
     state.mode === "daily" ? `playing ${state.dailyStage + 1}/2` : `best ${cleared}/2 cleared`;
-  dailyStatusElement.textContent = `Daily Challenge ${state.dailyChallenge.dayKey}: ${stageLabel}, ${reward}.`;
+  dailyStatusElement.innerHTML = [
+    '<span class="daily-status-label">Daily Challenge</span>',
+    `<span class="daily-status-date">${escapeHtml(state.dailyChallenge.dayKey)}</span>`,
+    '<span class="daily-status-separator">:</span>',
+    `<span class="daily-status-progress">${escapeHtml(stageLabel)}</span>`,
+    '<span class="daily-status-separator">,</span>',
+    `<span class="${rewardClass}">${escapeHtml(reward)}</span>.`,
+  ].join(" ");
 }
 
 function renderShop() {
@@ -1747,7 +1972,7 @@ function renderShop() {
   shopPowerDetail.textContent = `Lv ${state.upgrades.powerLevels}/${POWER_UPGRADE_CAP} • total damage ${1 + state.upgrades.powerLevels}`;
   shopLifeDetail.textContent = `Add one life immediately • current ${state.lives}`;
   shopMultiballDetail.textContent = `Add one launched ball immediately • active ${state.balls.length}`;
-  shopLuckDetail.textContent = `Lv ${state.upgrades.luckLevels}/${LUCK_UPGRADE_CAP} • total drop bonus +${currentDropBonus().toFixed(3)}`;
+  shopLuckDetail.textContent = `Lv ${state.upgrades.luckLevels}/${LUCK_UPGRADE_CAP} • +${Math.round((currentDropMultiplier() - 1) * 100)}% of base drop rates`;
 
   buyPaddleButton.disabled =
     state.currency < paddleCost || state.upgrades.paddleLevels >= PADDLE_UPGRADE_CAP;
@@ -1896,6 +2121,36 @@ function drawLightningBalls() {
   }
 }
 
+function drawBossHazards() {
+  for (const hazard of state.bossHazards) {
+    if (hazard.mode === "telegraph") {
+      context.strokeStyle =
+        hazard.kind === "ember" ? "rgba(194, 58, 50, 0.5)" : "rgba(91, 129, 176, 0.48)";
+      context.lineWidth = 2;
+      context.beginPath();
+      context.moveTo(hazard.x, 12);
+      context.lineTo(hazard.x, HEIGHT - 20);
+      context.stroke();
+
+      context.fillStyle =
+        hazard.kind === "ember" ? "rgba(194, 58, 50, 0.72)" : "rgba(91, 129, 176, 0.72)";
+      context.beginPath();
+      context.arc(hazard.x, 20, hazard.radius * 0.75, 0, Math.PI * 2);
+      context.fill();
+      continue;
+    }
+
+    context.fillStyle = hazard.kind === "ember" ? "#c23a32" : "#5b81b0";
+    context.beginPath();
+    context.arc(hazard.x, hazard.y, hazard.radius, 0, Math.PI * 2);
+    context.fill();
+
+    context.strokeStyle = "rgba(255, 244, 241, 0.75)";
+    context.lineWidth = 1.4;
+    context.stroke();
+  }
+}
+
 function drawFloatingTexts() {
   for (const floatingText of state.floatingTexts) {
     const alpha = Math.min(1, floatingText.ttl / 1.2);
@@ -1926,6 +2181,7 @@ function render() {
   drawPaddle();
   drawSafetyNet();
   drawPowerUps();
+  drawBossHazards();
   drawLightningBalls();
   for (const ball of state.balls) {
     drawBall(ball);

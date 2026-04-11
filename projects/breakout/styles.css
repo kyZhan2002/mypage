@@ -148,6 +148,35 @@ h1 {
   padding: 0;
 }
 
+.daily-status-label {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.daily-status-date {
+  color: #1f64c8;
+  font-weight: 700;
+}
+
+.daily-status-progress {
+  color: #8b5a2b;
+  font-weight: 700;
+}
+
+.daily-status-reward-pending {
+  color: #b46d3c;
+  font-weight: 700;
+}
+
+.daily-status-reward-claimed {
+  color: #2f7d48;
+  font-weight: 700;
+}
+
+.daily-status-separator {
+  color: var(--muted);
+}
+
 .actions {
   display: flex;
   gap: 6px;
@@ -272,6 +301,19 @@ select:hover {
   color: var(--muted);
   font-size: 0.8rem;
   line-height: 1.35;
+}
+
+.wallet-user {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.3;
+}
+
+.wallet-user span,
+.username-highlight {
+  color: #1f64c8;
+  font-weight: 700;
 }
 
 .wallet-actions {
