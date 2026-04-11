@@ -22,12 +22,14 @@ const buyLifeButton = document.querySelector("#buy-life");
 const buyMultiballButton = document.querySelector("#buy-multiball");
 const buyLuckButton = document.querySelector("#buy-luck");
 const buyLightningButton = document.querySelector("#buy-lightning");
+const buyNetButton = document.querySelector("#buy-net");
 const shopPaddleDetail = document.querySelector("#shop-paddle-detail");
 const shopPowerDetail = document.querySelector("#shop-power-detail");
 const shopLifeDetail = document.querySelector("#shop-life-detail");
 const shopMultiballDetail = document.querySelector("#shop-multiball-detail");
 const shopLuckDetail = document.querySelector("#shop-luck-detail");
 const shopLightningDetail = document.querySelector("#shop-lightning-detail");
+const shopNetDetail = document.querySelector("#shop-net-detail");
 
 const WIDTH = canvas.width;
 const HEIGHT = canvas.height;
@@ -48,7 +50,6 @@ const SAFETY_NET_DROP_RATE = 0.006;
 const LIGHTNING_DROP_RATE = 0.006;
 const DOUBLE_HIT_DURATION = 10;
 const DOUBLE_HIT_EXTENSION = 5;
-const SAFETY_NET_DURATION = 5;
 const BOSS_WARNING_DURATION = 2.4;
 const PHASE_FLASH_DURATION = 1.3;
 const BOSS_TELEGRAPH_DURATION = 0.7;
@@ -64,15 +65,19 @@ const LIFE_UPGRADE_COST = 5000;
 const MULTIBALL_SHOP_COST = 2000;
 const LUCK_UPGRADE_COST = 5000;
 const LIGHTNING_UPGRADE_COST = 3000;
+const NET_UPGRADE_COST = 3000;
 const PADDLE_UPGRADE_CAP = 10;
 const POWER_UPGRADE_CAP = 3;
 const LUCK_UPGRADE_CAP = 10;
 const LIGHTNING_UPGRADE_CAP = 10;
+const NET_UPGRADE_CAP = 7;
 const DAILY_BONUS_COINS = 2000;
 const COMBO_TARGET = 50;
 const COMBO_BONUS_COINS = 500;
 const BASE_LIGHTNING_BALL_COUNT = 15;
 const LIGHTNING_BALLS_PER_LEVEL = 10;
+const BASE_SAFETY_NET_CHARGES = 3;
+const SAFETY_NET_CHARGES_PER_LEVEL = 1;
 
 const BRICK_COLORS = {
   1: "#eee4cf",
@@ -384,7 +389,7 @@ function createInitialState() {
     phaseFlashLabel: "",
     doubleHitLevel: 1,
     doubleHitTimer: 0,
-    safetyNetTimer: 0,
+    safetyNetCharges: 0,
     ambientDropTimer: 0,
     paddle: {
       x: (WIDTH - getPaddleWidth(upgrades)) / 2,
@@ -396,8 +401,23 @@ function createInitialState() {
     lightningBalls: [],
     bricks: createBricks(LEVELS[0], 0),
     powerUps: [],
+    movingBarrier: createMovingBarrier(0, "campaign"),
     bossHazards: [],
     floatingTexts: [],
+  };
+}
+
+function createMovingBarrier(levelIndex, mode = state.mode) {
+  if (mode !== "campaign" || (levelIndex + 1) % 3 !== 0) {
+    return null;
+  }
+
+  return {
+    x: WIDTH / 2 - 56,
+    y: Math.round(HEIGHT * 0.48),
+    width: 112,
+    height: 10,
+    vx: 120,
   };
 }
 
@@ -549,13 +569,14 @@ function serializeState() {
     phaseFlashLabel: state.phaseFlashLabel,
     doubleHitLevel: state.doubleHitLevel,
     doubleHitTimer: state.doubleHitTimer,
-    safetyNetTimer: state.safetyNetTimer,
+    safetyNetCharges: state.safetyNetCharges,
     ambientDropTimer: state.ambientDropTimer,
     paddle: structuredClone(state.paddle),
     balls: structuredClone(state.balls),
     lightningBalls: structuredClone(state.lightningBalls),
     bricks: structuredClone(state.bricks),
     powerUps: structuredClone(state.powerUps),
+    movingBarrier: structuredClone(state.movingBarrier),
     bossHazards: structuredClone(state.bossHazards),
     floatingTexts: structuredClone(state.floatingTexts),
     bestScore: getBestScore(),
@@ -628,7 +649,8 @@ function restoreState(snapshot) {
       powerLevels: 0,
       luckLevels: 0,
       lightningLevels: 0,
-      purchaseCounts: { paddle: 0, power: 0, life: 0, multiball: 0, luck: 0, lightning: 0 },
+      netLevels: 0,
+      purchaseCounts: { paddle: 0, power: 0, life: 0, multiball: 0, luck: 0, lightning: 0, net: 0 },
     },
   );
   state.dailyChallenge = structuredClone(restored.dailyChallenge ?? buildDailyChallenge());
@@ -646,13 +668,16 @@ function restoreState(snapshot) {
   state.phaseFlashLabel = restored.phaseFlashLabel ?? "";
   state.doubleHitLevel = restored.doubleHitLevel ?? 1;
   state.doubleHitTimer = restored.doubleHitTimer ?? 0;
-  state.safetyNetTimer = restored.safetyNetTimer ?? 0;
+  state.safetyNetCharges = restored.safetyNetCharges ?? 0;
   state.ambientDropTimer = restored.ambientDropTimer ?? 0;
   state.paddle = structuredClone(restored.paddle ?? createInitialState().paddle);
   state.balls = structuredClone(restored.balls ?? [createBall()]);
   state.lightningBalls = structuredClone(restored.lightningBalls ?? []);
   state.bricks = structuredClone(restored.bricks ?? createBricks(getActiveLevel(), state.levelIndex));
   state.powerUps = structuredClone(restored.powerUps ?? []);
+  state.movingBarrier = structuredClone(
+    restored.movingBarrier ?? createMovingBarrier(state.levelIndex, restored.mode ?? "campaign"),
+  );
   state.bossHazards = structuredClone(restored.bossHazards ?? []);
   state.floatingTexts = structuredClone(restored.floatingTexts ?? []);
 
@@ -751,7 +776,8 @@ function getUpgradeState() {
       powerLevels: 0,
       luckLevels: 0,
       lightningLevels: 0,
-      purchaseCounts: { paddle: 0, power: 0, life: 0, multiball: 0, luck: 0, lightning: 0 },
+      netLevels: 0,
+      purchaseCounts: { paddle: 0, power: 0, life: 0, multiball: 0, luck: 0, lightning: 0, net: 0 },
     };
   }
 
@@ -762,6 +788,7 @@ function getUpgradeState() {
       powerLevels: Number(parsed.powerLevels) || 0,
       luckLevels: Number(parsed.luckLevels) || 0,
       lightningLevels: Number(parsed.lightningLevels) || 0,
+      netLevels: Number(parsed.netLevels) || 0,
       purchaseCounts: {
         paddle: Number(parsed.purchaseCounts?.paddle) || 0,
         power: Number(parsed.purchaseCounts?.power) || 0,
@@ -769,6 +796,7 @@ function getUpgradeState() {
         multiball: Number(parsed.purchaseCounts?.multiball) || 0,
         luck: Number(parsed.purchaseCounts?.luck) || 0,
         lightning: Number(parsed.purchaseCounts?.lightning) || 0,
+        net: Number(parsed.purchaseCounts?.net) || 0,
       },
     };
   } catch {
@@ -777,7 +805,8 @@ function getUpgradeState() {
       powerLevels: 0,
       luckLevels: 0,
       lightningLevels: 0,
-      purchaseCounts: { paddle: 0, power: 0, life: 0, multiball: 0, luck: 0, lightning: 0 },
+      netLevels: 0,
+      purchaseCounts: { paddle: 0, power: 0, life: 0, multiball: 0, luck: 0, lightning: 0, net: 0 },
     };
   }
 }
@@ -807,11 +836,19 @@ function currentDamage() {
 }
 
 function currentDropMultiplier() {
-  return 1 + state.upgrades.luckLevels * 0.1;
+  return 1 + state.upgrades.luckLevels * 0.15;
+}
+
+function currentLightningDropMultiplier() {
+  return 1 + state.upgrades.lightningLevels * 0.25;
 }
 
 function currentLightningBallCount() {
   return BASE_LIGHTNING_BALL_COUNT + state.upgrades.lightningLevels * LIGHTNING_BALLS_PER_LEVEL;
+}
+
+function currentSafetyNetCapacity() {
+  return BASE_SAFETY_NET_CHARGES + state.upgrades.netLevels * SAFETY_NET_CHARGES_PER_LEVEL;
 }
 
 function getScaledCost(baseCost, itemKey) {
@@ -904,7 +941,7 @@ function purchaseLife() {
     state.floatingTexts = [];
     state.doubleHitLevel = 1;
     state.doubleHitTimer = 0;
-    state.safetyNetTimer = 0;
+    state.safetyNetCharges = 0;
     statusElement.textContent = "Extra life purchased. Press Start to relaunch.";
   } else {
     statusElement.textContent = `Extra life purchased. Lives: ${state.lives}.`;
@@ -940,7 +977,7 @@ function purchaseLuckUpgrade() {
 
   state.upgrades.luckLevels += 1;
   recordPurchase("luck");
-  statusElement.textContent = "Luck upgraded. All base drop rates increased by 10%.";
+  statusElement.textContent = "Luck upgraded. All base drop rates increased by 15%.";
   render();
 }
 
@@ -958,7 +995,25 @@ function purchaseLightningUpgrade() {
 
   state.upgrades.lightningLevels += 1;
   recordPurchase("lightning");
-  statusElement.textContent = "Lightning volley upgraded. Future lightning power-ups release 10 more bolts.";
+  statusElement.textContent = "Lightning upgraded. Future lightning drops release 10 more bolts and get +25% base drop rate.";
+  render();
+}
+
+function purchaseNetUpgrade() {
+  if (state.upgrades.netLevels >= NET_UPGRADE_CAP) {
+    statusElement.textContent = "Safety net capacity is already at max level.";
+    render();
+    return;
+  }
+
+  const cost = getScaledCost(NET_UPGRADE_COST, "net");
+  if (!spendCurrency(cost)) {
+    return;
+  }
+
+  state.upgrades.netLevels += 1;
+  recordPurchase("net");
+  statusElement.textContent = "Safety net upgraded. Future activations can catch 1 more ball.";
   render();
 }
 
@@ -1201,6 +1256,7 @@ function loadLevel(levelIndex, keepScore = true, keepLives = true, carriedBallCo
   state.powerUps = [];
   state.balls = createBallRack(carriedBallCount);
   state.lightningBalls = [];
+  state.movingBarrier = createMovingBarrier(levelIndex, "campaign");
   state.floatingTexts = [];
   state.isBossWarning = false;
   state.bossWarningSeen = false;
@@ -1211,7 +1267,7 @@ function loadLevel(levelIndex, keepScore = true, keepLives = true, carriedBallCo
   state.phaseFlashLabel = "";
   state.doubleHitLevel = 1;
   state.doubleHitTimer = 0;
-  state.safetyNetTimer = 0;
+  state.safetyNetCharges = 0;
   state.ambientDropTimer = 0;
   state.paddle.width = getPaddleWidth();
   state.paddle.x = (WIDTH - state.paddle.width) / 2;
@@ -1240,6 +1296,7 @@ function loadDailyLevel(stageIndex, keepScore = false, keepLives = false, carrie
   state.powerUps = [];
   state.balls = createBallRack(carriedBallCount);
   state.lightningBalls = [];
+  state.movingBarrier = null;
   state.floatingTexts = [];
   state.isBossWarning = false;
   state.bossWarningSeen = true;
@@ -1250,7 +1307,7 @@ function loadDailyLevel(stageIndex, keepScore = false, keepLives = false, carrie
   state.phaseFlashLabel = "";
   state.doubleHitLevel = 1;
   state.doubleHitTimer = 0;
-  state.safetyNetTimer = 0;
+  state.safetyNetCharges = 0;
   state.ambientDropTimer = 0;
   state.paddle.width = getPaddleWidth();
   state.paddle.x = (WIDTH - state.paddle.width) / 2;
@@ -1355,6 +1412,7 @@ function updateBossWarning(deltaSeconds) {
 
 function update(deltaSeconds) {
   movePaddle(deltaSeconds);
+  updateMovingBarrier(deltaSeconds);
   updateBalls(deltaSeconds);
   updateLightningBalls(deltaSeconds);
   updatePowerUps(deltaSeconds);
@@ -1371,12 +1429,27 @@ function update(deltaSeconds) {
       state.doubleHitLevel = 1;
     }
   }
-  if (state.safetyNetTimer > 0) {
-    state.safetyNetTimer = Math.max(0, state.safetyNetTimer - deltaSeconds);
-  }
-
   syncScoreboard();
   updateBestScore();
+}
+
+function updateMovingBarrier(deltaSeconds) {
+  if (!state.movingBarrier || !state.isRunning) {
+    return;
+  }
+
+  state.movingBarrier.x += state.movingBarrier.vx * deltaSeconds;
+
+  if (state.movingBarrier.x <= 0) {
+    state.movingBarrier.x = 0;
+    state.movingBarrier.vx = Math.abs(state.movingBarrier.vx);
+  }
+
+  const maxX = WIDTH - state.movingBarrier.width;
+  if (state.movingBarrier.x >= maxX) {
+    state.movingBarrier.x = maxX;
+    state.movingBarrier.vx = -Math.abs(state.movingBarrier.vx);
+  }
 }
 
 function updateBossAttacks(deltaSeconds) {
@@ -1483,6 +1556,7 @@ function updateBalls(deltaSeconds) {
     }
 
     handlePaddleCollision(ball);
+    handleMovingBarrierCollision(ball);
     handleBrickCollision(ball);
     handleSafetyNet(ball);
   }
@@ -1495,6 +1569,30 @@ function updateBalls(deltaSeconds) {
 
   if (state.bricks.every((brick) => brick.hitsRemaining <= 0)) {
     advanceLevel();
+  }
+}
+
+function handleMovingBarrierCollision(ball) {
+  const barrier = state.movingBarrier;
+  if (!barrier) {
+    return;
+  }
+
+  const nearestX = clamp(ball.x, barrier.x, barrier.x + barrier.width);
+  const nearestY = clamp(ball.y, barrier.y, barrier.y + barrier.height);
+  const dx = ball.x - nearestX;
+  const dy = ball.y - nearestY;
+
+  if (dx * dx + dy * dy > ball.radius * ball.radius) {
+    return;
+  }
+
+  bounceBallFromBrick(ball, dx, dy);
+  if (Math.abs(dy) >= Math.abs(dx)) {
+    ball.y = ball.vy < 0 ? barrier.y - ball.radius - 1 : barrier.y + barrier.height + ball.radius + 1;
+  } else {
+    ball.x =
+      ball.vx < 0 ? barrier.x - ball.radius - 1 : barrier.x + barrier.width + ball.radius + 1;
   }
 }
 
@@ -1587,7 +1685,7 @@ function canDamageBrick(brick) {
 }
 
 function handleSafetyNet(ball) {
-  if (state.safetyNetTimer <= 0 || ball.vy <= 0) {
+  if (state.safetyNetCharges <= 0 || ball.vy <= 0) {
     return;
   }
 
@@ -1598,6 +1696,11 @@ function handleSafetyNet(ball) {
     if (Math.abs(ball.vx) < 36) {
       ball.vx = ball.vx >= 0 ? 36 : -36;
     }
+    state.safetyNetCharges = Math.max(0, state.safetyNetCharges - 1);
+    statusElement.textContent =
+      state.safetyNetCharges > 0
+        ? `Safety net saved the ball. ${state.safetyNetCharges} catches left.`
+        : "Safety net is exhausted.";
   }
 }
 
@@ -1610,7 +1713,7 @@ function maybeSpawnPowerUp(x, y) {
   let type = null;
 
   const dropMultiplier = currentDropMultiplier();
-  const lightningRate = LIGHTNING_DROP_RATE * dropMultiplier;
+  const lightningRate = LIGHTNING_DROP_RATE * dropMultiplier * currentLightningDropMultiplier();
   const safetyRate = SAFETY_NET_DROP_RATE * dropMultiplier;
   const doubleHitRate = DOUBLE_HIT_DROP_RATE * dropMultiplier;
   const multiBallRate = MULTI_BALL_DROP_RATE * dropMultiplier;
@@ -1742,8 +1845,8 @@ function activateDoubleHit() {
 }
 
 function activateSafetyNet() {
-  state.safetyNetTimer = SAFETY_NET_DURATION;
-  statusElement.textContent = "Safety net activated for 5 seconds.";
+  state.safetyNetCharges = currentSafetyNetCapacity();
+  statusElement.textContent = `Safety net activated with ${state.safetyNetCharges} catches.`;
 }
 
 function activateLightningVolley() {
@@ -1779,6 +1882,11 @@ function updateLightningBalls(deltaSeconds) {
       continue;
     }
 
+    if (handleLightningBarrierCollision(ball)) {
+      nextLightningBalls.push(ball);
+      continue;
+    }
+
     if (handleLightningBrickCollision(ball)) {
       continue;
     }
@@ -1787,6 +1895,31 @@ function updateLightningBalls(deltaSeconds) {
   }
 
   state.lightningBalls = nextLightningBalls;
+}
+
+function handleLightningBarrierCollision(ball) {
+  const barrier = state.movingBarrier;
+  if (!barrier) {
+    return false;
+  }
+
+  const nearestX = clamp(ball.x, barrier.x, barrier.x + barrier.width);
+  const nearestY = clamp(ball.y, barrier.y, barrier.y + barrier.height);
+  const dx = ball.x - nearestX;
+  const dy = ball.y - nearestY;
+
+  if (dx * dx + dy * dy > ball.radius * ball.radius) {
+    return false;
+  }
+
+  bounceBallFromBrick(ball, dx, dy);
+  if (Math.abs(dy) >= Math.abs(dx)) {
+    ball.y = ball.vy < 0 ? barrier.y - ball.radius - 1 : barrier.y + barrier.height + ball.radius + 1;
+  } else {
+    ball.x =
+      ball.vx < 0 ? barrier.x - ball.radius - 1 : barrier.x + barrier.width + ball.radius + 1;
+  }
+  return true;
 }
 
 function handleLightningBrickCollision(ball) {
@@ -1889,7 +2022,7 @@ function handleLifeLost() {
   resetBossAttacks();
   state.doubleHitLevel = 1;
   state.doubleHitTimer = 0;
-  state.safetyNetTimer = 0;
+  state.safetyNetCharges = 0;
   state.ambientDropTimer = 0;
   state.isRunning = false;
   state.isPaused = false;
@@ -1909,7 +2042,7 @@ function advanceLevel() {
     state.bossWarningTimer = 0;
     state.doubleHitLevel = 1;
     state.doubleHitTimer = 0;
-    state.safetyNetTimer = 0;
+    state.safetyNetCharges = 0;
     state.ambientDropTimer = 0;
     state.dailyChallenge.clearedStages = Math.max(state.dailyChallenge.clearedStages, state.dailyStage + 1);
 
@@ -1946,7 +2079,7 @@ function advanceLevel() {
   state.bossWarningTimer = 0;
   state.doubleHitLevel = 1;
   state.doubleHitTimer = 0;
-  state.safetyNetTimer = 0;
+  state.safetyNetCharges = 0;
   state.ambientDropTimer = 0;
 
   if (state.levelIndex === LEVELS.length - 1) {
@@ -1966,8 +2099,8 @@ function currentPowerLabel() {
   if (state.doubleHitTimer > 0) {
     labels.push(`${state.doubleHitLevel}x ${Math.ceil(state.doubleHitTimer)}s`);
   }
-  if (state.safetyNetTimer > 0) {
-    labels.push(`Net ${Math.ceil(state.safetyNetTimer)}s`);
+  if (state.safetyNetCharges > 0) {
+    labels.push(`Net ${state.safetyNetCharges}`);
   }
   return labels.length > 0 ? labels.join(" / ") : "-";
 }
@@ -2007,6 +2140,7 @@ function renderShop() {
   const multiballCost = getScaledCost(MULTIBALL_SHOP_COST, "multiball");
   const luckCost = getScaledCost(LUCK_UPGRADE_COST, "luck");
   const lightningCost = getScaledCost(LIGHTNING_UPGRADE_COST, "lightning");
+  const netCost = getScaledCost(NET_UPGRADE_COST, "net");
 
   buyPaddleButton.querySelector(".shop-cost").textContent = String(paddleCost);
   buyPowerButton.querySelector(".shop-cost").textContent = String(powerCost);
@@ -2014,13 +2148,15 @@ function renderShop() {
   buyMultiballButton.querySelector(".shop-cost").textContent = String(multiballCost);
   buyLuckButton.querySelector(".shop-cost").textContent = String(luckCost);
   buyLightningButton.querySelector(".shop-cost").textContent = String(lightningCost);
+  buyNetButton.querySelector(".shop-cost").textContent = String(netCost);
 
   shopPaddleDetail.textContent = `Lv ${state.upgrades.paddleLevels}/${PADDLE_UPGRADE_CAP} • +10% permanent length`;
   shopPowerDetail.textContent = `Lv ${state.upgrades.powerLevels}/${POWER_UPGRADE_CAP} • total damage ${1 + state.upgrades.powerLevels}`;
   shopLifeDetail.textContent = `Add one life immediately • current ${state.lives}`;
   shopMultiballDetail.textContent = `Add one launched ball immediately • active ${state.balls.length}`;
-  shopLuckDetail.textContent = `Lv ${state.upgrades.luckLevels}/${LUCK_UPGRADE_CAP} • +${Math.round((currentDropMultiplier() - 1) * 100)}% of base drop rates`;
-  shopLightningDetail.textContent = `Lv ${state.upgrades.lightningLevels}/${LIGHTNING_UPGRADE_CAP} • volley ${currentLightningBallCount()} balls`;
+  shopLuckDetail.textContent = `Lv ${state.upgrades.luckLevels}/${LUCK_UPGRADE_CAP} • +${Math.round(state.upgrades.luckLevels * 15)}% of base drop rates`;
+  shopLightningDetail.textContent = `Lv ${state.upgrades.lightningLevels}/${LIGHTNING_UPGRADE_CAP} • volley ${currentLightningBallCount()} balls • +${Math.round((currentLightningDropMultiplier() - 1) * 100)}% lightning drop`;
+  shopNetDetail.textContent = `Lv ${state.upgrades.netLevels}/${NET_UPGRADE_CAP} • catches ${currentSafetyNetCapacity()}`;
 
   buyPaddleButton.disabled =
     state.currency < paddleCost || state.upgrades.paddleLevels >= PADDLE_UPGRADE_CAP;
@@ -2032,6 +2168,8 @@ function renderShop() {
     state.currency < luckCost || state.upgrades.luckLevels >= LUCK_UPGRADE_CAP;
   buyLightningButton.disabled =
     state.currency < lightningCost || state.upgrades.lightningLevels >= LIGHTNING_UPGRADE_CAP;
+  buyNetButton.disabled =
+    state.currency < netCost || state.upgrades.netLevels >= NET_UPGRADE_CAP;
 }
 
 function drawBall(ball) {
@@ -2047,12 +2185,34 @@ function drawPaddle() {
 }
 
 function drawSafetyNet() {
-  if (state.safetyNetTimer <= 0) {
+  if (state.safetyNetCharges <= 0) {
     return;
   }
 
   context.fillStyle = "rgba(72, 141, 87, 0.9)";
   context.fillRect(0, HEIGHT - 6, WIDTH, 6);
+}
+
+function drawMovingBarrier() {
+  if (!state.movingBarrier) {
+    return;
+  }
+
+  context.fillStyle = "#6d6458";
+  context.fillRect(
+    state.movingBarrier.x,
+    state.movingBarrier.y,
+    state.movingBarrier.width,
+    state.movingBarrier.height,
+  );
+  context.strokeStyle = "rgba(255, 248, 235, 0.7)";
+  context.lineWidth = 1.4;
+  context.strokeRect(
+    state.movingBarrier.x,
+    state.movingBarrier.y,
+    state.movingBarrier.width,
+    state.movingBarrier.height,
+  );
 }
 
 function drawBricks() {
@@ -2228,6 +2388,7 @@ function render() {
   context.fillRect(0, 0, WIDTH, HEIGHT);
 
   drawBricks();
+  drawMovingBarrier();
   drawPaddle();
   drawSafetyNet();
   drawPowerUps();
@@ -2408,6 +2569,10 @@ buyLuckButton.addEventListener("click", () => {
 
 buyLightningButton.addEventListener("click", () => {
   purchaseLightningUpgrade();
+});
+
+buyNetButton.addEventListener("click", () => {
+  purchaseNetUpgrade();
 });
 
 populateLevelSelect();
