@@ -43,9 +43,9 @@ const BRICK_PADDING = 4;
 const BRICK_OFFSET_LEFT = 14;
 const AMBIENT_DROP_INTERVAL = 3;
 const MULTI_BALL_DROP_RATE = 0.01;
-const DOUBLE_HIT_DROP_RATE = 0.006;
-const SAFETY_NET_DROP_RATE = 0.004;
-const LIGHTNING_DROP_RATE = 0.004;
+const DOUBLE_HIT_DROP_RATE = 0.008;
+const SAFETY_NET_DROP_RATE = 0.006;
+const LIGHTNING_DROP_RATE = 0.006;
 const DOUBLE_HIT_DURATION = 10;
 const DOUBLE_HIT_EXTENSION = 5;
 const SAFETY_NET_DURATION = 5;
@@ -1127,7 +1127,7 @@ function getBrickSpecial(levelIndex, row, col) {
   return "boss-armor";
 }
 
-function createBall() {
+function createBall(parkedOffset = 0) {
   return {
     x: WIDTH / 2,
     y: HEIGHT - 44,
@@ -1136,7 +1136,15 @@ function createBall() {
     radius: BALL_RADIUS,
     isLaunched: false,
     streak: 0,
+    parkedOffset,
   };
+}
+
+function createBallRack(count) {
+  const safeCount = Math.max(1, Math.floor(count));
+  const spacing = 14;
+  const midpoint = (safeCount - 1) / 2;
+  return Array.from({ length: safeCount }, (_, index) => createBall((index - midpoint) * spacing));
 }
 
 function launchBall(ball, direction = 1) {
@@ -1185,13 +1193,13 @@ function resetGame() {
   render();
 }
 
-function loadLevel(levelIndex, keepScore = true, keepLives = true) {
+function loadLevel(levelIndex, keepScore = true, keepLives = true, carriedBallCount = 1) {
   state.mode = "campaign";
   state.levelIndex = levelIndex;
   state.levelName = LEVELS[levelIndex].name;
   state.bricks = createBricks(LEVELS[levelIndex], levelIndex);
   state.powerUps = [];
-  state.balls = [createBall()];
+  state.balls = createBallRack(carriedBallCount);
   state.lightningBalls = [];
   state.floatingTexts = [];
   state.isBossWarning = false;
@@ -1223,14 +1231,14 @@ function loadLevel(levelIndex, keepScore = true, keepLives = true) {
     : `Level ${levelIndex + 1}: ${state.levelName}. Press Start to launch.`;
 }
 
-function loadDailyLevel(stageIndex, keepScore = false, keepLives = false) {
+function loadDailyLevel(stageIndex, keepScore = false, keepLives = false, carriedBallCount = 1) {
   state.mode = "daily";
   state.dailyChallenge = buildDailyChallenge();
   state.dailyStage = stageIndex;
   state.levelName = state.dailyChallenge.levels[stageIndex].name;
   state.bricks = createBricks(state.dailyChallenge.levels[stageIndex], stageIndex);
   state.powerUps = [];
-  state.balls = [createBall()];
+  state.balls = createBallRack(carriedBallCount);
   state.lightningBalls = [];
   state.floatingTexts = [];
   state.isBossWarning = false;
@@ -1448,7 +1456,8 @@ function movePaddle(deltaSeconds) {
 
   for (const ball of state.balls) {
     if (!ball.isLaunched) {
-      ball.x = state.paddle.x + state.paddle.width / 2;
+      const offset = clamp(ball.parkedOffset ?? 0, -state.paddle.width / 2 + 8, state.paddle.width / 2 - 8);
+      ball.x = state.paddle.x + state.paddle.width / 2 + offset;
       ball.y = state.paddle.y - ball.radius - 2;
     }
   }
@@ -1711,6 +1720,7 @@ function addExtraBall(options = {}) {
   const ball = createBall();
   ball.x = state.paddle.x + state.paddle.width / 2;
   ball.y = state.paddle.y - ball.radius - 2;
+  ball.parkedOffset = 0;
   launchBall(ball, Math.random() > 0.5 ? 1 : -1);
   state.balls.push(ball);
   if (!suppressStatus) {
@@ -1887,6 +1897,8 @@ function handleLifeLost() {
 }
 
 function advanceLevel() {
+  const carriedBallCount = Math.max(1, state.balls.length);
+
   if (state.mode === "daily") {
     state.isRunning = false;
     state.isPaused = false;
@@ -1903,7 +1915,7 @@ function advanceLevel() {
 
     if (state.dailyStage === 0) {
       syncDailyChallenge();
-      loadDailyLevel(1, true, true);
+      loadDailyLevel(1, true, true, carriedBallCount);
       return;
     }
 
@@ -1946,7 +1958,7 @@ function advanceLevel() {
 
   const nextLevelIndex = state.levelIndex + 1;
   setUnlockedLevel(nextLevelIndex);
-  loadLevel(nextLevelIndex);
+  loadLevel(nextLevelIndex, true, true, carriedBallCount);
 }
 
 function currentPowerLabel() {
