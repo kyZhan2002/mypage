@@ -21,11 +21,13 @@ const buyPowerButton = document.querySelector("#buy-power");
 const buyLifeButton = document.querySelector("#buy-life");
 const buyMultiballButton = document.querySelector("#buy-multiball");
 const buyLuckButton = document.querySelector("#buy-luck");
+const buyLightningButton = document.querySelector("#buy-lightning");
 const shopPaddleDetail = document.querySelector("#shop-paddle-detail");
 const shopPowerDetail = document.querySelector("#shop-power-detail");
 const shopLifeDetail = document.querySelector("#shop-life-detail");
 const shopMultiballDetail = document.querySelector("#shop-multiball-detail");
 const shopLuckDetail = document.querySelector("#shop-luck-detail");
+const shopLightningDetail = document.querySelector("#shop-lightning-detail");
 
 const WIDTH = canvas.width;
 const HEIGHT = canvas.height;
@@ -61,12 +63,16 @@ const POWER_UPGRADE_COST = 10000;
 const LIFE_UPGRADE_COST = 5000;
 const MULTIBALL_SHOP_COST = 2000;
 const LUCK_UPGRADE_COST = 5000;
+const LIGHTNING_UPGRADE_COST = 3000;
 const PADDLE_UPGRADE_CAP = 10;
 const POWER_UPGRADE_CAP = 3;
 const LUCK_UPGRADE_CAP = 10;
+const LIGHTNING_UPGRADE_CAP = 10;
 const DAILY_BONUS_COINS = 2000;
 const COMBO_TARGET = 50;
 const COMBO_BONUS_COINS = 500;
+const BASE_LIGHTNING_BALL_COUNT = 15;
+const LIGHTNING_BALLS_PER_LEVEL = 10;
 
 const BRICK_COLORS = {
   1: "#eee4cf",
@@ -621,7 +627,8 @@ function restoreState(snapshot) {
       paddleLevels: 0,
       powerLevels: 0,
       luckLevels: 0,
-      purchaseCounts: { paddle: 0, power: 0, life: 0, multiball: 0, luck: 0 },
+      lightningLevels: 0,
+      purchaseCounts: { paddle: 0, power: 0, life: 0, multiball: 0, luck: 0, lightning: 0 },
     },
   );
   state.dailyChallenge = structuredClone(restored.dailyChallenge ?? buildDailyChallenge());
@@ -743,7 +750,8 @@ function getUpgradeState() {
       paddleLevels: 0,
       powerLevels: 0,
       luckLevels: 0,
-      purchaseCounts: { paddle: 0, power: 0, life: 0, multiball: 0, luck: 0 },
+      lightningLevels: 0,
+      purchaseCounts: { paddle: 0, power: 0, life: 0, multiball: 0, luck: 0, lightning: 0 },
     };
   }
 
@@ -753,12 +761,14 @@ function getUpgradeState() {
       paddleLevels: Number(parsed.paddleLevels) || 0,
       powerLevels: Number(parsed.powerLevels) || 0,
       luckLevels: Number(parsed.luckLevels) || 0,
+      lightningLevels: Number(parsed.lightningLevels) || 0,
       purchaseCounts: {
         paddle: Number(parsed.purchaseCounts?.paddle) || 0,
         power: Number(parsed.purchaseCounts?.power) || 0,
         life: Number(parsed.purchaseCounts?.life) || 0,
         multiball: Number(parsed.purchaseCounts?.multiball) || 0,
         luck: Number(parsed.purchaseCounts?.luck) || 0,
+        lightning: Number(parsed.purchaseCounts?.lightning) || 0,
       },
     };
   } catch {
@@ -766,7 +776,8 @@ function getUpgradeState() {
       paddleLevels: 0,
       powerLevels: 0,
       luckLevels: 0,
-      purchaseCounts: { paddle: 0, power: 0, life: 0, multiball: 0, luck: 0 },
+      lightningLevels: 0,
+      purchaseCounts: { paddle: 0, power: 0, life: 0, multiball: 0, luck: 0, lightning: 0 },
     };
   }
 }
@@ -797,6 +808,10 @@ function currentDamage() {
 
 function currentDropMultiplier() {
   return 1 + state.upgrades.luckLevels * 0.1;
+}
+
+function currentLightningBallCount() {
+  return BASE_LIGHTNING_BALL_COUNT + state.upgrades.lightningLevels * LIGHTNING_BALLS_PER_LEVEL;
 }
 
 function getScaledCost(baseCost, itemKey) {
@@ -926,6 +941,24 @@ function purchaseLuckUpgrade() {
   state.upgrades.luckLevels += 1;
   recordPurchase("luck");
   statusElement.textContent = "Luck upgraded. All base drop rates increased by 10%.";
+  render();
+}
+
+function purchaseLightningUpgrade() {
+  if (state.upgrades.lightningLevels >= LIGHTNING_UPGRADE_CAP) {
+    statusElement.textContent = "Lightning volley is already at max level.";
+    render();
+    return;
+  }
+
+  const cost = getScaledCost(LIGHTNING_UPGRADE_COST, "lightning");
+  if (!spendCurrency(cost)) {
+    return;
+  }
+
+  state.upgrades.lightningLevels += 1;
+  recordPurchase("lightning");
+  statusElement.textContent = "Lightning volley upgraded. Future lightning power-ups release 10 more bolts.";
   render();
 }
 
@@ -1695,18 +1728,18 @@ function activateDoubleHit() {
 
   state.doubleHitLevel = 2;
   state.doubleHitTimer = DOUBLE_HIT_DURATION;
-  statusElement.textContent = "Double Hit activated at 2x for 20 seconds.";
+  statusElement.textContent = "Double Hit activated at 2x for 10 seconds.";
 }
 
 function activateSafetyNet() {
   state.safetyNetTimer = SAFETY_NET_DURATION;
-  statusElement.textContent = "Safety net activated for 25 seconds.";
+  statusElement.textContent = "Safety net activated for 5 seconds.";
 }
 
 function activateLightningVolley() {
   const originX = state.paddle.x + state.paddle.width / 2;
   const originY = state.paddle.y - 4;
-  const count = 40;
+  const count = currentLightningBallCount();
   const startAngle = Math.PI + Math.PI / 12;
   const endAngle = (2 * Math.PI) - Math.PI / 12;
 
@@ -1961,18 +1994,21 @@ function renderShop() {
   const lifeCost = getScaledCost(LIFE_UPGRADE_COST, "life");
   const multiballCost = getScaledCost(MULTIBALL_SHOP_COST, "multiball");
   const luckCost = getScaledCost(LUCK_UPGRADE_COST, "luck");
+  const lightningCost = getScaledCost(LIGHTNING_UPGRADE_COST, "lightning");
 
   buyPaddleButton.querySelector(".shop-cost").textContent = String(paddleCost);
   buyPowerButton.querySelector(".shop-cost").textContent = String(powerCost);
   buyLifeButton.querySelector(".shop-cost").textContent = String(lifeCost);
   buyMultiballButton.querySelector(".shop-cost").textContent = String(multiballCost);
   buyLuckButton.querySelector(".shop-cost").textContent = String(luckCost);
+  buyLightningButton.querySelector(".shop-cost").textContent = String(lightningCost);
 
   shopPaddleDetail.textContent = `Lv ${state.upgrades.paddleLevels}/${PADDLE_UPGRADE_CAP} • +10% permanent length`;
   shopPowerDetail.textContent = `Lv ${state.upgrades.powerLevels}/${POWER_UPGRADE_CAP} • total damage ${1 + state.upgrades.powerLevels}`;
   shopLifeDetail.textContent = `Add one life immediately • current ${state.lives}`;
   shopMultiballDetail.textContent = `Add one launched ball immediately • active ${state.balls.length}`;
   shopLuckDetail.textContent = `Lv ${state.upgrades.luckLevels}/${LUCK_UPGRADE_CAP} • +${Math.round((currentDropMultiplier() - 1) * 100)}% of base drop rates`;
+  shopLightningDetail.textContent = `Lv ${state.upgrades.lightningLevels}/${LIGHTNING_UPGRADE_CAP} • volley ${currentLightningBallCount()} balls`;
 
   buyPaddleButton.disabled =
     state.currency < paddleCost || state.upgrades.paddleLevels >= PADDLE_UPGRADE_CAP;
@@ -1982,6 +2018,8 @@ function renderShop() {
   buyMultiballButton.disabled = state.currency < multiballCost;
   buyLuckButton.disabled =
     state.currency < luckCost || state.upgrades.luckLevels >= LUCK_UPGRADE_CAP;
+  buyLightningButton.disabled =
+    state.currency < lightningCost || state.upgrades.lightningLevels >= LIGHTNING_UPGRADE_CAP;
 }
 
 function drawBall(ball) {
@@ -2354,6 +2392,10 @@ buyMultiballButton.addEventListener("click", () => {
 
 buyLuckButton.addEventListener("click", () => {
   purchaseLuckUpgrade();
+});
+
+buyLightningButton.addEventListener("click", () => {
+  purchaseLightningUpgrade();
 });
 
 populateLevelSelect();

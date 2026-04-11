@@ -71,6 +71,14 @@ body {
   gap: 18px;
 }
 
+.build-version {
+  margin: 2px 4px 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.3;
+  text-align: right;
+}
+
 .panel-header,
 .topbar {
   display: flex;
