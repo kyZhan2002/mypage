@@ -421,6 +421,44 @@ function createMovingBarrier(levelIndex, mode = state.mode) {
   };
 }
 
+function normalizeMovingBarrier(barrier, levelIndex, mode = "campaign") {
+  const fallback = createMovingBarrier(levelIndex, mode);
+  if (!fallback) {
+    return null;
+  }
+
+  if (!barrier || typeof barrier !== "object") {
+    return fallback;
+  }
+
+  return {
+    x: clamp(Number(barrier.x) || fallback.x, 0, WIDTH - fallback.width),
+    y: clamp(Number(barrier.y) || fallback.y, 24, HEIGHT - 60),
+    width: Math.max(48, Number(barrier.width) || fallback.width),
+    height: Math.max(6, Number(barrier.height) || fallback.height),
+    vx: Number(barrier.vx) || fallback.vx,
+  };
+}
+
+function normalizeBalls(balls) {
+  if (!Array.isArray(balls) || balls.length === 0) {
+    return [createBall()];
+  }
+
+  return balls.map((ball) => ({
+    ...createBall(),
+    ...ball,
+    x: Number(ball?.x) || WIDTH / 2,
+    y: Number(ball?.y) || HEIGHT - 44,
+    vx: Number(ball?.vx) || 0,
+    vy: Number(ball?.vy) || 0,
+    radius: Math.max(2, Number(ball?.radius) || BALL_RADIUS),
+    parkedOffset: Number(ball?.parkedOffset) || 0,
+    isLaunched: Boolean(ball?.isLaunched),
+    streak: Math.max(0, Number(ball?.streak) || 0),
+  }));
+}
+
 function getTodayKey() {
   return new Date().toISOString().slice(0, 10);
 }
@@ -643,16 +681,7 @@ function restoreState(snapshot) {
   state.levelIndex = restored.levelIndex ?? 0;
   state.levelName = restored.levelName ?? LEVELS[0].name;
   state.unlockedLevel = restored.unlockedLevel ?? 0;
-  state.upgrades = structuredClone(
-    restored.upgrades ?? {
-      paddleLevels: 0,
-      powerLevels: 0,
-      luckLevels: 0,
-      lightningLevels: 0,
-      netLevels: 0,
-      purchaseCounts: { paddle: 0, power: 0, life: 0, multiball: 0, luck: 0, lightning: 0, net: 0 },
-    },
-  );
+  state.upgrades = structuredClone(normalizeUpgradeState(restored.upgrades));
   state.dailyChallenge = structuredClone(restored.dailyChallenge ?? buildDailyChallenge());
   state.dailyStage = restored.dailyStage ?? 0;
   state.isRunning = false;
@@ -668,15 +697,17 @@ function restoreState(snapshot) {
   state.phaseFlashLabel = restored.phaseFlashLabel ?? "";
   state.doubleHitLevel = restored.doubleHitLevel ?? 1;
   state.doubleHitTimer = restored.doubleHitTimer ?? 0;
-  state.safetyNetCharges = restored.safetyNetCharges ?? 0;
+  state.safetyNetCharges = Math.max(0, Number(restored.safetyNetCharges) || 0);
   state.ambientDropTimer = restored.ambientDropTimer ?? 0;
   state.paddle = structuredClone(restored.paddle ?? createInitialState().paddle);
-  state.balls = structuredClone(restored.balls ?? [createBall()]);
+  state.balls = normalizeBalls(restored.balls);
   state.lightningBalls = structuredClone(restored.lightningBalls ?? []);
   state.bricks = structuredClone(restored.bricks ?? createBricks(getActiveLevel(), state.levelIndex));
   state.powerUps = structuredClone(restored.powerUps ?? []);
-  state.movingBarrier = structuredClone(
-    restored.movingBarrier ?? createMovingBarrier(state.levelIndex, restored.mode ?? "campaign"),
+  state.movingBarrier = normalizeMovingBarrier(
+    restored.movingBarrier,
+    state.levelIndex,
+    restored.mode ?? "campaign",
   );
   state.bossHazards = structuredClone(restored.bossHazards ?? []);
   state.floatingTexts = structuredClone(restored.floatingTexts ?? []);
@@ -771,44 +802,37 @@ function setUnlockedLevel(levelIndex) {
 function getUpgradeState() {
   const stored = window.localStorage.getItem(UPGRADE_STATE_KEY);
   if (!stored) {
-    return {
-      paddleLevels: 0,
-      powerLevels: 0,
-      luckLevels: 0,
-      lightningLevels: 0,
-      netLevels: 0,
-      purchaseCounts: { paddle: 0, power: 0, life: 0, multiball: 0, luck: 0, lightning: 0, net: 0 },
-    };
+    return normalizeUpgradeState();
   }
 
   try {
     const parsed = JSON.parse(stored);
-    return {
-      paddleLevels: Number(parsed.paddleLevels) || 0,
-      powerLevels: Number(parsed.powerLevels) || 0,
-      luckLevels: Number(parsed.luckLevels) || 0,
-      lightningLevels: Number(parsed.lightningLevels) || 0,
-      netLevels: Number(parsed.netLevels) || 0,
-      purchaseCounts: {
-        paddle: Number(parsed.purchaseCounts?.paddle) || 0,
-        power: Number(parsed.purchaseCounts?.power) || 0,
-        life: Number(parsed.purchaseCounts?.life) || 0,
-        multiball: Number(parsed.purchaseCounts?.multiball) || 0,
-        luck: Number(parsed.purchaseCounts?.luck) || 0,
-        lightning: Number(parsed.purchaseCounts?.lightning) || 0,
-        net: Number(parsed.purchaseCounts?.net) || 0,
-      },
-    };
+    return normalizeUpgradeState(parsed);
   } catch {
-    return {
-      paddleLevels: 0,
-      powerLevels: 0,
-      luckLevels: 0,
-      lightningLevels: 0,
-      netLevels: 0,
-      purchaseCounts: { paddle: 0, power: 0, life: 0, multiball: 0, luck: 0, lightning: 0, net: 0 },
-    };
+    return normalizeUpgradeState();
   }
+}
+
+function normalizeUpgradeState(upgrades = {}) {
+  return {
+    paddleLevels: Math.max(0, Math.min(PADDLE_UPGRADE_CAP, Number(upgrades.paddleLevels) || 0)),
+    powerLevels: Math.max(0, Math.min(POWER_UPGRADE_CAP, Number(upgrades.powerLevels) || 0)),
+    luckLevels: Math.max(0, Math.min(LUCK_UPGRADE_CAP, Number(upgrades.luckLevels) || 0)),
+    lightningLevels: Math.max(
+      0,
+      Math.min(LIGHTNING_UPGRADE_CAP, Number(upgrades.lightningLevels) || 0),
+    ),
+    netLevels: Math.max(0, Math.min(NET_UPGRADE_CAP, Number(upgrades.netLevels) || 0)),
+    purchaseCounts: {
+      paddle: Number(upgrades.purchaseCounts?.paddle) || 0,
+      power: Number(upgrades.purchaseCounts?.power) || 0,
+      life: Number(upgrades.purchaseCounts?.life) || 0,
+      multiball: Number(upgrades.purchaseCounts?.multiball) || 0,
+      luck: Number(upgrades.purchaseCounts?.luck) || 0,
+      lightning: Number(upgrades.purchaseCounts?.lightning) || 0,
+      net: Number(upgrades.purchaseCounts?.net) || 0,
+    },
+  };
 }
 
 function persistUpgradeState() {
@@ -836,19 +860,29 @@ function currentDamage() {
 }
 
 function currentDropMultiplier() {
-  return 1 + state.upgrades.luckLevels * 0.15;
+  const level = Math.max(0, Math.min(LUCK_UPGRADE_CAP, Number(state.upgrades.luckLevels) || 0));
+  return 1 + level * 0.15;
 }
 
 function currentLightningDropMultiplier() {
-  return 1 + state.upgrades.lightningLevels * 0.25;
+  const level = Math.max(
+    0,
+    Math.min(LIGHTNING_UPGRADE_CAP, Number(state.upgrades.lightningLevels) || 0),
+  );
+  return 1 + level * 0.25;
 }
 
 function currentLightningBallCount() {
-  return BASE_LIGHTNING_BALL_COUNT + state.upgrades.lightningLevels * LIGHTNING_BALLS_PER_LEVEL;
+  const level = Math.max(
+    0,
+    Math.min(LIGHTNING_UPGRADE_CAP, Number(state.upgrades.lightningLevels) || 0),
+  );
+  return BASE_LIGHTNING_BALL_COUNT + level * LIGHTNING_BALLS_PER_LEVEL;
 }
 
 function currentSafetyNetCapacity() {
-  return BASE_SAFETY_NET_CHARGES + state.upgrades.netLevels * SAFETY_NET_CHARGES_PER_LEVEL;
+  const level = Math.max(0, Math.min(NET_UPGRADE_CAP, Number(state.upgrades.netLevels) || 0));
+  return BASE_SAFETY_NET_CHARGES + level * SAFETY_NET_CHARGES_PER_LEVEL;
 }
 
 function getScaledCost(baseCost, itemKey) {
@@ -2134,6 +2168,8 @@ function updateDailyStatus() {
 }
 
 function renderShop() {
+  state.upgrades = normalizeUpgradeState(state.upgrades);
+
   const paddleCost = getScaledCost(PADDLE_UPGRADE_COST, "paddle");
   const powerCost = getScaledCost(POWER_UPGRADE_COST, "power");
   const lifeCost = getScaledCost(LIFE_UPGRADE_COST, "life");
