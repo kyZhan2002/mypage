@@ -1,6 +1,25 @@
 {
-  "last_fetch_timestamp": 1776047756,
+  "last_fetch_timestamp": 1776133783,
   "papers": [
+    {
+      "arxiv_id": "2604.11118",
+      "title": "Distributionally Robust K-Means Clustering",
+      "authors": [
+        "Vikrant Malik",
+        "Taylan Kargin",
+        "Babak Hassibi"
+      ],
+      "abstract": "K-means clustering is a workhorse of unsupervised learning, but it is notoriously brittle to outliers, distribution shifts, and limited sample sizes. Viewing k-means as Lloyd--Max quantization of the empirical distribution, we develop a distributionally robust variant that protects against such pathologies. We posit that the unknown population distribution lies within a Wasserstein-2 ball around the empirical distribution. In this setting, one seeks cluster centers that minimize the worst-case expected squared distance over this ambiguity set, leading to a minimax formulation. A tractable dual yields a soft-clustering scheme that replaces hard assignments with smoothly weighted ones. We propose an efficient block coordinate descent algorithm with provable monotonic decrease and local linear convergence. Experiments on standard benchmarks and large-scale synthetic data demonstrate substantial gains in outlier detection and robustness to noise.",
+      "published": "April 13, 2026",
+      "published_raw": "2026-04-13T07:32:36Z",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2604.11118v1",
+      "arxiv_url": "https://arxiv.org/abs/2604.11118v1",
+      "added_timestamp": 1776133783
+    },
     {
       "arxiv_id": "2604.06548",
       "title": "A Rolling-Horizon Stochastic Optimization Framework for NBA Franchise Management with Distributionally Robust Risk Constraints",
