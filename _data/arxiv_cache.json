@@ -1,6 +1,26 @@
 {
-  "last_fetch_timestamp": 1776220084,
+  "last_fetch_timestamp": 1776306894,
   "papers": [
+    {
+      "arxiv_id": "2604.14075",
+      "title": "Multistage Conditional Compositional Optimization",
+      "authors": [
+        "Buse \u015een",
+        "Yifan Hu",
+        "Daniel Kuhn"
+      ],
+      "abstract": "We introduce Multistage Conditional Compositional Optimization (MCCO) as a new paradigm for decision-making under uncertainty that combines aspects of multistage stochastic programming and conditional stochastic optimization. MCCO minimizes a nest of conditional expectations and nonlinear cost functions. It has numerous applications and arises, for example, in optimal stopping, linear-quadratic regulator problems, distributionally robust contextual bandits, as well as in problems involving dynamic risk measures. The na\u00efve nested sampling approach for MCCO suffers from the curse of dimensionality familiar from scenario tree-based multistage stochastic programming, that is, its scenario complexity grows exponentially with the number of nests. We develop new multilevel Monte Carlo techniques for MCCO whose scenario complexity grows only polynomially with the desired accuracy.",
+      "published": "April 15, 2026",
+      "published_raw": "2026-04-15T16:45:12Z",
+      "categories": [
+        "math.OC",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2604.14075v1",
+      "arxiv_url": "https://arxiv.org/abs/2604.14075v1",
+      "added_timestamp": 1776306894
+    },
     {
       "arxiv_id": "2604.11118",
       "title": "Distributionally Robust K-Means Clustering",
