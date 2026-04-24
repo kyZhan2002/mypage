@@ -1,6 +1,28 @@
 {
-  "last_updated": 1776393037,
+  "last_updated": 1776998040,
   "papers": [
+    {
+      "arxiv_id": "2603.22845",
+      "title": "DROP: Distributionally Robust Optimization for Multi-task Learning in Graphical Models",
+      "authors": [
+        "Canruo Shen",
+        "Xintong Ji",
+        "Qiong Li",
+        "Wenzhi Yang",
+        "Xiaoping Shi"
+      ],
+      "abstract": "Gaussian Graphical Models (GGMs) are widely used to infer conditional dependence structures in high-dimensional data. However, standard precision matrix estimators are highly sensitive to data contamination, such as extreme outliers and heavy-tailed noise. In this paper, we propose DROP (Distributionally Robust Optimization), a robust estimation method formulated within a multi-task nodewise regression framework. The proposed estimator enforces structural sparsity while resisting the influence of corrupted observations. Theoretically, we establish error bounds for the DROP estimator under general contamination. Through extensive high-dimensional simulations, we demonstrate that DROP consistently controls the rate of false positive edges and outperforms conventional non-robust estimators when data deviate from standard Gaussian assumptions. Furthermore, in a functional MRI (fMRI) application, DROP maintains a stable graph structure and preserves network modularity even when subjected to severe data perturbations, whereas competing methods yield excessively dense networks. To facilitate reproducible research, the DROP R package will be made publicly available on GitHub.",
+      "published": "March 24, 2026",
+      "published_raw": "2026-03-24T06:33:55Z",
+      "categories": [
+        "stat.AP",
+        "stat.ME"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2603.22845v1",
+      "arxiv_url": "https://arxiv.org/abs/2603.22845v1",
+      "added_timestamp": 1774404381,
+      "archived_timestamp": 1776998040
+    },
     {
       "arxiv_id": "2603.16062",
       "title": "Safe Distributionally Robust Feature Selection under Covariate Shift",
