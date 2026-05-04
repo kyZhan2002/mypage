@@ -1,6 +1,27 @@
 {
-  "last_fetch_timestamp": 1777776531,
+  "last_fetch_timestamp": 1777862766,
   "papers": [
+    {
+      "arxiv_id": "2605.00155",
+      "title": "Wasserstein Distributionally Robust Regret Optimization for Reinforcement Learning from Human Feedback",
+      "authors": [
+        "Yikai Wang",
+        "Shang Liu",
+        "Jose Blanchet"
+      ],
+      "abstract": "Reinforcement learning from human feedback (RLHF) has become a core post-training step for aligning large language models, yet the reward signal used in RLHF is only a learned proxy for true human utility. From an operations research perspective, this creates a decision problem under objective misspecification: the policy is optimized against an estimated reward, while deployment performance is determined by an unobserved objective. The resulting gap leads to reward over-optimization, or Goodharting, where proxy reward continues to improve even after true quality deteriorates. Existing mitigations address this problem through uncertainty penalties, pessimistic rewards, or conservative constraints, but they can be computationally burdensome and overly pessimistic. We propose Wasserstein distributionally robust regret optimization (DRRO) for RLHF. Instead of pessimizing worst-case value as in standard DRO, DRRO pessimizes worst-case regret relative to the best policy under the same plausible reward perturbation. We study the promptwise problem through a simplex allocation model and show that, under an $\\ell_1$ ambiguity set, the inner worst-case regret admits an exact solution and the optimal policy has a water-filling structure. These results lead to a practical policy-gradient algorithm with a simple sampled-bonus interpretation and only minor changes to PPO/GRPO-style RLHF training. The framework also clarifies theoretically why DRRO is less pessimistic than DRO, and our experiments show that DRRO mitigates over-optimization more effectively than existing baselines while standard DRO is systematically over-pessimistic.",
+      "published": "April 30, 2026",
+      "published_raw": "2026-04-30T19:22:56Z",
+      "categories": [
+        "cs.LG",
+        "cs.CL",
+        "math.OC",
+        "stat.ML"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2605.00155v1",
+      "arxiv_url": "https://arxiv.org/abs/2605.00155v1",
+      "added_timestamp": 1777862766
+    },
     {
       "arxiv_id": "2604.14075",
       "title": "Multistage Conditional Compositional Optimization",
