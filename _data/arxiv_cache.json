@@ -1,6 +1,25 @@
 {
-  "last_fetch_timestamp": 1778381457,
+  "last_fetch_timestamp": 1778469962,
   "papers": [
+    {
+      "arxiv_id": "2605.07565",
+      "title": "Ensemble Distributionally Robust Bayesian Optimisation",
+      "authors": [
+        "Tigran Ramazyan",
+        "Denis Derkach"
+      ],
+      "abstract": "We study zeroth-order optimisation under context distributional uncertainty, a setting commonly tackled using Bayesian optimisation (BO). A prevailing strategy to make BO more robust to the complex and noisy nature of data is to employ an ensemble as the surrogate model, thereby mitigating the weaknesses of any single model. In this study, we propose a novel algorithm for Ensemble Distributionally Robust Bayesian Optimisation that remains computationally tractable while managing continuous context. We obtain theoretical sublinear regret bounds, improving current state-of-the-art results. We show that our method's empirical behaviour aligns with its theoretical guarantees.",
+      "published": "May 08, 2026",
+      "published_raw": "2026-05-08T10:37:10Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "stat.ML"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2605.07565v1",
+      "arxiv_url": "https://arxiv.org/abs/2605.07565v1",
+      "added_timestamp": 1778469962
+    },
     {
       "arxiv_id": "2605.00155",
       "title": "Wasserstein Distributionally Robust Regret Optimization for Reinforcement Learning from Human Feedback",
