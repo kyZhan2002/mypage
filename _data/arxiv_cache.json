@@ -1,6 +1,27 @@
 {
-  "last_fetch_timestamp": 1778554293,
+  "last_fetch_timestamp": 1778640971,
   "papers": [
+    {
+      "arxiv_id": "2605.10805",
+      "title": "Reasoning Is Not Free: Robust Adaptive Cost-Efficient Routing for LLM-as-a-Judge",
+      "authors": [
+        "Wenbo Zhang",
+        "Lijinghua Zhang",
+        "Liner Xiang",
+        "Hengrui Cai"
+      ],
+      "abstract": "Reasoning-capable large language models (LLMs) have recently been adopted as automated judges, but their benefits and costs in LLM-as-a-Judge settings remain unclear. Through controlled comparisons between reasoning and non-reasoning judges, we show that explicit reasoning substantially improves judgment accuracy on tasks requiring structured verification (e.g., math and coding), while offering limited or even negative gains on simpler evaluations and incurring significantly higher computational cost. These findings motivate that reasoning should be used selectively rather than universally, with awareness of possible distribution shift. We propose a Robust Adaptive Cost-Efficient Routing (RACER), which dynamically selects between reasoning and non-reasoning judges under a fixed budget by formulating routing as a constrained distributionally robust optimization problem. RACER explicitly accounts for distribution shift via a KL-divergence uncertainty set, admits an efficient primal--dual algorithm, and enjoys theoretical guarantees including uniqueness of the optimal policy and linear convergence. Extensive experiments show that RACER achieves superior accuracy--cost trade-offs under distribution shift.",
+      "published": "May 11, 2026",
+      "published_raw": "2026-05-11T16:30:20Z",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "stat.ML"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2605.10805v1",
+      "arxiv_url": "https://arxiv.org/abs/2605.10805v1",
+      "added_timestamp": 1778640971
+    },
     {
       "arxiv_id": "2605.07565",
       "title": "Ensemble Distributionally Robust Bayesian Optimisation",
