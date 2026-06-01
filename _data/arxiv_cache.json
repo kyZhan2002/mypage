@@ -1,6 +1,78 @@
 {
-  "last_fetch_timestamp": 1779680488,
+  "last_fetch_timestamp": 1780286242,
   "papers": [
+    {
+      "arxiv_id": "2605.31306",
+      "title": "Posterior and Likelihood Sensitivity in Bayesian Distributionally Robust Optimization",
+      "authors": [
+        "Jun-ya Gotoh",
+        "Andrew E. B. Lim",
+        "Michael Jong Kim"
+      ],
+      "abstract": "We introduce the notion of worst-case posterior and worst-case likelihood sensitivity. These measure, respectively, the sensitivity of the expected cost to worst-case perturbations of the posterior distribution and worst-case perturbations of the likelihood of a Bayesian model. Each defines a quantitative measure of robustness. A decision maker concerned about the sensitivity of the out-of-sample expected cost to deviations from her assumptions will want a decision for which both sensitivities are small. We derive posterior and likelihood sensitivities for uncertainty sets defined in terms of deviation measures. Posterior sensitivity vanishes when the posterior variance shrinks to zero, which occurs when parameter uncertainty is eliminated from learning. Parameter learning does not eliminate likelihood sensitivity. A distributionally robust formulation of a Bayesian optimization problem makes a near-Pareto-optimal tradeoff between performance (expected cost) and robustness (posterior and likelihood sensitivity).",
+      "published": "May 29, 2026",
+      "published_raw": "2026-05-29T13:39:12Z",
+      "categories": [
+        "math.OC",
+        "econ.EM",
+        "eess.SY",
+        "stat.ME"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2605.31306v1",
+      "arxiv_url": "https://arxiv.org/abs/2605.31306v1",
+      "added_timestamp": 1780286242
+    },
+    {
+      "arxiv_id": "2605.28516",
+      "title": "Conservative neural posterior estimation via distributionally robust training",
+      "authors": [
+        "William Laplante",
+        "Yuga Hikida",
+        "Charita Dellaporta",
+        "Fran\u00e7ois-Xavier Briol",
+        "Ayush Bharti"
+      ],
+      "abstract": "Simulation-based inference with neural posterior estimation (NPE) often yields overconfident and unreliable posteriors under limited simulation budgets. To address this, we propose DRO-NPE, a distributionally robust approach that replaces the standard NPE objective with a worst-case loss over a Wasserstein ambiguity set. We introduce KL-based metrics for miscoverage and miscalibration, and use these to show that the DRO-NPE objective controls overfitting and reduces posterior overconfidence. Our method is tractable, parallelisable, and readily integrates with standard normalising flows. Across benchmark SBI tasks, DRO-NPE consistently improves coverage and calibration, while narrowing the gap between empirical and population NPE loss, leading to more reliable inference in low-simulation regimes.",
+      "published": "May 27, 2026",
+      "published_raw": "2026-05-27T14:17:22Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2605.28516v1",
+      "arxiv_url": "https://arxiv.org/abs/2605.28516v1",
+      "added_timestamp": 1780286242
+    },
+    {
+      "arxiv_id": "2605.24212",
+      "title": "Distributionally Robust Transfer Learning with Structurally Missing Covariates, with Application to Cross-National Cardiac Arrest Prediction",
+      "authors": [
+        "Siqi Li",
+        "Chuan Hong",
+        "Ziye Tian",
+        "Benjamin Sieu-Hon Leong",
+        "Koshi Nakagawa",
+        "Hideharu Tanaka",
+        "Sang Do Shin",
+        "Khuong Quoc Dai",
+        "Do Ngoc Son",
+        "Marcus Eng Hock Ong",
+        "Nan Liu",
+        "Molei Liu"
+      ],
+      "abstract": "Deploying clinical prediction models across healthcare systems often fails when key training covariates are unavailable at deployment and labeled outcomes are limited in the target domain. For example, high-performing models for out-of-hospital cardiac arrest (OHCA) rely on detailed prehospital measurements routinely collected in high-resource settings but unavailable in many international registries. Existing methods either discard missing covariates, sacrificing predictive information, or rely on untestable assumptions about their target distribution. We propose DRUM (\\underline{D}istributionally \\underline{R}obust \\underline{U}nsupervised transfer learning with structurally \\underline{M}issing covariates), a framework that transfers prediction models to target populations where certain covariates are structurally absent and outcome labels are unavailable. DRUM partitions covariates into shared components ($X$), observed across all settings, and missing components ($A$), observed only in the source. Rather than imputing missing covariates, DRUM optimizes worst-case predictive performance over the unknown target distribution of $A \\mid X$ using a neural network generator, with a robustness parameter controlling allowable deviation from the source conditional. We further develop a bias correction procedure that reduces sensitivity to nuisance estimation error. Simulations show substantial improvements in both mean and worst-case prediction error under distribution shift. Applied to cross-national OHCA prediction, transferring models from a US registry to multiple Asian registries where prehospital variables are unrecorded, DRUM yields better-calibrated predictions and improved clinical classification performance across sites.",
+      "published": "May 22, 2026",
+      "published_raw": "2026-05-22T20:53:04Z",
+      "categories": [
+        "stat.AP",
+        "cs.AI",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2605.24212v1",
+      "arxiv_url": "https://arxiv.org/abs/2605.24212v1",
+      "added_timestamp": 1780286242
+    },
     {
       "arxiv_id": "2605.10805",
       "title": "Reasoning Is Not Free: Robust Adaptive Cost-Efficient Routing for LLM-as-a-Judge",
