@@ -1,6 +1,25 @@
 {
-  "last_fetch_timestamp": 1780975459,
+  "last_fetch_timestamp": 1781236317,
   "papers": [
+    {
+      "arxiv_id": "2606.10463",
+      "title": "Distributionally Robust PCA with Data-Adaptive Wasserstein Geometry",
+      "authors": [
+        "Chuang Xu",
+        "Andrew T. A. Wood",
+        "Yanrong Yang"
+      ],
+      "abstract": "We develop a distributionally robust formulation of principal component analysis that minimizes worst-case reconstruction risk over distributions lying within a Wasserstein neighborhood of the empirical measure. The Wasserstein neighborhood, viewed as an ambiguity set of distributions, is adaptively calibrated through a transport matrix $G$ to capture heterogeneous uncertainty across dimensions. The homogeneous case, in which G is a scalar multiple of the identity matrix, recovers classical PCA. Under a general transport matrix G, we derive a dual characterization of the associated minimax optimization problem and introduce a tractable surrogate objective function consisting of the square-root empirical reconstruction error plus a geometry-dependent residual exposure penalty. The exact and surrogate estimators are shown to be consistent for the population PCA subspace and asymptotically equivalent at the projector level. The transport geometry is allowed to be data adaptive, while the Wasserstein radius is calibrated via robust Wasserstein profile inference, yielding a data-driven radius of order $n^{-1/2}$. Comprehensive theoretical guarantees are established, including consistency and local Grassmannian asymptotics exhibiting an explicit Wasserstein-induced drift determined by the limiting transport geometry and calibration level. Numerical experiments and a real-data application demonstrate that the proposed method can substantially improve finite-sample out-of-sample performance under structured covariance shifts, moderate contamination, and certain same-distribution regimes.",
+      "published": "June 09, 2026",
+      "published_raw": "2026-06-09T06:25:47Z",
+      "categories": [
+        "math.ST",
+        "stat.ME"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2606.10463v1",
+      "arxiv_url": "https://arxiv.org/abs/2606.10463v1",
+      "added_timestamp": 1781236317
+    },
     {
       "arxiv_id": "2605.31306",
       "title": "Posterior and Likelihood Sensitivity in Bayesian Distributionally Robust Optimization",
@@ -72,46 +91,6 @@
       "pdf_link": "https://arxiv.org/pdf/2605.24212v1",
       "arxiv_url": "https://arxiv.org/abs/2605.24212v1",
       "added_timestamp": 1780286242
-    },
-    {
-      "arxiv_id": "2605.10805",
-      "title": "Reasoning Is Not Free: Robust Adaptive Cost-Efficient Routing for LLM-as-a-Judge",
-      "authors": [
-        "Wenbo Zhang",
-        "Lijinghua Zhang",
-        "Liner Xiang",
-        "Hengrui Cai"
-      ],
-      "abstract": "Reasoning-capable large language models (LLMs) have recently been adopted as automated judges, but their benefits and costs in LLM-as-a-Judge settings remain unclear. Through controlled comparisons between reasoning and non-reasoning judges, we show that explicit reasoning substantially improves judgment accuracy on tasks requiring structured verification (e.g., math and coding), while offering limited or even negative gains on simpler evaluations and incurring significantly higher computational cost. These findings motivate that reasoning should be used selectively rather than universally, with awareness of possible distribution shift. We propose a Robust Adaptive Cost-Efficient Routing (RACER), which dynamically selects between reasoning and non-reasoning judges under a fixed budget by formulating routing as a constrained distributionally robust optimization problem. RACER explicitly accounts for distribution shift via a KL-divergence uncertainty set, admits an efficient primal--dual algorithm, and enjoys theoretical guarantees including uniqueness of the optimal policy and linear convergence. Extensive experiments show that RACER achieves superior accuracy--cost trade-offs under distribution shift.",
-      "published": "May 11, 2026",
-      "published_raw": "2026-05-11T16:30:20Z",
-      "categories": [
-        "cs.AI",
-        "cs.CL",
-        "stat.ML"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2605.10805v1",
-      "arxiv_url": "https://arxiv.org/abs/2605.10805v1",
-      "added_timestamp": 1778640971
-    },
-    {
-      "arxiv_id": "2605.07565",
-      "title": "Ensemble Distributionally Robust Bayesian Optimisation",
-      "authors": [
-        "Tigran Ramazyan",
-        "Denis Derkach"
-      ],
-      "abstract": "We study zeroth-order optimisation under context distributional uncertainty, a setting commonly tackled using Bayesian optimisation (BO). A prevailing strategy to make BO more robust to the complex and noisy nature of data is to employ an ensemble as the surrogate model, thereby mitigating the weaknesses of any single model. In this study, we propose a novel algorithm for Ensemble Distributionally Robust Bayesian Optimisation that remains computationally tractable while managing continuous context. We obtain theoretical sublinear regret bounds, improving current state-of-the-art results. We show that our method's empirical behaviour aligns with its theoretical guarantees.",
-      "published": "May 08, 2026",
-      "published_raw": "2026-05-08T10:37:10Z",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "stat.ML"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2605.07565v1",
-      "arxiv_url": "https://arxiv.org/abs/2605.07565v1",
-      "added_timestamp": 1778469962
     }
   ]
 }
