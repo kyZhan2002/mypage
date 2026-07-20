@@ -1,6 +1,26 @@
 {
-  "last_updated": 1783220310,
+  "last_updated": 1784518768,
   "papers": [
+    {
+      "arxiv_id": "2606.10463",
+      "title": "Distributionally Robust PCA with Data-Adaptive Wasserstein Geometry",
+      "authors": [
+        "Chuang Xu",
+        "Andrew T. A. Wood",
+        "Yanrong Yang"
+      ],
+      "abstract": "We develop a distributionally robust formulation of principal component analysis that minimizes worst-case reconstruction risk over distributions lying within a Wasserstein neighborhood of the empirical measure. The Wasserstein neighborhood, viewed as an ambiguity set of distributions, is adaptively calibrated through a transport matrix $G$ to capture heterogeneous uncertainty across dimensions. The homogeneous case, in which G is a scalar multiple of the identity matrix, recovers classical PCA. Under a general transport matrix G, we derive a dual characterization of the associated minimax optimization problem and introduce a tractable surrogate objective function consisting of the square-root empirical reconstruction error plus a geometry-dependent residual exposure penalty. The exact and surrogate estimators are shown to be consistent for the population PCA subspace and asymptotically equivalent at the projector level. The transport geometry is allowed to be data adaptive, while the Wasserstein radius is calibrated via robust Wasserstein profile inference, yielding a data-driven radius of order $n^{-1/2}$. Comprehensive theoretical guarantees are established, including consistency and local Grassmannian asymptotics exhibiting an explicit Wasserstein-induced drift determined by the limiting transport geometry and calibration level. Numerical experiments and a real-data application demonstrate that the proposed method can substantially improve finite-sample out-of-sample performance under structured covariance shifts, moderate contamination, and certain same-distribution regimes.",
+      "published": "June 09, 2026",
+      "published_raw": "2026-06-09T06:25:47Z",
+      "categories": [
+        "math.ST",
+        "stat.ME"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2606.10463v1",
+      "arxiv_url": "https://arxiv.org/abs/2606.10463v1",
+      "added_timestamp": 1781236317,
+      "archived_timestamp": 1784518768
+    },
     {
       "arxiv_id": "2605.31306",
       "title": "Posterior and Likelihood Sensitivity in Bayesian Distributionally Robust Optimization",
