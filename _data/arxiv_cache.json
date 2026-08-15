@@ -1,25 +1,104 @@
 {
-  "last_fetch_timestamp": 1784518768,
+  "last_fetch_timestamp": 1786756177,
   "papers": [
     {
-      "arxiv_id": "2607.00252",
-      "title": "Distributionally Robust Linear Regression With Block Lewis Weights",
+      "arxiv_id": "2608.13133",
+      "title": "Statistical Properties of Robust Learning under Distributional Shifts",
       "authors": [
-        "Naren Sarayu Manoj",
-        "Kumar Kshitij Patel"
+        "Zhiyi Li",
+        "Xiaojie Mao",
+        "Yunbei Xu",
+        "Ruohan Zhan"
       ],
-      "abstract": "We present an algorithm for the group distributionally robust (GDR) least squares problem. Given $m$ groups, a parameter vector in $\\mathbb{R}^d$, and stacked design matrices and responses $\\mathbf{A}$ and $\\mathbf{b}$, our algorithm obtains a $(1+\\varepsilon)$-multiplicative optimal solution using $\\widetilde{O}(\\min\\{\\mathsf{rank}(\\mathbf{A}),m\\}^{1/3}\\varepsilon^{-2/3})$ linear-system-solves of matrices of the form $\\mathbf{A}^{\\top}\\mathbf{B}\\mathbf{A}$ for block-diagonal $\\mathbf{B}$. Our technical methods follow from a recent geometric construction, block Lewis weights, that relates the empirical GDR problem to a carefully chosen least squares problem and an application of accelerated proximal methods. Our algorithm improves over known interior point methods for moderate accuracy regimes and matches the state-of-the-art guarantees for the special case of $\\ell_{\\infty}$ regression. We also give algorithms that smoothly interpolate between minimizing the average least squares loss and the distributionally robust loss.",
-      "published": "June 30, 2026",
-      "published_raw": "2026-06-30T23:01:08Z",
+      "abstract": "Distributional shifts arise when the target deployment environment differs from the source environment that generated the training data. Robust learning frameworks such as Distributionally Robust Optimization (DRO) and Robust Satisficing (RS) aim to address this challenge, yet their finite-sample guarantees under such shifts, and their systematic comparison, remain underexplored: existing analyses typically establish guarantees either in the source environment or for adversarial worst-case performance over an ambiguity set. This paper instead studies generalization error in the target environment---the excess loss under the shifted target distribution. Our contributions are threefold. First, we derive finite-sample generalization error bounds in the shifted target environment for both DRO and RS. These bounds explicitly characterize the trade-off between reduced sensitivity to shift and the regularization penalty induced by each method's robustness hyperparameter, and they avoid the curse of dimensionality associated with Wasserstein empirical concentration. Second, when partial shift information such as shift magnitude or direction is available, we propose information-directed hyperparameter calibrations and compare the two methods given the same information. Under these calibrations, and in the partial-information regimes we study, DRO and RS exhibit complementary theoretical and empirical behavior. Finally, we apply the framework to a network lot-sizing problem, using it to interpret how robust policies respond to positive shifts in the demand distribution. Together, these results fill a gap in understanding the statistical properties of robust learning methods under distributional shifts and provide a principled basis for comparing DRO and RS.",
+      "published": "August 13, 2026",
+      "published_raw": "2026-08-13T12:06:48Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2608.13133v1",
+      "arxiv_url": "https://arxiv.org/abs/2608.13133v1",
+      "added_timestamp": 1786756177
+    },
+    {
+      "arxiv_id": "2608.06545",
+      "title": "Robust Average-Reward Markov Decision Processes: Minimax-Optimal Learning via Plug-in Reductions",
+      "authors": [
+        "Yuepeng Yang",
+        "Yuxin Chen",
+        "Yuejie Chi"
+      ],
+      "abstract": "Distributionally robust Markov decision processes provide a principled framework for sequential decision making under model uncertainty. We study how many samples are necessary and sufficient to learn an $\\varepsilon$-optimal robust policy under the average-reward criterion. A generative model provides samples from the nominal transition kernel, whereas policy performance is evaluated over $(s,a)$-rectangular total-variation uncertainty sets of radius at most $\u03c3$.\n  Let $H_0$ and $H_\u03c3$ denote the nominal and robust optimal bias spans, respectively. We identify $\u03c3H_0$ as the perturbation scale separating high- and low-tolerance regimes. Our matching upper and lower bounds show that, up to logarithmic factors, the minimax total sample complexity is $$ NSA \\asymp \\frac{SA}{\\varepsilon^2}\\begin{cases} \\min\\{H_0,H_\u03c3\\}, & \\varepsilon\\gtrsim\u03c3H_0,\\\\ \\min\\{H_0,H_\u03c3\\}+\u03c3H_\u03c3^2, & \\varepsilon\\lesssim\u03c3H_0. \\end{cases} $$ Here $S$ and $A$ are the numbers of states and actions, and $N$ is the number of samples per state-action pair. The sample complexity consists of a linear-span term that resembles the nominal AMDP results and a robustness-specific term that appears only in the low-tolerance regime. We attain these rates using reduction-based plug-in procedures that select the reduction---nominal or robust---and its discount factor: a span-informed procedure that makes these choices using known span parameters, and a span-agnostic procedure that calibrates both choices from data.",
+      "published": "August 06, 2026",
+      "published_raw": "2026-08-06T19:49:48Z",
       "categories": [
         "cs.LG",
-        "cs.DS",
         "math.OC",
         "stat.ML"
       ],
-      "pdf_link": "https://arxiv.org/pdf/2607.00252v1",
-      "arxiv_url": "https://arxiv.org/abs/2607.00252v1",
-      "added_timestamp": 1783220310
+      "pdf_link": "https://arxiv.org/pdf/2608.06545v1",
+      "arxiv_url": "https://arxiv.org/abs/2608.06545v1",
+      "added_timestamp": 1786756177
+    },
+    {
+      "arxiv_id": "2608.04312",
+      "title": "Achieving First-Order Statistical Improvements in Data-Driven Optimization: From No-Free-Lunch to Amplified Decision Perturbation",
+      "authors": [
+        "Henry Lam",
+        "Tianyu Wang"
+      ],
+      "abstract": "Recent proliferation of data-optimization integration has led to a range of methods that aim to improve the statistical performance of data-driven optimization decisions. However, while many of these methods are motivated intuitively from a robustness or regularization perspective, their resulting statistical benefits are often unclear and, even if available, are established on a case-by-case basis. We provide a systematic dissection of data-driven optimization formulations using the view of \"directionally perturbed\" empirical optimization (EO). Specifically, this umbrella of formulations, which we call \"EO+\", covers many existing data-driven optimization methods, including regularization, distributionally robust optimization, transfer learning, and analogous methods for contextual optimization. On the one hand, we argue that without additional, correctly specified, side information, any EO+ method can result in at most second-order improvements. This provides a negative conclusion, namely ``no free lunch is possible\", on the statistical power of EO+. On the other hand, we show that when leveraging side information that is geometrically effective, achieving first-order improvements is possible by choosing hyperparameters that are significantly larger than what is typically suggested in the literature. Moreover, we construct a principled methodology based on excess risk estimation, via either system knowledge or bootstrap resampling, to maximize the first-order gain. We demonstrate how this gain connects to the control-variate principle, a variance reduction technique in the Monte Carlo simulation literature, which helps explain why geometrically effective side information is necessary.",
+      "published": "August 05, 2026",
+      "published_raw": "2026-08-05T00:42:11Z",
+      "categories": [
+        "math.OC",
+        "stat.ML"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2608.04312v1",
+      "arxiv_url": "https://arxiv.org/abs/2608.04312v1",
+      "added_timestamp": 1786756177
+    },
+    {
+      "arxiv_id": "2607.24983",
+      "title": "Generative Distributionally Robust Optimization",
+      "authors": [
+        "Ziwei Zhang",
+        "Jonathan Yu-Meng Li",
+        "Zhihao Jin"
+      ],
+      "abstract": "Generative models are increasingly adopted in distributionally robust optimization (DRO), but existing approaches trade off model compatibility and adversarial structure: methods that accept arbitrary samplers do not restrict worst-case laws to a generator family, while generator-parameterized adversaries rely on model-specific access such as likelihoods, scores, or training data. We propose Generative Distributionally Robust Optimization (GDRO), a principled framework that accepts any sampleable conditional generator as the nominal model and restricts worst-case laws to a chosen conditional generator family. The key is the sampler-Sinkhorn pairing: samplers represent the conditional laws exactly, while Sinkhorn divergence compares their induced distributions without likelihood access and can be estimated from samples alone. The resulting population problem admits a direct finite-sample approximation and differentiable primal-dual implementation at the active decision context. For Lipschitz losses, the population Sinkhorn radius bounds downstream degradation. Across explicit and implicit generators, our method reduces rare-context inventory regret by 60% and SocialGAN navigation collisions by 50% relative to nominal decisions.",
+      "published": "July 27, 2026",
+      "published_raw": "2026-07-27T18:35:07Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "math.OC",
+        "stat.ML"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2607.24983v1",
+      "arxiv_url": "https://arxiv.org/abs/2607.24983v1",
+      "added_timestamp": 1786756177
+    },
+    {
+      "arxiv_id": "2607.16914",
+      "title": "Approximate Relative Entropy Constraints for Nonlinear Covariance Steering Under Distribution Ambiguity",
+      "authors": [
+        "Trevor N. Wolf",
+        "Jay W. McMahon"
+      ],
+      "abstract": "Covariance steering provides an efficient framework for designing linear stochastic feedback policies, but its extension to nonlinear systems relies on a Gaussian surrogate obtained through local linearization. Because this surrogate may differ substantially from the true nonlinear state distribution, risk-sensitive quantities such as collision probability and mean-squared error may be inaccurately estimated. This work develops a distributionally robust covariance-steering framework based on the relative entropy, also known as the Kullback-Leibler divergence (KLD), to account for ambiguity in the propagated probability density function. Using a variational representation of exponential integrals, we derive computable upper bounds on risk-sensitive quantities over a KLD ambiguity set. We then formulate an upper bound on the time rate of change of the KLD between the true nonlinear distribution and a Gaussian reference surrogate. Under some assumptions, this bound is controlled by decision variables within a covariance-steering formulation. The resulting constraints are incorporated into a sequential convex programming algorithm to design stochastic guidance policies that keep the true distribution close to its Gaussian surrogate while enforcing bounds on risk-sensitive performance measures. The proposed approach is demonstrated on a challenging nonlinear spacecraft transfer between two near-rectilinear halo orbits.",
+      "published": "July 18, 2026",
+      "published_raw": "2026-07-18T18:09:59Z",
+      "categories": [
+        "cs.RO",
+        "cs.IT",
+        "eess.SY",
+        "stat.AP"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2607.16914v1",
+      "arxiv_url": "https://arxiv.org/abs/2607.16914v1",
+      "added_timestamp": 1786756177
     }
   ]
 }
