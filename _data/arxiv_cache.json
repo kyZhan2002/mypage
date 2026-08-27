@@ -1,6 +1,26 @@
 {
-  "last_fetch_timestamp": 1787274793,
+  "last_fetch_timestamp": 1787815464,
   "papers": [
+    {
+      "arxiv_id": "2608.22746",
+      "title": "Generative Neural Networks for Sinkhorn Distributionally Robust Hypothesis Testing",
+      "authors": [
+        "Fenglin Zhang",
+        "Teyan Liu",
+        "Jie Wang"
+      ],
+      "abstract": "This paper studies the Sinkhorn distributionally robust hypothesis testing (SDRHT) problem, seeking a robust detector against least-favorable distributions in Sinkhorn discrepancy-based ambiguity sets centered at the empirical distributions. Existing approaches solve this problem by solving large-scale conic programs, which are not scalable. To overcome this, we propose a generative framework that learns least-favorable distributions and supports efficient training and end-to-end sampling. For the Sinkhorn discrepancy-based ambiguity sets, we first derive an equivalent conditional-KL-divergence representation with respect to kernel-smoothed reference distributions. This property allows us to prove strong duality for both constrained and unconstrained minimax SDRHT formulations. Based on the closed-form optimal detector and Brenier's theorem, we reformulate the max-min dual formulation as a maximization problem over convex potentials whose gradients characterize invertible transport maps between kernel-smoothed distributions and their least-favorable counterparts. We efficiently approximate these potentials using Hyper Input Convex Neural Networks (HyCNNs) equipped with stochastic gradient estimators and prove the representation power of HyCNNs and the distributional universality of their induced transport maps. Numerical results show that the proposed method achieves superior accuracy and robustness across different sample sizes and dimensions, while avoiding the scalability limitations of classical SDRHT methods.",
+      "published": "August 24, 2026",
+      "published_raw": "2026-08-24T03:11:14Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.OC"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2608.22746v1",
+      "arxiv_url": "https://arxiv.org/abs/2608.22746v1",
+      "added_timestamp": 1787815464
+    },
     {
       "arxiv_id": "2608.13133",
       "title": "Statistical Properties of Robust Learning under Distributional Shifts",
