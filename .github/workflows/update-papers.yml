@@ -2,36 +2,45 @@ name: Update arXiv Papers
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Run every 24 hours
-  workflow_dispatch:      # Allow manual triggers
+    # Twice a day: arXiv rate-limits GitHub's shared egress IPs hard, so a
+    # single daily attempt used to leave the site stale for days at a time.
+    - cron: '0 3 * * *'
+    - cron: '0 15 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
+
+# Never let the two daily runs race each other onto main.
+concurrency:
+  group: update-papers
+  cancel-in-progress: false
 
 jobs:
   update-papers:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-          
-      - name: Create data directory
-        run: mkdir -p _data
-          
+
+      # Fails the job when arXiv is unreachable, instead of reporting a
+      # green run that fetched nothing.
       - name: Fetch papers
         run: python _scripts/fetch_papers.py
-        
+
       - name: Commit and push if changed
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --global user.name 'GitHub Action'
-          git config --global user.email 'action@github.com'
-          git add -A
-          git diff --cached --quiet || (git commit -m "Update arXiv papers" && git push)
+          git config user.name 'GitHub Action'
+          git config user.email 'action@github.com'
+          git add _data
+          git diff --cached --quiet && { echo 'No changes.'; exit 0; }
+          git commit -m 'Update arXiv papers'
+          for attempt in 1 2 3; do
+            git pull --rebase --autostash origin main && git push && exit 0
+            echo "push attempt $attempt failed, retrying"
+            sleep 5
+          done
+          exit 1

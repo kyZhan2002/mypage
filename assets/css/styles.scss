@@ -8,6 +8,13 @@
   --background-color: #f5f5f5;
 }
 
+// Any rule that sets an explicit `display` outranks the user agent's
+// `[hidden] { display: none }`, which silently broke every element the paper
+// scripts hide (the pager, the saved counter, the "Show more" button).
+[hidden] {
+  display: none !important;
+}
+
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
@@ -580,11 +587,21 @@ body {
 }
 
 .papers-list {
-  max-width: 900px;
-  margin: 0 auto;
-  
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  // An expanded abstract must not stretch the card beside it.
+  align-items: start;
+
+  @media (max-width: 900px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .paper-card {
-    margin-bottom: 2rem;
+    margin-bottom: 0;
+    // Anchors the star button, and keeps long math from widening the column.
+    position: relative;
+    overflow-wrap: break-word;
     
     h3 {
       margin-top: 0;
@@ -870,4 +887,274 @@ footer {
   padding: 2rem;
   background: var(--primary-color);
   color: white;
+}
+
+// ---------------------------------------------------------------------------
+// /papers/ and /papers/archive/
+// Shared by _includes/paper-card.html; these used to be duplicated <style>
+// blocks in each of the two pages.
+// ---------------------------------------------------------------------------
+
+.header-meta {
+  font-size: 0.9rem;
+  opacity: 0.9;
+
+  a {
+    color: white;
+    text-decoration: underline;
+  }
+}
+
+.status-dot {
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  margin-right: 0.35rem;
+  vertical-align: baseline;
+
+  &.status-fresh { background: #2ecc71; }
+  &.status-stale { background: #f1c40f; }
+}
+
+.search-container {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  border-radius: 25px;
+  padding: 0.6rem 1.2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  i { color: #6c757d; }
+
+  input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font: inherit;
+    font-size: 1rem;
+    padding: 0.3rem;
+    background: transparent;
+  }
+
+  button {
+    background: none;
+    border: none;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+
+    &:hover { color: #dc3545; }
+  }
+}
+
+.search-stats {
+  margin-top: 0.75rem;
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  vertical-align: middle;
+
+  i { font-size: 0.65rem; }
+}
+
+.badge-new {
+  background: #2ecc71;
+  color: white;
+  margin-left: 0.5rem;
+}
+
+.badge-author {
+  background: rgba(42, 42, 114, 0.1);
+  color: var(--primary-color);
+}
+
+.badge-topic {
+  background: rgba(0, 159, 253, 0.12);
+  color: #0b6fa4;
+}
+
+.match-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 0.75rem;
+}
+
+.papers-list .paper-card {
+  .categories {
+    color: #888;
+    font-size: 0.8rem;
+  }
+
+  .abstract-container { position: relative; }
+
+  .abstract {
+    margin: 1rem 0 0.25rem;
+    line-height: 1.6;
+
+    &.collapsed {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    &.expanded { display: block; }
+  }
+
+  .expand-btn {
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    cursor: pointer;
+    padding: 0.25rem 0;
+    font: inherit;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    &:hover {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+
+    i { font-size: 0.7rem; }
+  }
+
+  .paper-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Save-for-later star, top right of each card.
+.star-btn {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  background: none;
+  border: none;
+  padding: 0.35rem;
+  border-radius: 50%;
+  line-height: 1;
+  font-size: 1.15rem;
+  color: #c3c7d1;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+
+  &:hover {
+    color: #f0a800;
+    background: rgba(240, 168, 0, 0.12);
+  }
+
+  &.is-saved { color: #f0a800; }
+
+  &:focus-visible {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+  }
+}
+
+.papers-list .paper-card h3 {
+  // Leave room for the star.
+  padding-right: 2.25rem;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 3rem;
+}
+
+.page-btn {
+  min-width: 2.4rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid #dcdfe6;
+  border-radius: 6px;
+  background: white;
+  color: var(--primary-color);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+
+  &:hover:not(:disabled):not(.is-current) {
+    border-color: var(--secondary-color);
+    background: rgba(0, 159, 253, 0.08);
+  }
+
+  &.is-current {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+}
+
+.page-gap {
+  color: #aaa;
+  padding: 0 0.2rem;
+}
+
+.list-message {
+  max-width: 640px;
+  margin: 0 auto 2rem;
+  text-align: center;
+
+  .note {
+    color: #888;
+    font-size: 0.85rem;
+  }
+}
+
+.navigation .nav-count {
+  display: inline-block;
+  min-width: 1.3rem;
+  padding: 0.05rem 0.4rem;
+  margin-left: 0.15rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
 }

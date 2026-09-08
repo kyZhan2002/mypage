@@ -3,135 +3,49 @@ layout: default
 title: Latest arXiv Papers
 ---
 
+{%- assign papers = site.data.arxiv_cache.papers -%}
+{%- assign fetched_at = site.data.arxiv_cache.last_fetch_timestamp -%}
+{%- assign now = site.time | date: "%s" | plus: 0 -%}
+{%- assign staleness = now | minus: fetched_at -%}
+
 <div class="container">
   <div class="header">
     <h1>Latest Research Papers</h1>
-    <p>Recent papers from arXiv based on my research interests</p>
-    <p>Papers are fetched daily and displayed for one month. After 30 days, papers are moved to the <a href="{{ site.baseurl }}/papers/archive">archive</a>.</p>
+    <p>New arXiv papers matching my tracked topics and authors, submitted in the last 30 days.</p>
+    <p class="header-meta">
+      {%- if fetched_at %}
+        <span class="status-dot {% if staleness > 172800 %}status-stale{% else %}status-fresh{% endif %}"></span>
+        Last checked {{ fetched_at | date: "%B %-d, %Y" }}
+        {%- if staleness > 172800 %}
+          &mdash; more than {{ staleness | divided_by: 86400 }} days ago, the fetch job may be failing
+        {%- endif %}
+      {%- else %}
+        <span class="status-dot status-stale"></span> Never fetched
+      {%- endif %}
+      &middot; <a href="{{ site.baseurl }}/papers/archive">Archive</a>
+      &middot; <a href="{{ site.baseurl }}/papers/saved">Saved papers</a>
+    </p>
   </div>
 
-  <div class="papers-list">
-    {% if site.data.arxiv_cache.papers and site.data.arxiv_cache.papers.size > 0 %}
-      {% for paper in site.data.arxiv_cache.papers %}
-        <div class="card paper-card">
-          <h3>{{ paper.title }}</h3>
-          <p class="authors">
-            <strong>Authors:</strong> {{ paper.authors | join: ", " }}
-          </p>
-          <p class="categories">
-            <strong>Categories:</strong> {{ paper.categories | join: ", " }}
-          </p>
-          <p class="published-date">
-            <strong>Published:</strong> {{ paper.published }}
-          </p>
-          <div class="abstract-container">
-            <p class="abstract collapsed">{{ paper.abstract }}</p>
-            <button class="expand-btn" onclick="toggleAbstract(this)">
-              <i class="fas fa-chevron-down"></i> Show more
-            </button>
-          </div>
-          <div class="paper-links">
-            <a href="{{ paper.pdf_link }}" class="button" target="_blank">
-              <i class="fas fa-file-pdf"></i> PDF
-            </a>
-            <a href="{{ paper.arxiv_url }}" class="button" target="_blank">
-              <i class="fas fa-external-link-alt"></i> arXiv
-            </a>
-          </div>
-        </div>
-      {% endfor %}
-    {% else %}
-      <div class="card">
-        <p>Loading papers... If this message persists, please check the site build logs.</p>
-        <p>Try refreshing the page in a few minutes.</p>
-      </div>
-    {% endif %}
-  </div>
+  {%- if papers and papers.size > 0 %}
+    {% include papers-toolbar.html papers=papers %}
+
+    <div class="papers-list" data-per-page="20">
+      {%- for paper in papers %}
+        {% include paper-card.html paper=paper show_new=true %}
+      {%- endfor %}
+    </div>
+
+    <div class="card list-message" id="no-results" hidden>
+      <p>No papers match that search.</p>
+    </div>
+    <div class="pagination" id="pagination" hidden></div>
+  {%- else %}
+    <div class="card">
+      <p>No papers in the current 30-day window.</p>
+      <p>Older papers are in the <a href="{{ site.baseurl }}/papers/archive">archive</a>.</p>
+    </div>
+  {%- endif %}
 </div>
 
-<script>
-function toggleAbstract(button) {
-  const abstractContainer = button.parentElement;
-  const abstract = abstractContainer.querySelector('.abstract');
-  const icon = button.querySelector('i');
-  
-  if (abstract.classList.contains('collapsed')) {
-    abstract.classList.remove('collapsed');
-    abstract.classList.add('expanded');
-    button.innerHTML = '<i class="fas fa-chevron-up"></i> Show less';
-  } else {
-    abstract.classList.remove('expanded');
-    abstract.classList.add('collapsed');
-    button.innerHTML = '<i class="fas fa-chevron-down"></i> Show more';
-  }
-}
-</script>
-
-<style>
-.header-actions {
-  display: flex;
-  gap: 10px;
-  margin-top: 15px;
-  flex-wrap: wrap;
-}
-
-.archive-button {
-  background-color: #6c757d;
-  color: white;
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  display: inline-block;
-  transition: background-color 0.3s;
-}
-
-.archive-button:hover {
-  background-color: #5a6268;
-  color: white;
-  text-decoration: none;
-}
-
-.abstract-container {
-  position: relative;
-}
-
-.abstract {
-  margin: 10px 0;
-  line-height: 1.6;
-  text-align: justify;
-}
-
-.abstract.collapsed {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.abstract.expanded {
-  display: block;
-}
-
-.expand-btn {
-  background: none;
-  border: none;
-  color: #007bff;
-  cursor: pointer;
-  padding: 5px 0;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: color 0.3s;
-}
-
-.expand-btn:hover {
-  color: #0056b3;
-  text-decoration: underline;
-}
-
-.expand-btn i {
-  font-size: 12px;
-}
-</style>
+<script src="{{ '/assets/js/papers.js' | relative_url }}"></script>

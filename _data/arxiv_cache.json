@@ -1,6 +1,81 @@
 {
-  "last_fetch_timestamp": 1788663780,
+  "last_fetch_timestamp": 1788899779,
   "papers": [
+    {
+      "arxiv_id": "2609.05007",
+      "title": "Multi-Fidelity Gaussian Processes for Translational Modelling of Clinical Outcomes",
+      "authors": [
+        "Isaac S. Hayden",
+        "Alicia D'Souza",
+        "Steven Niederer",
+        "Sarah Filippi"
+      ],
+      "abstract": "Bridging the gap between animal and human experiments remains a major challenge in translational medicine, particularly in early drug development. Progress is constrained by financial cost, the difficulty of integrating heterogeneous in vitro and in vivo data, and the desire to reduce the use of animal testing balanced against minimising the risk to human participants. We present a statistical machine learning framework using multi-fidelity Gaussian processes, in which animal studies are considered as lower fidelity but informative approximations to human experiments. This allows cross-species similarities and nonlinear exposure-response relationships to be learned simultaneously, enabling principled extrapolation between species while quantifying uncertainty. By leveraging information from multiple experimental fidelities, our method improves estimation of clinically relevant quantities of interest and supports the replacement, reduction, and refinement of in vivo testing. We first illustrate this approach in a simulated scenario, before validating it on real clinical data. We simulate data for drug-induced QT-interval prolongation, a key cardiac safety assessment required for regulatory approval. This framework provides a probabilistic surrogate capable of integrating in vitro pharmacology, animal experiments and human data within a unified statistical model. Crucially, it achieves this at no additional experimental cost while also enabling transfer learning across compounds. As a result, predictions and uncertainty quantification for new drugs can be generated from in vitro findings alone, providing additional efficiency gains and accelerating decision making. For validation, we use a clinical dataset measuring change in heart rate under autonomic blockade, which represents some of the challenges commonly found in multi-species datasets.",
+      "published": "September 04, 2026",
+      "published_raw": "2026-09-04T11:18:16Z",
+      "updated_raw": "2026-09-04T11:18:16Z",
+      "categories": [
+        "stat.AP"
+      ],
+      "primary_category": "stat.AP",
+      "pdf_link": "https://arxiv.org/pdf/2609.05007v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.05007v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1788898165
+    },
+    {
+      "arxiv_id": "2608.25468",
+      "title": "Functional linear regression from sparse to dense designs: a pooling-ridge method and minimax optimality",
+      "authors": [
+        "Shunxing Yan",
+        "Fang Yao"
+      ],
+      "abstract": "Functional data analysis is an important statistical field that treats data as random functions. In practice, the random functions are often not fully observed but instead measured at discrete times. While simpler problems, such as mean and covariance estimation, have been widely studied for discretely observed data, optimal estimation of linear regression for this data type has remained unsolved for over two decades. To tackle this fundamental challenge, we propose a novel approach, referred to as pooling ridge estimation, which combines the advantages of pooling strategy and RKHS-based method by incorporating the unbiased estimation of operators based on discretely observed measurements from all subjects. This unified estimation framework enables us to achieve minimax optimality in prediction risk in arbitrary sampling schemes ranging from sparse to dense designs, for both scalar-on-function and function-on-function regression models. Such methodological and theoretical advances are obtained for the first time and accurately reveal the influence of discrete sampling. For scalar-on-function regression, the phase transition occurs once, separating the convergence behavior into two distinct regimes. Remarkably, for function-on-function regression, up to three phase transitions may occur, determined by the sampling frequencies of the predictor/response functions. Finally, simulation experiments and two real data examples provide empirical support for the proposed methods.",
+      "published": "August 26, 2026",
+      "published_raw": "2026-08-26T07:36:39Z",
+      "updated_raw": "2026-08-26T07:36:39Z",
+      "categories": [
+        "stat.ME",
+        "cs.LG",
+        "math.ST",
+        "stat.ML"
+      ],
+      "primary_category": "stat.ME",
+      "pdf_link": "https://arxiv.org/pdf/2608.25468v1",
+      "arxiv_url": "https://arxiv.org/abs/2608.25468v1",
+      "matched_by": [
+        "author:Fang Yao"
+      ],
+      "added_timestamp": 1788898165
+    },
+    {
+      "arxiv_id": "2608.24961",
+      "title": "The Gold Rush in AI4Math: Where Are We Now?",
+      "authors": [
+        "Jiashun Jin",
+        "Zheng Tracy Ke",
+        "Bingcheng Sui"
+      ],
+      "abstract": "Recent advances in artificial intelligence (AI) have sparked growing interest in its use for mathematical research. While some view this as a major opportunity for discovery, others have raised concerns about its impact on traditional research practices. Despite extensive debate, empirical evidence on how AI is actually being used in mathematics remains limited. To address this gap, we collected all 32,944 arXiv submissions posted between March 1 and August 20, 2026, whose primary or secondary categories included Mathematics. We identified 3,575 submissions that explicitly disclosed author use of AI, of which 1,712 involved at least one substantive mathematical contribution. Our analysis reveals several broad patterns. First, disclosed AI use increased sharply over the study period, with substantive use growing from 1.39% of Mathematics submissions in March to 14.09% through August 20. Second, substantive AI use is highly uneven across fields: Combinatorics has the largest number of such papers, while Metric Geometry has the highest substantive-use rate. Third, substantive AI use is geographically concentrated: under weighted author counts, the United States and China together account for about two-thirds of the recognized country weight. Fourth, AI is already being applied to open research problems: among 717 named open-problem records associated with substantive use, 71% are labeled as fully resolved based on the authors' descriptions, with proofs of the conjectured statement more common than counterexamples or disproofs. Finally, AI-system use is also highly concentrated, with OpenAI systems appearing most frequently, followed by Anthropic. Together, these findings suggest that AI-assisted mathematics is expanding rapidly but remains at an early and uneven stage of adoption.",
+      "published": "August 25, 2026",
+      "published_raw": "2026-08-25T07:07:37Z",
+      "updated_raw": "2026-08-25T07:07:37Z",
+      "categories": [
+        "stat.AP",
+        "cs.CY",
+        "cs.DL",
+        "math.HO"
+      ],
+      "primary_category": "stat.AP",
+      "pdf_link": "https://arxiv.org/pdf/2608.24961v1",
+      "arxiv_url": "https://arxiv.org/abs/2608.24961v1",
+      "matched_by": [
+        "author:Tracy Ke"
+      ],
+      "added_timestamp": 1788898165
+    },
     {
       "arxiv_id": "2608.22746",
       "title": "Generative Neural Networks for Sinkhorn Distributionally Robust Hypothesis Testing",
@@ -19,7 +94,141 @@
       ],
       "pdf_link": "https://arxiv.org/pdf/2608.22746v1",
       "arxiv_url": "https://arxiv.org/abs/2608.22746v1",
-      "added_timestamp": 1787815464
+      "added_timestamp": 1787815464,
+      "matched_by": [
+        "topic:distributionally robust"
+      ]
+    },
+    {
+      "arxiv_id": "2608.20255",
+      "title": "Transfer Learning in Nonparametric Regression with Deep ReLU Networks",
+      "authors": [
+        "Junpeng Ren",
+        "Carlos Misael Madrid Padilla",
+        "Yanzhen Chen",
+        "Oscar Hernan Madrid Padilla"
+      ],
+      "abstract": "This paper develops a general transfer learning framework for nonparametric regression with data consisting of multiple groups. Under the assumption that groups share a common structure along with group-specific deviations in additive form, the proposed method employs a two-stage offset learning procedure: the first stage pools data from all groups to estimate an overall mean function, and the second stage estimates offsets for each group, yielding final group-level estimators through additive combination. Upper bounds on the $\\mathcal L_2$ error are established for the proposed framework, covering a broad class of nonparametric estimators under mild complexity and noise conditions. When instantiated with deep ReLU networks, explicit convergence rates are derived under hierarchical composition models, demonstrating the ability to overcome the curse of dimensionality. Conditions that enable positive transfer with faster rates are considered, including learning with simpler functions and data augmentation through pooling samples across groups. Various simulations and real-data experiments further validate the effectiveness of the proposed method.",
+      "published": "August 20, 2026",
+      "published_raw": "2026-08-20T16:53:00Z",
+      "updated_raw": "2026-08-20T16:53:00Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "stat.ME"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2608.20255v1",
+      "arxiv_url": "https://arxiv.org/abs/2608.20255v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1788898165
+    },
+    {
+      "arxiv_id": "2608.18237",
+      "title": "Sobolev Regularized Score Difference Estimation in Diffusion Models",
+      "authors": [
+        "Chenghan Xie",
+        "Jose Blanchet",
+        "Renyuan Xu"
+      ],
+      "abstract": "Estimating the difference of two Stein's score functions is a fundamental problem in generative modeling. In particular, score differences arise naturally in transfer learning, where the score difference provides the mechanism for adapting a pre-trained model to a new target distribution, and in diffusion model-based post-training methods such as discriminator guidance. Existing estimators for score differences in these settings either lack of statistical consistency or are difficult to scale up in high-dimensions. We propose a statistically consistent and scalable estimator for score differences based on Sobolev regularization, which plays a crucial role in ensuring consistency and stablizing the training in the small-sample regime. Mathematically, we establish a convergence rate of $O(n^{-\\frac{s-1}{d+2s-2}})$ where $d$ is the dimension and $s$ denotes the smoothness of the underlying densities, and provide a minimax lower bound of $\\tildeΩ(n^{-\\frac{2(s-1)}{d+2s}})$ (in mean-squared error). Empirically, our estimator exhibits significantly improved stability in small-sample regimes compared to existing methods. We demonstrate its effectiveness on real-world tasks, including transfer learning for ECG signal generation, where it substantially outperforms non-regularized score difference estimators in downstream classification performance.",
+      "published": "August 18, 2026",
+      "published_raw": "2026-08-18T18:23:30Z",
+      "updated_raw": "2026-08-24T14:56:43Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.OC"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2608.18237v2",
+      "arxiv_url": "https://arxiv.org/abs/2608.18237v2",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1788898165
+    },
+    {
+      "arxiv_id": "2608.15783",
+      "title": "Inferential Evaluation of Surrogate-Derived Models under Covariate Shift",
+      "authors": [
+        "Longtian Shi",
+        "Molei Liu",
+        "Doudou Zhou"
+      ],
+      "abstract": "In transfer-learning settings, a model derived from abundant surrogate labels may be deployed in a target population where gold-standard outcomes are unobserved. Evaluating its target performance is essential for determining whether decisions based on the model remain reliable, yet it is difficult when gold labels are scarce, and covariate distributions differ across data sources. We study a three-sample setting with a small gold-labeled source, a larger surrogate-labeled source, and an unlabeled target. Under conditional transportability, we evaluate the surrogate-derived model against the latent gold-standard outcome in the target population. We propose cross-fitted estimators that transport information from the two labeled sources through source-specific density ratios. We also combine outcome-regression augmentation with a kernel correction for estimating the model near a threshold, accounting for uncertainty from all three samples. We establish asymptotically linear inference for TPR and FPR, consistency and pointwise inference for the ROC curve, and asymptotically normal inference for AUC. Simulations assess bias, coverage, and sensitivity to bandwidth and relative sample sizes. A retrospective temporal validation on Chatbot Arena and a semi-synthetic ACS-Income study provide validation in real-world AI applications.",
+      "published": "August 16, 2026",
+      "published_raw": "2026-08-16T15:05:38Z",
+      "updated_raw": "2026-08-16T15:05:38Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "stat.AP",
+        "stat.ME"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2608.15783v1",
+      "arxiv_url": "https://arxiv.org/abs/2608.15783v1",
+      "matched_by": [
+        "author:Molei Liu"
+      ],
+      "added_timestamp": 1788898165
+    },
+    {
+      "arxiv_id": "2608.14906",
+      "title": "Optimal Watermark Localization in Mixed-Source Large Language Model Texts",
+      "authors": [
+        "Jose H. Blanchet",
+        "T. Tony Cai",
+        "Xiang Li",
+        "Hao Liu",
+        "Qi Long",
+        "Weijie J. Su"
+      ],
+      "abstract": "Watermarking provides a principled way to authenticate text generated by large language models (LLMs). In practice, however, the final text may be mixed-source, with watermark evidence surviving at only a subset of token positions after rewriting, insertion, deletion, or paraphrasing. Although prior work has studied global detection of watermark signals, when such signals can be localized remains unclear. We formulate watermark localization as a token-level multiple-testing problem based on pivotal statistics, with a latent indicator recording whether watermark dependence survives at each position. Under an asymptotic regime indexed by exponents for signal sparsity, next-token concentration, and effective-vocabulary growth, we derive a sharp boundary for global detection and phase transitions for discovery and classification within the class of coordinatewise pivot-based localization rules. We show that discovery is strictly harder than detection and that consistent classification is impossible across the parameter regime within this class. We then develop an adaptive thresholding method that does not require knowledge of the exponents or time-varying next-token distributions, but uses a data-driven estimate of the surviving watermark fraction. The method attains the optimal discovery boundary and near-optimal discovery power relative to homogeneous pivot-based rules. Simulations support the theoretical phase transitions, while experiments on model-generated texts demonstrate practical localization performance under common edit mechanisms.",
+      "published": "August 14, 2026",
+      "published_raw": "2026-08-14T21:41:50Z",
+      "updated_raw": "2026-08-14T21:41:50Z",
+      "categories": [
+        "stat.ME",
+        "cs.CL",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "primary_category": "stat.ME",
+      "pdf_link": "https://arxiv.org/pdf/2608.14906v1",
+      "arxiv_url": "https://arxiv.org/abs/2608.14906v1",
+      "matched_by": [
+        "author:Weijie Su"
+      ],
+      "added_timestamp": 1788898165
+    },
+    {
+      "arxiv_id": "2608.13937",
+      "title": "Deep Vision in Smart Manufacturing: MODERN Framework for Intelligent Quality Monitoring and Diagnosis",
+      "authors": [
+        "Yicheng Kang",
+        "Yuling Jiao",
+        "Xin Geng",
+        "Mahesh Nagarajan"
+      ],
+      "abstract": "Smart manufacturing processes are often installed with a large number of sensors, imaging devices and computers, which not only enable instant communication across various modules of a production system but also aid in intelligent manufacturing management. In this paper, we introduce MODERN, a deep learning framework for quality monitoring and fault isolation, which integrates these enhanced capabilities into the practice of industrial quality control. Using the architecture of an inception residual neural network, we develop a control chart that monitors the likelihood of a product containing defects. We also propose a faulty region estimator that identifies the defective area using transfer learning. To extend our framework to cases where there are not sufficient training data, we suggest a transfer monitoring technique that requires only a small sample size and a hypothesis testing approach for quantitatively assessing the applicability of our method. Theoretically, we establish the minimax optimal convergence rate for both our defect likelihood estimation and fault diagnosis. Our results lead to a seemingly counter-intuitive managerial implication - it may not always be in a manufacturer's best interests to keep upgrading its monitoring equipment regardless of the cost. Empirically, we demonstrate the superior performance of our method in comparison with a state-of-the-art approach using both simulated experiments and real data.",
+      "published": "August 14, 2026",
+      "published_raw": "2026-08-14T04:17:57Z",
+      "updated_raw": "2026-08-14T04:17:57Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2608.13937v1",
+      "arxiv_url": "https://arxiv.org/abs/2608.13937v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1788898165
     },
     {
       "arxiv_id": "2608.13133",
@@ -39,86 +248,10 @@
       ],
       "pdf_link": "https://arxiv.org/pdf/2608.13133v1",
       "arxiv_url": "https://arxiv.org/abs/2608.13133v1",
-      "added_timestamp": 1786756177
-    },
-    {
-      "arxiv_id": "2608.06545",
-      "title": "Robust Average-Reward Markov Decision Processes: Minimax-Optimal Learning via Plug-in Reductions",
-      "authors": [
-        "Yuepeng Yang",
-        "Yuxin Chen",
-        "Yuejie Chi"
-      ],
-      "abstract": "Distributionally robust Markov decision processes provide a principled framework for sequential decision making under model uncertainty. We study how many samples are necessary and sufficient to learn an $\\varepsilon$-optimal robust policy under the average-reward criterion. A generative model provides samples from the nominal transition kernel, whereas policy performance is evaluated over $(s,a)$-rectangular total-variation uncertainty sets of radius at most $\u03c3$.\n  Let $H_0$ and $H_\u03c3$ denote the nominal and robust optimal bias spans, respectively. We identify $\u03c3H_0$ as the perturbation scale separating high- and low-tolerance regimes. Our matching upper and lower bounds show that, up to logarithmic factors, the minimax total sample complexity is $$ NSA \\asymp \\frac{SA}{\\varepsilon^2}\\begin{cases} \\min\\{H_0,H_\u03c3\\}, & \\varepsilon\\gtrsim\u03c3H_0,\\\\ \\min\\{H_0,H_\u03c3\\}+\u03c3H_\u03c3^2, & \\varepsilon\\lesssim\u03c3H_0. \\end{cases} $$ Here $S$ and $A$ are the numbers of states and actions, and $N$ is the number of samples per state-action pair. The sample complexity consists of a linear-span term that resembles the nominal AMDP results and a robustness-specific term that appears only in the low-tolerance regime. We attain these rates using reduction-based plug-in procedures that select the reduction---nominal or robust---and its discount factor: a span-informed procedure that makes these choices using known span parameters, and a span-agnostic procedure that calibrates both choices from data.",
-      "published": "August 06, 2026",
-      "published_raw": "2026-08-06T19:49:48Z",
-      "categories": [
-        "cs.LG",
-        "math.OC",
-        "stat.ML"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2608.06545v1",
-      "arxiv_url": "https://arxiv.org/abs/2608.06545v1",
-      "added_timestamp": 1786756177
-    },
-    {
-      "arxiv_id": "2608.04312",
-      "title": "Achieving First-Order Statistical Improvements in Data-Driven Optimization: From No-Free-Lunch to Amplified Decision Perturbation",
-      "authors": [
-        "Henry Lam",
-        "Tianyu Wang"
-      ],
-      "abstract": "Recent proliferation of data-optimization integration has led to a range of methods that aim to improve the statistical performance of data-driven optimization decisions. However, while many of these methods are motivated intuitively from a robustness or regularization perspective, their resulting statistical benefits are often unclear and, even if available, are established on a case-by-case basis. We provide a systematic dissection of data-driven optimization formulations using the view of \"directionally perturbed\" empirical optimization (EO). Specifically, this umbrella of formulations, which we call \"EO+\", covers many existing data-driven optimization methods, including regularization, distributionally robust optimization, transfer learning, and analogous methods for contextual optimization. On the one hand, we argue that without additional, correctly specified, side information, any EO+ method can result in at most second-order improvements. This provides a negative conclusion, namely ``no free lunch is possible\", on the statistical power of EO+. On the other hand, we show that when leveraging side information that is geometrically effective, achieving first-order improvements is possible by choosing hyperparameters that are significantly larger than what is typically suggested in the literature. Moreover, we construct a principled methodology based on excess risk estimation, via either system knowledge or bootstrap resampling, to maximize the first-order gain. We demonstrate how this gain connects to the control-variate principle, a variance reduction technique in the Monte Carlo simulation literature, which helps explain why geometrically effective side information is necessary.",
-      "published": "August 05, 2026",
-      "published_raw": "2026-08-05T00:42:11Z",
-      "categories": [
-        "math.OC",
-        "stat.ML"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2608.04312v1",
-      "arxiv_url": "https://arxiv.org/abs/2608.04312v1",
-      "added_timestamp": 1786756177
-    },
-    {
-      "arxiv_id": "2607.24983",
-      "title": "Generative Distributionally Robust Optimization",
-      "authors": [
-        "Ziwei Zhang",
-        "Jonathan Yu-Meng Li",
-        "Zhihao Jin"
-      ],
-      "abstract": "Generative models are increasingly adopted in distributionally robust optimization (DRO), but existing approaches trade off model compatibility and adversarial structure: methods that accept arbitrary samplers do not restrict worst-case laws to a generator family, while generator-parameterized adversaries rely on model-specific access such as likelihoods, scores, or training data. We propose Generative Distributionally Robust Optimization (GDRO), a principled framework that accepts any sampleable conditional generator as the nominal model and restricts worst-case laws to a chosen conditional generator family. The key is the sampler-Sinkhorn pairing: samplers represent the conditional laws exactly, while Sinkhorn divergence compares their induced distributions without likelihood access and can be estimated from samples alone. The resulting population problem admits a direct finite-sample approximation and differentiable primal-dual implementation at the active decision context. For Lipschitz losses, the population Sinkhorn radius bounds downstream degradation. Across explicit and implicit generators, our method reduces rare-context inventory regret by 60% and SocialGAN navigation collisions by 50% relative to nominal decisions.",
-      "published": "July 27, 2026",
-      "published_raw": "2026-07-27T18:35:07Z",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "math.OC",
-        "stat.ML"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2607.24983v1",
-      "arxiv_url": "https://arxiv.org/abs/2607.24983v1",
-      "added_timestamp": 1786756177
-    },
-    {
-      "arxiv_id": "2607.16914",
-      "title": "Approximate Relative Entropy Constraints for Nonlinear Covariance Steering Under Distribution Ambiguity",
-      "authors": [
-        "Trevor N. Wolf",
-        "Jay W. McMahon"
-      ],
-      "abstract": "Covariance steering provides an efficient framework for designing linear stochastic feedback policies, but its extension to nonlinear systems relies on a Gaussian surrogate obtained through local linearization. Because this surrogate may differ substantially from the true nonlinear state distribution, risk-sensitive quantities such as collision probability and mean-squared error may be inaccurately estimated. This work develops a distributionally robust covariance-steering framework based on the relative entropy, also known as the Kullback-Leibler divergence (KLD), to account for ambiguity in the propagated probability density function. Using a variational representation of exponential integrals, we derive computable upper bounds on risk-sensitive quantities over a KLD ambiguity set. We then formulate an upper bound on the time rate of change of the KLD between the true nonlinear distribution and a Gaussian reference surrogate. Under some assumptions, this bound is controlled by decision variables within a covariance-steering formulation. The resulting constraints are incorporated into a sequential convex programming algorithm to design stochastic guidance policies that keep the true distribution close to its Gaussian surrogate while enforcing bounds on risk-sensitive performance measures. The proposed approach is demonstrated on a challenging nonlinear spacecraft transfer between two near-rectilinear halo orbits.",
-      "published": "July 18, 2026",
-      "published_raw": "2026-07-18T18:09:59Z",
-      "categories": [
-        "cs.RO",
-        "cs.IT",
-        "eess.SY",
-        "stat.AP"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2607.16914v1",
-      "arxiv_url": "https://arxiv.org/abs/2607.16914v1",
-      "added_timestamp": 1786756177
+      "added_timestamp": 1786756177,
+      "matched_by": [
+        "topic:distributionally robust"
+      ]
     }
   ]
 }

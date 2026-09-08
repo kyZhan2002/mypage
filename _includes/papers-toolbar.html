@@ -1,0 +1,19 @@
+{%- comment -%}
+Search box and result counter. The counts are filled in by papers.js once it
+knows how many cards survive filtering; the server-rendered values are what a
+reader without JavaScript sees.
+{%- endcomment -%}
+<div class="search-container">
+  <div class="search-box">
+    <i class="fas fa-search"></i>
+    <label class="sr-only" for="search-input">Search papers</label>
+    <input type="search" id="search-input" placeholder="Search by title, author, or abstract...">
+    <button type="button" id="clear-search" hidden aria-label="Clear search">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="search-stats">
+    Showing <span id="results-count">{{ papers.size }}</span>
+    of <span id="results-total">{{ papers.size }}</span> papers
+  </div>
+</div>

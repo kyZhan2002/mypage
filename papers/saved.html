@@ -1,0 +1,51 @@
+---
+layout: default
+title: Saved Papers
+---
+
+{%- comment -%}
+Every paper is rendered here and the browser shows only the starred ones.
+Saved ids live in this browser's localStorage, so the list is per-device and
+never leaves the machine -- there is no server to store it on.
+{%- endcomment -%}
+
+{%- assign all_papers = site.data.arxiv_cache.papers | concat: site.data.arxiv_archive.papers -%}
+{%- assign papers = all_papers | sort: "published_raw" | reverse -%}
+
+<div class="container">
+  <div class="header">
+    <h1>Saved Papers</h1>
+    <p>Papers you starred to read properly later.</p>
+    <p class="header-meta">
+      <a href="{{ site.baseurl }}/papers/"><i class="fas fa-arrow-left"></i> Latest papers</a>
+      &middot; <a href="{{ site.baseurl }}/papers/archive">Archive</a>
+    </p>
+  </div>
+
+  {%- if papers and papers.size > 0 %}
+    {% include papers-toolbar.html papers=papers %}
+
+    <div class="papers-list" data-per-page="20" data-saved-only="true">
+      {%- for paper in papers %}
+        {% include paper-card.html paper=paper %}
+      {%- endfor %}
+    </div>
+
+    <div class="card list-message" id="no-saved" hidden>
+      <p><i class="far fa-star"></i> Nothing saved yet.</p>
+      <p>Star a paper on the <a href="{{ site.baseurl }}/papers/">latest papers</a> or
+         <a href="{{ site.baseurl }}/papers/archive">archive</a> page and it shows up here.</p>
+      <p class="note">Saved papers are stored in this browser only, so they do not follow you to another device.</p>
+    </div>
+    <div class="card list-message" id="no-results" hidden>
+      <p>None of your saved papers match that search.</p>
+    </div>
+    <div class="pagination" id="pagination" hidden></div>
+  {%- else %}
+    <div class="card">
+      <p>There are no papers to save yet.</p>
+    </div>
+  {%- endif %}
+</div>
+
+<script src="{{ '/assets/js/papers.js' | relative_url }}"></script>

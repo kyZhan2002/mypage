@@ -1,0 +1,70 @@
+{%- comment -%}
+Renders one arXiv paper card. Used by papers/index.html and papers/archive.html.
+
+  paper       an entry from _data/arxiv_cache.json or _data/arxiv_archive.json
+  show_new    when true, flag papers added within the last three days
+
+Every interpolation is escaped: abstracts really do contain double quotes, and
+an unescaped one used to truncate the data-search attribute and corrupt the
+card's search index.
+{%- endcomment -%}
+
+{%- assign author_list = paper.authors | join: ", " -%}
+{%- assign haystack = paper.title | append: " " | append: author_list | append: " " | append: paper.abstract | downcase -%}
+{%- assign now = site.time | date: "%s" | plus: 0 -%}
+{%- assign age = now | minus: paper.added_timestamp -%}
+
+<div class="card paper-card" data-arxiv-id="{{ paper.arxiv_id | escape }}" data-search="{{ haystack | escape }}">
+  <button class="star-btn" type="button" aria-pressed="false"
+          title="Save for later" aria-label="Save this paper for later">
+    <i class="far fa-star"></i>
+  </button>
+
+  <h3>
+    {{ paper.title | escape }}
+    {%- if show_new and paper.added_timestamp and age < 259200 %}
+      <span class="badge badge-new">New</span>
+    {%- endif %}
+  </h3>
+
+  {%- if paper.matched_by.size > 0 %}
+    <p class="match-badges">
+      {%- for reason in paper.matched_by -%}
+        {%- assign kind = reason | split: ":" | first -%}
+        {%- assign value = reason | remove_first: kind | remove_first: ":" -%}
+        {%- if kind == "author" -%}
+          <span class="badge badge-author" title="Tracked author"><i class="fas fa-user"></i> {{ value | escape }}</span>
+        {%- else -%}
+          <span class="badge badge-topic" title="Tracked topic"><i class="fas fa-tag"></i> {{ value | escape }}</span>
+        {%- endif -%}
+      {%- endfor -%}
+    </p>
+  {%- endif %}
+
+  <p class="authors"><strong>Authors:</strong> {{ author_list | escape }}</p>
+  <p class="categories"><strong>Categories:</strong> {{ paper.categories | join: ", " | escape }}</p>
+  <p class="published-date">
+    <strong>Submitted:</strong> {{ paper.published | escape }}
+    {%- if paper.added_timestamp %} &middot; found {{ paper.added_timestamp | date: "%b %-d, %Y" }}{% endif -%}
+  </p>
+
+  <div class="abstract-container">
+    <p class="abstract collapsed">{{ paper.abstract | escape }}</p>
+    <button class="expand-btn" type="button" aria-expanded="false">
+      <i class="fas fa-chevron-down"></i> Show more
+    </button>
+  </div>
+
+  <div class="paper-links">
+    {%- if paper.pdf_link.size > 0 %}
+      <a href="{{ paper.pdf_link }}" class="button" target="_blank" rel="noopener">
+        <i class="fas fa-file-pdf"></i> PDF
+      </a>
+    {%- endif %}
+    {%- if paper.arxiv_url.size > 0 %}
+      <a href="{{ paper.arxiv_url }}" class="button" target="_blank" rel="noopener">
+        <i class="fas fa-external-link-alt"></i> arXiv
+      </a>
+    {%- endif %}
+  </div>
+</div>

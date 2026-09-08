@@ -20,17 +20,10 @@
             }
         };
     </script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <nav class="navigation">
-        <a href="{{ site.baseurl }}/">Home</a>
-        <a href="{{ site.baseurl }}/blog/">Blog</a>
-        <a href="{{ site.baseurl }}/projects/">Games</a>
-        <a href="{{ site.baseurl }}/statproj/">Stat Projects</a>
-        <a href="{{ site.baseurl }}/papers/">Papers</a>
-    </nav>
+    {% include site-nav.html %}
     <div class="container">
         {{ content }}
     </div>

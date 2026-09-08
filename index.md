@@ -5,14 +5,6 @@ title: "Keyao's Blog"
 
 <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
 
-<nav class="navigation">
-  <a href="{{ site.baseurl }}/">Home</a>
-  <a href="{{ site.baseurl }}/blog/">Blog</a>
-  <a href="{{ site.baseurl }}/projects/">Games</a>
-  <a href="{{ site.baseurl }}/statproj/">Stat Projects</a>
-  <a href="{{ site.baseurl }}/papers/">Papers</a>
-</nav>
-
 <div class="container home-container">
   <div class="hero-section">
     <h1 class="hero-title">{{ page.title }}</h1>
