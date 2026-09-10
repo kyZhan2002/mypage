@@ -1,6 +1,33 @@
 {
-  "last_fetch_timestamp": 1788978220,
+  "last_fetch_timestamp": 1789026693,
   "papers": [
+    {
+      "arxiv_id": "2609.09981",
+      "title": "Optimal Value Inference for Reinforcement Learning",
+      "authors": [
+        "Nan Lu",
+        "Ethan Lee",
+        "James M. Robins",
+        "David Simchi-Levi",
+        "Junwei Lu"
+      ],
+      "abstract": "We study offline inference for the optimal value in reinforcement learning. Two new nuisances are derived as fixed points of a self-induced Bellman equation, in which we approximate the maximum Bellman operator by its softmax correspondence. We propose a debiased estimator through the Neyman orthogonality and establish its asymptotic normality under diverging horizons even when the behavior policy changes with time, as long as the nuisances have the statistical rates that can be achieved by many machine learning methods. We provide a concrete estimating procedure for these nuisances and show they can lead to valid inference. Synthetic experiments validate the numerical performance of our inference method, and we implement it in real-life decision-making problems, including bike repositioning and AI agentic tool use.",
+      "published": "September 09, 2026",
+      "published_raw": "2026-09-09T10:10:55Z",
+      "updated_raw": "2026-09-09T10:10:55Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "stat.ME"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2609.09981v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.09981v1",
+      "matched_by": [
+        "author:Junwei Lu"
+      ],
+      "added_timestamp": 1789026693
+    },
     {
       "arxiv_id": "2609.08526",
       "title": "Transfer Learning with Heterogeneous Feature Spaces in Linear Regression",
