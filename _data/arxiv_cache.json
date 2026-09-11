@@ -1,6 +1,29 @@
 {
-  "last_fetch_timestamp": 1789063988,
+  "last_fetch_timestamp": 1789112816,
   "papers": [
+    {
+      "arxiv_id": "2609.11073",
+      "title": "Conformal-DRO: Distributionally Robust Optimization with Conformalized Ambiguity Set",
+      "authors": [
+        "Luhao Zhang",
+        "Shixiang Zhu"
+      ],
+      "abstract": "Data-driven distributionally robust optimization (DRO) typically treats the conditional outcome law as fixed and uses ambiguity sets to capture estimation error. This paper studies latent distributional heterogeneity, where each instance has an unobserved law but contributes only one observation, so uncertainty persists even if the mixture law is known. We propose Conformal-DRO, which uses nested conformal regions to construct an ambiguity set for the future latent law. Under exchangeability, the set covers this law with probability at least $1-α$ in finite samples, without estimating underlying latent laws or their mixing mechanism. The conformal path induces a data-driven transport geometry, while $α$ determines the radius. The worst-case problem reduces to a finite linear program over conformal shells and admits sparse adversarial solutions. The resulting robust value provides a finite-sample certificate for the selected decision's expected cost.",
+      "published": "September 10, 2026",
+      "published_raw": "2026-09-10T04:30:21Z",
+      "updated_raw": "2026-09-10T04:30:21Z",
+      "categories": [
+        "math.OC",
+        "stat.ML"
+      ],
+      "primary_category": "math.OC",
+      "pdf_link": "https://arxiv.org/pdf/2609.11073v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.11073v1",
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "added_timestamp": 1789112816
+    },
     {
       "arxiv_id": "2609.09981",
       "title": "Optimal Value Inference for Reinforcement Learning",
@@ -251,6 +274,29 @@
         "topic:transfer learning"
       ],
       "added_timestamp": 1788898165
+    },
+    {
+      "arxiv_id": "2609.10563",
+      "title": "Supply Chain Analytics: A Data-Driven Approach",
+      "authors": [
+        "Elioth Sanabria"
+      ],
+      "abstract": "Modern supply chain networks increasingly rely on real-time data to navigate structural uncertainties, market volatility, and operational disruptions. This manuscript bridges the gap between statistical data-driven learning and robust decision-making frameworks in logistics and operations management. We present a comprehensive, mathematically rigorous treatment of supply chain analytics, moving from empirical demand forecasting to optimal inventory and network control under uncertainty. Key topics explored include sample minimization, dynamic programming recursions for time-varying inventory replenishment, network fulfillment frameworks, and advanced distributionally robust optimization (DRO) via transport theory to hedge against rare events. By integrating predictive statistical models with prescriptive control algorithms, such as column generation for vehicle routing and non-homogeneous queueing regimes, this text provides the foundational tools necessary for designing resilient, data-driven automated systems. It serves as both a theoretical blueprint and an algorithmic guide for researchers and practitioners operating at the intersection of machine learning, mathematical optimization, and applied probability.",
+      "published": "August 17, 2026",
+      "published_raw": "2026-08-17T00:30:10Z",
+      "updated_raw": "2026-08-17T00:30:10Z",
+      "categories": [
+        "math.OC",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "primary_category": "math.OC",
+      "pdf_link": "https://arxiv.org/pdf/2609.10563v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.10563v1",
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "added_timestamp": 1789112816
     },
     {
       "arxiv_id": "2608.15783",
