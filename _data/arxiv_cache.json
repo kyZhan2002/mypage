@@ -1,6 +1,64 @@
 {
-  "last_fetch_timestamp": 1789198870,
+  "last_fetch_timestamp": 1789415183,
   "papers": [
+    {
+      "arxiv_id": "2609.13039",
+      "title": "Transfer Learning for Evolving Domains",
+      "authors": [
+        "Ricardo Ribeiro Pereira",
+        "Jacopo Bono",
+        "Hugo Ferreira",
+        "Pedro Ribeiro",
+        "Pedro Saleiro",
+        "Pedro Bizarro",
+        "Carlos Soares"
+      ],
+      "abstract": "Transfer learning explores how to leverage knowledge from various tasks or domains (sources) to enhance predictive performance in related tasks or domains (targets). Typically, transfer learning research is segmented into several isolated sub-areas (such as domain generalisation, domain adaptation, or multi-domain learning), each making distinct assumptions about target data availability, namely how much data and how many labels are available at training time. However, in many real-world applications, data availability is not fixed but evolves over time, as instances and labels are progressively collected from a new domain. Each of the classical settings then describes only a snapshot of a trajectory that a deployed system must traverse in full. We formalise this trajectory as a transfer learning problem in its own right, Transfer Learning for Evolving Domains (TrED), specified by a data availability process fixed by the environment, a learning protocol that the method is free to choose, and an evaluation criterion that scores the whole trajectory of models rather than a single one. Within this formalism, the classical settings are recovered as regimes that a learner may pass through, rather than as separate problems that TrED concatenates. We then examine the transfer learning literature to identify mechanisms that are promising building blocks for a solution, and find that most methods are tailored to a single regime and that even the strongest existing candidates do not yet optimise the whole trajectory. We argue that TrED is a well-posed and unsolved problem, and an important direction for future research.",
+      "published": "September 11, 2026",
+      "published_raw": "2026-09-11T16:37:37Z",
+      "updated_raw": "2026-09-11T16:37:37Z",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "primary_category": "cs.LG",
+      "pdf_link": "https://arxiv.org/pdf/2609.13039v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.13039v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1789415183
+    },
+    {
+      "arxiv_id": "2609.12123",
+      "title": "Rank-Efficient LoRA via Joint Tangent-Space Optimization under Isotropic Curvature",
+      "authors": [
+        "Zihan Zhu",
+        "Zhehang Du",
+        "Xuyang Chen",
+        "Tim Tsz-Kit Lau",
+        "Jiayuan Wu",
+        "X. Y. Han",
+        "Qi Long",
+        "Weijie Su"
+      ],
+      "abstract": "Low-Rank Adaptation (LoRA) is an effective approach for adapting large pretrained models by learning low-rank weight updates. In practice, the LoRA rank is used to control an adapter's parameter budget and representational capacity. We show that this view is incomplete: while the nominal rank determines the representational capacity, the optimizer shapes how much of that capacity is used in the induced weight-space updates. In a case study of GPT-2 adaptation with LoRA, we observe a strong rank-dependent optimizer effect. Despite using the same nominal rank, AdamW often produces per-step updates with concentrated singular spectra and low effective rank, whereas Muon uses a richer set of directions and benefits more consistently from increasing LoRA rank. These observations motivate ISO-LoRA, an optimizer that couples the LoRA factor updates through spectral descent on the induced tangent perturbation in weight space. ISO-LoRA promotes updates that distribute energy more evenly across singular directions, improving rank utilization while preserving compatibility with the LoRA parameterization. We complement this design with theoretical guarantees showing that ISO-LoRA can achieve higher effective rank than standard factor-wise optimizers through a one-step analysis under a stylized spiked-gradient model. We validate this design on language-model adaptation across 0.1B-7B-parameter models, where ISO-LoRA improves effective rank and downstream performance, with the strongest gains at moderate-to-large LoRA ranks. Our results highlight rank utilization as a key factor in LoRA optimization and suggest that optimizer design offers an important path toward stronger parameter-efficient adaptation.",
+      "published": "September 10, 2026",
+      "published_raw": "2026-09-10T18:50:17Z",
+      "updated_raw": "2026-09-10T18:50:17Z",
+      "categories": [
+        "cs.LG",
+        "math.OC",
+        "stat.ML"
+      ],
+      "primary_category": "cs.LG",
+      "pdf_link": "https://arxiv.org/pdf/2609.12123v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.12123v1",
+      "matched_by": [
+        "author:Weijie Su"
+      ],
+      "added_timestamp": 1789415183
+    },
     {
       "arxiv_id": "2609.11073",
       "title": "Conformal-DRO: Distributionally Robust Optimization with Conformalized Ambiguity Set",
@@ -323,83 +381,6 @@
         "author:Molei Liu"
       ],
       "added_timestamp": 1788898165
-    },
-    {
-      "arxiv_id": "2608.14906",
-      "title": "Optimal Watermark Localization in Mixed-Source Large Language Model Texts",
-      "authors": [
-        "Jose H. Blanchet",
-        "T. Tony Cai",
-        "Xiang Li",
-        "Hao Liu",
-        "Qi Long",
-        "Weijie J. Su"
-      ],
-      "abstract": "Watermarking provides a principled way to authenticate text generated by large language models (LLMs). In practice, however, the final text may be mixed-source, with watermark evidence surviving at only a subset of token positions after rewriting, insertion, deletion, or paraphrasing. Although prior work has studied global detection of watermark signals, when such signals can be localized remains unclear. We formulate watermark localization as a token-level multiple-testing problem based on pivotal statistics, with a latent indicator recording whether watermark dependence survives at each position. Under an asymptotic regime indexed by exponents for signal sparsity, next-token concentration, and effective-vocabulary growth, we derive a sharp boundary for global detection and phase transitions for discovery and classification within the class of coordinatewise pivot-based localization rules. We show that discovery is strictly harder than detection and that consistent classification is impossible across the parameter regime within this class. We then develop an adaptive thresholding method that does not require knowledge of the exponents or time-varying next-token distributions, but uses a data-driven estimate of the surviving watermark fraction. The method attains the optimal discovery boundary and near-optimal discovery power relative to homogeneous pivot-based rules. Simulations support the theoretical phase transitions, while experiments on model-generated texts demonstrate practical localization performance under common edit mechanisms.",
-      "published": "August 14, 2026",
-      "published_raw": "2026-08-14T21:41:50Z",
-      "updated_raw": "2026-08-14T21:41:50Z",
-      "categories": [
-        "stat.ME",
-        "cs.CL",
-        "cs.LG",
-        "stat.ML"
-      ],
-      "primary_category": "stat.ME",
-      "pdf_link": "https://arxiv.org/pdf/2608.14906v1",
-      "arxiv_url": "https://arxiv.org/abs/2608.14906v1",
-      "matched_by": [
-        "author:Weijie Su"
-      ],
-      "added_timestamp": 1788898165
-    },
-    {
-      "arxiv_id": "2608.13937",
-      "title": "Deep Vision in Smart Manufacturing: MODERN Framework for Intelligent Quality Monitoring and Diagnosis",
-      "authors": [
-        "Yicheng Kang",
-        "Yuling Jiao",
-        "Xin Geng",
-        "Mahesh Nagarajan"
-      ],
-      "abstract": "Smart manufacturing processes are often installed with a large number of sensors, imaging devices and computers, which not only enable instant communication across various modules of a production system but also aid in intelligent manufacturing management. In this paper, we introduce MODERN, a deep learning framework for quality monitoring and fault isolation, which integrates these enhanced capabilities into the practice of industrial quality control. Using the architecture of an inception residual neural network, we develop a control chart that monitors the likelihood of a product containing defects. We also propose a faulty region estimator that identifies the defective area using transfer learning. To extend our framework to cases where there are not sufficient training data, we suggest a transfer monitoring technique that requires only a small sample size and a hypothesis testing approach for quantitatively assessing the applicability of our method. Theoretically, we establish the minimax optimal convergence rate for both our defect likelihood estimation and fault diagnosis. Our results lead to a seemingly counter-intuitive managerial implication - it may not always be in a manufacturer's best interests to keep upgrading its monitoring equipment regardless of the cost. Empirically, we demonstrate the superior performance of our method in comparison with a state-of-the-art approach using both simulated experiments and real data.",
-      "published": "August 14, 2026",
-      "published_raw": "2026-08-14T04:17:57Z",
-      "updated_raw": "2026-08-14T04:17:57Z",
-      "categories": [
-        "stat.ML",
-        "cs.LG"
-      ],
-      "primary_category": "stat.ML",
-      "pdf_link": "https://arxiv.org/pdf/2608.13937v1",
-      "arxiv_url": "https://arxiv.org/abs/2608.13937v1",
-      "matched_by": [
-        "topic:transfer learning"
-      ],
-      "added_timestamp": 1788898165
-    },
-    {
-      "arxiv_id": "2608.13133",
-      "title": "Statistical Properties of Robust Learning under Distributional Shifts",
-      "authors": [
-        "Zhiyi Li",
-        "Xiaojie Mao",
-        "Yunbei Xu",
-        "Ruohan Zhan"
-      ],
-      "abstract": "Distributional shifts arise when the target deployment environment differs from the source environment that generated the training data. Robust learning frameworks such as Distributionally Robust Optimization (DRO) and Robust Satisficing (RS) aim to address this challenge, yet their finite-sample guarantees under such shifts, and their systematic comparison, remain underexplored: existing analyses typically establish guarantees either in the source environment or for adversarial worst-case performance over an ambiguity set. This paper instead studies generalization error in the target environment---the excess loss under the shifted target distribution. Our contributions are threefold. First, we derive finite-sample generalization error bounds in the shifted target environment for both DRO and RS. These bounds explicitly characterize the trade-off between reduced sensitivity to shift and the regularization penalty induced by each method's robustness hyperparameter, and they avoid the curse of dimensionality associated with Wasserstein empirical concentration. Second, when partial shift information such as shift magnitude or direction is available, we propose information-directed hyperparameter calibrations and compare the two methods given the same information. Under these calibrations, and in the partial-information regimes we study, DRO and RS exhibit complementary theoretical and empirical behavior. Finally, we apply the framework to a network lot-sizing problem, using it to interpret how robust policies respond to positive shifts in the demand distribution. Together, these results fill a gap in understanding the statistical properties of robust learning methods under distributional shifts and provide a principled basis for comparing DRO and RS.",
-      "published": "August 13, 2026",
-      "published_raw": "2026-08-13T12:06:48Z",
-      "categories": [
-        "stat.ML",
-        "cs.LG"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2608.13133v1",
-      "arxiv_url": "https://arxiv.org/abs/2608.13133v1",
-      "added_timestamp": 1786756177,
-      "matched_by": [
-        "topic:distributionally robust"
-      ]
     }
   ]
 }
