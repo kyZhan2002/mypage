@@ -1,6 +1,57 @@
 {
-  "last_fetch_timestamp": 1789415183,
+  "last_fetch_timestamp": 1789498039,
   "papers": [
+    {
+      "arxiv_id": "2609.14902",
+      "title": "Shapley Value Estimation for Multi-Site Data with Blockwise-Missing Features",
+      "authors": [
+        "Siqi Li",
+        "Wangxuan Fan",
+        "Yiming Li",
+        "Doudou Zhou",
+        "Molei Liu"
+      ],
+      "abstract": "Shapley value (SV)-based methods are the prevailing framework for feature attribution in machine learning, yet existing population-level Shapley estimators generally assume that observations used to evaluate the coalitional game are fully observed under a common feature space. This assumption is routinely violated in multi-site studies across biomedicine, social science, and environmental monitoring, where institutions record different features under different protocols, producing systematic blockwise missingness across sources. We first show that the standard remedy of imputing missing features before computing Shapley values introduces systematic, coalition-dependent bias into the resulting attributions. We then propose \\textbf{FUSHAP} (\\textbf{Fu}sion \\textbf{Sh}apley \\textbf{A}ttribution from \\textbf{P}artially-observed data), a method that leverages partially-observed auxiliary sites to reduce the variance of a preliminary single-site Shapley estimate without imputation. A permutation-based screening step detects and excludes sites whose data distributions are incompatible with the target population. In synthetic experiments, FUSHAP achieves $3$--$8\\times$ lower MSE than the single-site estimator and $2$--$3\\times$ lower MSE than imputation baselines without incurring imputation-induced bias, and the screening procedure identifies misaligned sites with $82\\%$ power at moderate misalignment and $100\\%$ for strong misalignment. On multi-site air quality and multi-center clinical data, FUSHAP reduces MSE by approximately $3$--$7\\times$ relative to the single-site estimator; in the clinical application, standard imputation can increase MSE above the single-site baseline.",
+      "published": "September 14, 2026",
+      "published_raw": "2026-09-14T01:42:12Z",
+      "updated_raw": "2026-09-14T01:42:12Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2609.14902v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.14902v1",
+      "matched_by": [
+        "author:Molei Liu"
+      ],
+      "added_timestamp": 1789498039
+    },
+    {
+      "arxiv_id": "2609.14141",
+      "title": "Riemannian ascent--descent for nonconvex nonconcave minimax landscapes: convergence to basin saddle points and applications to distributionally robust optimization",
+      "authors": [
+        "Rishabh Dixit",
+        "Pranav Upadrashta",
+        "Alex Cloninger"
+      ],
+      "abstract": "We study a class of distributionally robust optimization (DRO) problems for the statistical risk problem, formulated as minimax problems over the product of a Euclidean space and a Riemannian manifold. Because the resulting minimax landscape is nonconvex nonconcave in general, no globally convergent first order method is known to be available. We instead introduce the notion of a \\emph{basin saddle point}, a Nash equilibrium defined locally on the Cartesian product of a $δ$ basin around a connected component of the local minima critical set and a geodesic ball on the measure manifold. We develop an abstract convergence framework for a Riemannian gradient ascent multistep descent iteration to a basin saddle point under a local Łojasiewicz type growth condition, with exponent $β\\in (1,2]$, in the $δ$ basin around connected components of the local minima critical sets. Under Lipschitz regularity of critical sets we establish linear convergence for $β= 2$ and polynomial convergence for $β\\in (1,2)$ to a basin saddle point, with explicit dependence on the sectional curvature of the manifold. We then instantiate this framework for the statistical risk DRO problem over Gaussian measures, where the ambiguity set is naturally modeled as the product of Euclidean space and the Bures Wasserstein manifold of covariance matrices, which we relax to a penalized DRO formulation. We derive nonasymptotic Hessian estimates for the resulting Lagrangian, establish existence and local uniqueness of its maximizer, and prove that an alternating Riemannian gradient scheme converges to a basin saddle point of the penalized DRO problem, recovering the linear and polynomial rates of the abstract theory with all constants explicit in terms of data dimension, loss moments, and the reference covariance.",
+      "published": "September 12, 2026",
+      "published_raw": "2026-09-12T20:42:11Z",
+      "updated_raw": "2026-09-12T20:42:11Z",
+      "categories": [
+        "math.OC",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "primary_category": "math.OC",
+      "pdf_link": "https://arxiv.org/pdf/2609.14141v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.14141v1",
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "added_timestamp": 1789498039
+    },
     {
       "arxiv_id": "2609.13039",
       "title": "Transfer Learning for Evolving Domains",
@@ -355,32 +406,6 @@
         "topic:distributionally robust"
       ],
       "added_timestamp": 1789112816
-    },
-    {
-      "arxiv_id": "2608.15783",
-      "title": "Inferential Evaluation of Surrogate-Derived Models under Covariate Shift",
-      "authors": [
-        "Longtian Shi",
-        "Molei Liu",
-        "Doudou Zhou"
-      ],
-      "abstract": "In transfer-learning settings, a model derived from abundant surrogate labels may be deployed in a target population where gold-standard outcomes are unobserved. Evaluating its target performance is essential for determining whether decisions based on the model remain reliable, yet it is difficult when gold labels are scarce, and covariate distributions differ across data sources. We study a three-sample setting with a small gold-labeled source, a larger surrogate-labeled source, and an unlabeled target. Under conditional transportability, we evaluate the surrogate-derived model against the latent gold-standard outcome in the target population. We propose cross-fitted estimators that transport information from the two labeled sources through source-specific density ratios. We also combine outcome-regression augmentation with a kernel correction for estimating the model near a threshold, accounting for uncertainty from all three samples. We establish asymptotically linear inference for TPR and FPR, consistency and pointwise inference for the ROC curve, and asymptotically normal inference for AUC. Simulations assess bias, coverage, and sensitivity to bandwidth and relative sample sizes. A retrospective temporal validation on Chatbot Arena and a semi-synthetic ACS-Income study provide validation in real-world AI applications.",
-      "published": "August 16, 2026",
-      "published_raw": "2026-08-16T15:05:38Z",
-      "updated_raw": "2026-08-16T15:05:38Z",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "stat.AP",
-        "stat.ME"
-      ],
-      "primary_category": "stat.ML",
-      "pdf_link": "https://arxiv.org/pdf/2608.15783v1",
-      "arxiv_url": "https://arxiv.org/abs/2608.15783v1",
-      "matched_by": [
-        "author:Molei Liu"
-      ],
-      "added_timestamp": 1788898165
     }
   ]
 }
