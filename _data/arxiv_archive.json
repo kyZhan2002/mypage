@@ -1,6 +1,30 @@
 {
-  "last_updated": 1789498039,
+  "last_updated": 1789546535,
   "papers": [
+    {
+      "arxiv_id": "2609.10563",
+      "title": "Supply Chain Analytics: A Data-Driven Approach",
+      "authors": [
+        "Elioth Sanabria"
+      ],
+      "abstract": "Modern supply chain networks increasingly rely on real-time data to navigate structural uncertainties, market volatility, and operational disruptions. This manuscript bridges the gap between statistical data-driven learning and robust decision-making frameworks in logistics and operations management. We present a comprehensive, mathematically rigorous treatment of supply chain analytics, moving from empirical demand forecasting to optimal inventory and network control under uncertainty. Key topics explored include sample minimization, dynamic programming recursions for time-varying inventory replenishment, network fulfillment frameworks, and advanced distributionally robust optimization (DRO) via transport theory to hedge against rare events. By integrating predictive statistical models with prescriptive control algorithms, such as column generation for vehicle routing and non-homogeneous queueing regimes, this text provides the foundational tools necessary for designing resilient, data-driven automated systems. It serves as both a theoretical blueprint and an algorithmic guide for researchers and practitioners operating at the intersection of machine learning, mathematical optimization, and applied probability.",
+      "published": "August 17, 2026",
+      "published_raw": "2026-08-17T00:30:10Z",
+      "updated_raw": "2026-08-17T00:30:10Z",
+      "categories": [
+        "math.OC",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "primary_category": "math.OC",
+      "pdf_link": "https://arxiv.org/pdf/2609.10563v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.10563v1",
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "added_timestamp": 1789112816,
+      "archived_timestamp": 1789546535
+    },
     {
       "arxiv_id": "2608.15783",
       "title": "Inferential Evaluation of Surrogate-Derived Models under Covariate Shift",
