@@ -1,5 +1,5 @@
 {
-  "last_fetch_timestamp": 1789546535,
+  "last_fetch_timestamp": 1789671653,
   "papers": [
     {
       "arxiv_id": "2609.14902",
@@ -354,31 +354,6 @@
       "primary_category": "stat.ML",
       "pdf_link": "https://arxiv.org/pdf/2608.20255v1",
       "arxiv_url": "https://arxiv.org/abs/2608.20255v1",
-      "matched_by": [
-        "topic:transfer learning"
-      ],
-      "added_timestamp": 1788898165
-    },
-    {
-      "arxiv_id": "2608.18237",
-      "title": "Sobolev Regularized Score Difference Estimation in Diffusion Models",
-      "authors": [
-        "Chenghan Xie",
-        "Jose Blanchet",
-        "Renyuan Xu"
-      ],
-      "abstract": "Estimating the difference of two Stein's score functions is a fundamental problem in generative modeling. In particular, score differences arise naturally in transfer learning, where the score difference provides the mechanism for adapting a pre-trained model to a new target distribution, and in diffusion model-based post-training methods such as discriminator guidance. Existing estimators for score differences in these settings either lack of statistical consistency or are difficult to scale up in high-dimensions. We propose a statistically consistent and scalable estimator for score differences based on Sobolev regularization, which plays a crucial role in ensuring consistency and stablizing the training in the small-sample regime. Mathematically, we establish a convergence rate of $O(n^{-\\frac{s-1}{d+2s-2}})$ where $d$ is the dimension and $s$ denotes the smoothness of the underlying densities, and provide a minimax lower bound of $\\tildeΩ(n^{-\\frac{2(s-1)}{d+2s}})$ (in mean-squared error). Empirically, our estimator exhibits significantly improved stability in small-sample regimes compared to existing methods. We demonstrate its effectiveness on real-world tasks, including transfer learning for ECG signal generation, where it substantially outperforms non-regularized score difference estimators in downstream classification performance.",
-      "published": "August 18, 2026",
-      "published_raw": "2026-08-18T18:23:30Z",
-      "updated_raw": "2026-08-24T14:56:43Z",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "math.OC"
-      ],
-      "primary_category": "stat.ML",
-      "pdf_link": "https://arxiv.org/pdf/2608.18237v2",
-      "arxiv_url": "https://arxiv.org/abs/2608.18237v2",
       "matched_by": [
         "topic:transfer learning"
       ],
