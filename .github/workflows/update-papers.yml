@@ -2,10 +2,14 @@ name: Update arXiv Papers
 
 on:
   schedule:
-    # Twice a day. arXiv sheds load against GitHub's shared egress IPs, so a
-    # single daily attempt leaves the site stale whenever that run is refused.
-    - cron: '0 3 * * *'
-    - cron: '0 15 * * *'
+    # Twice a day, so one refused run does not leave the site stale.
+    #
+    # Deliberately not on the hour: GitHub queues scheduled workflows behind
+    # everyone else's, and at '0 3' / '0 15' these runs were starting three
+    # to five and a half hours late, which also dropped them into the
+    # busiest window for arXiv's rate limiter.
+    - cron: '23 5 * * *'
+    - cron: '53 17 * * *'
   workflow_dispatch:
 
 permissions:
