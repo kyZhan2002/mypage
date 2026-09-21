@@ -2,8 +2,8 @@ name: Update arXiv Papers
 
 on:
   schedule:
-    # Twice a day: arXiv rate-limits GitHub's shared egress IPs hard, so a
-    # single daily attempt used to leave the site stale for days at a time.
+    # Twice a day. arXiv sheds load against GitHub's shared egress IPs, so a
+    # single daily attempt leaves the site stale whenever that run is refused.
     - cron: '0 3 * * *'
     - cron: '0 15 * * *'
   workflow_dispatch:
@@ -19,15 +19,20 @@ concurrency:
 jobs:
   update-papers:
     runs-on: ubuntu-latest
+    # The fetcher retries for up to 20 minutes per query against an arXiv
+    # endpoint that refuses requests under load. This is the backstop for a
+    # run that hangs rather than finishes.
+    timeout-minutes: 50
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.x'
 
-      # Fails the job when arXiv is unreachable, instead of reporting a
-      # green run that fetched nothing.
+      # Exits non-zero only when something is actually wrong: a corrupt data
+      # file, or arXiv refusing for long enough that the site has gone stale.
+      # A single refused run logs a warning and leaves _data alone.
       - name: Fetch papers
         run: python _scripts/fetch_papers.py
 

@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
 """Offline tests for fetch_papers.py. Run: python3 _scripts/test_fetch_papers.py"""
 
+import gzip
 import importlib.util
+import io
 import json
 import os
 import tempfile
+import time
 import unittest
+import unittest.mock
+import urllib.error
+import zlib
 from pathlib import Path
 
 _spec = importlib.util.spec_from_file_location(
@@ -241,6 +247,231 @@ class Parsing(unittest.TestCase):
         entry = fp.parse_entries(self.FEED)[0]
         self.assertEqual(fp.keep_paper(entry),
                          ['topic:transfer learning', 'author:Tracy Ke'])
+
+
+class FakeClock:
+    """Stands in for the time module so retry tests run instantly."""
+
+    def __init__(self):
+        self.now = 1000.0
+        self.slept = []
+
+    def monotonic(self):
+        return self.now
+
+    def time(self):
+        return self.now
+
+    def sleep(self, seconds):
+        self.slept.append(seconds)
+        self.now += seconds
+
+
+class FakeResponse:
+    def __init__(self, body, headers=None):
+        self._body = body
+        self.headers = headers or {}
+
+    def read(self):
+        return self._body
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        return False
+
+
+def http_error(code, headers=None, body=b''):
+    return urllib.error.HTTPError(
+        'https://export.arxiv.org/api/query', code, 'refused',
+        headers or {}, io.BytesIO(body))
+
+
+class ResponseDecoding(unittest.TestCase):
+    """We ask for gzip, so we have to be able to undo it."""
+
+    XML = '<?xml version="1.0"?><feed/>'
+
+    def test_identity(self):
+        self.assertEqual(fp.read_body(FakeResponse(self.XML.encode())), self.XML)
+
+    def test_gzip(self):
+        body = gzip.compress(self.XML.encode())
+        response = FakeResponse(body, {'Content-Encoding': 'gzip'})
+        self.assertEqual(fp.read_body(response), self.XML)
+
+    def test_deflate_with_and_without_header(self):
+        raw = zlib.compressobj(wbits=-zlib.MAX_WBITS)
+        bodies = [
+            zlib.compress(self.XML.encode()),                        # zlib-wrapped
+            raw.compress(self.XML.encode()) + raw.flush(),           # bare deflate
+        ]
+        for body in bodies:
+            response = FakeResponse(body, {'Content-Encoding': 'deflate'})
+            self.assertEqual(fp.read_body(response), self.XML)
+
+    def test_retry_after_header(self):
+        self.assertEqual(fp.retry_after(http_error(429, {'Retry-After': '45'})), 45)
+        self.assertIsNone(fp.retry_after(http_error(406, {})))
+        self.assertIsNone(fp.retry_after(http_error(429, {'Retry-After': 'soon'})))
+        # A server asking us to wait an hour should not park the job there.
+        self.assertEqual(fp.retry_after(http_error(429, {'Retry-After': '99999'})),
+                         fp.MAX_RETRY_AFTER)
+
+
+class RetryPolicy(unittest.TestCase):
+    """arXiv answers valid requests with 406 when it is shedding load."""
+
+    def setUp(self):
+        self.clock = FakeClock()
+        self.real_time = fp.time
+        fp.time = self.clock
+        fp._last_request_at = 0.0
+        self.addCleanup(setattr, fp, 'time', self.real_time)
+
+    def call(self, responses):
+        """Run api_get against a scripted sequence of outcomes."""
+        self.attempts = 0
+
+        def fake_urlopen(request, timeout=None):
+            outcome = responses[min(self.attempts, len(responses) - 1)]
+            self.attempts += 1
+            if isinstance(outcome, Exception):
+                raise outcome
+            return FakeResponse(outcome)
+
+        with unittest.mock.patch.object(fp.urllib.request, 'urlopen', fake_urlopen):
+            return fp.api_get({'search_query': 'cat:stat.ME', 'max_results': '1'})
+
+    def test_succeeds_on_the_first_try(self):
+        self.assertEqual(self.call([b'<feed/>']), '<feed/>')
+        self.assertEqual(self.attempts, 1)
+        self.assertEqual(self.clock.slept, [])
+
+    def test_recovers_from_a_run_of_406s(self):
+        """The 2026-09-17 run was refused four times and served on the fifth."""
+        self.assertEqual(self.call([http_error(406)] * 4 + [b'<feed/>']), '<feed/>')
+        self.assertEqual(self.attempts, 5)
+
+    def test_keeps_trying_far_longer_than_the_old_five_attempts(self):
+        """Eight scheduled runs died because 5 attempts fit in 7.5 minutes."""
+        with self.assertRaises(fp.ArxivUnavailable):
+            self.call([http_error(406)])
+        self.assertGreater(self.attempts, 15)
+
+    def test_stops_at_the_budget(self):
+        with self.assertRaises(fp.ArxivUnavailable) as caught:
+            self.call([http_error(406)])
+        self.assertLessEqual(sum(self.clock.slept), fp.RETRY_BUDGET_SECONDS + 1)
+        self.assertIn('406', str(caught.exception))
+
+    def test_delay_is_capped(self):
+        with self.assertRaises(fp.ArxivUnavailable):
+            self.call([http_error(503)])
+        # Jitter adds up to 3s on top of the cap.
+        self.assertLessEqual(max(self.clock.slept), fp.RETRY_MAX_DELAY + 3)
+
+    def test_network_errors_retry_too(self):
+        outcomes = [urllib.error.URLError('dns'), TimeoutError('slow'), b'<feed/>']
+        self.assertEqual(self.call(outcomes), '<feed/>')
+        self.assertEqual(self.attempts, 3)
+
+
+class FailureReporting(unittest.TestCase):
+    """A refused run is routine; a run refused for days is a real problem."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.cache = os.path.join(self.tmp.name, 'arxiv_cache.json')
+        self.real_cache = fp.CACHE_FILE
+        fp.CACHE_FILE = self.cache
+        self.addCleanup(setattr, fp, 'CACHE_FILE', self.real_cache)
+
+    def write_cache(self, days_old):
+        stamp = int(time.time() - days_old * 86400)
+        Path(self.cache).write_text(json.dumps(
+            {'last_fetch_timestamp': stamp, 'papers': []}))
+
+    def test_days_since_last_fetch(self):
+        self.write_cache(2.5)
+        self.assertAlmostEqual(fp.days_since_last_fetch(), 2.5, places=2)
+
+    def test_missing_or_unreadable_cache_reads_as_unknown(self):
+        self.assertIsNone(fp.days_since_last_fetch())
+        Path(self.cache).write_text('{ truncated')
+        self.assertIsNone(fp.days_since_last_fetch())
+        Path(self.cache).write_text('{"papers": []}')
+        self.assertIsNone(fp.days_since_last_fetch())
+
+    def test_a_single_refused_run_is_not_a_failure(self):
+        """Otherwise every morning brings a red run and the mail gets ignored."""
+        self.write_cache(0.5)
+        self.assertEqual(fp.refused_everything(), 0)
+
+    def test_still_not_a_failure_just_under_the_limit(self):
+        self.write_cache(fp.STALE_ALERT_DAYS - 0.5)
+        self.assertEqual(fp.refused_everything(), 0)
+
+    def test_fails_once_the_data_has_gone_stale(self):
+        self.write_cache(fp.STALE_ALERT_DAYS + 1)
+        self.assertEqual(fp.refused_everything(), 1)
+
+    def test_fails_when_the_age_cannot_be_established(self):
+        self.assertEqual(fp.refused_everything(), 1)
+
+
+class PartialFetch(unittest.TestCase):
+    """One query getting through is better than discarding the whole run."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        for name, attr in (('arxiv_cache.json', 'CACHE_FILE'),
+                           ('arxiv_archive.json', 'ARCHIVE_FILE')):
+            path = os.path.join(self.tmp.name, name)
+            Path(path).write_text(json.dumps({'papers': []}))
+            self.addCleanup(setattr, fp, attr, getattr(fp, attr))
+            setattr(fp, attr, path)
+
+    def run_main(self, topics_ok, authors_ok):
+        paper = {
+            'arxiv_id': '2609.00001', 'title': 'Transfer learning study',
+            'authors': ['Tianxi Cai'], 'abstract': 'On transfer learning.',
+            'published': 'September 1, 2026', 'published_raw': '2026-09-01T00:00:00Z',
+            'updated_raw': '', 'categories': ['stat.ME'], 'primary_category': 'stat.ME',
+            'pdf_link': 'http://p', 'arxiv_url': 'http://a',
+        }
+
+        def fake_fetch(query, label):
+            ok = topics_ok if label == 'topics' else authors_ok
+            if not ok:
+                raise fp.ArxivUnavailable(f'HTTP 406 for {label}')
+            return [dict(paper, arxiv_id=f'{paper["arxiv_id"]}-{label}')]
+
+        with unittest.mock.patch.object(fp, 'fetch_query', fake_fetch):
+            return fp.main()
+
+    def stored(self):
+        return fp.load_papers(fp.CACHE_FILE)
+
+    def test_both_queries_succeed(self):
+        self.assertEqual(self.run_main(True, True), 0)
+        self.assertEqual(len(self.stored()), 2)
+
+    def test_one_query_refused_still_writes_the_other(self):
+        self.assertEqual(self.run_main(True, False), 0)
+        self.assertEqual([p['arxiv_id'] for p in self.stored()], ['2609.00001-topics'])
+
+    def test_other_direction(self):
+        self.assertEqual(self.run_main(False, True), 0)
+        self.assertEqual([p['arxiv_id'] for p in self.stored()], ['2609.00001-authors'])
+
+    def test_both_refused_writes_nothing(self):
+        before = Path(fp.CACHE_FILE).read_text()
+        self.run_main(False, False)
+        self.assertEqual(Path(fp.CACHE_FILE).read_text(), before)
 
 
 if __name__ == '__main__':

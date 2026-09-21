@@ -1,6 +1,32 @@
 {
-  "last_fetch_timestamp": 1789671653,
+  "last_fetch_timestamp": 1790032105,
   "papers": [
+    {
+      "arxiv_id": "2609.19599",
+      "title": "Human-Anchored Inference for Ranking New Models with Large Language Model Judges",
+      "authors": [
+        "Xin Zhou",
+        "Sinian Zhang",
+        "Zhanyan Yang",
+        "Mingyuan Xu",
+        "Molei Liu",
+        "Doudou Zhou"
+      ],
+      "abstract": "Human pairwise comparisons provide a reference for evaluating large language models (LLMs), but collecting sufficient judgments for each new release is costly and time-consuming. LLM judges offer a scalable alternative, although their comparisons may differ systematically from human preferences and across judges. We study the ranking of a new model that has received LLM-judge comparisons but no human comparisons. We propose ANCHOR (ANchored Comparisons for Human-reference inference with Orthogonal Riesz correction), which uses historical human and LLM comparisons to learn judge-specific sensitivities to human score differences and feature-dependent judge biases. These estimates are then used to infer the new model's human-reference score from its judge comparisons. The framework allows the feature distribution to change between historical and new-model comparisons. For inference, we construct a Neyman-orthogonal estimator through a joint Riesz correction that removes the first-order effects of estimating the historical human scores, judge sensitivities, and bias functions. We establish identification, convergence rates, and asymptotic normality with consistently estimable variance, and show that ANCHOR attains the semiparametric efficiency bound. Simulations demonstrate gains in score estimation and ranking accuracy. On Chatbot Arena, ANCHOR achieves the lowest score RMSE and insertion MAE among competing methods, with narrower score intervals on average.",
+      "published": "September 17, 2026",
+      "published_raw": "2026-09-17T02:26:39Z",
+      "updated_raw": "2026-09-17T02:26:39Z",
+      "categories": [
+        "math.ST"
+      ],
+      "primary_category": "math.ST",
+      "pdf_link": "https://arxiv.org/pdf/2609.19599v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.19599v1",
+      "matched_by": [
+        "author:Molei Liu"
+      ],
+      "added_timestamp": 1790032105
+    },
     {
       "arxiv_id": "2609.14902",
       "title": "Shapley Value Estimation for Multi-Site Data with Blockwise-Missing Features",
@@ -332,32 +358,6 @@
       "matched_by": [
         "topic:distributionally robust"
       ]
-    },
-    {
-      "arxiv_id": "2608.20255",
-      "title": "Transfer Learning in Nonparametric Regression with Deep ReLU Networks",
-      "authors": [
-        "Junpeng Ren",
-        "Carlos Misael Madrid Padilla",
-        "Yanzhen Chen",
-        "Oscar Hernan Madrid Padilla"
-      ],
-      "abstract": "This paper develops a general transfer learning framework for nonparametric regression with data consisting of multiple groups. Under the assumption that groups share a common structure along with group-specific deviations in additive form, the proposed method employs a two-stage offset learning procedure: the first stage pools data from all groups to estimate an overall mean function, and the second stage estimates offsets for each group, yielding final group-level estimators through additive combination. Upper bounds on the $\\mathcal L_2$ error are established for the proposed framework, covering a broad class of nonparametric estimators under mild complexity and noise conditions. When instantiated with deep ReLU networks, explicit convergence rates are derived under hierarchical composition models, demonstrating the ability to overcome the curse of dimensionality. Conditions that enable positive transfer with faster rates are considered, including learning with simpler functions and data augmentation through pooling samples across groups. Various simulations and real-data experiments further validate the effectiveness of the proposed method.",
-      "published": "August 20, 2026",
-      "published_raw": "2026-08-20T16:53:00Z",
-      "updated_raw": "2026-08-20T16:53:00Z",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "stat.ME"
-      ],
-      "primary_category": "stat.ML",
-      "pdf_link": "https://arxiv.org/pdf/2608.20255v1",
-      "arxiv_url": "https://arxiv.org/abs/2608.20255v1",
-      "matched_by": [
-        "topic:transfer learning"
-      ],
-      "added_timestamp": 1788898165
     }
   ]
 }

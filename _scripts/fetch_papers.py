@@ -10,6 +10,7 @@ Exits non-zero when arXiv could not be reached, so a broken pipeline shows
 up as a red Actions run instead of a silent no-op.
 """
 
+import gzip
 import json
 import os
 import random
@@ -21,6 +22,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+import zlib
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -101,17 +103,39 @@ AUTHOR_CATEGORY_OVERRIDES = {
 # ---------------------------------------------------------------------------
 
 API_URL = 'https://export.arxiv.org/api/query'
-HEADERS = {'User-Agent': 'mypage-paper-fetcher (+https://github.com/kyZhan2002/mypage; mailto:kzhan@g.harvard.edu)'}
+
+# A bare urllib request sends no Accept and announces itself as Python. Some
+# of arXiv's edge rejections key off request shape, so send the same header
+# set a normal HTTP client would.
+HEADERS = {
+    'User-Agent': 'mypage-paper-fetcher/1.0 (+https://github.com/kyZhan2002/mypage; mailto:kzhan@g.harvard.edu)',
+    'Accept': 'application/atom+xml,application/xml;q=0.9,text/xml;q=0.9,*/*;q=0.8',
+    'Accept-Encoding': 'gzip, deflate',
+    'Connection': 'close',
+}
 REQUEST_TIMEOUT = 60
 
 # arXiv asks for at least 3 seconds between API calls.
 REQUEST_SPACING = 3.0
 
-# GitHub Actions runners share egress IPs, so arXiv returns 429 often. The old
-# 3 x 5s retry gave up inside 15 seconds and ~80% of daily runs fetched nothing.
-MAX_RETRIES = 5
-BACKOFF_SECONDS = [30, 60, 120, 240]
+# arXiv sheds load by answering valid requests with 406 (also 429 and 503).
+# It is neither a bad request nor a durable block: the run on 2026-09-17 was
+# refused four times and served on the fifth. What gets a request through is
+# another attempt, not a longer sleep -- so keep trying at a polite, slowly
+# growing interval within a wall-clock budget instead of backing off into a
+# handful of long sleeps. The old 5 attempts spread over 7.5 minutes failed
+# eight scheduled runs in a row.
+RETRY_BUDGET_SECONDS = 20 * 60
+RETRY_FIRST_DELAY = 5.0
+RETRY_GROWTH = 1.4
+RETRY_MAX_DELAY = 60.0
 MAX_RETRY_AFTER = 300
+
+# Consecutive refusals are normal and are reported as a warning, not a failed
+# job -- a red run every morning trains you to ignore the mail. The job only
+# fails once the stored data has gone this long without a successful fetch,
+# which is the point where something is actually wrong.
+STALE_ALERT_DAYS = 4
 
 PAGE_SIZE = 100
 MAX_PAGES = 3
@@ -140,36 +164,78 @@ def _throttle():
     _last_request_at = time.monotonic()
 
 
+def read_body(response):
+    """Read a response, decompressing it if the server compressed it.
+
+    We ask for gzip, so we have to be able to undo it.
+    """
+    raw = response.read()
+    encoding = (response.headers.get('Content-Encoding') or '').lower()
+    if encoding == 'gzip':
+        raw = gzip.decompress(raw)
+    elif encoding == 'deflate':
+        try:
+            raw = zlib.decompress(raw)
+        except zlib.error:
+            raw = zlib.decompress(raw, -zlib.MAX_WBITS)
+    return raw.decode('utf-8')
+
+
+def retry_after(err):
+    """Seconds requested by a Retry-After header, when it names a sane number."""
+    hinted = err.headers.get('Retry-After') if err.headers else None
+    if hinted and hinted.strip().isdigit():
+        return min(int(hinted.strip()), MAX_RETRY_AFTER)
+    return None
+
+
 def api_get(params):
-    """GET one page from the arXiv API, retrying with exponential backoff."""
+    """GET one page from the arXiv API, retrying until the budget runs out."""
     query = urllib.parse.urlencode(params, quote_via=urllib.parse.quote)
     url = f'{API_URL}?{query}'
 
-    for attempt in range(MAX_RETRIES):
+    deadline = time.monotonic() + RETRY_BUDGET_SECONDS
+    delay = RETRY_FIRST_DELAY
+    attempt = 0
+
+    while True:
+        attempt += 1
         _throttle()
+        hinted = None
         try:
             request = urllib.request.Request(url, headers=HEADERS)
             with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT) as response:
-                return response.read().decode('utf-8')
+                body = read_body(response)
+            if attempt > 1:
+                print(f'  served on attempt {attempt}', flush=True)
+            return body
         except urllib.error.HTTPError as err:
             reason = f'HTTP {err.code}'
-            # arXiv sends Retry-After on 429; honour it when it is sane.
-            hinted = err.headers.get('Retry-After') if err.headers else None
-            delay = None
-            if hinted and hinted.strip().isdigit():
-                delay = min(int(hinted.strip()), MAX_RETRY_AFTER)
+            hinted = retry_after(err)
+            if attempt == 1:
+                # Keep a sample of what the edge actually said; the status
+                # code alone did not distinguish load-shedding from a bad
+                # query when this last broke.
+                try:
+                    detail = err.read().decode('utf-8', 'replace').strip().replace('\n', ' ')
+                    if detail:
+                        print(f'  response body: {detail[:200]}', flush=True)
+                except Exception:
+                    pass
         except (urllib.error.URLError, TimeoutError, OSError) as err:
             reason = f'{type(err).__name__}: {err}'
-            delay = None
 
-        if attempt == MAX_RETRIES - 1:
-            raise ArxivUnavailable(f'{reason} after {MAX_RETRIES} attempts: {url}')
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            raise ArxivUnavailable(
+                f'{reason} after {attempt} attempts over '
+                f'{RETRY_BUDGET_SECONDS // 60} minutes: {url}')
 
-        if delay is None:
-            delay = BACKOFF_SECONDS[min(attempt, len(BACKOFF_SECONDS) - 1)]
-        delay += random.uniform(0, 5)
-        print(f'  {reason}, retrying in {delay:.0f}s ({attempt + 1}/{MAX_RETRIES})', flush=True)
-        time.sleep(delay)
+        wait = min((hinted or delay) + random.uniform(0, 3), remaining)
+        print(f'  {reason}, attempt {attempt}, retrying in {wait:.0f}s '
+              f'({remaining / 60:.0f} min of budget left)', flush=True)
+        time.sleep(wait)
+        delay = min(delay * RETRY_GROWTH, RETRY_MAX_DELAY)
 
 
 def parse_entries(xml_data):
@@ -356,17 +422,62 @@ def is_active(paper, cutoff):
     return published is None or published >= cutoff
 
 
-def main():
-    print(f'Topics:  {build_topic_query()}')
-    print(f'Authors: {build_author_query()}', flush=True)
-
+def days_since_last_fetch():
+    """Age of the last successful fetch, or None when it cannot be read."""
     try:
-        raw = fetch_query(build_topic_query(), 'topics')
-        raw += fetch_query(build_author_query(), 'authors')
-    except ArxivUnavailable as err:
-        print(f'ERROR: arXiv API unavailable -- {err}', file=sys.stderr)
-        print('Leaving _data untouched.', file=sys.stderr)
-        return 1
+        with open(CACHE_FILE, encoding='utf-8') as f:
+            stamp = json.load(f).get('last_fetch_timestamp')
+    except (OSError, json.JSONDecodeError, AttributeError):
+        return None
+    if not isinstance(stamp, (int, float)):
+        return None
+    return (time.time() - stamp) / 86400
+
+
+def refused_everything():
+    """Report a total refusal, and decide whether it deserves a failed job."""
+    stale = days_since_last_fetch()
+    if stale is not None and stale < STALE_ALERT_DAYS:
+        print(f'::warning title=arXiv unavailable::Both queries were refused. '
+              f'_data is untouched and was last updated '
+              f'{stale:.1f} days ago; the job fails once that passes '
+              f'{STALE_ALERT_DAYS} days.')
+        print('arXiv refused every request this run. Nothing written; '
+              'this is expected occasionally and the next run will catch up.')
+        return 0
+
+    age = 'unknown' if stale is None else f'{stale:.1f} days'
+    print(f'ERROR: arXiv has refused every request and the stored papers are '
+          f'{age} old, past the {STALE_ALERT_DAYS}-day limit.', file=sys.stderr)
+    print('Leaving _data untouched.', file=sys.stderr)
+    return 1
+
+
+def main():
+    queries = [('topics', build_topic_query()), ('authors', build_author_query())]
+    for label, query in queries:
+        print(f'{label.capitalize()}: {query}')
+    sys.stdout.flush()
+
+    raw = []
+    refused = []
+    for label, query in queries:
+        try:
+            raw += fetch_query(query, label)
+        except ArxivUnavailable as err:
+            refused.append(label)
+            print(f'::warning title=arXiv unavailable::The {label} query was '
+                  f'refused: {err}')
+
+    if len(refused) == len(queries):
+        return refused_everything()
+    if refused:
+        # Partial results are safe: papers are only ever added, never removed
+        # for being absent from a fetch, so the missing half catches up on the
+        # next run.
+        print(f'Continuing with the {len(queries) - len(refused)} query that '
+              f'did succeed; {", ".join(refused)} will catch up next run.',
+              flush=True)
 
     fetched = {}
     for entry in raw:
