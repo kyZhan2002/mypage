@@ -1,6 +1,126 @@
 {
-  "last_fetch_timestamp": 1790032269,
+  "last_fetch_timestamp": 1790635145,
   "papers": [
+    {
+      "arxiv_id": "2609.31470",
+      "title": "Beyond Empirical Support: Structured Outlier Generation via Sinkhorn Optimal Transport",
+      "authors": [
+        "Haixiang Sun",
+        "Andrew L. Liu"
+      ],
+      "abstract": "Outliers are essential for evaluating and improving the robustness of machine learning systems, especially when future distributions may differ significantly from historical training data. In high-stakes applications, robustness often depends on rare cases that finite datasets fail to capture, making simple resampling or perturbation insufficient for stress scenario generation. Existing outlier synthesis methods typically rely on sparse neighborhoods, low support latent regions, or classifier boundary crossings, which can be heuristic, unstable, and tied to specific modalities or architectures. We therefore propose Sinkhorn Boundary Outlier Generation (SBOG), a structured framework for latent-space outlier generation that couples Sinkhorn optimal transport geometry with distributionally robust boundary modeling. The resulting Sinkhorn-induced support cost guides the sampler toward weakly supported boundary regions, while semantic constraints prevent uncontrolled drift from the intended context, yielding controlled deviations from the in-distribution reference measure rather than arbitrary sparse-region samples. Experiments on time series anomaly generation and image outlier synthesis show that our framework produces informative, semantically controlled outliers and improves downstream robustness evaluation across modalities, providing a foundation for stress scenario generation beyond empirical support.",
+      "published": "September 25, 2026",
+      "published_raw": "2026-09-25T16:18:02Z",
+      "updated_raw": "2026-09-25T16:18:02Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.OC"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2609.31470v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.31470v1",
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "added_timestamp": 1790635145
+    },
+    {
+      "arxiv_id": "2609.31363",
+      "title": "Brenier Meets Adversarial Training: Optimal Transport Geometry for Robust Learning",
+      "authors": [
+        "Alireza Abdollahpoorrostam",
+        "Ehsan Sharifian",
+        "Buse Şen",
+        "Marco Cuturi",
+        "Daniel Kuhn"
+      ],
+      "abstract": "Distributionally robust optimization (DRO) provides a principled framework for learning under distribution shift, but its practical use is hindered by the difficulty of evaluating worst-case risks for nonconvex loss functions. We study a penalized DRO formulation in which the adversary may choose any distribution but incurs a Wasserstein penalty for deviating from the empirical distribution. We show that the adversary's problem can be reformulated as an optimization problem over transport maps that push empirical samples to adversarial ones, and we prove that optimal maps are cyclically monotone. We also show that standard adversarial training---based on per-sample local optimization---violates cyclical monotonicity and wastes transport costs unless the adversary is severely restricted. We propose two remedies. First, we introduce multi-start particle ascent, which alternates parallel gradient ascent with reassignment to enforce cyclical monotonicity across samples. Second, we parameterize adversarial maps as gradients of input-convex neural networks, which guarantees cyclical monotonicity by construction. Experiments on robust regression, image classification, and robust control show that our methods consistently outperform standard adversarial training and state-of-the-art baselines, achieving improved robustness and better generalization under distribution shift.",
+      "published": "September 25, 2026",
+      "published_raw": "2026-09-25T14:57:04Z",
+      "updated_raw": "2026-09-25T14:57:04Z",
+      "categories": [
+        "cs.LG",
+        "math.OC",
+        "stat.ML"
+      ],
+      "primary_category": "cs.LG",
+      "pdf_link": "https://arxiv.org/pdf/2609.31363v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.31363v1",
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "added_timestamp": 1790635145
+    },
+    {
+      "arxiv_id": "2609.30879",
+      "title": "Joint-Sparse Transfer Learning for High-Dimensional Multi-Output Regression",
+      "authors": [
+        "Sunwoo Lim",
+        "Mladen Kolar"
+      ],
+      "abstract": "Multitask linear models can improve estimation and prediction by exploiting structure shared across responses, bridging taskwise fitting and complete pooling. In many applications, however, the objective is estimation in a data-limited target domain, while data-rich but heterogeneous source domains are available. Borrowing from these sources can improve efficiency but introduce bias. We develop a joint-sparse transfer-learning framework for high-dimensional multi-output regression that combines shared predictor structure across responses with source-target similarity. The framework yields two complementary estimators: a fused estimator that aggregates jointly fitted domain-specific coefficients and a target-based debiased estimator that adjusts for source-induced shifts. Our error bounds show how transfer increases the available information and sharing predictors across responses reduces selection costs. They also reveal a tradeoff: the fused estimator benefits from larger sources but may retain bias if source shifts point in similar directions, whereas debiasing trades this bias for additional estimation error governed by the smaller target sample. Comparison with a minimax lower bound identifies regimes where the bounds match up to logarithmic factors, where matching remains unresolved, and where projection onto a target-based convex set closes the gap. Simulations and an analysis of single-cell RNA and surface-protein profiles across cell types support the theory.",
+      "published": "September 25, 2026",
+      "published_raw": "2026-09-25T06:37:30Z",
+      "updated_raw": "2026-09-25T06:37:30Z",
+      "categories": [
+        "stat.ME"
+      ],
+      "primary_category": "stat.ME",
+      "pdf_link": "https://arxiv.org/pdf/2609.30879v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.30879v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1790635145
+    },
+    {
+      "arxiv_id": "2609.24086",
+      "title": "Doubly robust target inference for generalized linear regression with completely missing covariates",
+      "authors": [
+        "Huali Zhao",
+        "Ke Deng"
+      ],
+      "abstract": "Large-scale multipurpose cohort studies and biobanks often omit covariates needed for specific downstream analyses. We study target-population inference for generalized linear regression when key covariates are completely absent from the target data but observed in a related source population. Standard missing covariate methods are not directly applicable because they require at least partial observation of the covariates in the target population. We develop a doubly robust transfer learning framework under a sub-population shift assumption, which allows the distribution of the observed outcome and covariates to differ between populations while requiring the conditional distribution of the missing covariates given the observed variables to be shared. Unlike linear regression, nonlinear target estimating equations require parameter-indexed conditional functionals of the missing covariates rather than a fixed collection of low-order conditional moments. Our estimator combines importance-weighted source estimating equations with imputation of these conditional functionals. Under the identifying assumption, the estimator remains consistent when either the density-ratio model or the conditional-covariate model is correctly specified. Under regularity conditions, it is root-$n$ consistent and asymptotically normal, and attains the semiparametric efficiency bound when both nuisance models are correctly specified.",
+      "published": "September 21, 2026",
+      "published_raw": "2026-09-21T04:12:28Z",
+      "updated_raw": "2026-09-21T04:12:28Z",
+      "categories": [
+        "stat.ME",
+        "math.ST",
+        "stat.ML"
+      ],
+      "primary_category": "stat.ME",
+      "pdf_link": "https://arxiv.org/pdf/2609.24086v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.24086v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1790635145
+    },
+    {
+      "arxiv_id": "2609.23635",
+      "title": "Model-free and Distributionally Robust Feature Screening with False Discovery Control for High-Dimensional Heterogeneous Data",
+      "authors": [
+        "Cong Cheng",
+        "Runze Li",
+        "Yuan Ke"
+      ],
+      "abstract": "In this paper, we propose a model-free feature screening framework tailored for high-dimensional and heterogeneous datasets, based on a novel distributionally robust dependence measure termed Copula Divergence. The proposed screening method, named CD-Screen, addresses critical limitations of existing feature screening methods, such as restrictive modeling assumptions and sensitivity to heterogeneous feature distributions. CD-Screen ranks features according to their Copula Divergence without relying on a specific regression model or distributional assumptions. Additionally, we introduce CD-FDR, a data-driven procedure to control false discoveries, ensuring accurate and efficient feature selection. Theoretical analyses establish the sure screening and rank consistency properties of CD-Screen, along with asymptotic control of the false discovery rate by CD-FDR. Extensive simulation studies demonstrate the superior performance of our methods compared to traditional screening approaches across diverse scenarios. Furthermore, a real data analysis of the relationship between stock returns and inflation in the United States {illustrates the practical use of our method and provides descriptive evidence on} sector-specific responses to economic changes.",
+      "published": "September 20, 2026",
+      "published_raw": "2026-09-20T13:29:47Z",
+      "updated_raw": "2026-09-20T13:29:47Z",
+      "categories": [
+        "stat.ME"
+      ],
+      "primary_category": "stat.ME",
+      "pdf_link": "https://arxiv.org/pdf/2609.23635v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.23635v1",
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "added_timestamp": 1790635145
+    },
     {
       "arxiv_id": "2609.19599",
       "title": "Human-Anchored Inference for Ranking New Models with Large Language Model Judges",
@@ -284,80 +404,6 @@
         "topic:transfer learning"
       ],
       "added_timestamp": 1788898165
-    },
-    {
-      "arxiv_id": "2608.25468",
-      "title": "Functional linear regression from sparse to dense designs: a pooling-ridge method and minimax optimality",
-      "authors": [
-        "Shunxing Yan",
-        "Fang Yao"
-      ],
-      "abstract": "Functional data analysis is an important statistical field that treats data as random functions. In practice, the random functions are often not fully observed but instead measured at discrete times. While simpler problems, such as mean and covariance estimation, have been widely studied for discretely observed data, optimal estimation of linear regression for this data type has remained unsolved for over two decades. To tackle this fundamental challenge, we propose a novel approach, referred to as pooling ridge estimation, which combines the advantages of pooling strategy and RKHS-based method by incorporating the unbiased estimation of operators based on discretely observed measurements from all subjects. This unified estimation framework enables us to achieve minimax optimality in prediction risk in arbitrary sampling schemes ranging from sparse to dense designs, for both scalar-on-function and function-on-function regression models. Such methodological and theoretical advances are obtained for the first time and accurately reveal the influence of discrete sampling. For scalar-on-function regression, the phase transition occurs once, separating the convergence behavior into two distinct regimes. Remarkably, for function-on-function regression, up to three phase transitions may occur, determined by the sampling frequencies of the predictor/response functions. Finally, simulation experiments and two real data examples provide empirical support for the proposed methods.",
-      "published": "August 26, 2026",
-      "published_raw": "2026-08-26T07:36:39Z",
-      "updated_raw": "2026-08-26T07:36:39Z",
-      "categories": [
-        "stat.ME",
-        "cs.LG",
-        "math.ST",
-        "stat.ML"
-      ],
-      "primary_category": "stat.ME",
-      "pdf_link": "https://arxiv.org/pdf/2608.25468v1",
-      "arxiv_url": "https://arxiv.org/abs/2608.25468v1",
-      "matched_by": [
-        "author:Fang Yao"
-      ],
-      "added_timestamp": 1788898165
-    },
-    {
-      "arxiv_id": "2608.24961",
-      "title": "The Gold Rush in AI4Math: Where Are We Now?",
-      "authors": [
-        "Jiashun Jin",
-        "Zheng Tracy Ke",
-        "Bingcheng Sui"
-      ],
-      "abstract": "Recent advances in artificial intelligence (AI) have sparked growing interest in its use for mathematical research. While some view this as a major opportunity for discovery, others have raised concerns about its impact on traditional research practices. Despite extensive debate, empirical evidence on how AI is actually being used in mathematics remains limited. To address this gap, we collected all 32,944 arXiv submissions posted between March 1 and August 20, 2026, whose primary or secondary categories included Mathematics. We identified 3,575 submissions that explicitly disclosed author use of AI, of which 1,712 involved at least one substantive mathematical contribution. Our analysis reveals several broad patterns. First, disclosed AI use increased sharply over the study period, with substantive use growing from 1.39% of Mathematics submissions in March to 14.09% through August 20. Second, substantive AI use is highly uneven across fields: Combinatorics has the largest number of such papers, while Metric Geometry has the highest substantive-use rate. Third, substantive AI use is geographically concentrated: under weighted author counts, the United States and China together account for about two-thirds of the recognized country weight. Fourth, AI is already being applied to open research problems: among 717 named open-problem records associated with substantive use, 71% are labeled as fully resolved based on the authors' descriptions, with proofs of the conjectured statement more common than counterexamples or disproofs. Finally, AI-system use is also highly concentrated, with OpenAI systems appearing most frequently, followed by Anthropic. Together, these findings suggest that AI-assisted mathematics is expanding rapidly but remains at an early and uneven stage of adoption.",
-      "published": "August 25, 2026",
-      "published_raw": "2026-08-25T07:07:37Z",
-      "updated_raw": "2026-08-25T07:07:37Z",
-      "categories": [
-        "stat.AP",
-        "cs.CY",
-        "cs.DL",
-        "math.HO"
-      ],
-      "primary_category": "stat.AP",
-      "pdf_link": "https://arxiv.org/pdf/2608.24961v1",
-      "arxiv_url": "https://arxiv.org/abs/2608.24961v1",
-      "matched_by": [
-        "author:Tracy Ke"
-      ],
-      "added_timestamp": 1788898165
-    },
-    {
-      "arxiv_id": "2608.22746",
-      "title": "Generative Neural Networks for Sinkhorn Distributionally Robust Hypothesis Testing",
-      "authors": [
-        "Fenglin Zhang",
-        "Teyan Liu",
-        "Jie Wang"
-      ],
-      "abstract": "This paper studies the Sinkhorn distributionally robust hypothesis testing (SDRHT) problem, seeking a robust detector against least-favorable distributions in Sinkhorn discrepancy-based ambiguity sets centered at the empirical distributions. Existing approaches solve this problem by solving large-scale conic programs, which are not scalable. To overcome this, we propose a generative framework that learns least-favorable distributions and supports efficient training and end-to-end sampling. For the Sinkhorn discrepancy-based ambiguity sets, we first derive an equivalent conditional-KL-divergence representation with respect to kernel-smoothed reference distributions. This property allows us to prove strong duality for both constrained and unconstrained minimax SDRHT formulations. Based on the closed-form optimal detector and Brenier's theorem, we reformulate the max-min dual formulation as a maximization problem over convex potentials whose gradients characterize invertible transport maps between kernel-smoothed distributions and their least-favorable counterparts. We efficiently approximate these potentials using Hyper Input Convex Neural Networks (HyCNNs) equipped with stochastic gradient estimators and prove the representation power of HyCNNs and the distributional universality of their induced transport maps. Numerical results show that the proposed method achieves superior accuracy and robustness across different sample sizes and dimensions, while avoiding the scalability limitations of classical SDRHT methods.",
-      "published": "August 24, 2026",
-      "published_raw": "2026-08-24T03:11:14Z",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "math.OC"
-      ],
-      "pdf_link": "https://arxiv.org/pdf/2608.22746v1",
-      "arxiv_url": "https://arxiv.org/abs/2608.22746v1",
-      "added_timestamp": 1787815464,
-      "matched_by": [
-        "topic:distributionally robust"
-      ]
     }
   ]
 }

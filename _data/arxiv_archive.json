@@ -1,6 +1,83 @@
 {
-  "last_updated": 1790032269,
+  "last_updated": 1790635145,
   "papers": [
+    {
+      "arxiv_id": "2608.25468",
+      "title": "Functional linear regression from sparse to dense designs: a pooling-ridge method and minimax optimality",
+      "authors": [
+        "Shunxing Yan",
+        "Fang Yao"
+      ],
+      "abstract": "Functional data analysis is an important statistical field that treats data as random functions. In practice, the random functions are often not fully observed but instead measured at discrete times. While simpler problems, such as mean and covariance estimation, have been widely studied for discretely observed data, optimal estimation of linear regression for this data type has remained unsolved for over two decades. To tackle this fundamental challenge, we propose a novel approach, referred to as pooling ridge estimation, which combines the advantages of pooling strategy and RKHS-based method by incorporating the unbiased estimation of operators based on discretely observed measurements from all subjects. This unified estimation framework enables us to achieve minimax optimality in prediction risk in arbitrary sampling schemes ranging from sparse to dense designs, for both scalar-on-function and function-on-function regression models. Such methodological and theoretical advances are obtained for the first time and accurately reveal the influence of discrete sampling. For scalar-on-function regression, the phase transition occurs once, separating the convergence behavior into two distinct regimes. Remarkably, for function-on-function regression, up to three phase transitions may occur, determined by the sampling frequencies of the predictor/response functions. Finally, simulation experiments and two real data examples provide empirical support for the proposed methods.",
+      "published": "August 26, 2026",
+      "published_raw": "2026-08-26T07:36:39Z",
+      "updated_raw": "2026-08-26T07:36:39Z",
+      "categories": [
+        "stat.ME",
+        "cs.LG",
+        "math.ST",
+        "stat.ML"
+      ],
+      "primary_category": "stat.ME",
+      "pdf_link": "https://arxiv.org/pdf/2608.25468v1",
+      "arxiv_url": "https://arxiv.org/abs/2608.25468v1",
+      "matched_by": [
+        "author:Fang Yao"
+      ],
+      "added_timestamp": 1788898165,
+      "archived_timestamp": 1790635145
+    },
+    {
+      "arxiv_id": "2608.24961",
+      "title": "The Gold Rush in AI4Math: Where Are We Now?",
+      "authors": [
+        "Jiashun Jin",
+        "Zheng Tracy Ke",
+        "Bingcheng Sui"
+      ],
+      "abstract": "Recent advances in artificial intelligence (AI) have sparked growing interest in its use for mathematical research. While some view this as a major opportunity for discovery, others have raised concerns about its impact on traditional research practices. Despite extensive debate, empirical evidence on how AI is actually being used in mathematics remains limited. To address this gap, we collected all 32,944 arXiv submissions posted between March 1 and August 20, 2026, whose primary or secondary categories included Mathematics. We identified 3,575 submissions that explicitly disclosed author use of AI, of which 1,712 involved at least one substantive mathematical contribution. Our analysis reveals several broad patterns. First, disclosed AI use increased sharply over the study period, with substantive use growing from 1.39% of Mathematics submissions in March to 14.09% through August 20. Second, substantive AI use is highly uneven across fields: Combinatorics has the largest number of such papers, while Metric Geometry has the highest substantive-use rate. Third, substantive AI use is geographically concentrated: under weighted author counts, the United States and China together account for about two-thirds of the recognized country weight. Fourth, AI is already being applied to open research problems: among 717 named open-problem records associated with substantive use, 71% are labeled as fully resolved based on the authors' descriptions, with proofs of the conjectured statement more common than counterexamples or disproofs. Finally, AI-system use is also highly concentrated, with OpenAI systems appearing most frequently, followed by Anthropic. Together, these findings suggest that AI-assisted mathematics is expanding rapidly but remains at an early and uneven stage of adoption.",
+      "published": "August 25, 2026",
+      "published_raw": "2026-08-25T07:07:37Z",
+      "updated_raw": "2026-08-25T07:07:37Z",
+      "categories": [
+        "stat.AP",
+        "cs.CY",
+        "cs.DL",
+        "math.HO"
+      ],
+      "primary_category": "stat.AP",
+      "pdf_link": "https://arxiv.org/pdf/2608.24961v1",
+      "arxiv_url": "https://arxiv.org/abs/2608.24961v1",
+      "matched_by": [
+        "author:Tracy Ke"
+      ],
+      "added_timestamp": 1788898165,
+      "archived_timestamp": 1790635145
+    },
+    {
+      "arxiv_id": "2608.22746",
+      "title": "Generative Neural Networks for Sinkhorn Distributionally Robust Hypothesis Testing",
+      "authors": [
+        "Fenglin Zhang",
+        "Teyan Liu",
+        "Jie Wang"
+      ],
+      "abstract": "This paper studies the Sinkhorn distributionally robust hypothesis testing (SDRHT) problem, seeking a robust detector against least-favorable distributions in Sinkhorn discrepancy-based ambiguity sets centered at the empirical distributions. Existing approaches solve this problem by solving large-scale conic programs, which are not scalable. To overcome this, we propose a generative framework that learns least-favorable distributions and supports efficient training and end-to-end sampling. For the Sinkhorn discrepancy-based ambiguity sets, we first derive an equivalent conditional-KL-divergence representation with respect to kernel-smoothed reference distributions. This property allows us to prove strong duality for both constrained and unconstrained minimax SDRHT formulations. Based on the closed-form optimal detector and Brenier's theorem, we reformulate the max-min dual formulation as a maximization problem over convex potentials whose gradients characterize invertible transport maps between kernel-smoothed distributions and their least-favorable counterparts. We efficiently approximate these potentials using Hyper Input Convex Neural Networks (HyCNNs) equipped with stochastic gradient estimators and prove the representation power of HyCNNs and the distributional universality of their induced transport maps. Numerical results show that the proposed method achieves superior accuracy and robustness across different sample sizes and dimensions, while avoiding the scalability limitations of classical SDRHT methods.",
+      "published": "August 24, 2026",
+      "published_raw": "2026-08-24T03:11:14Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.OC"
+      ],
+      "pdf_link": "https://arxiv.org/pdf/2608.22746v1",
+      "arxiv_url": "https://arxiv.org/abs/2608.22746v1",
+      "added_timestamp": 1787815464,
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "archived_timestamp": 1790635145
+    },
     {
       "arxiv_id": "2608.20255",
       "title": "Transfer Learning in Nonparametric Regression with Deep ReLU Networks",
