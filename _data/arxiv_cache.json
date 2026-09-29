@@ -1,6 +1,108 @@
 {
-  "last_fetch_timestamp": 1790635145,
+  "last_fetch_timestamp": 1790681146,
   "papers": [
+    {
+      "arxiv_id": "2609.35654",
+      "title": "Guided Uncertainty-Aware Robust Domain Transfer",
+      "authors": [
+        "Xin Xiong",
+        "Zijian Guo",
+        "Tianxi Cai"
+      ],
+      "abstract": "Artificial intelligence models deployed as clinical decision support tools often suffer substantial performance degradation over time and across institutions due to covariate shift, concept drift, and cross-system heterogeneity. Fully retraining complex models is frequently infeasible, particularly in EHR settings where labeled outcome data are scarce and regulatory constraints limit model modification. We propose GUARD (Guided and Uncertainty-Aware Robustness to Domain shift), a unified statistical framework for updating an existing deployed model using limited labeled target data and multiple heterogeneous source populations while guarding against future distributional shifts. GUARD formulates robust multi-source transfer learning as a semi-supervised, adversarial optimization problem anchored at the current model, and employs double machine learning with cross-fitting to obtain debiased, efficient estimates that leverage abundant unlabeled target covariates. It then constructs an uncertainty-aware, guided group DRO estimator that combines source and target information while accounting for sampling variability in the source models. Our framework jointly provides principled robustness to domain shift, efficient semi-supervised estimation, and valid statistical inference for multi-source transfer of clinical prediction models. We demonstrate the utility of GUARD via extensive simulation experiments and a real world application to predicting future disease activity in rheumatoid arthritis from EHR data spanning more than a decade. GUARD recalibrates a pretrained model with only a small number of labeled records per year and remains accurate over multi-year horizons where target-only and standard transfer estimators degrade sharply.",
+      "published": "September 28, 2026",
+      "published_raw": "2026-09-28T17:20:38Z",
+      "updated_raw": "2026-09-28T17:20:38Z",
+      "categories": [
+        "stat.ME",
+        "stat.ML"
+      ],
+      "primary_category": "stat.ME",
+      "pdf_link": "https://arxiv.org/pdf/2609.35654v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.35654v1",
+      "matched_by": [
+        "topic:transfer learning",
+        "author:Tianxi Cai"
+      ],
+      "added_timestamp": 1790681146
+    },
+    {
+      "arxiv_id": "2609.35429",
+      "title": "Multi-Task Learning of Conditional Mean Operators: applications to dynamical systems and uncertainty quantification",
+      "authors": [
+        "Sami Chemlal",
+        "Thibaut Germain",
+        "Rémi Flamary",
+        "Vladimir R. Kostic",
+        "Karim Lounici"
+      ],
+      "abstract": "Estimating conditional statistics and learning representations of a population of conditional distributions are central problems in many data-driven applications, including uncertainty quantification and dynamical systems analysis. Conditional mean operators (CMOs), a class of linear operators between function spaces, resolve these objectives by providing access to a broad class of conditional statistics. However, existing methods typically estimate each CMO independently or constrain it to prespecified function spaces, thereby preventing the exploitation of shared structure across related distributions. In this work, we posit that related CMOs share finite-dimensional input and output function spaces, and are specialized for each task with a linear operator mapping these spaces. Based on this hypothesis, we introduce MTL-CMO, a multi-task framework that jointly learns shared function spaces and task-specific operators across multiple datasets. We further introduce T-CMO, a transfer learning method that reuses the shared spaces to estimate, in closed form, the operator of a new conditional distribution. We establish statistical guarantees quantifying the benefits of jointly learning the shared function spaces. Our experiments demonstrate that learning shared function spaces improves uncertainty quantification across a broad range of conditional distributions and, when applied to Langevin and plasma dynamics, yields compact representations of complex dynamics that retain physically meaningful information and enable parameter identification.",
+      "published": "September 28, 2026",
+      "published_raw": "2026-09-28T15:35:49Z",
+      "updated_raw": "2026-09-28T15:35:49Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2609.35429v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.35429v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1790681146
+    },
+    {
+      "arxiv_id": "2609.32730",
+      "title": "Domain Adaptation with Target Information via Doubly-Anchored Distributionally Robust Optimization",
+      "authors": [
+        "David Kepplinger",
+        "Anand N. Vidyashankar"
+      ],
+      "abstract": "Domain Adaptation (DA) often lacks worst-case guarantees, while Distributionally Robust Optimization (DRO) based only on source data centers its ambiguity set at the source law and ignores available target structure. To bridge this gap, we introduce a doubly-anchored DRO framework whose ambiguity set is the intersection of $φ$-divergence balls centered at the source law and a source-completed target reference law, the latter pairing the target covariate law with the source conditional law. We derive dual-induced adversarial bridge geometries for symmetric and asymmetric divergence pairings, notably introducing a Kullback--Leibler/squared-Hellinger (KL/HD) bridge. This asymmetric formulation yields a Lambert-$W$ geometry in which source-side exponential risk tilting and target-side Hellinger stabilization enter through distinct terms, attenuating, but not bounding, the effect of large likelihood ratios. Furthermore, without imposing covariate shift, we establish finite-sample generalization bounds for the minimizer of a structural, loss-agnostic density-bridge risk under bounded-overlap conditions; these bounds do not apply directly to the loss-aware DRO min--max estimator. We translate our framework into a bridge-weighted Nadaraya--Watson estimator, proving uniform consistency for the source regression function and pointwise asymptotic normality, with target recovery when the source and target regression functions coincide, as under covariate shift. Finally, an empirical evaluation on a domain-shifted Fashion-MNIST dataset illustrates the finite-sample stability of the asymmetric KL/HD bridge under severe synthetic target-covariate corruption.",
+      "published": "September 26, 2026",
+      "published_raw": "2026-09-26T15:49:01Z",
+      "updated_raw": "2026-09-26T15:49:01Z",
+      "categories": [
+        "stat.ML",
+        "cs.IT",
+        "cs.LG",
+        "math.PR",
+        "math.ST"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2609.32730v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.32730v1",
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "added_timestamp": 1790681146
+    },
+    {
+      "arxiv_id": "2609.32727",
+      "title": "Distributionally Robust Average-Reward Reinforcement Learning: Finite-Sample Guarantees under Weak Communication",
+      "authors": [
+        "Chenyu Lu",
+        "Zijun Chen",
+        "Nian Si"
+      ],
+      "abstract": "We study distributionally robust reinforcement learning (DR-RL) in the average-reward setting under weak communication. Our main result provides finite-sample guarantees for estimating the robust optimal average reward and learning a near-optimal policy, covering both SA-rectangular and S-rectangular structures with divergence-based and distance-based uncertainty sets. Specifically, for Kullback--Leibler and $f_k$-divergence balls, we establish explicit radius conditions under which the robust average-reward Bellman equation admits a constant-gain solution, while for total variation and Wasserstein balls, any positive radius suffices without requiring the nominal MDP to be weakly communicating. Our algorithm is prior-knowledge-free and achieves sample complexities of $\\widetilde O(|\\mathcal{S}||\\mathcal{A}|p_{\\wedge}^{-1}\\operatorname{Span}^{2}(u_δ^{\\ast})ε^{-2})$ for estimating the robust optimal average reward and $\\widetilde O(|\\mathcal{S}||\\mathcal{A}|p_{\\wedge}^{-2}\\operatorname{Span}^{2}(u_δ^{\\ast})ε^{-2})$ for learning an $ε$-optimal policy. Here, $p_{\\wedge}$ is the smallest positive nominal transition probability and $u_δ^{\\ast}$ is a robust optimal bias function. We further provide an almost-tight explicit upper bound on $\\operatorname{Span}(u_δ^{\\ast})$. Finally, we validate the predicted $n^{-1/2}$ convergence rate through numerical experiments.",
+      "published": "September 26, 2026",
+      "published_raw": "2026-09-26T15:45:43Z",
+      "updated_raw": "2026-09-26T15:45:43Z",
+      "categories": [
+        "cs.LG",
+        "math.OC",
+        "stat.ML"
+      ],
+      "primary_category": "cs.LG",
+      "pdf_link": "https://arxiv.org/pdf/2609.32727v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.32727v1",
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "added_timestamp": 1790681146
+    },
     {
       "arxiv_id": "2609.31470",
       "title": "Beyond Empirical Support: Structured Outlier Generation via Sinkhorn Optimal Transport",
