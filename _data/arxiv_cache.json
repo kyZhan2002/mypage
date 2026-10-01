@@ -1,6 +1,31 @@
 {
-  "last_fetch_timestamp": 1790803976,
+  "last_fetch_timestamp": 1790855159,
   "papers": [
+    {
+      "arxiv_id": "2609.39449",
+      "title": "Distributionally robust linear regression through the lens of adversarial training",
+      "authors": [
+        "Elis Stefansson",
+        "David Vävinggren",
+        "Antônio H. Ribeiro"
+      ],
+      "abstract": "Distributionally robust optimization (DRO) studies parameter estimation under uncertainty in the underlying probability distribution and has emerged as a principled framework for analyzing robustness and generalization. In particular, Wasserstein DRO, with distributional uncertainty induced by the Wasserstein distance, generalizes several popular regularizers. This paper studies Wasserstein DRO linear regression, unifying square-root Lasso and adversarial linear regression as important special cases. We prove that many properties of these two special cases carry over to this general method. In particular, we show (i) deterministic and non-asymptotic in-sample error bounds $O(n^{-1/2})$ in general and $O(n^{-1})$ under design matrix and sparsity conditions; (ii) insensitivity to the noise level, also known as the pivotal property; and (iii) solution equivalences for small and large ambiguity sets. The key proof step is to recast the method into a quadratic form, mimicking adversarial linear regression. We also show that the method can be solved efficiently, and we validate our findings through numerical simulations.",
+      "published": "September 30, 2026",
+      "published_raw": "2026-09-30T10:21:55Z",
+      "updated_raw": "2026-09-30T10:21:55Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.OC"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2609.39449v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.39449v1",
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "added_timestamp": 1790855159
+    },
     {
       "arxiv_id": "2609.35654",
       "title": "Guided Uncertainty-Aware Robust Domain Transfer",
