@@ -1,5 +1,5 @@
 {
-  "last_fetch_timestamp": 1791112213,
+  "last_fetch_timestamp": 1791145771,
   "papers": [
     {
       "arxiv_id": "2610.01522",
@@ -534,30 +534,6 @@
         "topic:transfer learning"
       ],
       "added_timestamp": 1788940283
-    },
-    {
-      "arxiv_id": "2609.05007",
-      "title": "Multi-Fidelity Gaussian Processes for Translational Modelling of Clinical Outcomes",
-      "authors": [
-        "Isaac S. Hayden",
-        "Alicia D'Souza",
-        "Steven Niederer",
-        "Sarah Filippi"
-      ],
-      "abstract": "Bridging the gap between animal and human experiments remains a major challenge in translational medicine, particularly in early drug development. Progress is constrained by financial cost, the difficulty of integrating heterogeneous in vitro and in vivo data, and the desire to reduce the use of animal testing balanced against minimising the risk to human participants. We present a statistical machine learning framework using multi-fidelity Gaussian processes, in which animal studies are considered as lower fidelity but informative approximations to human experiments. This allows cross-species similarities and nonlinear exposure-response relationships to be learned simultaneously, enabling principled extrapolation between species while quantifying uncertainty. By leveraging information from multiple experimental fidelities, our method improves estimation of clinically relevant quantities of interest and supports the replacement, reduction, and refinement of in vivo testing. We first illustrate this approach in a simulated scenario, before validating it on real clinical data. We simulate data for drug-induced QT-interval prolongation, a key cardiac safety assessment required for regulatory approval. This framework provides a probabilistic surrogate capable of integrating in vitro pharmacology, animal experiments and human data within a unified statistical model. Crucially, it achieves this at no additional experimental cost while also enabling transfer learning across compounds. As a result, predictions and uncertainty quantification for new drugs can be generated from in vitro findings alone, providing additional efficiency gains and accelerating decision making. For validation, we use a clinical dataset measuring change in heart rate under autonomic blockade, which represents some of the challenges commonly found in multi-species datasets.",
-      "published": "September 04, 2026",
-      "published_raw": "2026-09-04T11:18:16Z",
-      "updated_raw": "2026-09-04T11:18:16Z",
-      "categories": [
-        "stat.AP"
-      ],
-      "primary_category": "stat.AP",
-      "pdf_link": "https://arxiv.org/pdf/2609.05007v1",
-      "arxiv_url": "https://arxiv.org/abs/2609.05007v1",
-      "matched_by": [
-        "topic:transfer learning"
-      ],
-      "added_timestamp": 1788898165
     }
   ]
 }
