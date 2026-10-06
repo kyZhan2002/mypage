@@ -1,6 +1,102 @@
 {
-  "last_fetch_timestamp": 1791242559,
+  "last_fetch_timestamp": 1791288784,
   "papers": [
+    {
+      "arxiv_id": "2610.05735",
+      "title": "Minimax and Adaptive Transfer Learning for Sparse Canonical Correlation Analysis",
+      "authors": [
+        "Bo Fu",
+        "Dandan Jiang"
+      ],
+      "abstract": "We develop a transfer learning framework for high-dimensional sparse canonical correlation analysis (CCA) with multiple heterogeneous source datasets. Our goal is to improve estimation of the target canonical coefficient matrices by borrowing information from related sources. We characterize source-target similarity through discrepancies in the joint covariance structure and establish minimax optimal rates under both joint and separate prediction losses, explicitly quantifying the gain from enlarged effective sample size and the cost of heterogeneity. To attain these rates, we first construct an oracle transfer estimator based on debiasing and truncated normalization. We then develop a computationally efficient procedure that adaptively achieves the minimax rate without prior knowledge of the sparsity levels, using aggregation to control transfer bias and a truncated normalization scheme to preserve transfer gains under the scale-sensitive prediction loss. A data-driven source detection procedure is further proposed to identify potentially informative auxiliary datasets. Our analysis also yields a generalized sin-theta perturbation theorem that removes a commonly imposed comparability condition on leading canonical correlations in the sparse CCA problem.",
+      "published": "October 05, 2026",
+      "published_raw": "2026-10-05T03:34:57Z",
+      "updated_raw": "2026-10-05T03:34:57Z",
+      "categories": [
+        "stat.ME"
+      ],
+      "primary_category": "stat.ME",
+      "pdf_link": "https://arxiv.org/pdf/2610.05735v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.05735v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1791288784
+    },
+    {
+      "arxiv_id": "2610.05680",
+      "title": "Instrumental Variable Analysis in Underrepresented Subpopulations Powered by Knowledge Transfer",
+      "authors": [
+        "Ruoyu Wang",
+        "Zijian Xu",
+        "Zijian Guo",
+        "Xihong Liu",
+        "Molei Liu"
+      ],
+      "abstract": "Instrumental variable (IV) analysis in underrepresented target populations suffers from low statistical efficiency and weak IV bias due to limited sample size. Leveraging external knowledge from a source population with larger samples offers an appealing solution to this problem. We propose in this paper the KNowledge-powered IV Estimator for underrepresented Subpopulations (KNIVES), a framework that enhances the IV analysis for underrepresented subpopulations by transferring knowledge from external source population data. KNIVES constructs a knowledge-transferred IV score by combining multiple candidate models through an effective signal-to-noise ratio criterion tailored to the downstream IV estimator, rather than prediction accuracy alone. To address weak associations between the IV score and the exposure, as well as a high correlation among candidate models in the target population, KNIVES employs a bias correction technique to mitigate the resulting bias and ensure robust performance. Theoretical investigation demonstrates that our method is robust to weak IV bias and achieves improved efficiency compared to the causal effect estimator based on any single candidate model. In addition, KNIVES avoids negative transfer by guaranteeing that its asymptotic variance is not larger than that of the estimator relying solely on target population data. Extensive numerical studies demonstrate the superior finite-sample performance of our method over existing methods. Two Mendelian randomization studies on ethnic minority subgroups in UK Biobank data further illustrate the advantages of our method.",
+      "published": "October 05, 2026",
+      "published_raw": "2026-10-05T01:48:46Z",
+      "updated_raw": "2026-10-05T01:48:46Z",
+      "categories": [
+        "stat.ME"
+      ],
+      "primary_category": "stat.ME",
+      "pdf_link": "https://arxiv.org/pdf/2610.05680v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.05680v1",
+      "matched_by": [
+        "author:Molei Liu"
+      ],
+      "added_timestamp": 1791288784
+    },
+    {
+      "arxiv_id": "2610.04239",
+      "title": "Conformal Prediction with Paraphrase-Aware Scoring for LLM Uncertainty Quantification",
+      "authors": [
+        "Jiayi Xin",
+        "Evan Qiang",
+        "Zihan Zhu",
+        "Xiang Li",
+        "Weijie J. Su",
+        "Qi Long"
+      ],
+      "abstract": "Uncertainty quantification (UQ) for large language models (LLMs) aims to provide reliable measures of predictive confidence, yet current methods are often unstable under meaning-preserving perturbations. Semantically equivalent paraphrases can induce substantial variability in predictive confidence, even for methods with formal guarantees, such as conformal prediction. To address this issue, we propose a paraphrase-aware UQ framework robust to semantic rewordings. Our approach trains a lightweight proxy model on LLM hidden states and aggregates its predictions across paraphrases to construct label-wise nonconformity scores. Under score exchangeability, conformal calibration retains marginal coverage. This guarantee can also hold under test-only rewording, provided that the paraphrase pipeline satisfies an additional distributional alignment condition. We evaluate three settings (normal, fully reworded, and semi-reworded) which apply rewording to neither dataset, both calibration and test datasets, or only the test dataset, respectively. Across seven multiple-choice QA benchmarks and multiple model families, our method produces compact prediction sets with empirical coverage generally near the nominal target, even in the semi-reworded setting. Ablation studies show that the learned proxy accounts for most of the reduction in set size, while paraphrase-augmented training and inference-time aggregation improve stability under rewording. Code is available at https://github.com/Raina-Xin/PA_Score.",
+      "published": "October 03, 2026",
+      "published_raw": "2026-10-03T03:01:22Z",
+      "updated_raw": "2026-10-03T03:01:22Z",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "primary_category": "cs.CL",
+      "pdf_link": "https://arxiv.org/pdf/2610.04239v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.04239v1",
+      "matched_by": [
+        "author:Weijie Su"
+      ],
+      "added_timestamp": 1791288784
+    },
+    {
+      "arxiv_id": "2610.04146",
+      "title": "Partial Identification under Imperfect Measurement: A Distributionally Robust Approach",
+      "authors": [
+        "Isaac Meza"
+      ],
+      "abstract": "Imperfect measurements allow different underlying distributions to generate the same observations. Restrictions linking unobserved components can make it difficult to characterize all compatible distributions and compute the resulting range of parameter values. We ask how to construct computable parameter bounds and tighten them without additional data or stronger assumptions. We develop a general framework for partial identification under imperfect measurement based on distributionally robust optimization. We use measurement restrictions to construct a neighborhood around a benchmark distribution, ensuring that every compatible distribution lies within it. Optimizing over this neighborhood gives parameter bounds through a common procedure that can be adapted to different measurement problems. The choice of benchmark affects how informative these bounds are. We establish conditions under which changing it can tighten the bounds while preserving every parameter value consistent with the same data and assumptions. Applications to networks, missing outcomes, and regression illustrate how the framework tightens bounds and can recover the full range of compatible values.",
+      "published": "October 02, 2026",
+      "published_raw": "2026-10-02T23:41:25Z",
+      "updated_raw": "2026-10-02T23:41:25Z",
+      "categories": [
+        "econ.EM",
+        "stat.ME"
+      ],
+      "primary_category": "econ.EM",
+      "pdf_link": "https://arxiv.org/pdf/2610.04146v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.04146v1",
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "added_timestamp": 1791288784
+    },
     {
       "arxiv_id": "2610.02578",
       "title": "High-Dimensional Asymptotics and Dataset Selection for Private Transfer Learning",
