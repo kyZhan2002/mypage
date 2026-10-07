@@ -1,5 +1,5 @@
 {
-  "last_fetch_timestamp": 1791323679,
+  "last_fetch_timestamp": 1791373879,
   "papers": [
     {
       "arxiv_id": "2610.05735",
@@ -22,6 +22,32 @@
         "topic:transfer learning"
       ],
       "added_timestamp": 1791288784
+    },
+    {
+      "arxiv_id": "2610.07048",
+      "title": "Data Fusion for Errors-in-Variables",
+      "authors": [
+        "Huali Zhao",
+        "Molei Liu",
+        "Tianying Wang"
+      ],
+      "abstract": "We study errors-in-variables problems in which a target study contains only a single error-prone surrogate of an unobserved exposure, while an external source study provides repeated surrogate measurements from a different population. The measurement error distribution is allowed to depend on the observed error-free variables, and the error-free variable distribution itself may differ between studies. We introduce a conditional transportability assumption that enables the use of external repeated measurements under source-target heterogeneity. Together with additional replicate-error conditions, it identifies the target conditional measurement-error distribution. Building on this identification result, we develop a data-fusion estimator for a broad class of target functionals. The estimator combines conditional deconvolution, flexible nuisance estimation, and orthogonal correction that reduces first-order sensitivity to nuisance estimation. For the proposed estimator, we develop a unified spectral theory covering both diffuse-spectrum and finite atomic-spectrum target functionals, derive a general asymptotic expansion, and establish consistency and target-specific convergence-rate bounds. The resulting convergence-rate bounds depend jointly on the spectral properties of the measurement error, the latent exposure, and the target functional. For finite atomic-spectrum targets, we further establish joint Gaussian and bootstrap limits, yielding inference for smooth moment transformations under an additional centering condition. In the reported simulations, Fuse-EIV has small bias for the primary exposure-related coefficient. Applications to the National Health and Nutrition Examination Survey illustrate how accounting for population heterogeneity and error heteroscedasticity can change empirical conclusions.",
+      "published": "October 05, 2026",
+      "published_raw": "2026-10-05T02:22:43Z",
+      "updated_raw": "2026-10-05T02:22:43Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.ST",
+        "stat.ME"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2610.07048v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.07048v1",
+      "matched_by": [
+        "author:Molei Liu"
+      ],
+      "added_timestamp": 1791373879
     },
     {
       "arxiv_id": "2610.05680",
@@ -530,6 +556,27 @@
         "author:Weijie Su"
       ],
       "added_timestamp": 1789415183
+    },
+    {
+      "arxiv_id": "2610.06875",
+      "title": "Optimal Linear Functional Estimation for Proportionally High-Dimensional Linear Models",
+      "authors": [
+        "Junwei Lu"
+      ],
+      "abstract": "We study estimation of a linear functional in random-design linear models when $γ=p/n \\in (1, \\infty)$ under the dense regime where the design covariance is unknown, and neither the regression vector nor the precision matrix is assumed sparse. Suppose the spectrum of the design covariance belongs to $[\\ell,L]$, we establish the minimax mean squared rate for the linear functional has the order $n^{-α(κ,γ)}$, where the exponent $α(κ,γ)$ has an explicit elliptic-integral representation and $α(κ,γ) < 1$ when both $κ> 1$ and $γ> 1$. We propose the Bocca estimator, which combines empirically calibrated resolvents through a complex contour integral to attain the optimal rate.",
+      "published": "September 10, 2026",
+      "published_raw": "2026-09-10T16:08:25Z",
+      "updated_raw": "2026-09-10T16:08:25Z",
+      "categories": [
+        "math.ST"
+      ],
+      "primary_category": "math.ST",
+      "pdf_link": "https://arxiv.org/pdf/2610.06875v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.06875v1",
+      "matched_by": [
+        "author:Junwei Lu"
+      ],
+      "added_timestamp": 1791373879
     },
     {
       "arxiv_id": "2609.11073",
