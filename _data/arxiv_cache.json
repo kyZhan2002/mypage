@@ -1,6 +1,53 @@
 {
-  "last_fetch_timestamp": 1791411483,
+  "last_fetch_timestamp": 1791461184,
   "papers": [
+    {
+      "arxiv_id": "2610.09722",
+      "title": "Beyond Source-Level Transfer: Sample-Level Learning for High-Dimensional Quantile Regression",
+      "authors": [
+        "Xiangyu Xing",
+        "Yingxuan Wang",
+        "Wangli Xu"
+      ],
+      "abstract": "This paper studies transfer learning for high-dimensional quantile regression with limited target samples and heterogeneous source domains. We propose a sample-level transfer learning method (SL-TL) that combines sample selection and importance weighting. Unlike existing source-level approaches that include or exclude entire source domains, SL-TL identifies transferable samples within each source domain and incorporates them through adaptive importance weights. The proposed weights rely only on one-dimensional densities associated with the quantile loss, avoiding the estimation of high-dimensional density ratios. We establish error bounds for SL-TL estimators and characterize the effective sample size contributed by source domains. In the oracle setting, we show that SL-TL achieves faster $\\ell_2$-convergence rates than existing competitors under the considered regimes. For the unknown setting, we develop an implementable algorithm based on sample splitting and cross-fitting procedures. Extensive simulations and a real data analysis demonstrate the finite-sample performance and robustness of SL-TL.",
+      "published": "October 07, 2026",
+      "published_raw": "2026-10-07T09:18:34Z",
+      "updated_raw": "2026-10-07T09:18:34Z",
+      "categories": [
+        "stat.ME"
+      ],
+      "primary_category": "stat.ME",
+      "pdf_link": "https://arxiv.org/pdf/2610.09722v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.09722v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1791461184
+    },
+    {
+      "arxiv_id": "2610.09303",
+      "title": "Tightness and Error Exponents of SDP with Logarithmically Many Communities",
+      "authors": [
+        "Shengtao Guo",
+        "Ethan X. Fang",
+        "Junwei Lu"
+      ],
+      "abstract": "We study a semidefinite programming (SDP) relaxation for community recovery when the number of communities grows logarithmically. In the balanced stochastic block model with $n=km$ vertices, we consider the regime $k/\\log m\\toγ>0$, with edge probabilities $α\\log m/m$ within communities and $β\\log m/m$ across them, for fixed $α>β>0$. We derive the sharp asymptotic tightness boundary away from critical cases. When rare vertices cause tightness to fail while the bulk remains spectrally stable, the normalized matrix error of every near-optimal solution still vanishes. We prove matching high-probability exponents for this error and the normalized optimal objective gain, governed by the same local correction that determines tightness. Throughout this spectrally stable region, a single SDP solve followed by explicit rounding and refinement achieves exact community recovery above the information-theoretic threshold. This guarantee holds even when the planted community matrix is not an optimal solution to the SDP.",
+      "published": "October 07, 2026",
+      "published_raw": "2026-10-07T02:02:34Z",
+      "updated_raw": "2026-10-07T02:02:34Z",
+      "categories": [
+        "math.ST",
+        "cs.IT"
+      ],
+      "primary_category": "math.ST",
+      "pdf_link": "https://arxiv.org/pdf/2610.09303v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.09303v1",
+      "matched_by": [
+        "author:Junwei Lu"
+      ],
+      "added_timestamp": 1791461184
+    },
     {
       "arxiv_id": "2610.05735",
       "title": "Minimax and Adaptive Transfer Learning for Sparse Canonical Correlation Analysis",
@@ -627,52 +674,6 @@
         "author:Junwei Lu"
       ],
       "added_timestamp": 1789026693
-    },
-    {
-      "arxiv_id": "2609.08526",
-      "title": "Transfer Learning with Heterogeneous Feature Spaces in Linear Regression",
-      "authors": [
-        "Zejing Zheng",
-        "Rui Huang",
-        "Junlong Zhao"
-      ],
-      "abstract": "Transfer learning improves target-task performance by leveraging related source data. Most methods assume shared feature spaces, yet in many applications, each source observes only a subset of target covariates. Classical imputation fails here due to block missingness, and standard imputation matrices are not optimized for target parameter estimation. We study low- and high-dimensional linear regression and propose Heterogeneous Importance Weighting (HIW). Our method aligns feature spaces via projection-based imputation and transfers information through sample-selected importance weighting. This framework accommodates diverse projection matrices to construct target-oriented imputation. We develop a classification-based procedure with pseudo-responses to estimate conditional error densities for the weights. We establish entry-wise and global convergence rates for the estimator, with numerical and real-data studies demonstrating its effectiveness.",
-      "published": "September 08, 2026",
-      "published_raw": "2026-09-08T10:16:35Z",
-      "updated_raw": "2026-09-08T10:16:35Z",
-      "categories": [
-        "stat.ME"
-      ],
-      "primary_category": "stat.ME",
-      "pdf_link": "https://arxiv.org/pdf/2609.08526v1",
-      "arxiv_url": "https://arxiv.org/abs/2609.08526v1",
-      "matched_by": [
-        "topic:transfer learning"
-      ],
-      "added_timestamp": 1788940283
-    },
-    {
-      "arxiv_id": "2609.08487",
-      "title": "Structure-based Transfer Learning",
-      "authors": [
-        "Ho Yi Alexis Ho",
-        "Xinzhou Guo",
-        "Shuoxun Xu"
-      ],
-      "abstract": "Transfer learning improves estimation in a target study using information from related sources. Classical transfer learning is typically data-based, requiring access to the source data or to a model fitted on them. Neither is available in many modern studies, as both are often proprietary or unreported. What can be transferred instead is structure: summarized information derived from a source, such as the supports of predictors, which is available and interpretable without access to the source data or model. The prevalence of the Large Language Model (LLM) provides a rich source of such structure information. However, data-based transfer learning can not well utilize it as accessing the data and model of the LLM is often infeasible. In this paper, we propose a novel transfer learning framework based on structure. In particular, we focus on linear model and aim to use supports generated by multiple agents, such as LLM, to improve estimation in the target study. Our procedure maps each support into the target parameter space, aggregates the results with data-driven weights, and applies a sparse correction against inaccurate supports. We establish nonasymptotic guarantees: the estimator improves on the target-only Lasso when the supports are informative and never does worse otherwise. Simulations and a gene-expression application confirm both properties.",
-      "published": "September 08, 2026",
-      "published_raw": "2026-09-08T09:29:26Z",
-      "updated_raw": "2026-09-08T09:29:26Z",
-      "categories": [
-        "stat.ME"
-      ],
-      "primary_category": "stat.ME",
-      "pdf_link": "https://arxiv.org/pdf/2609.08487v1",
-      "arxiv_url": "https://arxiv.org/abs/2609.08487v1",
-      "matched_by": [
-        "topic:transfer learning"
-      ],
-      "added_timestamp": 1788940283
     }
   ]
 }
