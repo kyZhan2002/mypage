@@ -1,6 +1,62 @@
 {
-  "last_fetch_timestamp": 1791498643,
+  "last_fetch_timestamp": 1791547090,
   "papers": [
+    {
+      "arxiv_id": "2610.11226",
+      "title": "When Lower Reconstruction Loss Hurts: Distributionally Robust Refinement for Low-Bit LLM Quantization",
+      "authors": [
+        "Yanlong Zhao",
+        "Xiaoyuan Cheng",
+        "Huihang Liu",
+        "Baihua He",
+        "Xinyu Zhang",
+        "Harrison Bo Hua Zhu",
+        "Wenlong Chen",
+        "Li Zeng",
+        "Zhuo Sun"
+      ],
+      "abstract": "Weight-only post-training quantization (PTQ) relies heavily on reconstruction loss minimization to preserve model quality at low precision. We show that the weights favored by minimizing this loss need not yield better model performance on new tasks. In fact, we find that lower reconstruction loss can even degrade model performance on the same calibration data. Our analysis further shows that weights with lower reconstruction loss on calibration data can have higher loss than other weights when the distribution of input activations changes. Motivated by these observations and our analysis, we propose Distributionally Robust Quantization (DRQ), a post-hoc refinement process that minimizes worst-case reconstruction loss over a constrained set of input activation distributions. DRQ refines the integer codes representing quantized weights within the existing quantization grid, keeping quantization parameters and inference operators unchanged. Extensive experiments show that DRQ improves models quantized by six representative PTQ methods, including AWQ, GPTQ, and ParoQuant, and delivers gains across both dense and mixture-of-experts large language models. These results establish DRQ as a general post-hoc refinement framework for weight-only PTQ, achieving better downstream performance without adding inference overhead.",
+      "published": "October 08, 2026",
+      "published_raw": "2026-10-08T04:22:29Z",
+      "updated_raw": "2026-10-08T04:22:29Z",
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "primary_category": "cs.AI",
+      "pdf_link": "https://arxiv.org/pdf/2610.11226v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.11226v1",
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "added_timestamp": 1791547090
+    },
+    {
+      "arxiv_id": "2610.10793",
+      "title": "Calibrating Ambiguity Set via Diagnostic Transport for Distributionally Robust Optimization",
+      "authors": [
+        "Wenbin Zhou",
+        "Elizabeth Cucuzzella",
+        "Shixiang Zhu"
+      ],
+      "abstract": "Distributionally robust optimization (DRO) protects decisions against distributional uncertainty by optimizing over an ambiguity set, but poorly aligned set geometry can require large radii and yield overly conservative decisions. We introduce diagnostic-transport DRO (DT-DRO), which uses held-out calibration data to adapt the ambiguity-set geometry to observed predictive errors. DT-DRO uses the conditional probability integral transform cumulative distribution function to diagnose systematic probability misallocation and translates this information into an outcome-level transport that jointly adjusts the ambiguity-set center and ground cost. The resulting formulation admits a computationally tractable dual reformulation. Theoretically, we derive valid ambiguity radii and decision-risk guarantees that tighten as estimation and approximation errors vanish, and show that DT-DRO can eliminate the nonvanishing robustness floor caused by model misspecification. Synthetic experiments and a power-outage application demonstrate improved decision quality, particularly under structural and tail misspecification.",
+      "published": "October 07, 2026",
+      "published_raw": "2026-10-07T18:51:43Z",
+      "updated_raw": "2026-10-07T18:51:43Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.OC"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2610.10793v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.10793v1",
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "added_timestamp": 1791547090
+    },
     {
       "arxiv_id": "2610.09722",
       "title": "Beyond Source-Level Transfer: Sample-Level Learning for High-Dimensional Quantile Regression",
@@ -647,33 +703,6 @@
         "topic:distributionally robust"
       ],
       "added_timestamp": 1789112816
-    },
-    {
-      "arxiv_id": "2609.09981",
-      "title": "Optimal Value Inference for Reinforcement Learning",
-      "authors": [
-        "Nan Lu",
-        "Ethan Lee",
-        "James M. Robins",
-        "David Simchi-Levi",
-        "Junwei Lu"
-      ],
-      "abstract": "We study offline inference for the optimal value in reinforcement learning. Two new nuisances are derived as fixed points of a self-induced Bellman equation, in which we approximate the maximum Bellman operator by its softmax correspondence. We propose a debiased estimator through the Neyman orthogonality and establish its asymptotic normality under diverging horizons even when the behavior policy changes with time, as long as the nuisances have the statistical rates that can be achieved by many machine learning methods. We provide a concrete estimating procedure for these nuisances and show they can lead to valid inference. Synthetic experiments validate the numerical performance of our inference method, and we implement it in real-life decision-making problems, including bike repositioning and AI agentic tool use.",
-      "published": "September 09, 2026",
-      "published_raw": "2026-09-09T10:10:55Z",
-      "updated_raw": "2026-09-09T10:10:55Z",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "stat.ME"
-      ],
-      "primary_category": "stat.ML",
-      "pdf_link": "https://arxiv.org/pdf/2609.09981v1",
-      "arxiv_url": "https://arxiv.org/abs/2609.09981v1",
-      "matched_by": [
-        "author:Junwei Lu"
-      ],
-      "added_timestamp": 1789026693
     }
   ]
 }
