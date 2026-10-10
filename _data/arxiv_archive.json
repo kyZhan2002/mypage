@@ -1,6 +1,59 @@
 {
-  "last_updated": 1791630883,
+  "last_updated": 1791665012,
   "papers": [
+    {
+      "arxiv_id": "2609.12123",
+      "title": "Rank-Efficient LoRA via Joint Tangent-Space Optimization under Isotropic Curvature",
+      "authors": [
+        "Zihan Zhu",
+        "Zhehang Du",
+        "Xuyang Chen",
+        "Tim Tsz-Kit Lau",
+        "Jiayuan Wu",
+        "X. Y. Han",
+        "Qi Long",
+        "Weijie Su"
+      ],
+      "abstract": "Low-Rank Adaptation (LoRA) is an effective approach for adapting large pretrained models by learning low-rank weight updates. In practice, the LoRA rank is used to control an adapter's parameter budget and representational capacity. We show that this view is incomplete: while the nominal rank determines the representational capacity, the optimizer shapes how much of that capacity is used in the induced weight-space updates. In a case study of GPT-2 adaptation with LoRA, we observe a strong rank-dependent optimizer effect. Despite using the same nominal rank, AdamW often produces per-step updates with concentrated singular spectra and low effective rank, whereas Muon uses a richer set of directions and benefits more consistently from increasing LoRA rank. These observations motivate ISO-LoRA, an optimizer that couples the LoRA factor updates through spectral descent on the induced tangent perturbation in weight space. ISO-LoRA promotes updates that distribute energy more evenly across singular directions, improving rank utilization while preserving compatibility with the LoRA parameterization. We complement this design with theoretical guarantees showing that ISO-LoRA can achieve higher effective rank than standard factor-wise optimizers through a one-step analysis under a stylized spiked-gradient model. We validate this design on language-model adaptation across 0.1B-7B-parameter models, where ISO-LoRA improves effective rank and downstream performance, with the strongest gains at moderate-to-large LoRA ranks. Our results highlight rank utilization as a key factor in LoRA optimization and suggest that optimizer design offers an important path toward stronger parameter-efficient adaptation.",
+      "published": "September 10, 2026",
+      "published_raw": "2026-09-10T18:50:17Z",
+      "updated_raw": "2026-09-10T18:50:17Z",
+      "categories": [
+        "cs.LG",
+        "math.OC",
+        "stat.ML"
+      ],
+      "primary_category": "cs.LG",
+      "pdf_link": "https://arxiv.org/pdf/2609.12123v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.12123v1",
+      "matched_by": [
+        "author:Weijie Su"
+      ],
+      "added_timestamp": 1789415183,
+      "archived_timestamp": 1791665012
+    },
+    {
+      "arxiv_id": "2610.06875",
+      "title": "Optimal Linear Functional Estimation for Proportionally High-Dimensional Linear Models",
+      "authors": [
+        "Junwei Lu"
+      ],
+      "abstract": "We study estimation of a linear functional in random-design linear models when $γ=p/n \\in (1, \\infty)$ under the dense regime where the design covariance is unknown, and neither the regression vector nor the precision matrix is assumed sparse. Suppose the spectrum of the design covariance belongs to $[\\ell,L]$, we establish the minimax mean squared rate for the linear functional has the order $n^{-α(κ,γ)}$, where the exponent $α(κ,γ)$ has an explicit elliptic-integral representation and $α(κ,γ) < 1$ when both $κ> 1$ and $γ> 1$. We propose the Bocca estimator, which combines empirically calibrated resolvents through a complex contour integral to attain the optimal rate.",
+      "published": "September 10, 2026",
+      "published_raw": "2026-09-10T16:08:25Z",
+      "updated_raw": "2026-09-10T16:08:25Z",
+      "categories": [
+        "math.ST"
+      ],
+      "primary_category": "math.ST",
+      "pdf_link": "https://arxiv.org/pdf/2610.06875v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.06875v1",
+      "matched_by": [
+        "author:Junwei Lu"
+      ],
+      "added_timestamp": 1791373879,
+      "archived_timestamp": 1791665012
+    },
     {
       "arxiv_id": "2609.11073",
       "title": "Conformal-DRO: Distributionally Robust Optimization with Conformalized Ambiguity Set",
