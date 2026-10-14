@@ -1,6 +1,105 @@
 {
-  "last_fetch_timestamp": 1791928738,
+  "last_fetch_timestamp": 1791973188,
   "papers": [
+    {
+      "arxiv_id": "2610.16883",
+      "title": "A Composite Bayesian Risk--Distributionally Robust Optimization Model for Stochastic Programming with Elliptical Distribution Ambiguity",
+      "authors": [
+        "Renjie Chen",
+        "Huifu Xu"
+      ],
+      "abstract": "We study a stochastic optimization problem in which the random vector follows a semiparametric elliptical distribution with unknown location and shape parameters and an unspecified radial distribution. Assuming that the decision maker only has access to samples of the random vector, we develop a framework to jointly address parameter uncertainty and distributional ambiguity arising from this composite structure. To update the posterior distribution of the parameters, a key challenge is that the density of an elliptical distribution depends on the unknown radial distribution, and hence conventional likelihood-based Bayesian inference is infeasible. To overcome this challenge, we propose a novel estimating-equation-based Gibbs inference framework that updates posterior distributions of model parameters solely through estimating equations. For elliptical distributions, we construct a pair of estimating equations for the location and shape parameters that are invariant to the radial component, which enables posterior learning without specifying the density. For the distributional uncertainty, we construct an ambiguity set for the radial distribution by transforming observed samples into pseudo-samples of the radial variable. Combining the above components, we formulate a composite Bayesian risk--distributionally robust optimization model, in which the inner problem captures worst-case radial distributions within the ambiguity set, and the outer problem evaluates the decision risk induced by the parameter uncertainty through a user-specified risk measure. We further develop a cutting-plane algorithm to solve the resulting optimization problem. Numerical experiments demonstrate that the proposed approach provides substantial performance improvements over benchmark methods, including sample average approximation and distributionally robust optimization.",
+      "published": "October 12, 2026",
+      "published_raw": "2026-10-12T14:43:28Z",
+      "updated_raw": "2026-10-12T14:43:28Z",
+      "categories": [
+        "math.OC",
+        "stat.ME"
+      ],
+      "primary_category": "math.OC",
+      "pdf_link": "https://arxiv.org/pdf/2610.16883v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.16883v1",
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "added_timestamp": 1791973188
+    },
+    {
+      "arxiv_id": "2610.15571",
+      "title": "Latent-Space Importance Weighting under Covariate Shift",
+      "authors": [
+        "Yuling Jiao",
+        "Lican Kang",
+        "Yang Xiang",
+        "Jerry Zhijian Yang",
+        "Fusheng Zhou"
+      ],
+      "abstract": "In this work, we propose a transfer learning algorithm for covariate shift, integrating sample reweighting with representation learning. A key feature of our approach is the use of a lower-dimensional latent space for modeling, in contrast to conventional methods that operate directly in the high-dimensional ambient space. Our method estimates the density ratio of learned latent features for downstream weighted prediction. We establish explicit target-domain excess-risk rates with independent data folds for strictly sufficient learned representations with regular learned-space prediction scores and density ratios. We give dimension comparisons under stated smoothness conditions and a variance comparison for true weights and a fixed predictor. General finite-sample inequalities retain representation-quality errors. Experiments on simulated and real-world datasets demonstrate gains from combining learned representations and latent weighting, and reveal sensitivity to initialization and domain choice.",
+      "published": "October 11, 2026",
+      "published_raw": "2026-10-11T12:33:28Z",
+      "updated_raw": "2026-10-11T12:33:28Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2610.15571v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.15571v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1791973188
+    },
+    {
+      "arxiv_id": "2610.15188",
+      "title": "Applications of Royen's Gaussian Correlation Inequality in high-dimensional testing",
+      "authors": [
+        "Jiashun Jin",
+        "Zheng Tracy Ke",
+        "Jingming Wang"
+      ],
+      "abstract": "Royen's Gaussian Correlation Inequality (GCI) is a fundamental result in statistics and probability, but unfortunately, at least by now, the result is not very well known in the statistical community. In this paper, we demonstrate the potential of GCI in high-dimensional testing problems that involve multivariate Gaussian variables. Leveraging the GCI, we establish sharp Type I error bounds under arbitrary Gaussian covariance structures. We also formulate a conjecture and relate it to the well-known Spherical Cap Covering Conjecture in discrete geometry and Weak Simplex Conjecture in information theory.",
+      "published": "October 10, 2026",
+      "published_raw": "2026-10-10T21:27:40Z",
+      "updated_raw": "2026-10-10T21:27:40Z",
+      "categories": [
+        "math.ST"
+      ],
+      "primary_category": "math.ST",
+      "pdf_link": "https://arxiv.org/pdf/2610.15188v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.15188v1",
+      "matched_by": [
+        "author:Tracy Ke"
+      ],
+      "added_timestamp": 1791973188
+    },
+    {
+      "arxiv_id": "2610.14414",
+      "title": "Prior-Informed Generalizable Low-Rank Representation Learning via Regularized Adversarial Reweighting",
+      "authors": [
+        "Keyao Zhan",
+        "Junwei Lu",
+        "Tianxi Cai"
+      ],
+      "abstract": "Modern learning problems increasingly leverage data from heterogeneous sources to improve robustness and generalizability under distribution shift, often with high-dimensional parameters admitting low-rank structure. Existing group distributionally robust optimization (group-DRO) approaches optimize against adverse source mixtures, but extending this principle to low-rank matrix estimation with a broad class of losses leads to a challenging nonconvex-concave problem for which methods and theory remain limited. We propose Prior-Informed generalizable Low-rank representation Learning via Adversarial Reweighting (PILLAR), which smooths the group-DRO objective by regularizing adversarial source weights toward a user-specified reference distribution while learning a shared low-rank representation. By tempering extreme adversarial reweighting, PILLAR improves estimation stability and reduces the potential conservativeness of group-DRO. Using Burer-Monteiro factorization, we optimize the nonconvex-concave objective by bifactored gradient descent with mirror ascent. We establish linear convergence to a statistical neighborhood of the population saddle point and derive an error bound that separates low-rank estimation from adversarial reweighting. We further show that PILLAR improves on vanilla group DRO when the latter's excess conservativeness dominates source heterogeneity and prior misspecification. Simulations and an electronic health record study of suicide-attempt risk demonstrate improved worst-source and transported predictive accuracy.",
+      "published": "October 10, 2026",
+      "published_raw": "2026-10-10T00:25:25Z",
+      "updated_raw": "2026-10-10T00:25:25Z",
+      "categories": [
+        "stat.ME",
+        "math.ST",
+        "stat.ML"
+      ],
+      "primary_category": "stat.ME",
+      "pdf_link": "https://arxiv.org/pdf/2610.14414v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.14414v1",
+      "matched_by": [
+        "topic:distributionally robust",
+        "author:Tianxi Cai",
+        "author:Junwei Lu"
+      ],
+      "added_timestamp": 1791973188
+    },
     {
       "arxiv_id": "2610.11226",
       "title": "When Lower Reconstruction Loss Hurts: Distributionally Robust Refinement for Low-Bit LLM Quantization",
@@ -550,32 +649,6 @@
         "author:Molei Liu"
       ],
       "added_timestamp": 1790032105
-    },
-    {
-      "arxiv_id": "2609.14902",
-      "title": "Shapley Value Estimation for Multi-Site Data with Blockwise-Missing Features",
-      "authors": [
-        "Siqi Li",
-        "Wangxuan Fan",
-        "Yiming Li",
-        "Doudou Zhou",
-        "Molei Liu"
-      ],
-      "abstract": "Shapley value (SV)-based methods are the prevailing framework for feature attribution in machine learning, yet existing population-level Shapley estimators generally assume that observations used to evaluate the coalitional game are fully observed under a common feature space. This assumption is routinely violated in multi-site studies across biomedicine, social science, and environmental monitoring, where institutions record different features under different protocols, producing systematic blockwise missingness across sources. We first show that the standard remedy of imputing missing features before computing Shapley values introduces systematic, coalition-dependent bias into the resulting attributions. We then propose \\textbf{FUSHAP} (\\textbf{Fu}sion \\textbf{Sh}apley \\textbf{A}ttribution from \\textbf{P}artially-observed data), a method that leverages partially-observed auxiliary sites to reduce the variance of a preliminary single-site Shapley estimate without imputation. A permutation-based screening step detects and excludes sites whose data distributions are incompatible with the target population. In synthetic experiments, FUSHAP achieves $3$--$8\\times$ lower MSE than the single-site estimator and $2$--$3\\times$ lower MSE than imputation baselines without incurring imputation-induced bias, and the screening procedure identifies misaligned sites with $82\\%$ power at moderate misalignment and $100\\%$ for strong misalignment. On multi-site air quality and multi-center clinical data, FUSHAP reduces MSE by approximately $3$--$7\\times$ relative to the single-site estimator; in the clinical application, standard imputation can increase MSE above the single-site baseline.",
-      "published": "September 14, 2026",
-      "published_raw": "2026-09-14T01:42:12Z",
-      "updated_raw": "2026-09-14T01:42:12Z",
-      "categories": [
-        "stat.ML",
-        "cs.LG"
-      ],
-      "primary_category": "stat.ML",
-      "pdf_link": "https://arxiv.org/pdf/2609.14902v1",
-      "arxiv_url": "https://arxiv.org/abs/2609.14902v1",
-      "matched_by": [
-        "author:Molei Liu"
-      ],
-      "added_timestamp": 1789498039
     }
   ]
 }
