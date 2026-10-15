@@ -1,6 +1,31 @@
 {
-  "last_fetch_timestamp": 1792011587,
+  "last_fetch_timestamp": 1792058664,
   "papers": [
+    {
+      "arxiv_id": "2610.20447",
+      "title": "Testing Conditional Distribution Equality Using Generative Models",
+      "authors": [
+        "Zekai Jin",
+        "Yi Zhang",
+        "Yun Yang",
+        "Xiaofeng Shao"
+      ],
+      "abstract": "Conditional distribution equality testing is a core problem with applications in causal inference, model diagnostics, and transfer learning. Existing methods often lose power when the conditioning variable is high-dimensional. We propose a new test that leverages generative models to compare conditional distributions using both observed data and synthetic samples. A sample-splitting and studentization scheme is introduced to control estimation error. Under the null, the test statistic is asymptotically normal, and we establish local power against contiguous alternatives. Our theory under the null and fixed alternative requires only consistency of the learned conditional distribution, allowing for a broad class of generative models. Empirical results demonstrate accurate size control and strong power in high-dimensional settings compared to representative kernel-based conditional and joint two-sample tests.",
+      "published": "October 14, 2026",
+      "published_raw": "2026-10-14T16:33:59Z",
+      "updated_raw": "2026-10-14T16:33:59Z",
+      "categories": [
+        "stat.ME",
+        "stat.ML"
+      ],
+      "primary_category": "stat.ME",
+      "pdf_link": "https://arxiv.org/pdf/2610.20447v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.20447v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1792058664
+    },
     {
       "arxiv_id": "2610.16883",
       "title": "A Composite Bayesian Risk--Distributionally Robust Optimization Model for Stochastic Programming with Elliptical Distribution Ambiguity",
