@@ -1,6 +1,30 @@
 {
-  "last_fetch_timestamp": 1792096444,
+  "last_fetch_timestamp": 1792144573,
   "papers": [
+    {
+      "arxiv_id": "2610.21677",
+      "title": "Calibrated Transfer Learning for Survival Prediction and Treatment Inference",
+      "authors": [
+        "Shuoyang Wang",
+        "Wanyu Zhang",
+        "Lingli Yang",
+        "Kexuan Li"
+      ],
+      "abstract": "Historical survival data can improve prediction in a cohort with few events, but prognostic differences can make borrowing harmful. To borrow while adapting, we propose calibrated transfer learning for the Cox model, in which a historical risk function enters the target analysis as a fixed offset with a prespecified correction for changing covariate effects and a separate baseline hazard. Calibration removes historical error in the correction space exactly, so only the remaining error governs the prediction rate, for any bounded learner. Accurate prediction does not, however, ensure valid treatment inference. In randomized trials, the remaining error biases the conditional treatment coefficient, because a treatment effect changes the prognostic composition of later risk sets. We characterize this bias and its sharp worst-case direction, and we introduce a cross-fitted projected score that removes it at first order and leaves only a second-order bias when a fixed error lies in its dictionary. A historical learning bound separates approximation, sampling, and optimization error. In simulations, calibration improves prediction when the historical risk is well learned, and the projected score restores interval coverage under drift outside the correction, also at a hazard ratio of 0.7. In a retrospective transfer between the POPLAR and OAK lung cancer trials, selected corrections reduce the integrated Brier score by 4.3\\% relative to ridge-penalized clinical Cox with 100 training patients, without improving treatment precision.",
+      "published": "October 15, 2026",
+      "published_raw": "2026-10-15T11:01:40Z",
+      "updated_raw": "2026-10-15T11:01:40Z",
+      "categories": [
+        "stat.ME"
+      ],
+      "primary_category": "stat.ME",
+      "pdf_link": "https://arxiv.org/pdf/2610.21677v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.21677v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1792144572
+    },
     {
       "arxiv_id": "2610.20447",
       "title": "Testing Conditional Distribution Equality Using Generative Models",
