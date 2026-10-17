@@ -1,6 +1,33 @@
 {
-  "last_updated": 1792181511,
+  "last_updated": 1792229349,
   "papers": [
+    {
+      "arxiv_id": "2609.19599",
+      "title": "Human-Anchored Inference for Ranking New Models with Large Language Model Judges",
+      "authors": [
+        "Xin Zhou",
+        "Sinian Zhang",
+        "Zhanyan Yang",
+        "Mingyuan Xu",
+        "Molei Liu",
+        "Doudou Zhou"
+      ],
+      "abstract": "Human pairwise comparisons provide a reference for evaluating large language models (LLMs), but collecting sufficient judgments for each new release is costly and time-consuming. LLM judges offer a scalable alternative, although their comparisons may differ systematically from human preferences and across judges. We study the ranking of a new model that has received LLM-judge comparisons but no human comparisons. We propose ANCHOR (ANchored Comparisons for Human-reference inference with Orthogonal Riesz correction), which uses historical human and LLM comparisons to learn judge-specific sensitivities to human score differences and feature-dependent judge biases. These estimates are then used to infer the new model's human-reference score from its judge comparisons. The framework allows the feature distribution to change between historical and new-model comparisons. For inference, we construct a Neyman-orthogonal estimator through a joint Riesz correction that removes the first-order effects of estimating the historical human scores, judge sensitivities, and bias functions. We establish identification, convergence rates, and asymptotic normality with consistently estimable variance, and show that ANCHOR attains the semiparametric efficiency bound. Simulations demonstrate gains in score estimation and ranking accuracy. On Chatbot Arena, ANCHOR achieves the lowest score RMSE and insertion MAE among competing methods, with narrower score intervals on average.",
+      "published": "September 17, 2026",
+      "published_raw": "2026-09-17T02:26:39Z",
+      "updated_raw": "2026-09-17T02:26:39Z",
+      "categories": [
+        "math.ST"
+      ],
+      "primary_category": "math.ST",
+      "pdf_link": "https://arxiv.org/pdf/2609.19599v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.19599v1",
+      "matched_by": [
+        "author:Molei Liu"
+      ],
+      "added_timestamp": 1790032105,
+      "archived_timestamp": 1792229349
+    },
     {
       "arxiv_id": "2609.14902",
       "title": "Shapley Value Estimation for Multi-Site Data with Blockwise-Missing Features",
