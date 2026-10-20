@@ -1,5 +1,5 @@
 {
-  "last_fetch_timestamp": 1792491049,
+  "last_fetch_timestamp": 1792529700,
   "papers": [
     {
       "arxiv_id": "2610.23337",
@@ -671,29 +671,6 @@
       "arxiv_url": "https://arxiv.org/abs/2609.24086v1",
       "matched_by": [
         "topic:transfer learning"
-      ],
-      "added_timestamp": 1790635145
-    },
-    {
-      "arxiv_id": "2609.23635",
-      "title": "Model-free and Distributionally Robust Feature Screening with False Discovery Control for High-Dimensional Heterogeneous Data",
-      "authors": [
-        "Cong Cheng",
-        "Runze Li",
-        "Yuan Ke"
-      ],
-      "abstract": "In this paper, we propose a model-free feature screening framework tailored for high-dimensional and heterogeneous datasets, based on a novel distributionally robust dependence measure termed Copula Divergence. The proposed screening method, named CD-Screen, addresses critical limitations of existing feature screening methods, such as restrictive modeling assumptions and sensitivity to heterogeneous feature distributions. CD-Screen ranks features according to their Copula Divergence without relying on a specific regression model or distributional assumptions. Additionally, we introduce CD-FDR, a data-driven procedure to control false discoveries, ensuring accurate and efficient feature selection. Theoretical analyses establish the sure screening and rank consistency properties of CD-Screen, along with asymptotic control of the false discovery rate by CD-FDR. Extensive simulation studies demonstrate the superior performance of our methods compared to traditional screening approaches across diverse scenarios. Furthermore, a real data analysis of the relationship between stock returns and inflation in the United States {illustrates the practical use of our method and provides descriptive evidence on} sector-specific responses to economic changes.",
-      "published": "September 20, 2026",
-      "published_raw": "2026-09-20T13:29:47Z",
-      "updated_raw": "2026-09-20T13:29:47Z",
-      "categories": [
-        "stat.ME"
-      ],
-      "primary_category": "stat.ME",
-      "pdf_link": "https://arxiv.org/pdf/2609.23635v1",
-      "arxiv_url": "https://arxiv.org/abs/2609.23635v1",
-      "matched_by": [
-        "topic:distributionally robust"
       ],
       "added_timestamp": 1790635145
     }
