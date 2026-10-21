@@ -1,6 +1,31 @@
 {
-  "last_updated": 1792529700,
+  "last_updated": 1792577890,
   "papers": [
+    {
+      "arxiv_id": "2609.24086",
+      "title": "Doubly robust target inference for generalized linear regression with completely missing covariates",
+      "authors": [
+        "Huali Zhao",
+        "Ke Deng"
+      ],
+      "abstract": "Large-scale multipurpose cohort studies and biobanks often omit covariates needed for specific downstream analyses. We study target-population inference for generalized linear regression when key covariates are completely absent from the target data but observed in a related source population. Standard missing covariate methods are not directly applicable because they require at least partial observation of the covariates in the target population. We develop a doubly robust transfer learning framework under a sub-population shift assumption, which allows the distribution of the observed outcome and covariates to differ between populations while requiring the conditional distribution of the missing covariates given the observed variables to be shared. Unlike linear regression, nonlinear target estimating equations require parameter-indexed conditional functionals of the missing covariates rather than a fixed collection of low-order conditional moments. Our estimator combines importance-weighted source estimating equations with imputation of these conditional functionals. Under the identifying assumption, the estimator remains consistent when either the density-ratio model or the conditional-covariate model is correctly specified. Under regularity conditions, it is root-$n$ consistent and asymptotically normal, and attains the semiparametric efficiency bound when both nuisance models are correctly specified.",
+      "published": "September 21, 2026",
+      "published_raw": "2026-09-21T04:12:28Z",
+      "updated_raw": "2026-09-21T04:12:28Z",
+      "categories": [
+        "stat.ME",
+        "math.ST",
+        "stat.ML"
+      ],
+      "primary_category": "stat.ME",
+      "pdf_link": "https://arxiv.org/pdf/2609.24086v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.24086v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1790635145,
+      "archived_timestamp": 1792577890
+    },
     {
       "arxiv_id": "2609.23635",
       "title": "Model-free and Distributionally Robust Feature Screening with False Discovery Control for High-Dimensional Heterogeneous Data",
