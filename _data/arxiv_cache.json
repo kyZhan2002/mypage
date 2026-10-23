@@ -1,6 +1,30 @@
 {
-  "last_fetch_timestamp": 1792702289,
+  "last_fetch_timestamp": 1792750385,
   "papers": [
+    {
+      "arxiv_id": "2610.31336",
+      "title": "Metric Conformal Prediction via the Conditional Expected Local Radius",
+      "authors": [
+        "Rui Qiu",
+        "Fang Yao",
+        "Zhou Yu"
+      ],
+      "abstract": "We introduce the conditional expected local radius (CELR) and develop a new conformal prediction method for non-Euclidean responses in general metric spaces. CELR measures local conditional probability concentration, allowing prediction sets to accommodate heterogeneity and multimodality without requiring densities or a vector space structure. Its conditional distribution yields a nonconformity score that is comparable across covariate values and avoids costly transport comparisons between distance profiles. We further adapt a metric distributional random forest that handles multivariate covariates and nonlinear interactions, while a single forest fit supplies all score components, reducing computation by eliminating repeated local fitting. We establish uniform consistency of the estimators and asymptotic conditional validity under suitable regularity conditions, together with finite-sample marginal coverage under exchangeability. Numerical studies demonstrate effective uncertainty quantification across different metric spaces and substantial computational savings over the conditional profile score method.",
+      "published": "October 22, 2026",
+      "published_raw": "2026-10-22T14:23:02Z",
+      "updated_raw": "2026-10-22T14:23:02Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2610.31336v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.31336v1",
+      "matched_by": [
+        "author:Fang Yao"
+      ],
+      "added_timestamp": 1792750385
+    },
     {
       "arxiv_id": "2610.28708",
       "title": "Borrowing Strength Across Stores: Transfer Learning for Choice-Based Revenue Management",
