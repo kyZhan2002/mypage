@@ -1,6 +1,29 @@
 {
-  "last_updated": 1792871499,
+  "last_updated": 1792922084,
   "papers": [
+    {
+      "arxiv_id": "2609.30879",
+      "title": "Joint-Sparse Transfer Learning for High-Dimensional Multi-Output Regression",
+      "authors": [
+        "Sunwoo Lim",
+        "Mladen Kolar"
+      ],
+      "abstract": "Multitask linear models can improve estimation and prediction by exploiting structure shared across responses, bridging taskwise fitting and complete pooling. In many applications, however, the objective is estimation in a data-limited target domain, while data-rich but heterogeneous source domains are available. Borrowing from these sources can improve efficiency but introduce bias. We develop a joint-sparse transfer-learning framework for high-dimensional multi-output regression that combines shared predictor structure across responses with source-target similarity. The framework yields two complementary estimators: a fused estimator that aggregates jointly fitted domain-specific coefficients and a target-based debiased estimator that adjusts for source-induced shifts. Our error bounds show how transfer increases the available information and sharing predictors across responses reduces selection costs. They also reveal a tradeoff: the fused estimator benefits from larger sources but may retain bias if source shifts point in similar directions, whereas debiasing trades this bias for additional estimation error governed by the smaller target sample. Comparison with a minimax lower bound identifies regimes where the bounds match up to logarithmic factors, where matching remains unresolved, and where projection onto a target-based convex set closes the gap. Simulations and an analysis of single-cell RNA and surface-protein profiles across cell types support the theory.",
+      "published": "September 25, 2026",
+      "published_raw": "2026-09-25T06:37:30Z",
+      "updated_raw": "2026-09-25T06:37:30Z",
+      "categories": [
+        "stat.ME"
+      ],
+      "primary_category": "stat.ME",
+      "pdf_link": "https://arxiv.org/pdf/2609.30879v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.30879v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1790635145,
+      "archived_timestamp": 1792922084
+    },
     {
       "arxiv_id": "2609.24086",
       "title": "Doubly robust target inference for generalized linear regression with completely missing covariates",
