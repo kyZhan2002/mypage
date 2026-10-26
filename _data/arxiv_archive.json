@@ -1,6 +1,59 @@
 {
-  "last_updated": 1793013392,
+  "last_updated": 1793051753,
   "papers": [
+    {
+      "arxiv_id": "2609.32730",
+      "title": "Domain Adaptation with Target Information via Doubly-Anchored Distributionally Robust Optimization",
+      "authors": [
+        "David Kepplinger",
+        "Anand N. Vidyashankar"
+      ],
+      "abstract": "Domain Adaptation (DA) often lacks worst-case guarantees, while Distributionally Robust Optimization (DRO) based only on source data centers its ambiguity set at the source law and ignores available target structure. To bridge this gap, we introduce a doubly-anchored DRO framework whose ambiguity set is the intersection of $φ$-divergence balls centered at the source law and a source-completed target reference law, the latter pairing the target covariate law with the source conditional law. We derive dual-induced adversarial bridge geometries for symmetric and asymmetric divergence pairings, notably introducing a Kullback--Leibler/squared-Hellinger (KL/HD) bridge. This asymmetric formulation yields a Lambert-$W$ geometry in which source-side exponential risk tilting and target-side Hellinger stabilization enter through distinct terms, attenuating, but not bounding, the effect of large likelihood ratios. Furthermore, without imposing covariate shift, we establish finite-sample generalization bounds for the minimizer of a structural, loss-agnostic density-bridge risk under bounded-overlap conditions; these bounds do not apply directly to the loss-aware DRO min--max estimator. We translate our framework into a bridge-weighted Nadaraya--Watson estimator, proving uniform consistency for the source regression function and pointwise asymptotic normality, with target recovery when the source and target regression functions coincide, as under covariate shift. Finally, an empirical evaluation on a domain-shifted Fashion-MNIST dataset illustrates the finite-sample stability of the asymmetric KL/HD bridge under severe synthetic target-covariate corruption.",
+      "published": "September 26, 2026",
+      "published_raw": "2026-09-26T15:49:01Z",
+      "updated_raw": "2026-09-26T15:49:01Z",
+      "categories": [
+        "stat.ML",
+        "cs.IT",
+        "cs.LG",
+        "math.PR",
+        "math.ST"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2609.32730v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.32730v1",
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "added_timestamp": 1790681146,
+      "archived_timestamp": 1793051753
+    },
+    {
+      "arxiv_id": "2609.32727",
+      "title": "Distributionally Robust Average-Reward Reinforcement Learning: Finite-Sample Guarantees under Weak Communication",
+      "authors": [
+        "Chenyu Lu",
+        "Zijun Chen",
+        "Nian Si"
+      ],
+      "abstract": "We study distributionally robust reinforcement learning (DR-RL) in the average-reward setting under weak communication. Our main result provides finite-sample guarantees for estimating the robust optimal average reward and learning a near-optimal policy, covering both SA-rectangular and S-rectangular structures with divergence-based and distance-based uncertainty sets. Specifically, for Kullback--Leibler and $f_k$-divergence balls, we establish explicit radius conditions under which the robust average-reward Bellman equation admits a constant-gain solution, while for total variation and Wasserstein balls, any positive radius suffices without requiring the nominal MDP to be weakly communicating. Our algorithm is prior-knowledge-free and achieves sample complexities of $\\widetilde O(|\\mathcal{S}||\\mathcal{A}|p_{\\wedge}^{-1}\\operatorname{Span}^{2}(u_δ^{\\ast})ε^{-2})$ for estimating the robust optimal average reward and $\\widetilde O(|\\mathcal{S}||\\mathcal{A}|p_{\\wedge}^{-2}\\operatorname{Span}^{2}(u_δ^{\\ast})ε^{-2})$ for learning an $ε$-optimal policy. Here, $p_{\\wedge}$ is the smallest positive nominal transition probability and $u_δ^{\\ast}$ is a robust optimal bias function. We further provide an almost-tight explicit upper bound on $\\operatorname{Span}(u_δ^{\\ast})$. Finally, we validate the predicted $n^{-1/2}$ convergence rate through numerical experiments.",
+      "published": "September 26, 2026",
+      "published_raw": "2026-09-26T15:45:43Z",
+      "updated_raw": "2026-09-26T15:45:43Z",
+      "categories": [
+        "cs.LG",
+        "math.OC",
+        "stat.ML"
+      ],
+      "primary_category": "cs.LG",
+      "pdf_link": "https://arxiv.org/pdf/2609.32727v1",
+      "arxiv_url": "https://arxiv.org/abs/2609.32727v1",
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "added_timestamp": 1790681146,
+      "archived_timestamp": 1793051753
+    },
     {
       "arxiv_id": "2609.31470",
       "title": "Beyond Empirical Support: Structured Outlier Generation via Sinkhorn Optimal Transport",
