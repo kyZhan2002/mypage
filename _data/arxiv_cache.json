@@ -1,6 +1,105 @@
 {
-  "last_fetch_timestamp": 1793051753,
+  "last_fetch_timestamp": 1793097701,
   "papers": [
+    {
+      "arxiv_id": "2610.35656",
+      "title": "Provably Efficient Q-learning for Robust Reinforcement Learning",
+      "authors": [
+        "Yuchen Jiao",
+        "Gen Li"
+      ],
+      "abstract": "Standard reinforcement learning (RL) algorithms based on Markov Decision Processes (MDPs) are vulnerable to sim-to-real gaps. To address this issue, distributionally robust RL algorithms based on robust MDPs (RMDPs) have been proposed, for ensuring that agents can perform reliably to unpredictable conditions in real-world environments. Despite of the rich literature, \\revision{an efficient model-free method is still lacking} for robust RL, particularly for Markovian data, which is more relevant in practical applications. In this work, we take a step towards settling this problem by proposing a sample efficient (asynchronous Q-learning) algorithm for robust RL. In particular, consider a $γ$-discounted infinite-horizon RMDP with state space $\\mathcal{S}$ and action space $\\mathcal{A}$, where the uncertainty set is specified by the total variation (TV) distance with uncertainty level $σ$. Assuming access to a single trajectory of Markovian samples induced by a behavior policy and the nominal transition kernel, the sample complexity of the proposed Q-learning algorithm --- to achieve an entrywise $\\varepsilon$-approximation of the optimal Q-function --- is bounded by $$ \\frac{1}{μ_{\\mathsf{min}}\\varepsilon^2(1-γ)^3\\max\\{1-γ,σ\\}} + \\frac{t_{\\mathsf{mix}}}{μ_{\\mathsf{min}}(1-γ)} $$ up to logarithmic factors. Here, $t_{\\mathsf{mix}}$ and $μ_{\\mathsf{min}}$ denote the mixing time and the minimum state-action occupancy probability of the sample trajectory, respectively. This result is nearly minimax optimal, with an additional factor of $\\frac{1}{1-γ}$. Moreover, it achieves a significant improvement over existing bounds.",
+      "published": "October 26, 2026",
+      "published_raw": "2026-10-26T16:03:25Z",
+      "updated_raw": "2026-10-26T16:03:25Z",
+      "categories": [
+        "stat.ML",
+        "cs.AI",
+        "cs.LG",
+        "math.ST"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2610.35656v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.35656v1",
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "added_timestamp": 1793097701
+    },
+    {
+      "arxiv_id": "2610.34493",
+      "title": "Certifying Distributionally Robust Decisions from Projection Observations",
+      "authors": [
+        "Pouya Ahadi",
+        "Kamran Paynabar"
+      ],
+      "abstract": "A scalar measurement can determine a robust decision without identifying the latent covariance or every decision risk. We study finite Gaussian projection experiments with a fixed mean-plus-standard-deviation target. The observation laws define a set of indistinguishable moment models. We exhibit decisions that agree throughout that set despite unidentified risk values, and give a confidence-set certificate that returns a decision or an unresolved outcome. We prove soundness, necessary abstention for indistinguishable models with incompatible optima, and a fixed-checkpoint certification guarantee. A scalar profile reduces nonlinear risk comparisons to convex inner problems. Across seven synthetic instances, jointly calibrated moment regions give sufficient budgets 21 to 52 times explicit expected-sample information lower bounds. Separately measured stopping times are lower, with zero decision errors in 1,900 simulated streams. These comparisons do not constitute matching bounds, and the guarantees require Gaussian replication.",
+      "published": "October 25, 2026",
+      "published_raw": "2026-10-25T18:37:26Z",
+      "updated_raw": "2026-10-25T18:37:26Z",
+      "categories": [
+        "stat.ML",
+        "cs.AI",
+        "cs.LG",
+        "math.OC"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2610.34493v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.34493v1",
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "added_timestamp": 1793097701
+    },
+    {
+      "arxiv_id": "2610.34171",
+      "title": "MetaARIMA: Configuration-Level Transfer Learning for ARIMA Models",
+      "authors": [
+        "Vitor Cerqueira",
+        "Ricardo Inácio",
+        "Carlos Soares"
+      ],
+      "abstract": "Time Series Foundation Models have demonstrated that pretraining on diverse datasets enables effective transfer to new forecasting tasks. Classical methods like ARIMA, however, remain configured and trained independently for each series, discarding knowledge from previous experiments. Consequently, selecting and training an ARIMA configuration remains challenging and often relies on heuristic approaches based on in-sample goodnessof-fit measures. We propose MetaARIMA, a pretrained configuration policy based on metalearning that brings transfer learning to classical statistical forecasting at the configuration level rather than the model level. The policy learns from historical experiments which ARIMA configurations achieve top-quantile performance, and recommends promising candidates for new series while preserving interpretability and local estimation. At inference, it selects a diverse set of candidates via maximal marginal relevance and efficiently identifies the final configuration using successive halving. Experiments in a transfer learning setting, training on M4 and evaluating on M1, M3, and Tourism, show that MetaARIMA outperforms AutoARIMA and other classical methods while being more dataefficient. In a comparison with recent zero-shot foundation models, MetaARIMA remains competitive with Chronos2, Moirai2, and TimesFM. The experiments are publicly available at https://github.com/vcerqueira/experiments-metaarima.",
+      "published": "October 25, 2026",
+      "published_raw": "2026-10-25T09:01:45Z",
+      "updated_raw": "2026-10-25T09:01:45Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2610.34171v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.34171v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1793097701
+    },
+    {
+      "arxiv_id": "2610.33259",
+      "title": "RadonBench: A Benchmark of Classical and Learning-Guided Search Techniques for Problems in Combinatorial Geometry",
+      "authors": [
+        "Xiaoan Xu",
+        "Ethan X. Fang",
+        "Jesus A. De Loera",
+        "Junwei Lu",
+        "Luze Xu"
+      ],
+      "abstract": "Classical optimization and learning-guided search offer complementary approaches to open problems in discrete mathematics, but their outputs are difficult to compare when search spaces, validity checks, and stopping rules differ. We present \\emph{RadonBench}, a benchmark for constructing maximum-cardinality Radon-free lattice configurations: finite subsets of $\\mathbb{Z}^d$ admitting no integral Radon partition. It remains open whether Radon-free configurations with $11$ points in $\\mathbb{Z}^3$ or $21$ points in $\\mathbb{Z}^4$ are possible. If they exist, they would improve the corresponding lower bounds on the integer Radon numbers. We compare exhaustive extension, greedy local search, PatternBoost, AlphaZero, and AlphaEvolve. All outputs use one success predicate: a convex target-sized configuration succeeds exactly when its number of integral Radon points is zero. PatternBoost and AlphaZero construct verified Radon-free configurations of sizes $10$ and $20$, one point short of the respective targets; AlphaZero's best convex target terminals have two integral Radon points in both dimensions. Exhaustive extension over fixed seeds and declared finite search boxes likewise reaches a minimum of two integral Radon points. Greedy local search and AlphaEvolve each produce target-sized near misses with one integral Radon point. No audited run reaches zero. These results establish reproducible near-miss baselines over explicitly scoped search domains.",
+      "published": "October 23, 2026",
+      "published_raw": "2026-10-23T20:09:24Z",
+      "updated_raw": "2026-10-23T20:09:24Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "primary_category": "cs.LG",
+      "pdf_link": "https://arxiv.org/pdf/2610.33259v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.33259v1",
+      "matched_by": [
+        "author:Junwei Lu"
+      ],
+      "added_timestamp": 1793097701
+    },
     {
       "arxiv_id": "2610.32039",
       "title": "Rethinking Representation Geometry in Supervised Contrastive Learning under Long-Tailed Data",
