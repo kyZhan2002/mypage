@@ -1,6 +1,57 @@
 {
-  "last_fetch_timestamp": 1793311381,
+  "last_fetch_timestamp": 1793359697,
   "papers": [
+    {
+      "arxiv_id": "2610.40162",
+      "title": "Fisher Contrastive Learning to Mitigate Feature Suppression: A Case Study in Acute Promyelocytic Leukemia Diagnosis",
+      "authors": [
+        "Shushan Wu",
+        "Yongkai Chen",
+        "Xilin Gong",
+        "Yufang Liu",
+        "Wenxuan Zhong",
+        "Ping Ma"
+      ],
+      "abstract": "Self-supervised contrastive learning (SSCL) learns representations by contrasting augmented views of the same sample, but it can exhibit feature suppression, where dominant or easy-to-learn factors suppress other class-relevant signals, degrading the performance of representations, particularly in high-dimensional data with heterogeneous features. We introduce Fisher Contrastive Learning (FCL), which uses a regularized Fisher trace criterion to address feature suppression. FCL learns embeddings by maximizing the discriminative strength of Fisher discriminant functions, producing representations that preserve class-relevant information implied by the augmentation process. We prove that the representations learned by FCL could alleviate the feature suppression effects. We demonstrate FCL on simulated benchmarks designed to induce feature suppression and on a real-world biomedical application, pretraining on large white blood cell microscopy image dataset and transfer learning for diagnosis of acute promyelocytic leukemia in an external cohort. In all experiments, FCL outperforms the self-supervised baselines and yields more robust and discriminative representations.",
+      "published": "October 29, 2026",
+      "published_raw": "2026-10-29T14:37:20Z",
+      "updated_raw": "2026-10-29T14:37:20Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2610.40162v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.40162v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1793359697
+    },
+    {
+      "arxiv_id": "2610.39558",
+      "title": "TabCUQ: Context-Uncertainty Quantification for Tabular Foundation Models",
+      "authors": [
+        "Yuebei Shi",
+        "Molei Liu",
+        "Zijian Guo"
+      ],
+      "abstract": "Tabular foundation models use in-context learning to estimate conditional expected outcomes and average treatment effects for specific groups of individuals. Using these estimates to guide scientific decisions requires reliable uncertainty quantification. The challenge is to account simultaneously for two sources of uncertainty: limited-context bias and context variation arising from the small labeled sample supplied at inference. Predictive spread does not directly quantify both sources of uncertainty, and we observe that the ordinary bootstrap may substantially overestimate context variation, whereas subsampling may underestimate it. We introduce TabCUQ, a perturbation-based framework that injects noise into observed outcomes and applies the foundation model to the perturbed contexts. TabCUQ estimates context variation using wild-bootstrap dispersion and accounts for limited-context bias using the maximum deviation between perturbed and original estimates. For a kernel-regression analogue whose estimation error admits an exact decomposition into these two components, we show that our framework provides asymptotically valid pointwise coverage. In simulations, TabCUQ substantially improves coverage, with average interval widths typically about twice those of an oracle bias-aware benchmark. Across seven real-world tasks, it also improves coverage of reference functions learned from much larger samples.",
+      "published": "October 29, 2026",
+      "published_raw": "2026-10-29T07:58:20Z",
+      "updated_raw": "2026-10-29T07:58:20Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2610.39558v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.39558v1",
+      "matched_by": [
+        "author:Molei Liu"
+      ],
+      "added_timestamp": 1793359697
+    },
     {
       "arxiv_id": "2610.35656",
       "title": "Provably Efficient Q-learning for Robust Reinforcement Learning",
@@ -648,31 +699,6 @@
         "topic:transfer learning"
       ],
       "added_timestamp": 1790939431
-    },
-    {
-      "arxiv_id": "2609.39449",
-      "title": "Distributionally robust linear regression through the lens of adversarial training",
-      "authors": [
-        "Elis Stefansson",
-        "David Vävinggren",
-        "Antônio H. Ribeiro"
-      ],
-      "abstract": "Distributionally robust optimization (DRO) studies parameter estimation under uncertainty in the underlying probability distribution and has emerged as a principled framework for analyzing robustness and generalization. In particular, Wasserstein DRO, with distributional uncertainty induced by the Wasserstein distance, generalizes several popular regularizers. This paper studies Wasserstein DRO linear regression, unifying square-root Lasso and adversarial linear regression as important special cases. We prove that many properties of these two special cases carry over to this general method. In particular, we show (i) deterministic and non-asymptotic in-sample error bounds $O(n^{-1/2})$ in general and $O(n^{-1})$ under design matrix and sparsity conditions; (ii) insensitivity to the noise level, also known as the pivotal property; and (iii) solution equivalences for small and large ambiguity sets. The key proof step is to recast the method into a quadratic form, mimicking adversarial linear regression. We also show that the method can be solved efficiently, and we validate our findings through numerical simulations.",
-      "published": "September 30, 2026",
-      "published_raw": "2026-09-30T10:21:55Z",
-      "updated_raw": "2026-09-30T10:21:55Z",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "math.OC"
-      ],
-      "primary_category": "stat.ML",
-      "pdf_link": "https://arxiv.org/pdf/2609.39449v1",
-      "arxiv_url": "https://arxiv.org/abs/2609.39449v1",
-      "matched_by": [
-        "topic:distributionally robust"
-      ],
-      "added_timestamp": 1790855159
     }
   ]
 }
