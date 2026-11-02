@@ -1,6 +1,76 @@
 {
-  "last_fetch_timestamp": 1793568199,
+  "last_fetch_timestamp": 1793626758,
   "papers": [
+    {
+      "arxiv_id": "2610.42109",
+      "title": "Regret-Optimal Wasserstein-Robust Linear Regression",
+      "authors": [
+        "Sloan Nietert",
+        "Daniel Kuhn"
+      ],
+      "abstract": "Distributionally robust optimization (DRO) minimizes worst-case risk under distributional uncertainty, but its decisions can be suboptimal in terms of their excess risk, or regret. We study this gap for multivariate least-squares regression, assuming that the observed source law and unknown target law differ by an adversarial 2-Wasserstein perturbation of size $\\varepsilon$. We first identify the asymptotic complexity of robust decision-making in the $\\varepsilon \\to 0$ limit, characterized by a problem-specific condition number $κ$. Here, a wide spectrum of simple algorithms, including DRO, achieve the instance-optimal rate of $O(κ\\varepsilon^2)$. For fixed $\\varepsilon > 0$, we prove that DRO still achieves the minimax rate if the problem has bounded residual effective rank. On the other hand, we identify significant failure modes where DRO is provably suboptimal by dimension-dependent factors. Fortunately, we prove that two alternative procedures, minimax regret optimization (MRO) and spectral-norm regularization (SNR), attain the minimax rate. We derive an exact convex reformulation of MRO and an accelerated proximal algorithm for SNR, along with high-probability finite-sample guarantees. We support these theoretical results with numerical experiments separating the performance of MRO and SNR from DRO.",
+      "published": "October 30, 2026",
+      "published_raw": "2026-10-30T17:47:58Z",
+      "updated_raw": "2026-10-30T17:47:58Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.OC"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2610.42109v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.42109v1",
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "added_timestamp": 1793626758
+    },
+    {
+      "arxiv_id": "2610.41262",
+      "title": "Instrumental Transfer Learning for Solution Operators",
+      "authors": [
+        "Tongyu Li",
+        "Zhuoyuan Li",
+        "Ruoxu Tan"
+      ],
+      "abstract": "Data-driven learning for the solution operator of a differential equation has broad scientific importance, but observations from a target system are often scarce and costly to collect. Related source systems may provide abundant observations under similar physical conditions, whereas even small changes in the governing equation can induce complex changes in the solution operator, making naive data pooling ineffective. We propose a structured transfer learning method that accounts for unknown sparse differences in the governing equations from a known library of candidate terms. Using the resolvent identity and a whitened instrumental variable approach, we construct unbiased source estimating equations for the target operator. Building on these equations, we develop a three-stage estimator that consists of a target-only ridge pilot, source-wise sparse calibration, and a projected refit designed to remove the leading calibration error inherited from the pilot. An iterative recalibration scheme further reduces the remaining error. We establish non-asymptotic prediction bounds showing when transfer achieves the pooled all-source rate, together with minimax lower bounds that characterize both rate optimality and fundamental identifiability limits under common shifts. Simulations and an electronic band-pass filter application demonstrate clear gains over target-only learning, naive pooling and existing transfer methods.",
+      "published": "October 30, 2026",
+      "published_raw": "2026-10-30T05:10:18Z",
+      "updated_raw": "2026-10-30T05:10:18Z",
+      "categories": [
+        "stat.ME",
+        "stat.ML"
+      ],
+      "primary_category": "stat.ME",
+      "pdf_link": "https://arxiv.org/pdf/2610.41262v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.41262v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1793626758
+    },
+    {
+      "arxiv_id": "2610.41230",
+      "title": "Source projection for calibrated transfer learning in survival prediction",
+      "authors": [
+        "Fangzhou Cao",
+        "Ting Tian"
+      ],
+      "abstract": "Transfer learning can improve survival prediction in cohorts with few events. An external model may capture useful covariate associations yet systematically overestimate or underestimate risk in the target population, creating a need for selective borrowing. We propose Source Projection Transfer (SPT) for fixed-horizon prediction with a target generalized additive model. SPT requires only source predictions at target covariates, supporting generalized additive, Cox and neural-network source models without individual-level source data. It projects source log-odds scores onto the target basis and borrows through two separately adapted channels: a projection-centered penalty transfers effect shapes, while intercept-recalibrated soft labels inform probabilities at the target risk level. Under local asymptotics, projection avoids the strictly positive risk cost of estimating an uninformative additional source direction. Each channel asymptotically switches off under its corresponding persistent-mismatch condition. In log-logistic and Weibull simulations with covariate shift, SPT improves mean Brier score and discrimination over target-only modeling in all 24 setting-distribution-horizon combinations. Matched comparisons show improvements over borrowing through source probabilities alone across settings, and over borrowing the complete source score under structural mismatch. In UK Biobank-to-SPRINT mortality prediction among standard-treatment participants with reduced kidney function, SPT improves mean discrimination at 24, 30 and 36 months, with Brier improvements at 24 and 36 months. SPT enables flexible source learners to inform a parsimonious target model while adapting to differences between populations.",
+      "published": "October 30, 2026",
+      "published_raw": "2026-10-30T04:07:55Z",
+      "updated_raw": "2026-10-30T04:07:55Z",
+      "categories": [
+        "stat.ME"
+      ],
+      "primary_category": "stat.ME",
+      "pdf_link": "https://arxiv.org/pdf/2610.41230v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.41230v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1793626758
+    },
     {
       "arxiv_id": "2610.40162",
       "title": "Fisher Contrastive Learning to Mitigate Feature Suppression: A Case Study in Acute Promyelocytic Leukemia Diagnosis",
@@ -596,55 +666,6 @@
       "arxiv_url": "https://arxiv.org/abs/2610.05680v1",
       "matched_by": [
         "author:Molei Liu"
-      ],
-      "added_timestamp": 1791288784
-    },
-    {
-      "arxiv_id": "2610.04239",
-      "title": "Conformal Prediction with Paraphrase-Aware Scoring for LLM Uncertainty Quantification",
-      "authors": [
-        "Jiayi Xin",
-        "Evan Qiang",
-        "Zihan Zhu",
-        "Xiang Li",
-        "Weijie J. Su",
-        "Qi Long"
-      ],
-      "abstract": "Uncertainty quantification (UQ) for large language models (LLMs) aims to provide reliable measures of predictive confidence, yet current methods are often unstable under meaning-preserving perturbations. Semantically equivalent paraphrases can induce substantial variability in predictive confidence, even for methods with formal guarantees, such as conformal prediction. To address this issue, we propose a paraphrase-aware UQ framework robust to semantic rewordings. Our approach trains a lightweight proxy model on LLM hidden states and aggregates its predictions across paraphrases to construct label-wise nonconformity scores. Under score exchangeability, conformal calibration retains marginal coverage. This guarantee can also hold under test-only rewording, provided that the paraphrase pipeline satisfies an additional distributional alignment condition. We evaluate three settings (normal, fully reworded, and semi-reworded) which apply rewording to neither dataset, both calibration and test datasets, or only the test dataset, respectively. Across seven multiple-choice QA benchmarks and multiple model families, our method produces compact prediction sets with empirical coverage generally near the nominal target, even in the semi-reworded setting. Ablation studies show that the learned proxy accounts for most of the reduction in set size, while paraphrase-augmented training and inference-time aggregation improve stability under rewording. Code is available at https://github.com/Raina-Xin/PA_Score.",
-      "published": "October 03, 2026",
-      "published_raw": "2026-10-03T03:01:22Z",
-      "updated_raw": "2026-10-03T03:01:22Z",
-      "categories": [
-        "cs.CL",
-        "cs.LG"
-      ],
-      "primary_category": "cs.CL",
-      "pdf_link": "https://arxiv.org/pdf/2610.04239v1",
-      "arxiv_url": "https://arxiv.org/abs/2610.04239v1",
-      "matched_by": [
-        "author:Weijie Su"
-      ],
-      "added_timestamp": 1791288784
-    },
-    {
-      "arxiv_id": "2610.04146",
-      "title": "Partial Identification under Imperfect Measurement: A Distributionally Robust Approach",
-      "authors": [
-        "Isaac Meza"
-      ],
-      "abstract": "Imperfect measurements allow different underlying distributions to generate the same observations. Restrictions linking unobserved components can make it difficult to characterize all compatible distributions and compute the resulting range of parameter values. We ask how to construct computable parameter bounds and tighten them without additional data or stronger assumptions. We develop a general framework for partial identification under imperfect measurement based on distributionally robust optimization. We use measurement restrictions to construct a neighborhood around a benchmark distribution, ensuring that every compatible distribution lies within it. Optimizing over this neighborhood gives parameter bounds through a common procedure that can be adapted to different measurement problems. The choice of benchmark affects how informative these bounds are. We establish conditions under which changing it can tighten the bounds while preserving every parameter value consistent with the same data and assumptions. Applications to networks, missing outcomes, and regression illustrate how the framework tightens bounds and can recover the full range of compatible values.",
-      "published": "October 02, 2026",
-      "published_raw": "2026-10-02T23:41:25Z",
-      "updated_raw": "2026-10-02T23:41:25Z",
-      "categories": [
-        "econ.EM",
-        "stat.ME"
-      ],
-      "primary_category": "econ.EM",
-      "pdf_link": "https://arxiv.org/pdf/2610.04146v1",
-      "arxiv_url": "https://arxiv.org/abs/2610.04146v1",
-      "matched_by": [
-        "topic:distributionally robust"
       ],
       "added_timestamp": 1791288784
     }
