@@ -1,6 +1,60 @@
 {
-  "last_fetch_timestamp": 1793664420,
+  "last_fetch_timestamp": 1793710381,
   "papers": [
+    {
+      "arxiv_id": "2611.00986",
+      "title": "HALO: Hierarchical Evidence Selection and Reinforcement Learning for Allocating Budgeted Label Optimization from Longitudinal Clinical Records",
+      "authors": [
+        "Huaiyuan Ying",
+        "Feiqing Huang",
+        "Ryumei Nakada",
+        "Katherine P. Liao",
+        "Tianxi Cai"
+      ],
+      "abstract": "Learning from extensive longitudinal clinical records--spanning repeated encounters, evolving conditions, and heterogeneous documentation--under a finite labeling budget requires solving two coupled problems: deciding what evidence to keep and deciding which patients deserve higher-fidelity labels. Prior work on active learning and multi-fidelity label acquisition mainly addresses the second problem, while treating the evidence presented to the acquisition policy as fixed. We present HALO, a Hierarchical Evidence Selection and Reinforcement Learning pipeline for Allocating Budgeted Label Optimization from Longitudinal Clinical Records. This framework jointly learns what to read and what label source to acquire under budget. HALO first selects informative evidence from longitudinal records and then uses a budget-aware policy to allocate free-, silver-, and gold-fidelity label sources. For frozen policies, our theory characterizes asymmetric acquired-label channels and gives a budget-constrained finite-sample gold-risk bound for a common downstream logistic model. In a heart-failure case study, HALO attained the highest MedAlign acquired-label F1 at six of eight target budgets. A downstream classifier trained on HALO-acquired labels attained the highest external MGB F1 at budgets 15-60 and remained within 0.01 of the best comparator at budgets 75-120.",
+      "published": "October 31, 2026",
+      "published_raw": "2026-10-31T14:24:20Z",
+      "updated_raw": "2026-10-31T14:24:20Z",
+      "categories": [
+        "cs.CL",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "primary_category": "cs.CL",
+      "pdf_link": "https://arxiv.org/pdf/2611.00986v1",
+      "arxiv_url": "https://arxiv.org/abs/2611.00986v1",
+      "matched_by": [
+        "author:Tianxi Cai"
+      ],
+      "added_timestamp": 1793710381
+    },
+    {
+      "arxiv_id": "2611.00438",
+      "title": "Statistical Inference under Performativity: From Policy Feedback to Self-Evolving Systems",
+      "authors": [
+        "Tianwei Gao",
+        "Garrett G. Wen",
+        "Huiying Zhong",
+        "Lihua Lei",
+        "Weijie Su",
+        "Zhun Deng"
+      ],
+      "abstract": "Performativity arises when prediction-informed decisions change the data-generating process, creating feedback between deployment and learning. This phenomenon occurs in policy-making and in self-evolving AI systems that shape their own future training data. Statistical inference is challenging because estimation errors in earlier predictors affect subsequent data distributions and propagate into later updates. We develop an end-to-end framework for statistical inference under performativity. For repeated risk minimization and repeated gradient descent, we establish central limit theorems at fixed deployment rounds and derive covariance recursions that capture both current-round sampling variation and uncertainty inherited from earlier deployments. We develop consistent covariance estimators using policy perturbations and score matching. These results can yield asymptotically valid confidence regions for population iterates and the performative stable point. We further extend prediction-powered inference to this dynamic setting, combining labeled observations with predictions on additional unlabeled data to improve statistical efficiency. We evaluate our framework in synthetic, semi-synthetic educational, and self-evolving large language model routing settings. Our experiments demonstrate that ignoring propagated uncertainty can lead to substantial undercoverage even after repeated retraining. Together, these results provide statistical tools for learning systems that help determine the distributions from which they learn. Our work establish a complete statistical inference under performativity, introducing new challenges and inference settings that we believe will provide substantial value to policy-making, statistics, and machine learning.",
+      "published": "October 30, 2026",
+      "published_raw": "2026-10-30T22:45:28Z",
+      "updated_raw": "2026-10-30T22:45:28Z",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "primary_category": "cs.LG",
+      "pdf_link": "https://arxiv.org/pdf/2611.00438v1",
+      "arxiv_url": "https://arxiv.org/abs/2611.00438v1",
+      "matched_by": [
+        "author:Weijie Su"
+      ],
+      "added_timestamp": 1793710381
+    },
     {
       "arxiv_id": "2610.42109",
       "title": "Regret-Optimal Wasserstein-Robust Linear Regression",
