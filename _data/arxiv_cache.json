@@ -1,5 +1,5 @@
 {
-  "last_fetch_timestamp": 1793970129,
+  "last_fetch_timestamp": 1794003997,
   "papers": [
     {
       "arxiv_id": "2611.08412",
@@ -598,31 +598,6 @@
       "primary_category": "cs.AI",
       "pdf_link": "https://arxiv.org/pdf/2610.11226v1",
       "arxiv_url": "https://arxiv.org/abs/2610.11226v1",
-      "matched_by": [
-        "topic:distributionally robust"
-      ],
-      "added_timestamp": 1791547090
-    },
-    {
-      "arxiv_id": "2610.10793",
-      "title": "Calibrating Ambiguity Set via Diagnostic Transport for Distributionally Robust Optimization",
-      "authors": [
-        "Wenbin Zhou",
-        "Elizabeth Cucuzzella",
-        "Shixiang Zhu"
-      ],
-      "abstract": "Distributionally robust optimization (DRO) protects decisions against distributional uncertainty by optimizing over an ambiguity set, but poorly aligned set geometry can require large radii and yield overly conservative decisions. We introduce diagnostic-transport DRO (DT-DRO), which uses held-out calibration data to adapt the ambiguity-set geometry to observed predictive errors. DT-DRO uses the conditional probability integral transform cumulative distribution function to diagnose systematic probability misallocation and translates this information into an outcome-level transport that jointly adjusts the ambiguity-set center and ground cost. The resulting formulation admits a computationally tractable dual reformulation. Theoretically, we derive valid ambiguity radii and decision-risk guarantees that tighten as estimation and approximation errors vanish, and show that DT-DRO can eliminate the nonvanishing robustness floor caused by model misspecification. Synthetic experiments and a power-outage application demonstrate improved decision quality, particularly under structural and tail misspecification.",
-      "published": "October 07, 2026",
-      "published_raw": "2026-10-07T18:51:43Z",
-      "updated_raw": "2026-10-07T18:51:43Z",
-      "categories": [
-        "stat.ML",
-        "cs.LG",
-        "math.OC"
-      ],
-      "primary_category": "stat.ML",
-      "pdf_link": "https://arxiv.org/pdf/2610.10793v1",
-      "arxiv_url": "https://arxiv.org/abs/2610.10793v1",
       "matched_by": [
         "topic:distributionally robust"
       ],
