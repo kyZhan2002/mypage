@@ -1,5 +1,5 @@
 {
-  "last_fetch_timestamp": 1794172980,
+  "last_fetch_timestamp": 1794232928,
   "papers": [
     {
       "arxiv_id": "2611.08412",
@@ -542,33 +542,6 @@
       "arxiv_url": "https://arxiv.org/abs/2610.15188v1",
       "matched_by": [
         "author:Tracy Ke"
-      ],
-      "added_timestamp": 1791973188
-    },
-    {
-      "arxiv_id": "2610.14414",
-      "title": "Prior-Informed Generalizable Low-Rank Representation Learning via Regularized Adversarial Reweighting",
-      "authors": [
-        "Keyao Zhan",
-        "Junwei Lu",
-        "Tianxi Cai"
-      ],
-      "abstract": "Modern learning problems increasingly leverage data from heterogeneous sources to improve robustness and generalizability under distribution shift, often with high-dimensional parameters admitting low-rank structure. Existing group distributionally robust optimization (group-DRO) approaches optimize against adverse source mixtures, but extending this principle to low-rank matrix estimation with a broad class of losses leads to a challenging nonconvex-concave problem for which methods and theory remain limited. We propose Prior-Informed generalizable Low-rank representation Learning via Adversarial Reweighting (PILLAR), which smooths the group-DRO objective by regularizing adversarial source weights toward a user-specified reference distribution while learning a shared low-rank representation. By tempering extreme adversarial reweighting, PILLAR improves estimation stability and reduces the potential conservativeness of group-DRO. Using Burer-Monteiro factorization, we optimize the nonconvex-concave objective by bifactored gradient descent with mirror ascent. We establish linear convergence to a statistical neighborhood of the population saddle point and derive an error bound that separates low-rank estimation from adversarial reweighting. We further show that PILLAR improves on vanilla group DRO when the latter's excess conservativeness dominates source heterogeneity and prior misspecification. Simulations and an electronic health record study of suicide-attempt risk demonstrate improved worst-source and transported predictive accuracy.",
-      "published": "October 10, 2026",
-      "published_raw": "2026-10-10T00:25:25Z",
-      "updated_raw": "2026-10-10T00:25:25Z",
-      "categories": [
-        "stat.ME",
-        "math.ST",
-        "stat.ML"
-      ],
-      "primary_category": "stat.ME",
-      "pdf_link": "https://arxiv.org/pdf/2610.14414v1",
-      "arxiv_url": "https://arxiv.org/abs/2610.14414v1",
-      "matched_by": [
-        "topic:distributionally robust",
-        "author:Tianxi Cai",
-        "author:Junwei Lu"
       ],
       "added_timestamp": 1791973188
     }
