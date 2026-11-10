@@ -1,6 +1,30 @@
 {
-  "last_updated": 1794232928,
+  "last_updated": 1794271928,
   "papers": [
+    {
+      "arxiv_id": "2610.15188",
+      "title": "Applications of Royen's Gaussian Correlation Inequality in high-dimensional testing",
+      "authors": [
+        "Jiashun Jin",
+        "Zheng Tracy Ke",
+        "Jingming Wang"
+      ],
+      "abstract": "Royen's Gaussian Correlation Inequality (GCI) is a fundamental result in statistics and probability, but unfortunately, at least by now, the result is not very well known in the statistical community. In this paper, we demonstrate the potential of GCI in high-dimensional testing problems that involve multivariate Gaussian variables. Leveraging the GCI, we establish sharp Type I error bounds under arbitrary Gaussian covariance structures. We also formulate a conjecture and relate it to the well-known Spherical Cap Covering Conjecture in discrete geometry and Weak Simplex Conjecture in information theory.",
+      "published": "October 10, 2026",
+      "published_raw": "2026-10-10T21:27:40Z",
+      "updated_raw": "2026-10-10T21:27:40Z",
+      "categories": [
+        "math.ST"
+      ],
+      "primary_category": "math.ST",
+      "pdf_link": "https://arxiv.org/pdf/2610.15188v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.15188v1",
+      "matched_by": [
+        "author:Tracy Ke"
+      ],
+      "added_timestamp": 1791973188,
+      "archived_timestamp": 1794271928
+    },
     {
       "arxiv_id": "2610.14414",
       "title": "Prior-Informed Generalizable Low-Rank Representation Learning via Regularized Adversarial Reweighting",
