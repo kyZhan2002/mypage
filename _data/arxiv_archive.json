@@ -1,6 +1,33 @@
 {
-  "last_updated": 1794271928,
+  "last_updated": 1794319279,
   "papers": [
+    {
+      "arxiv_id": "2610.15571",
+      "title": "Latent-Space Importance Weighting under Covariate Shift",
+      "authors": [
+        "Yuling Jiao",
+        "Lican Kang",
+        "Yang Xiang",
+        "Jerry Zhijian Yang",
+        "Fusheng Zhou"
+      ],
+      "abstract": "In this work, we propose a transfer learning algorithm for covariate shift, integrating sample reweighting with representation learning. A key feature of our approach is the use of a lower-dimensional latent space for modeling, in contrast to conventional methods that operate directly in the high-dimensional ambient space. Our method estimates the density ratio of learned latent features for downstream weighted prediction. We establish explicit target-domain excess-risk rates with independent data folds for strictly sufficient learned representations with regular learned-space prediction scores and density ratios. We give dimension comparisons under stated smoothness conditions and a variance comparison for true weights and a fixed predictor. General finite-sample inequalities retain representation-quality errors. Experiments on simulated and real-world datasets demonstrate gains from combining learned representations and latent weighting, and reveal sensitivity to initialization and domain choice.",
+      "published": "October 11, 2026",
+      "published_raw": "2026-10-11T12:33:28Z",
+      "updated_raw": "2026-10-11T12:33:28Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2610.15571v1",
+      "arxiv_url": "https://arxiv.org/abs/2610.15571v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1791973188,
+      "archived_timestamp": 1794319279
+    },
     {
       "arxiv_id": "2610.15188",
       "title": "Applications of Royen's Gaussian Correlation Inequality in high-dimensional testing",
