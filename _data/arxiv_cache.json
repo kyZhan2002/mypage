@@ -1,5 +1,5 @@
 {
-  "last_fetch_timestamp": 1794401342,
+  "last_fetch_timestamp": 1794440612,
   "papers": [
     {
       "arxiv_id": "2611.14397",
@@ -551,29 +551,6 @@
         "topic:transfer learning"
       ],
       "added_timestamp": 1792058664
-    },
-    {
-      "arxiv_id": "2610.16883",
-      "title": "A Composite Bayesian Risk--Distributionally Robust Optimization Model for Stochastic Programming with Elliptical Distribution Ambiguity",
-      "authors": [
-        "Renjie Chen",
-        "Huifu Xu"
-      ],
-      "abstract": "We study a stochastic optimization problem in which the random vector follows a semiparametric elliptical distribution with unknown location and shape parameters and an unspecified radial distribution. Assuming that the decision maker only has access to samples of the random vector, we develop a framework to jointly address parameter uncertainty and distributional ambiguity arising from this composite structure. To update the posterior distribution of the parameters, a key challenge is that the density of an elliptical distribution depends on the unknown radial distribution, and hence conventional likelihood-based Bayesian inference is infeasible. To overcome this challenge, we propose a novel estimating-equation-based Gibbs inference framework that updates posterior distributions of model parameters solely through estimating equations. For elliptical distributions, we construct a pair of estimating equations for the location and shape parameters that are invariant to the radial component, which enables posterior learning without specifying the density. For the distributional uncertainty, we construct an ambiguity set for the radial distribution by transforming observed samples into pseudo-samples of the radial variable. Combining the above components, we formulate a composite Bayesian risk--distributionally robust optimization model, in which the inner problem captures worst-case radial distributions within the ambiguity set, and the outer problem evaluates the decision risk induced by the parameter uncertainty through a user-specified risk measure. We further develop a cutting-plane algorithm to solve the resulting optimization problem. Numerical experiments demonstrate that the proposed approach provides substantial performance improvements over benchmark methods, including sample average approximation and distributionally robust optimization.",
-      "published": "October 12, 2026",
-      "published_raw": "2026-10-12T14:43:28Z",
-      "updated_raw": "2026-10-12T14:43:28Z",
-      "categories": [
-        "math.OC",
-        "stat.ME"
-      ],
-      "primary_category": "math.OC",
-      "pdf_link": "https://arxiv.org/pdf/2610.16883v1",
-      "arxiv_url": "https://arxiv.org/abs/2610.16883v1",
-      "matched_by": [
-        "topic:distributionally robust"
-      ],
-      "added_timestamp": 1791973188
     }
   ]
 }
