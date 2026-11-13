@@ -1,6 +1,51 @@
 {
-  "last_fetch_timestamp": 1794524006,
+  "last_fetch_timestamp": 1794575630,
   "papers": [
+    {
+      "arxiv_id": "2611.15150",
+      "title": "Knowledge Transfer for Conditional Flow Matching: Frozen Estimation and Adaptation",
+      "authors": [
+        "Yian Huang",
+        "Jian Huang"
+      ],
+      "abstract": "Conditional generative modeling with limited target data can benefit from representations learned in a related source population. We develop a transfer learning framework for conditional flow matching that accommodates distinct source and target response distributions and dimensions. Two procedures exploit a representation learned from source data: TFM-Freeze estimates a target velocity head with the representation fixed, whereas TFM-Adapt jointly learns the head and a representation adaptation under a functional anchoring penalty. For explicit neural network classes, we establish bounds on conditional squared Wasserstein risk that account for source estimation, target fitting, representation mismatch, and numerical integration. When the source representation admits a smooth correction, adaptation replaces the frozen mismatch contribution by the cost of learning the correction and a controllable regularization bias. An information lower bound identifies regimes in which adaptation attains a strictly faster conditional squared Wasserstein risk rate than any generator restricted to the frozen context information. We also develop independent validation procedure for selecting among fitted conditional generators. We show that the selection procedure satisfies an oracle inequality, and the switching rule guarantees, with high probability, no increase in conditional energy risk relative to a target-only generator. Simulations and real data applications illustrate the gains from our proposed methods and the effectiveness of target validation in guarding against negative transfer.",
+      "published": "November 11, 2026",
+      "published_raw": "2026-11-11T07:43:31Z",
+      "updated_raw": "2026-11-11T07:43:31Z",
+      "categories": [
+        "cs.LG",
+        "stat.ME"
+      ],
+      "primary_category": "cs.LG",
+      "pdf_link": "https://arxiv.org/pdf/2611.15150v1",
+      "arxiv_url": "https://arxiv.org/abs/2611.15150v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1794575630
+    },
+    {
+      "arxiv_id": "2611.14684",
+      "title": "Fundamental Limits of Honest Inference with Heterogeneous Transfer Sources",
+      "authors": [
+        "Xuran Meng",
+        "Yi Li"
+      ],
+      "abstract": "Transfer learning can improve precision by borrowing information from external sources, but how much improvement is possible while maintaining valid inference? We address this by studying honest confidence intervals for a target parameter using multiple sources with heterogeneous prespecified discrepancy bounds. Under local information and admissibility conditions, we establish a universal lower bound on interval length for procedures maintaining uniform coverage. A scalar information equation characterizes the bound, revealing how precision depends jointly on source sample sizes and discrepancies. Large source samples need not yield greater precision gains when their discrepancies are large. When discrepancies are unrestricted, honest intervals cannot improve upon the target-only rate, even when all sources are unbiased. For the Gaussian location model, we calculate optimal source weights and construct honest intervals attaining the lower bound order, establishing sharpness. We extend the lower bound theory to semiparametric models through parametric submodels. For the Cox proportional hazards model, we verify the information conditions under which the lower bound applies, including under right censoring.",
+      "published": "November 10, 2026",
+      "published_raw": "2026-11-10T19:41:34Z",
+      "updated_raw": "2026-11-10T19:41:34Z",
+      "categories": [
+        "math.ST"
+      ],
+      "primary_category": "math.ST",
+      "pdf_link": "https://arxiv.org/pdf/2611.14684v1",
+      "arxiv_url": "https://arxiv.org/abs/2611.14684v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1794575630
+    },
     {
       "arxiv_id": "2611.14397",
       "title": "A Margin Perspective on LoRA: Robustness to Catastrophic Forgetting and Adapter Merging (MaLoRA)",
