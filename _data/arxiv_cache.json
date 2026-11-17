@@ -1,6 +1,57 @@
 {
-  "last_fetch_timestamp": 1794878001,
+  "last_fetch_timestamp": 1794926394,
   "papers": [
+    {
+      "arxiv_id": "2611.20411",
+      "title": "High-dimensional transfer learning with unaligned ordinal responses",
+      "authors": [
+        "Ruopei Fu",
+        "Ying Yang"
+      ],
+      "abstract": "In this work, we study high-dimensional transfer learning with unaligned ordinal responses, allowing different domain-specific regression coefficients, cumulative links and thresholds. We develop the sample-split and full-target algorithms that pool source and target likelihoods and then estimate a target correction. Under suitable conditions, our algorithms achieve minimax-optimal rates for parameter estimation and excess risk. Simulations favor the full-target algorithm over the sample-split algorithm for finite-sample estimation and prediction. An application to a medical dataset further demonstrates the predictive gains of our full-target algorithm over the target-only and pooled baselines when transferring information from the five-category source data to binary hospital mortality.",
+      "published": "November 16, 2026",
+      "published_raw": "2026-11-16T02:18:44Z",
+      "updated_raw": "2026-11-16T02:18:44Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.ST"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2611.20411v1",
+      "arxiv_url": "https://arxiv.org/abs/2611.20411v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1794926394
+    },
+    {
+      "arxiv_id": "2611.18970",
+      "title": "A Distributionally Robust Framework for Safe and Generalizable Utilization of Surrogate Markers",
+      "authors": [
+        "Molei Liu",
+        "Tian Jiang",
+        "Keyao Zhan",
+        "Zirui Zhang",
+        "Xuan Wang"
+      ],
+      "abstract": "Surrogate endpoints can accelerate treatment evaluation, but their validity is challenging to establish because the joint distribution of counterfactual outcome surrogate pairs is not identifiable. We propose a distributionally robust framework for safe and generalizable surrogate evaluation that explicitly accounts for this uncertainty. By treating cross arm dependence as partially identified, we formulate a maximin optimization problem that learns an optimal surrogate transformation by maximizing the worst case explained variance of individual treatment effects over admissible counterfactual dependence structures. The resulting robust surrogacy measure provides a conservative lower bound on explained treatment effect variation. Moreover, our maximin construction guarantees nonnegative alignment between the treatment effects on the transformed surrogate and the primary outcome over the admissible counterfactual couplings. To generalize surrogacy evaluation across populations under covariate shift, we integrate transfer learning with debiased machine learning to estimate the required target population moments using source trial data and target baseline covariates. The computational tractability and asymptotic properties of our method are established. Simulations demonstrate good finite sample performance and show that the proposed method guards against counterfactual misalignment by shrinking the learned transformation toward zero, revealing a robustness prediction tradeoff. We illustrate the framework by evaluating 18 month glomerular filtration rate change as a surrogate for two year change using multiple randomized clinical trial data sets.",
+      "published": "November 13, 2026",
+      "published_raw": "2026-11-13T21:58:00Z",
+      "updated_raw": "2026-11-13T21:58:00Z",
+      "categories": [
+        "stat.ME"
+      ],
+      "primary_category": "stat.ME",
+      "pdf_link": "https://arxiv.org/pdf/2611.18970v1",
+      "arxiv_url": "https://arxiv.org/abs/2611.18970v1",
+      "matched_by": [
+        "topic:transfer learning",
+        "topic:distributionally robust",
+        "author:Molei Liu"
+      ],
+      "added_timestamp": 1794926394
+    },
     {
       "arxiv_id": "2611.17447",
       "title": "Distributionally Robust Risk Evaluation with Low-Rank Perturbations",
@@ -96,6 +147,30 @@
         "author:Weijie Su"
       ],
       "added_timestamp": 1794401342
+    },
+    {
+      "arxiv_id": "2611.18736",
+      "title": "Network sampling: a comparative review",
+      "authors": [
+        "L. Lober",
+        "M. C. Victal",
+        "F. A. Rodrigues"
+      ],
+      "abstract": "Network sampling is essential for the study of real world systems, since access to the topological structure and dynamical characteristics of a complex system is usually infeasible, and can also prove computationally intractable for large and dense networks. However, the field still lacks systematic methodologies that allow a procedural analysis of sampling plans for connected data. Hence, this study aims to compare network sampling methods through the usage of multivariate statistical analysis and machine learning techniques that are anchored in network metrics' estimation of synthetic and real-world networks. It was demonstrated that no single sampling strategy dominates both cases, although Forest fire and Frontier sampling have presented the most consistent performance across all topologies investigated. The impact of each structural property of these networks for principal component analysis and classification results were also discussed, with consistent pattern groups seen for both data types. Transfer learning aimed at real-world network identification has also demonstrated that realistic structural connections can be correlated to well-known network models through the usage of sampled subgraphs' properties for model training, providing an avenue to real-world network characterization through sampling methodologies.",
+      "published": "November 10, 2026",
+      "published_raw": "2026-11-10T16:01:04Z",
+      "updated_raw": "2026-11-10T16:01:04Z",
+      "categories": [
+        "cs.SI",
+        "stat.CO"
+      ],
+      "primary_category": "cs.SI",
+      "pdf_link": "https://arxiv.org/pdf/2611.18736v1",
+      "arxiv_url": "https://arxiv.org/abs/2611.18736v1",
+      "matched_by": [
+        "topic:transfer learning"
+      ],
+      "added_timestamp": 1794926394
     },
     {
       "arxiv_id": "2611.11110",
