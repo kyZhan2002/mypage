@@ -1,6 +1,57 @@
 {
-  "last_fetch_timestamp": 1795045045,
+  "last_fetch_timestamp": 1795098655,
   "papers": [
+    {
+      "arxiv_id": "2611.24228",
+      "title": "Functional Principal Component Analysis: Minimax Optimality from Sparse to Dense Designs and Beyond",
+      "authors": [
+        "Shunxing Yan",
+        "Fang Yao"
+      ],
+      "abstract": "Functional principal component analysis (FPCA) plays a central role as a dimension-reduction and representation tool in functional data analysis, but its minimax theory for diverging spectral indices under noisy discrete observation has remained open for over two decades. To fill this gap, we consider a sieve-based FPCA framework that pools discrete measurements across subjects and accommodates sampling frequencies ranging from sparse to dense under random designs. We begin by establishing new minimax rates for covariance estimation over general bivariate function classes beyond tensor-product low-complexity structures, thereby identifying the intrinsically two-dimensional optimal rate. Our central theoretical contribution is to establish minimax optimal rates for both individually labelled eigenfunctions with diverging indices and leading principal subspaces of increasing dimensions, under explicit growth and regularity conditions. To establish these results, we develop a general framework for sharp minimax analysis of FPCA under discrete observation, separating spectral approximation from stochastic perturbations and exploiting their distinct structures, thereby offering a new approach to a broad class of nonparametric spectral estimation problems. For both spectral targets, the optimal rates reveal two distinct statistical mechanisms, spectral identification and nonparametric reconstruction, whose interplay gives rise to either four or two sampling regimes. This yields, for the first time, a precise characterization of the impact of discrete sampling across the full range from sparse to dense designs. Finally, as a downstream application, we analyze FPCA-based functional linear regression and show that the FPCA-based estimator attains the minimax-optimal rates.",
+      "published": "November 18, 2026",
+      "published_raw": "2026-11-18T11:02:26Z",
+      "updated_raw": "2026-11-18T11:02:26Z",
+      "categories": [
+        "math.ST",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "primary_category": "math.ST",
+      "pdf_link": "https://arxiv.org/pdf/2611.24228v1",
+      "arxiv_url": "https://arxiv.org/abs/2611.24228v1",
+      "matched_by": [
+        "author:Fang Yao"
+      ],
+      "added_timestamp": 1795098655
+    },
+    {
+      "arxiv_id": "2611.23877",
+      "title": "Infinity-Wasserstein Distributionally Robust Principal Component Analysis: Exact Reformulation, Finite-Sample Guarantee, and Efficient Algorithm",
+      "authors": [
+        "Zhouxing Luo",
+        "Lei Wang",
+        "Xin Liu"
+      ],
+      "abstract": "Principal component analysis (PCA) is a fundamental and ubiquitous technique for dimension reduction and representation learning, yet its empirical formulation remains vulnerable to distributional uncertainty. While distributionally robust optimization (DRO) offers a natural remedy, existing order-2 Wasserstein models of PCA either preserve the nominal PCA subspace or lack an exact reformulation. This paper demonstrates how the infinity-Wasserstein distance can reconcile these two desirable properties. For the resulting DRO model of PCA, we derive an exact finite-dimensional reformulation and explicitly identify a worst-case distribution attaining the inner maximum. Crucially, the reformulated objective retains samplewise residual information beyond the empirical covariance matrix, revealing a mechanism through which distributional robustness can reshape the learned principal subspace. Under the mild assumption that the true distribution has a finite fourth moment, we further establish a uniform finite-sample performance guarantee for the proposed model. An iteratively reweighted majorization-minimization algorithm is also developed to solve the resulting nonconvex and nonsmooth optimization problem, with a rigorous analysis of its convergence properties. Numerical experiments substantiate the computational efficiency of the proposed algorithm and the practical effectiveness of the infinity-Wasserstein model in downstream applications.",
+      "published": "November 18, 2026",
+      "published_raw": "2026-11-18T05:30:01Z",
+      "updated_raw": "2026-11-18T05:30:01Z",
+      "categories": [
+        "math.OC",
+        "cs.LG",
+        "math.ST",
+        "stat.ME",
+        "stat.ML"
+      ],
+      "primary_category": "math.OC",
+      "pdf_link": "https://arxiv.org/pdf/2611.23877v1",
+      "arxiv_url": "https://arxiv.org/abs/2611.23877v1",
+      "matched_by": [
+        "topic:distributionally robust"
+      ],
+      "added_timestamp": 1795098655
+    },
     {
       "arxiv_id": "2611.20411",
       "title": "High-dimensional transfer learning with unaligned ordinal responses",
