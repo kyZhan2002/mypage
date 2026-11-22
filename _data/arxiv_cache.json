@@ -1,5 +1,5 @@
 {
-  "last_fetch_timestamp": 1795354023,
+  "last_fetch_timestamp": 1795387870,
   "papers": [
     {
       "arxiv_id": "2611.24228",
@@ -546,31 +546,6 @@
       "arxiv_url": "https://arxiv.org/abs/2610.34171v1",
       "matched_by": [
         "topic:transfer learning"
-      ],
-      "added_timestamp": 1793097701
-    },
-    {
-      "arxiv_id": "2610.33259",
-      "title": "RadonBench: A Benchmark of Classical and Learning-Guided Search Techniques for Problems in Combinatorial Geometry",
-      "authors": [
-        "Xiaoan Xu",
-        "Ethan X. Fang",
-        "Jesus A. De Loera",
-        "Junwei Lu",
-        "Luze Xu"
-      ],
-      "abstract": "Classical optimization and learning-guided search offer complementary approaches to open problems in discrete mathematics, but their outputs are difficult to compare when search spaces, validity checks, and stopping rules differ. We present \\emph{RadonBench}, a benchmark for constructing maximum-cardinality Radon-free lattice configurations: finite subsets of $\\mathbb{Z}^d$ admitting no integral Radon partition. It remains open whether Radon-free configurations with $11$ points in $\\mathbb{Z}^3$ or $21$ points in $\\mathbb{Z}^4$ are possible. If they exist, they would improve the corresponding lower bounds on the integer Radon numbers. We compare exhaustive extension, greedy local search, PatternBoost, AlphaZero, and AlphaEvolve. All outputs use one success predicate: a convex target-sized configuration succeeds exactly when its number of integral Radon points is zero. PatternBoost and AlphaZero construct verified Radon-free configurations of sizes $10$ and $20$, one point short of the respective targets; AlphaZero's best convex target terminals have two integral Radon points in both dimensions. Exhaustive extension over fixed seeds and declared finite search boxes likewise reaches a minimum of two integral Radon points. Greedy local search and AlphaEvolve each produce target-sized near misses with one integral Radon point. No audited run reaches zero. These results establish reproducible near-miss baselines over explicitly scoped search domains.",
-      "published": "October 23, 2026",
-      "published_raw": "2026-10-23T20:09:24Z",
-      "updated_raw": "2026-10-23T20:09:24Z",
-      "categories": [
-        "cs.LG"
-      ],
-      "primary_category": "cs.LG",
-      "pdf_link": "https://arxiv.org/pdf/2610.33259v1",
-      "arxiv_url": "https://arxiv.org/abs/2610.33259v1",
-      "matched_by": [
-        "author:Junwei Lu"
       ],
       "added_timestamp": 1793097701
     }
