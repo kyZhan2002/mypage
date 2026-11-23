@@ -1,6 +1,34 @@
 {
-  "last_fetch_timestamp": 1795387870,
+  "last_fetch_timestamp": 1795450233,
   "papers": [
+    {
+      "arxiv_id": "2611.27900",
+      "title": "Communication-Efficient Federated Learning of Latent Patient Representations from Multi-Institutional EHRs",
+      "authors": [
+        "Zhiyu Yan",
+        "Shiao Liu",
+        "Rahul Mahajan",
+        "Anand Viswanathan",
+        "Christopher D. Anderson",
+        "Rui Duan"
+      ],
+      "abstract": "Electronic health records (EHRs) contain rich health information for uncovering latent patient representations and clinically meaningful subgroups. Learning from EHR data across institutions is valuable because representations learned at a single site may reflect local data patterns and lack generalizability, yet pooling patient-level records across institutions is often impractical because of privacy constraints and communication costs. We propose a communication-efficient, non-iterative federated spectral method for learning shared latent representation components from multi-institutional EHRs, in which each institution shares aggregate marginal frequencies and a low-rank spectral summary while keeping patient-level records local. A central server aggregates these summaries with the pooled marginal frequencies to recover both the shared low-rank structure and the canonical row-normalization direction required for interpretable representation recovery. We prove row-wise recovery guarantees and error bounds, with a leading federated variance term matching a corresponding lower bound under explicit regularity conditions. Simulations show that our method closely matches pooled analysis in estimating latent representation components, improves as more sites contribute summaries, and outperforms single-site and existing federated benchmarks across a range of data settings. Applied to real-world multi-facility EHR data for stroke patients, the method learns interpretable patient representations that highlight clinically distinct subgroups and could help inform subgroup-specific care.",
+      "published": "November 20, 2026",
+      "published_raw": "2026-11-20T17:38:32Z",
+      "updated_raw": "2026-11-20T17:38:32Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "math.ST"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2611.27900v1",
+      "arxiv_url": "https://arxiv.org/abs/2611.27900v1",
+      "matched_by": [
+        "author:Rui Duan"
+      ],
+      "added_timestamp": 1795450233
+    },
     {
       "arxiv_id": "2611.24228",
       "title": "Functional Principal Component Analysis: Minimax Optimality from Sparse to Dense Designs and Beyond",
