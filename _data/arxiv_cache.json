@@ -1,6 +1,31 @@
 {
-  "last_fetch_timestamp": 1795490953,
+  "last_fetch_timestamp": 1795535958,
   "papers": [
+    {
+      "arxiv_id": "2611.30435",
+      "title": "Tensor Recovery with Heterogeneous Mode Structures",
+      "authors": [
+        "Zhixin Huang",
+        "Ziyuan Chen",
+        "Fang Yao",
+        "Ying Yang"
+      ],
+      "abstract": "Tensor recovery methods often impose a common structural assumption across modes, even when different modes may exhibit distinct forms of regularity. We propose a unified convex framework that treats each mode according to its structure. Smoothly varying modes form an indexing domain and are handled by local kernel weighting, whereas retained modes may receive low-rank, group-sparse, graph-Laplacian, or autoregressive regularization in distinct and potentially overlapping combinations. The framework also covers ordinary tensor recovery without local smoothing. A consensus HM-ADMM algorithm separates the active penalties into tractable proximal and linear-system updates. For the population-quadratic estimator, we derive deterministic oracle inequalities and high-probability bounds under independent trace regression. The bounds disentangle stochastic error, rank and support complexity, smoothing bias, and quadratic mismatch. They also identify when quadratic penalties sharpen the Frobenius-error bound. For regular smooth domains, the theory characterizes the bias-variance trade-off and yields an optimal bandwidth order, with a specialization to uniform tensor completion. Simulations and two applications illustrate the gains from matching regularization to mode-specific structure, especially under severe undersampling.",
+      "published": "November 23, 2026",
+      "published_raw": "2026-11-23T10:29:59Z",
+      "updated_raw": "2026-11-23T10:29:59Z",
+      "categories": [
+        "stat.ML",
+        "stat.ME"
+      ],
+      "primary_category": "stat.ML",
+      "pdf_link": "https://arxiv.org/pdf/2611.30435v1",
+      "arxiv_url": "https://arxiv.org/abs/2611.30435v1",
+      "matched_by": [
+        "author:Fang Yao"
+      ],
+      "added_timestamp": 1795535958
+    },
     {
       "arxiv_id": "2611.27900",
       "title": "Communication-Efficient Federated Learning of Latent Patient Representations from Multi-Institutional EHRs",
@@ -550,30 +575,6 @@
       "arxiv_url": "https://arxiv.org/abs/2610.34493v1",
       "matched_by": [
         "topic:distributionally robust"
-      ],
-      "added_timestamp": 1793097701
-    },
-    {
-      "arxiv_id": "2610.34171",
-      "title": "MetaARIMA: Configuration-Level Transfer Learning for ARIMA Models",
-      "authors": [
-        "Vitor Cerqueira",
-        "Ricardo Inácio",
-        "Carlos Soares"
-      ],
-      "abstract": "Time Series Foundation Models have demonstrated that pretraining on diverse datasets enables effective transfer to new forecasting tasks. Classical methods like ARIMA, however, remain configured and trained independently for each series, discarding knowledge from previous experiments. Consequently, selecting and training an ARIMA configuration remains challenging and often relies on heuristic approaches based on in-sample goodnessof-fit measures. We propose MetaARIMA, a pretrained configuration policy based on metalearning that brings transfer learning to classical statistical forecasting at the configuration level rather than the model level. The policy learns from historical experiments which ARIMA configurations achieve top-quantile performance, and recommends promising candidates for new series while preserving interpretability and local estimation. At inference, it selects a diverse set of candidates via maximal marginal relevance and efficiently identifies the final configuration using successive halving. Experiments in a transfer learning setting, training on M4 and evaluating on M1, M3, and Tourism, show that MetaARIMA outperforms AutoARIMA and other classical methods while being more dataefficient. In a comparison with recent zero-shot foundation models, MetaARIMA remains competitive with Chronos2, Moirai2, and TimesFM. The experiments are publicly available at https://github.com/vcerqueira/experiments-metaarima.",
-      "published": "October 25, 2026",
-      "published_raw": "2026-10-25T09:01:45Z",
-      "updated_raw": "2026-10-25T09:01:45Z",
-      "categories": [
-        "stat.ML",
-        "cs.LG"
-      ],
-      "primary_category": "stat.ML",
-      "pdf_link": "https://arxiv.org/pdf/2610.34171v1",
-      "arxiv_url": "https://arxiv.org/abs/2610.34171v1",
-      "matched_by": [
-        "topic:transfer learning"
       ],
       "added_timestamp": 1793097701
     }
