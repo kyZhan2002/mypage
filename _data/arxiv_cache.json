@@ -1,5 +1,5 @@
 {
-  "last_fetch_timestamp": 1795535958,
+  "last_fetch_timestamp": 1795570701,
   "papers": [
     {
       "arxiv_id": "2611.30435",
@@ -548,31 +548,6 @@
       "primary_category": "stat.ML",
       "pdf_link": "https://arxiv.org/pdf/2610.35656v1",
       "arxiv_url": "https://arxiv.org/abs/2610.35656v1",
-      "matched_by": [
-        "topic:distributionally robust"
-      ],
-      "added_timestamp": 1793097701
-    },
-    {
-      "arxiv_id": "2610.34493",
-      "title": "Certifying Distributionally Robust Decisions from Projection Observations",
-      "authors": [
-        "Pouya Ahadi",
-        "Kamran Paynabar"
-      ],
-      "abstract": "A scalar measurement can determine a robust decision without identifying the latent covariance or every decision risk. We study finite Gaussian projection experiments with a fixed mean-plus-standard-deviation target. The observation laws define a set of indistinguishable moment models. We exhibit decisions that agree throughout that set despite unidentified risk values, and give a confidence-set certificate that returns a decision or an unresolved outcome. We prove soundness, necessary abstention for indistinguishable models with incompatible optima, and a fixed-checkpoint certification guarantee. A scalar profile reduces nonlinear risk comparisons to convex inner problems. Across seven synthetic instances, jointly calibrated moment regions give sufficient budgets 21 to 52 times explicit expected-sample information lower bounds. Separately measured stopping times are lower, with zero decision errors in 1,900 simulated streams. These comparisons do not constitute matching bounds, and the guarantees require Gaussian replication.",
-      "published": "October 25, 2026",
-      "published_raw": "2026-10-25T18:37:26Z",
-      "updated_raw": "2026-10-25T18:37:26Z",
-      "categories": [
-        "stat.ML",
-        "cs.AI",
-        "cs.LG",
-        "math.OC"
-      ],
-      "primary_category": "stat.ML",
-      "pdf_link": "https://arxiv.org/pdf/2610.34493v1",
-      "arxiv_url": "https://arxiv.org/abs/2610.34493v1",
       "matched_by": [
         "topic:distributionally robust"
       ],
