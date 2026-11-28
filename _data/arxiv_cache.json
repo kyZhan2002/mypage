@@ -1,5 +1,5 @@
 {
-  "last_fetch_timestamp": 1795826540,
+  "last_fetch_timestamp": 1795875632,
   "papers": [
     {
       "arxiv_id": "2611.33592",
@@ -548,30 +548,6 @@
       "arxiv_url": "https://arxiv.org/abs/2610.40162v1",
       "matched_by": [
         "topic:transfer learning"
-      ],
-      "added_timestamp": 1793359697
-    },
-    {
-      "arxiv_id": "2610.39558",
-      "title": "TabCUQ: Context-Uncertainty Quantification for Tabular Foundation Models",
-      "authors": [
-        "Yuebei Shi",
-        "Molei Liu",
-        "Zijian Guo"
-      ],
-      "abstract": "Tabular foundation models use in-context learning to estimate conditional expected outcomes and average treatment effects for specific groups of individuals. Using these estimates to guide scientific decisions requires reliable uncertainty quantification. The challenge is to account simultaneously for two sources of uncertainty: limited-context bias and context variation arising from the small labeled sample supplied at inference. Predictive spread does not directly quantify both sources of uncertainty, and we observe that the ordinary bootstrap may substantially overestimate context variation, whereas subsampling may underestimate it. We introduce TabCUQ, a perturbation-based framework that injects noise into observed outcomes and applies the foundation model to the perturbed contexts. TabCUQ estimates context variation using wild-bootstrap dispersion and accounts for limited-context bias using the maximum deviation between perturbed and original estimates. For a kernel-regression analogue whose estimation error admits an exact decomposition into these two components, we show that our framework provides asymptotically valid pointwise coverage. In simulations, TabCUQ substantially improves coverage, with average interval widths typically about twice those of an oracle bias-aware benchmark. Across seven real-world tasks, it also improves coverage of reference functions learned from much larger samples.",
-      "published": "October 29, 2026",
-      "published_raw": "2026-10-29T07:58:20Z",
-      "updated_raw": "2026-10-29T07:58:20Z",
-      "categories": [
-        "stat.ML",
-        "cs.LG"
-      ],
-      "primary_category": "stat.ML",
-      "pdf_link": "https://arxiv.org/pdf/2610.39558v1",
-      "arxiv_url": "https://arxiv.org/abs/2610.39558v1",
-      "matched_by": [
-        "author:Molei Liu"
       ],
       "added_timestamp": 1793359697
     }
